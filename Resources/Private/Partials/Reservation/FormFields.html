@@ -1,0 +1,116 @@
+<fieldset>
+	<legend>
+		<f:if condition="{event.hasReservation} > 0">
+			<f:link.action action="delete" controller="Reservation"
+						   arguments="{reservation: newReservation, event:event}"  class="btn btn btn-danger pull-right">
+				Anmeldungen löschen <i class="icon-trash icon-white"></i>
+			</f:link.action>
+		</f:if>
+		Persönliche Angaben
+	</legend>
+	
+	<f:if condition="{newPerson.uid} > 0">
+		<input type="hidden" value="{newPerson.uid}" name="tx_sjevents_events[newPerson][__identity]" />
+	</f:if>
+
+	<div class="control-group">
+		<label for="firstname" class="control-label">
+			<f:translate key="tx_sjevents_domain_model_person.firstname" /> <i class="icon-star-empty" title="Pflichtfeld"></i>
+		</label>
+		<div class="controls">
+			<input type="text" id="firstname" value="{newPerson.firstname}" name="tx_sjevents_events[newPerson][firstname]" class="span3" placeholder="" />
+		</div>
+	</div>
+	<div class="control-group">
+		<label for="lastname" class="control-label">
+			<f:translate key="tx_sjevents_domain_model_person.lastname" /> <i class="icon-star-empty" title="Pflichtfeld"></i>
+		</label>
+		<div class="controls">
+			<input type="text"  id="lastname" value="{newPerson.lastname}" name="tx_sjevents_events[newPerson][lastname]"  class="span3" placeholder="" />
+		</div>
+	</div>
+	<div class="control-group">
+		<label for="email"  class="control-label">
+			<f:translate key="tx_sjevents_domain_model_person.email" /> <i class="icon-star-empty" title="Pflichtfeld"></i>
+		</label>
+		<div class="controls">
+			<div class="input-prepend">
+				<span class="add-on">@</span><input type="text" id="email" value="{newPerson.email}" name="tx_sjevents_events[newPerson][email]" placeholder="deine@mail.ch"  class="span2"/>
+			</div>
+		</div>
+	</div>
+	<div class="control-group">
+		<label for="phone"  class="control-label">
+			<f:translate key="tx_sjevents_domain_model_person.phone" />
+		</label>
+		<div class="controls">
+			<input type="text" id="phone" value="{newPerson.phone}" name="tx_sjevents_events[newPerson][phone]" placeholder="optional"  class="span3"/>
+		</div>
+	</div>
+	<div class="control-group">
+		<label for="address"  class="control-label">
+			<f:translate key="tx_sjevents_domain_model_person.address" />
+		</label>
+		<div class="controls">
+			<textarea id="address" name="tx_sjevents_events[newPerson][address]" rows="10" cols="10" class="span3">{newPerson.address}</textarea>
+		</div>
+	</div>
+</fieldset>
+<fieldset>
+	<legend>Anmelde Optionen</legend>
+	<br/>
+	<f:if condition="{event.reservationnotes}">
+		<div class="alert alert-info">
+			<a class="close" data-dismiss="alert">&times;</a>
+			<h4 class="alert-heading">Hinweise zur Anmeldung</h4>
+			<f:format.raw><f:format.nl2br>{event.reservationnotes}</f:format.nl2br></f:format.raw>
+		</div>
+	</f:if>
+	<div class="control-group">
+		<div class="controls">
+			<label for="more" class="checkbox inline">
+				<input type="checkbox" id="more" value="true"
+				<f:if condition="{newReservation.count} > 1">checked="checked"</f:if>
+				 data-toggle=".countGroup" /> Mehr als eine Person
+			</label>
+		</div>
+	</div>
+	<div class="control-group countGroup" <f:if condition="{newReservation.count} > 1">style="display:block;"</f:if>>
+		<label for="count" class="control-label">
+			<f:translate key="tx_sjevents_domain_model_reservation.count" />
+		</label>
+		<div class="controls">
+			<f:form.textfield id="count" property="count" class="span1" placeholder="1" />
+			<p class="help-inline">Falls mehr Personen mitkommen, bitte Anzahl angeben.</p>
+		</div>
+	</div>
+	<div class="control-group">
+		<label for="notes" class="control-label">
+			<f:translate key="tx_sjevents_domain_model_reservation.note" />
+		</label>
+		<div class="controls">
+			<f:form.textarea id="notes" property="notes" rows="10" cols="12" class="span4"/>
+		</div>
+	</div>
+</fieldset>
+<f:if condition="{event.reservationkeynotes}">
+	<fieldset>
+		<legend>Anmeldeschlüssel</legend>
+			<div class="alert alert-info">
+				<a class="close" data-dismiss="alert">&times;</a>
+				<h4 class="alert-heading">Hinweise zum Anmeldeschlüssel</h4>
+				<f:format.raw><f:format.nl2br>{event.reservationkeynotes}</f:format.nl2br></f:format.raw>
+			</div>
+		</f:if>
+		<f:if condition="{event.reservationkey}">
+			<div class="control-group<f:if condition='{e.reskey}'> error</f:if>">
+				<label for="reservationkey"  class="control-label">
+					<f:translate key="tx_sjevents_domain_model_reservation.reservationkey" /> <i class="icon-star-empty" title="Pflichtfeld"></i>
+				</label>
+				<div class="controls">
+					<input type="text" id="reservationkey" name="tx_sjevents_events[reservationkey]" class="span4" placeholder="Persönlicher Anmeldeschlüssel hier eintragen" />
+					<p class="help-inline">Um sich an diesem Anlass anzumelden muss der persönliche Anmeldeschlüssel eingetragen werden.</p>
+				</div>
+			</div>
+	</fieldset>
+</f:if>

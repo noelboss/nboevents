@@ -1,0 +1,62 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+	<div class="row">
+		<f:for each="{events}" as="event">
+			<f:if condition="{event.images.0}">
+				<f:then>
+					<div class="span2">
+						<f:link.action action="show" arguments="{event : event}"  class="thumbnail">
+							<f:image src="uploads/tx_sjevents/{event.images.0}" alt="{resource.title}" width="170c" height="170c" />
+						</f:link.action>
+					</div>
+					<div class="span4">
+				</f:then>
+				<f:else>
+					<div class="span6">
+				</f:else>
+			</f:if>
+			<h2>
+				<f:link.action action="show" arguments="{event : event}" class="noColor">
+					{event.title} <small>{event.date -> f:format.date(format:"d.m.Y")}</small>
+				</f:link.action>
+			</h2>
+			<p>
+			<f:link.action action="show" arguments="{event : event}" class="noColor">
+				<f:format.crop maxCharacters="250" append="&nbsp;...">{event.description}</f:format.crop>
+			</f:link.action>
+			</p>
+			<f:if condition="{f:count(subject:'{event.locations}')} > 0">
+				<h3>Locations:
+					<f:for each="{event.locations}" as="location" iteration="iterLoc"><small><f:if condition="{iterLoc.isFirst} != 1">, </f:if><f:link.action action="show" controller="Location" arguments="{location : location}">{location.title}</f:link.action></small></f:for>
+				</h3>
+			</f:if>
+			<p class="btn-group">
+				<br/>
+			<f:if condition="{event.reservationsPossible} > 0">
+				<f:if condition="{event.hasReservation} > 0">
+					<f:then>
+						<f:link.action action="new" controller="Reservation" arguments="{event : event}"  class="btn">
+							<i class="icon-pencil"></i> Anmeldung anpassen
+						</f:link.action>
+					</f:then>
+					<f:else>
+						<f:link.action action="new" controller="Reservation" arguments="{event : event}"  class="btn btn-success">
+							<i class="icon-user icon-white"></i> Anmelden
+						</f:link.action>
+					</f:else>
+				</f:if>
+			</f:if><f:link.action action="show" arguments="{event : event}"  class="btn btn">
+				Details <i class="icon-arrow-right"></i>
+			</f:link.action>
+			</p>
+	</div>
+</f:for>
+</div>
+
+<!--section>
+	<f:link.action action="edit" arguments="{event : event}"  class="btn">
+		<i class="icon-pencil"></i> New
+	</f:link.action>
+</section-->
+</f:section>

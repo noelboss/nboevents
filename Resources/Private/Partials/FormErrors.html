@@ -1,0 +1,23 @@
+<f:form.errors>
+	<div class="alert alert-error">
+		<f:if condition="{error.propertyName}">
+			<h3>Sorry...</h3>
+			<p>Es gab leider Fehler, bitte korrigiere folgende Punkte:</p>
+			<ul>
+				<f:for each="{error.errors}" as="errorDetail">
+					<li>
+						<strong title="{error.propertyName}.{errorDetail.propertyName}" >
+							<f:translate key="{error.propertyName}.{errorDetail.propertyName}"
+							default="{errorDetail.message}" />
+						</strong>
+						<span title="{error.propertyName}.{errorDetail.code}">
+							<f:translate key="{error.propertyName}.{errorDetail.code}"
+							default="(#{errorDetail.code})" />
+						</span>
+					</li>
+				</f:for>
+			</ul>
+
+		</f:if>
+	</div>
+</f:form.errors>

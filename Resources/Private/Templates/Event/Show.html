@@ -1,0 +1,7 @@
+{namespace fed=Tx_Fed_ViewHelpers}
+
+<f:layout name="Default" />
+<f:section name="main">
+	<f:flashMessages class="alert alert-success" renderMode="div"/>
+	<f:render partial="Event/Properties" arguments="{event:event}" />
+</f:section>

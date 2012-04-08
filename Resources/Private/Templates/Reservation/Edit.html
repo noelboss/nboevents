@@ -1,0 +1,35 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+	<f:render partial="FormErrors" />
+	<div class="row">
+		<div class="span7">
+			<f:form method="post" action="update"  enctype="multipart/form-data"  name="newReservation" object="{newReservation}" arguments="{event: event, newPerson: newPerson}" class="form-horizontal well">
+				<f:render partial="Reservation/FormFields" arguments="{newReservation: newReservation,event:event, newPerson: newPerson, e: e}"/>
+
+				<div class="btn-group">
+					<f:link.action action="show" controller="Event" arguments="{event:event}" class="btn  btn-large">
+						<i class="icon-arrow-left"></i> Abbrechen
+					</f:link.action>
+					<button class="btn btn-success btn-large" type="submit">
+						Anmeldung anpassen <i class="icon-ok icon-white"></i>
+					</button>
+				</div>
+			</f:form>
+		</div>
+		<div class="span5">
+			<h1 class="resTitle">{event.title} <small>{event.date -> f:format.date(format:"d.m.Y")}</small></h1>
+			<f:format.raw>
+				<f:format.nl2br>
+					{event.description}
+				</f:format.nl2br>
+			</f:format.raw>
+			<f:if condition="{f:count(subject:'{event.locations}')} > 0">
+				<hr/>
+				<f:for each="{event.locations}" as="location" key="number">
+					<f:render partial="Location/Properties" arguments="{location:location, event:event.uid, noControls: 1}" />
+				</f:for>
+			</f:if>
+		</div>
+	</div>
+</f:section>

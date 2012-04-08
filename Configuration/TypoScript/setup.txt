@@ -1,0 +1,30 @@
+plugin.tx_sjevents {
+	view {
+		templateRootPath = {$plugin.tx_sjevents.view.templateRootPath}
+		partialRootPath = {$plugin.tx_sjevents.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_sjevents.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_sjevents.persistence.storagePid}
+	}
+}
+
+plugin.tx_sjevents._CSS_DEFAULT_STYLE (
+	input.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	.tx-sjevents table {
+		border-collapse:separate;
+		border-spacing:10px;
+	}
+
+	.tx-sjevents table th {
+		font-weight:bold;
+	}
+
+	.tx-sjevents table td {
+		vertical-align:top;
+	}
+)
