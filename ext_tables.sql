@@ -1,7 +1,7 @@
 #
-# Table structure for table 'tx_sjevents_domain_model_event'
+# Table structure for table 'tx_nboevents_domain_model_event'
 #
-CREATE TABLE tx_sjevents_domain_model_event (
+CREATE TABLE tx_nboevents_domain_model_event (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
@@ -49,9 +49,9 @@ CREATE TABLE tx_sjevents_domain_model_event (
 );
 
 #
-# Table structure for table 'tx_sjevents_domain_model_person'
+# Table structure for table 'tx_nboevents_domain_model_person'
 #
-CREATE TABLE tx_sjevents_domain_model_person (
+CREATE TABLE tx_nboevents_domain_model_person (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
@@ -94,9 +94,9 @@ CREATE TABLE tx_sjevents_domain_model_person (
 );
 
 #
-# Table structure for table 'tx_sjevents_domain_model_location'
+# Table structure for table 'tx_nboevents_domain_model_location'
 #
-CREATE TABLE tx_sjevents_domain_model_location (
+CREATE TABLE tx_nboevents_domain_model_location (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
@@ -138,9 +138,9 @@ CREATE TABLE tx_sjevents_domain_model_location (
 );
 
 #
-# Table structure for table 'tx_sjevents_domain_model_reservation'
+# Table structure for table 'tx_nboevents_domain_model_reservation'
 #
-CREATE TABLE tx_sjevents_domain_model_reservation (
+CREATE TABLE tx_nboevents_domain_model_reservation (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
@@ -183,9 +183,9 @@ CREATE TABLE tx_sjevents_domain_model_reservation (
 );
 
 #
-# Table structure for table 'tx_sjevents_event_reservation_mm'
+# Table structure for table 'tx_nboevents_event_reservation_mm'
 #
-CREATE TABLE tx_sjevents_event_reservation_mm (
+CREATE TABLE tx_nboevents_event_reservation_mm (
 	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
 	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting int(11) unsigned DEFAULT '0' NOT NULL,
@@ -196,9 +196,9 @@ CREATE TABLE tx_sjevents_event_reservation_mm (
 );
 
 #
-# Table structure for table 'tx_sjevents_event_location_mm'
+# Table structure for table 'tx_nboevents_event_location_mm'
 #
-CREATE TABLE tx_sjevents_event_location_mm (
+CREATE TABLE tx_nboevents_event_location_mm (
 	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
 	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting int(11) unsigned DEFAULT '0' NOT NULL,
@@ -210,9 +210,9 @@ CREATE TABLE tx_sjevents_event_location_mm (
 
 
 #
-# Table structure for table 'tx_sjevents_event_location_mm'
+# Table structure for table 'tx_nboevents_event_location_mm'
 #
-CREATE TABLE tx_sjevents_event_location_mm (
+CREATE TABLE tx_nboevents_event_location_mm (
 	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
 	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting int(11) unsigned DEFAULT '0' NOT NULL,

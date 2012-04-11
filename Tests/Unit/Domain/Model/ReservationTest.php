@@ -25,7 +25,7 @@
  ***************************************************************/
 
 /**
- * Test case for class Tx_Sjevents_Domain_Model_Reservation.
+ * Test case for class Tx_Nboevents_Domain_Model_Reservation.
  *
  * @version $Id$
  * @copyright Copyright belongs to the respective authors
@@ -36,14 +36,14 @@
  *
  * @author Noel Bossart <n.company@me.com>
  */
-class Tx_Sjevents_Domain_Model_ReservationTest extends Tx_Extbase_Tests_Unit_BaseTestCase {
+class Tx_Nboevents_Domain_Model_ReservationTest extends Tx_Extbase_Tests_Unit_BaseTestCase {
 	/**
-	 * @var Tx_Sjevents_Domain_Model_Reservation
+	 * @var Tx_Nboevents_Domain_Model_Reservation
 	 */
 	protected $fixture;
 
 	public function setUp() {
-		$this->fixture = new Tx_Sjevents_Domain_Model_Reservation();
+		$this->fixture = new Tx_Nboevents_Domain_Model_Reservation();
 	}
 
 	public function tearDown() {
@@ -92,7 +92,7 @@ class Tx_Sjevents_Domain_Model_ReservationTest extends Tx_Extbase_Tests_Unit_Bas
 	/**
 	 * @test
 	 */
-	public function getPersonReturnsInitialValueForTx_Sjevents_Domain_Model_Person() { 
+	public function getPersonReturnsInitialValueForTx_Nboevents_Domain_Model_Person() { 
 		$this->assertEquals(
 			NULL,
 			$this->fixture->getPerson()
@@ -102,8 +102,8 @@ class Tx_Sjevents_Domain_Model_ReservationTest extends Tx_Extbase_Tests_Unit_Bas
 	/**
 	 * @test
 	 */
-	public function setPersonForTx_Sjevents_Domain_Model_PersonSetsPerson() { 
-		$dummyObject = new Tx_Sjevents_Domain_Model_Person();
+	public function setPersonForTx_Nboevents_Domain_Model_PersonSetsPerson() { 
+		$dummyObject = new Tx_Nboevents_Domain_Model_Person();
 		$this->fixture->setPerson($dummyObject);
 
 		$this->assertSame(
@@ -115,7 +115,7 @@ class Tx_Sjevents_Domain_Model_ReservationTest extends Tx_Extbase_Tests_Unit_Bas
 	/**
 	 * @test
 	 */
-	public function getEventReturnsInitialValueForTx_Sjevents_Domain_Model_Event() { 
+	public function getEventReturnsInitialValueForTx_Nboevents_Domain_Model_Event() { 
 		$this->assertEquals(
 			NULL,
 			$this->fixture->getEvent()
@@ -125,8 +125,8 @@ class Tx_Sjevents_Domain_Model_ReservationTest extends Tx_Extbase_Tests_Unit_Bas
 	/**
 	 * @test
 	 */
-	public function setEventForTx_Sjevents_Domain_Model_EventSetsEvent() { 
-		$dummyObject = new Tx_Sjevents_Domain_Model_Event();
+	public function setEventForTx_Nboevents_Domain_Model_EventSetsEvent() { 
+		$dummyObject = new Tx_Nboevents_Domain_Model_Event();
 		$this->fixture->setEvent($dummyObject);
 
 		$this->assertSame(

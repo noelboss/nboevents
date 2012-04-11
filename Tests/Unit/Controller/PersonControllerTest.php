@@ -25,7 +25,7 @@
  ***************************************************************/
 
 /**
- * Test case for class Tx_Sjevents_Controller_PersonController.
+ * Test case for class Tx_Nboevents_Controller_PersonController.
  *
  * @version $Id$
  * @copyright Copyright belongs to the respective authors
@@ -36,14 +36,14 @@
  *
  * @author Noel Bossart <n.company@me.com>
  */
-class Tx_Sjevents_Controller_PersonControllerTest extends Tx_Extbase_Tests_Unit_BaseTestCase {
+class Tx_Nboevents_Controller_PersonControllerTest extends Tx_Extbase_Tests_Unit_BaseTestCase {
 	/**
-	 * @var Tx_Sjevents_Domain_Model_Person
+	 * @var Tx_Nboevents_Domain_Model_Person
 	 */
 	protected $fixture;
 
 	public function setUp() {
-		$this->fixture = new Tx_Sjevents_Domain_Model_Person();
+		$this->fixture = new Tx_Nboevents_Domain_Model_Person();
 	}
 
 	public function tearDown() {

@@ -2,12 +2,12 @@
 
 <f:section name="main">
 	<div class="row">
-		<f:for each="{events}" as="event">
+		<f:for each="{events}" as="event" iteration="ievent">
 			<f:if condition="{event.images.0}">
 				<f:then>
 					<div class="span2">
 						<f:link.action action="show" arguments="{event : event}"  class="thumbnail">
-							<f:image src="uploads/tx_sjevents/{event.images.0}" alt="{resource.title}" width="170c" height="170c" />
+							<f:image src="uploads/tx_nboevents/{event.images.0}" alt="{resource.title}" width="170c" height="170c" />
 						</f:link.action>
 					</div>
 					<div class="span4">
@@ -50,13 +50,11 @@
 				Details <i class="icon-arrow-right"></i>
 			</f:link.action>
 			</p>
-	</div>
+		</div>
+	<f:if condition="{ievent.index} % 2">
+		</div><!-- start new row -->
+		<div class="row">
+	</f:if>
 </f:for>
 </div>
-
-<!--section>
-	<f:link.action action="edit" arguments="{event : event}"  class="btn">
-		<i class="icon-pencil"></i> New
-	</f:link.action>
-</section-->
 </f:section>

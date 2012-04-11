@@ -25,7 +25,7 @@
  ***************************************************************/
 
 /**
- * Test case for class Tx_Sjevents_Domain_Model_Location.
+ * Test case for class Tx_Nboevents_Domain_Model_Location.
  *
  * @version $Id$
  * @copyright Copyright belongs to the respective authors
@@ -36,14 +36,14 @@
  *
  * @author Noel Bossart <n.company@me.com>
  */
-class Tx_Sjevents_Domain_Model_LocationTest extends Tx_Extbase_Tests_Unit_BaseTestCase {
+class Tx_Nboevents_Domain_Model_LocationTest extends Tx_Extbase_Tests_Unit_BaseTestCase {
 	/**
-	 * @var Tx_Sjevents_Domain_Model_Location
+	 * @var Tx_Nboevents_Domain_Model_Location
 	 */
 	protected $fixture;
 
 	public function setUp() {
-		$this->fixture = new Tx_Sjevents_Domain_Model_Location();
+		$this->fixture = new Tx_Nboevents_Domain_Model_Location();
 	}
 
 	public function tearDown() {
@@ -121,7 +121,7 @@ class Tx_Sjevents_Domain_Model_LocationTest extends Tx_Extbase_Tests_Unit_BaseTe
 	/**
 	 * @test
 	 */
-	public function getEventsReturnsInitialValueForObjectStorageContainingTx_Sjevents_Domain_Model_Event() { 
+	public function getEventsReturnsInitialValueForObjectStorageContainingTx_Nboevents_Domain_Model_Event() { 
 		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
 		$this->assertEquals(
 			$newObjectStorage,
@@ -132,8 +132,8 @@ class Tx_Sjevents_Domain_Model_LocationTest extends Tx_Extbase_Tests_Unit_BaseTe
 	/**
 	 * @test
 	 */
-	public function setEventsForObjectStorageContainingTx_Sjevents_Domain_Model_EventSetsEvents() { 
-		$event = new Tx_Sjevents_Domain_Model_Event();
+	public function setEventsForObjectStorageContainingTx_Nboevents_Domain_Model_EventSetsEvents() { 
+		$event = new Tx_Nboevents_Domain_Model_Event();
 		$objectStorageHoldingExactlyOneEvents = new Tx_Extbase_Persistence_ObjectStorage();
 		$objectStorageHoldingExactlyOneEvents->attach($event);
 		$this->fixture->setEvents($objectStorageHoldingExactlyOneEvents);
@@ -148,7 +148,7 @@ class Tx_Sjevents_Domain_Model_LocationTest extends Tx_Extbase_Tests_Unit_BaseTe
 	 * @test
 	 */
 	public function addEventToObjectStorageHoldingEvents() {
-		$event = new Tx_Sjevents_Domain_Model_Event();
+		$event = new Tx_Nboevents_Domain_Model_Event();
 		$objectStorageHoldingExactlyOneEvent = new Tx_Extbase_Persistence_ObjectStorage();
 		$objectStorageHoldingExactlyOneEvent->attach($event);
 		$this->fixture->addEvent($event);
@@ -163,7 +163,7 @@ class Tx_Sjevents_Domain_Model_LocationTest extends Tx_Extbase_Tests_Unit_BaseTe
 	 * @test
 	 */
 	public function removeEventFromObjectStorageHoldingEvents() {
-		$event = new Tx_Sjevents_Domain_Model_Event();
+		$event = new Tx_Nboevents_Domain_Model_Event();
 		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
 		$localObjectStorage->attach($event);
 		$localObjectStorage->detach($event);

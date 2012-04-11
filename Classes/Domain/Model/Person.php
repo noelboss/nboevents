@@ -27,11 +27,11 @@
 /**
  *
  *
- * @package sjevents
+ * @package nboevents
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Tx_Sjevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractEntity {
+class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
 	 * Lastname
@@ -74,7 +74,7 @@ class Tx_Sjevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractEn
 	/**
 	 * Reservation for Events
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Sjevents_Domain_Model_Reservation>
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Reservation>
 	 */
 	protected $reservations;
 
@@ -138,7 +138,7 @@ class Tx_Sjevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractEn
 	 */
 	public function getLabel(&$return) {
 		$uid = $return['row']['uid'];
-		$repo = t3lib_div::makeInstance('Tx_Sjevents_Domain_Repository_PersonRepository');
+		$repo = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_PersonRepository');
 		$person = $repo->findByUid($uid);
 		$label = 'hello';
 		if($person){
@@ -217,27 +217,27 @@ class Tx_Sjevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractEn
 	/**
 	 * Adds a Reservation
 	 *
-	 * @param Tx_Sjevents_Domain_Model_Reservation $reservation
+	 * @param Tx_Nboevents_Domain_Model_Reservation $reservation
 	 * @return void
 	 */
-	public function addReservation(Tx_Sjevents_Domain_Model_Reservation $reservation) {
+	public function addReservation(Tx_Nboevents_Domain_Model_Reservation $reservation) {
 		$this->reservations->attach($reservation);
 	}
 
 	/**
 	 * Removes a Reservation
 	 *
-	 * @param Tx_Sjevents_Domain_Model_Reservation $reservationToRemove The Reservation to be removed
+	 * @param Tx_Nboevents_Domain_Model_Reservation $reservationToRemove The Reservation to be removed
 	 * @return void
 	 */
-	public function removeReservation(Tx_Sjevents_Domain_Model_Reservation $reservationToRemove) {
+	public function removeReservation(Tx_Nboevents_Domain_Model_Reservation $reservationToRemove) {
 		$this->reservations->detach($reservationToRemove);
 	}
 
 	/**
 	 * Returns the reservations
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Sjevents_Domain_Model_Reservation> $reservations
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Reservation> $reservations
 	 */
 	public function getReservations() {
 		return $this->reservations;
@@ -246,7 +246,7 @@ class Tx_Sjevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractEn
 	/**
 	 * Sets the reservations
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Sjevents_Domain_Model_Reservation> $reservations
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Reservation> $reservations
 	 * @return void
 	 */
 	public function setReservations(Tx_Extbase_Persistence_ObjectStorage $reservations) {

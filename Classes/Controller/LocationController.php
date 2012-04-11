@@ -27,33 +27,33 @@
 /**
  *
  *
- * @package sjevents
+ * @package nboevents
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Tx_Sjevents_Controller_LocationController extends Tx_Extbase_MVC_Controller_ActionController {
+class Tx_Nboevents_Controller_LocationController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
 	 * locationRepository
 	 *
-	 * @var Tx_Sjevents_Domain_Repository_LocationRepository
+	 * @var Tx_Nboevents_Domain_Repository_LocationRepository
 	 */
 	protected $locationRepository;
 
 	/**
 	 * eventRepository
 	 *
-	 * @var Tx_Sjevents_Domain_Repository_EventRepository
+	 * @var Tx_Nboevents_Domain_Repository_EventRepository
 	 */
 	protected $eventRepository;
 
 	/**
 	 * injectEventRepository
 	 *
-	 * @param Tx_Sjevents_Domain_Repository_EventRepository $eventRepository
+	 * @param Tx_Nboevents_Domain_Repository_EventRepository $eventRepository
 	 * @return void
 	 */
-	public function injectEventRepository(Tx_Sjevents_Domain_Repository_EventRepository $eventRepository) {
+	public function injectEventRepository(Tx_Nboevents_Domain_Repository_EventRepository $eventRepository) {
 		$this->eventRepository = $eventRepository;
 	}
 
@@ -73,7 +73,7 @@ class Tx_Sjevents_Controller_LocationController extends Tx_Extbase_MVC_Controlle
 	 * @param $location
 	 * @return void
 	 */
-	public function showAction(Tx_Sjevents_Domain_Model_Location $location) {
+	public function showAction(Tx_Nboevents_Domain_Model_Location $location) {
 		$event = $this->request->hasArgument('event') ? $this->request->getArgument('event') : NULL;
 
 		$this->view->assign('event', $event);
@@ -87,7 +87,7 @@ class Tx_Sjevents_Controller_LocationController extends Tx_Extbase_MVC_Controlle
 	 * @dontvalidate $newLocation
 	 * @return void
 	 */
-	public function newAction(Tx_Sjevents_Domain_Model_Location $newLocation = NULL) {
+	public function newAction(Tx_Nboevents_Domain_Model_Location $newLocation = NULL) {
 		$this->view->assign('newLocation', $newLocation);
 	}
 
@@ -97,7 +97,7 @@ class Tx_Sjevents_Controller_LocationController extends Tx_Extbase_MVC_Controlle
 	 * @param $newLocation
 	 * @return void
 	 */
-	public function createAction(Tx_Sjevents_Domain_Model_Location $newLocation) {
+	public function createAction(Tx_Nboevents_Domain_Model_Location $newLocation) {
 		$this->locationRepository->add($newLocation);
 		$this->flashMessageContainer->add('Your new Location was created.');
 		$this->redirect('list');
@@ -109,7 +109,7 @@ class Tx_Sjevents_Controller_LocationController extends Tx_Extbase_MVC_Controlle
 	 * @param $location
 	 * @return void
 	 */
-	public function editAction(Tx_Sjevents_Domain_Model_Location $location) {
+	public function editAction(Tx_Nboevents_Domain_Model_Location $location) {
 		$this->view->assign('location', $location);
 	}
 
@@ -119,7 +119,7 @@ class Tx_Sjevents_Controller_LocationController extends Tx_Extbase_MVC_Controlle
 	 * @param $location
 	 * @return void
 	 */
-	public function updateAction(Tx_Sjevents_Domain_Model_Location $location) {
+	public function updateAction(Tx_Nboevents_Domain_Model_Location $location) {
 		$this->locationRepository->update($location);
 		$this->flashMessageContainer->add('Your Location was updated.');
 		$this->redirect('list');
@@ -131,7 +131,7 @@ class Tx_Sjevents_Controller_LocationController extends Tx_Extbase_MVC_Controlle
 	 * @param $location
 	 * @return void
 	 */
-	public function deleteAction(Tx_Sjevents_Domain_Model_Location $location) {
+	public function deleteAction(Tx_Nboevents_Domain_Model_Location $location) {
 		$this->locationRepository->remove($location);
 		$this->flashMessageContainer->add('Your Location was removed.');
 		$this->redirect('list');
@@ -140,10 +140,10 @@ class Tx_Sjevents_Controller_LocationController extends Tx_Extbase_MVC_Controlle
 	/**
 	 * injectLocationRepository
 	 *
-	 * @param Tx_Sjevents_Domain_Repository_LocationRepository $locationRepository
+	 * @param Tx_Nboevents_Domain_Repository_LocationRepository $locationRepository
 	 * @return void
 	 */
-	public function injectLocationRepository(Tx_Sjevents_Domain_Repository_LocationRepository $locationRepository) {
+	public function injectLocationRepository(Tx_Nboevents_Domain_Repository_LocationRepository $locationRepository) {
 		$this->locationRepository = $locationRepository;
 	}
 

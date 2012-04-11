@@ -27,16 +27,16 @@
 /**
  *
  *
- * @package sjevents
+ * @package nboevents
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Tx_Sjevents_Controller_PersonController extends Tx_Extbase_MVC_Controller_ActionController {
+class Tx_Nboevents_Controller_PersonController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
 	 * personRepository
 	 *
-	 * @var Tx_Sjevents_Domain_Repository_PersonRepository
+	 * @var Tx_Nboevents_Domain_Repository_PersonRepository
 	 */
 	protected $personRepository;
 
@@ -44,7 +44,7 @@ class Tx_Sjevents_Controller_PersonController extends Tx_Extbase_MVC_Controller_
 	 * action list
 	 *
 	 * @return void
-	 * @param Tx_Sjevents_Domain_Model_Person
+	 * @param Tx_Nboevents_Domain_Model_Person
 	 */
 	public function listAction() {
 		$persons = $this->personRepository->findAll();
@@ -54,23 +54,23 @@ class Tx_Sjevents_Controller_PersonController extends Tx_Extbase_MVC_Controller_
 	/**
 	 * action show
 	 *
-	 * @param Tx_Sjevents_Domain_Model_Person
+	 * @param Tx_Nboevents_Domain_Model_Person
 	 * @return void
 	 */
-	public function showAction(Tx_Sjevents_Domain_Model_Person $person) {
+	public function showAction(Tx_Nboevents_Domain_Model_Person $person) {
 		$this->view->assign('person', $person);
 	}
 
 	/**
 	 * action new
 	 *
-	 * @param Tx_Sjevents_Domain_Model_Person
+	 * @param Tx_Nboevents_Domain_Model_Person
 	 * @dontvalidate $newPerson
 	 * @return void
 	 */
-	public function newAction(Tx_Sjevents_Domain_Model_Event $event, Tx_Sjevents_Domain_Model_Person $newPerson = NULL) {
+	public function newAction(Tx_Nboevents_Domain_Model_Event $event, Tx_Nboevents_Domain_Model_Person $newPerson = NULL) {
 		if (!isset($newPerson)) {
-			$result = $GLOBALS['TSFE']->fe_user->getKey('ses', 'Tx_Sjevents_Domain_Model_Person');
+			$result = $GLOBALS['TSFE']->fe_user->getKey('ses', 'Tx_Nboevents_Domain_Model_Person');
 			if ($result) {
 				$person = $this->personRepository->findByUid($result);
 				$this->redirect(
@@ -88,10 +88,10 @@ class Tx_Sjevents_Controller_PersonController extends Tx_Extbase_MVC_Controller_
 	/**
 	 * action create
 	 *
-	 * @param Tx_Sjevents_Domain_Model_Person
+	 * @param Tx_Nboevents_Domain_Model_Person
 	 * @return void
 	 */
-	public function createAction(Tx_Sjevents_Domain_Model_Person $newPerson, Tx_Sjevents_Domain_Model_Event $event) {
+	public function createAction(Tx_Nboevents_Domain_Model_Person $newPerson, Tx_Nboevents_Domain_Model_Event $event) {
 		$newPerson->addEvent($event);
 		$newPerson->setCount($count, $event->getUid());
 		$this->personRepository->add($newPerson);
@@ -100,7 +100,7 @@ class Tx_Sjevents_Controller_PersonController extends Tx_Extbase_MVC_Controller_
 		$persistenceManager = t3lib_div::makeInstance('Tx_Extbase_Persistence_Manager');
 		$persistenceManager->persistAll();
 
-		$GLOBALS['TSFE']->fe_user->setKey('ses', 'Tx_Sjevents_Domain_Model_Person', $newPerson->getUid());
+		$GLOBALS['TSFE']->fe_user->setKey('ses', 'Tx_Nboevents_Domain_Model_Person', $newPerson->getUid());
 
 		$this->flashMessageContainer->add('<h3>Danke!</h3>Du hast Dich erfolgreicht für ' . ($newPerson->getCount()) . ' Personen angemeldet.');
 		$this->redirect('show', 'Event', NULL, array('event' => $event->getUid()));
@@ -109,11 +109,11 @@ class Tx_Sjevents_Controller_PersonController extends Tx_Extbase_MVC_Controller_
 	/**
 	 * action edit
 	 *
-	 * @param Tx_Sjevents_Domain_Model_Person
+	 * @param Tx_Nboevents_Domain_Model_Person
 	 * @dontvalidate $person
 	 * @return void
 	 */
-	public function editAction(Tx_Sjevents_Domain_Model_Person $person, Tx_Sjevents_Domain_Model_Event $event) {
+	public function editAction(Tx_Nboevents_Domain_Model_Person $person, Tx_Nboevents_Domain_Model_Event $event) {
 		$this->view->assign('event', $event);
 		$this->view->assign('person', $person);
 	}
@@ -121,10 +121,10 @@ class Tx_Sjevents_Controller_PersonController extends Tx_Extbase_MVC_Controller_
 	/**
 	 * action update
 	 *
-	 * @param Tx_Sjevents_Domain_Model_Person
+	 * @param Tx_Nboevents_Domain_Model_Person
 	 * @return void
 	 */
-	public function updateAction(Tx_Sjevents_Domain_Model_Person $person, Tx_Sjevents_Domain_Model_Event $event) {
+	public function updateAction(Tx_Nboevents_Domain_Model_Person $person, Tx_Nboevents_Domain_Model_Event $event) {
 		$person->addEvent($event);
 		$person->setCount($count, $event->getUid());
 
@@ -136,12 +136,12 @@ class Tx_Sjevents_Controller_PersonController extends Tx_Extbase_MVC_Controller_
 	/**
 	 * action delete
 	 *
-	 * @param Tx_Sjevents_Domain_Model_Person
+	 * @param Tx_Nboevents_Domain_Model_Person
 	 * @return void
 	 */
-	public function deleteAction(Tx_Sjevents_Domain_Model_Person $person, Tx_Sjevents_Domain_Model_Event $event) {
+	public function deleteAction(Tx_Nboevents_Domain_Model_Person $person, Tx_Nboevents_Domain_Model_Event $event) {
 		$this->personRepository->remove($person);
-		$GLOBALS['TSFE']->fe_user->setKey('ses', 'Tx_Sjevents_Domain_Model_Person', NULL);
+		$GLOBALS['TSFE']->fe_user->setKey('ses', 'Tx_Nboevents_Domain_Model_Person', NULL);
 
 		$this->flashMessageContainer->add('<h3>Danke!</h3>Deine Anmeldung wurde gelöscht.');
 		$this->redirect('show', 'Event', NULL, array('event' => $event));
@@ -150,10 +150,10 @@ class Tx_Sjevents_Controller_PersonController extends Tx_Extbase_MVC_Controller_
 	/**
 	 * injectReservationRepository
 	 *
-	 * @param Tx_Sjevents_Domain_Repository_PersonRepository $PersonRepository
+	 * @param Tx_Nboevents_Domain_Repository_PersonRepository $PersonRepository
 	 * @return void
 	 */
-	public function injectPersonRepository(Tx_Sjevents_Domain_Repository_PersonRepository $personRepository) {
+	public function injectPersonRepository(Tx_Nboevents_Domain_Repository_PersonRepository $personRepository) {
 		$this->personRepository = $personRepository;
 	}
 

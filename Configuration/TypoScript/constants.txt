@@ -1,14 +1,14 @@
-plugin.tx_sjevents {
+plugin.tx_nboevents {
 	view {
-		# cat=plugin.tx_sjevents/file; type=string; label=Path to template root (FE)
-		templateRootPath = EXT:sjevents/Resources/Private/Templates/
-		# cat=plugin.tx_sjevents/file; type=string; label=Path to template partials (FE)
-		partialRootPath = EXT:sjevents/Resources/Private/Partials/
-		# cat=plugin.tx_sjevents/file; type=string; label=Path to template layouts (FE)
-		layoutRootPath = EXT:sjevents/Resources/Private/Layouts/
+		# cat=plugin.tx_nboevents/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:nboevents/Resources/Private/Templates/
+		# cat=plugin.tx_nboevents/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:nboevents/Resources/Private/Partials/
+		# cat=plugin.tx_nboevents/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:nboevents/Resources/Private/Layouts/
 	}
 	persistence {
-		# cat=plugin.tx_sjevents//a; type=int+; label=Default storage PID
+		# cat=plugin.tx_nboevents//a; type=int+; label=Default storage PID
 		storagePid = 
 	}
 }

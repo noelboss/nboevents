@@ -27,11 +27,11 @@
 /**
  *
  *
- * @package sjevents
+ * @package nboevents
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Tx_Sjevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Persistence_Repository {
+class Tx_Nboevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Persistence_Repository {
 
 	public function countByEvent($uid = '0') {
 
@@ -39,7 +39,7 @@ class Tx_Sjevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Per
 		$query->getQuerySettings()->setReturnRawQueryResult(true);
 		$now = time();
 		$queryText = 'SELECT res.count
-					FROM `tx_sjevents_domain_model_reservation` AS res WHERE res.event = \'' . $uid . '\'
+					FROM `tx_nboevents_domain_model_reservation` AS res WHERE res.event = \'' . $uid . '\'
 					AND res.deleted=0
 					AND res.t3ver_state<=0
 					AND res.pid<>-1
@@ -64,7 +64,7 @@ class Tx_Sjevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Per
 		$query->getQuerySettings()->setReturnRawQueryResult(true);
 		$now = time();
 		$queryText = 'SELECT res.person
-					FROM `tx_sjevents_domain_model_reservation` AS res WHERE uid = \'' . $uid . '\'
+					FROM `tx_nboevents_domain_model_reservation` AS res WHERE uid = \'' . $uid . '\'
 					AND res.deleted=0
 					AND res.t3ver_state<=0
 					AND res.pid<>-1
@@ -86,9 +86,9 @@ class Tx_Sjevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Per
 		$query->getQuerySettings()->setReturnRawQueryResult(true);
 		$now = time();
 		$queryText = 'SELECT ps.firstname, ps.lastname, ev.title, res.count
-					FROM `tx_sjevents_domain_model_reservation` AS res
-					LEFT JOIN tx_sjevents_domain_model_event AS ev ON res.event = ev.uid
-					LEFT JOIN tx_sjevents_domain_model_person AS ps ON res.person = ps.uid
+					FROM `tx_nboevents_domain_model_reservation` AS res
+					LEFT JOIN tx_nboevents_domain_model_event AS ev ON res.event = ev.uid
+					LEFT JOIN tx_nboevents_domain_model_person AS ps ON res.person = ps.uid
 					WHERE res.uid = \'' . $uid . '\'
 					AND res.deleted=0
 					AND res.t3ver_state<=0

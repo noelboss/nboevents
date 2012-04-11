@@ -6,75 +6,81 @@
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
-			<label index="tx_sjevents_domain_model_event">Event</label>
-			<label index="tx_sjevents_domain_model_event.title">Title</label>
-			<label index="tx_sjevents_domain_model_event.description">Description</label>
-			<label index="tx_sjevents_domain_model_event.date">Date</label>
-			<label index="tx_sjevents_domain_model_event.maxreservations">Maximum Reservations</label>
-			<label index="tx_sjevents_domain_model_event.reservationdate">Reservations until date</label>
-			<label index="tx_sjevents_domain_model_event.reservationnotes">Notes</label>
-			<label index="tx_sjevents_domain_model_event.images">Images</label>
-			<label index="tx_sjevents_domain_model_event.reservations">Reservations</label>
-			<label index="tx_sjevents_domain_model_event.locations">Locations</label>
-			<label index="tx_sjevents_domain_model_person">Persons</label>
-			<label index="tx_sjevents_domain_model_person.lastname">Lastname</label>
-			<label index="tx_sjevents_domain_model_person.firstname">Firstname</label>
-			<label index="tx_sjevents_domain_model_person.email">E-mail</label>
-			<label index="tx_sjevents_domain_model_person.phone">Phone</label>
-			<label index="tx_sjevents_domain_model_person.address">Address</label>
-			<label index="tx_sjevents_domain_model_person.reservations">Reservation for Events</label>
-			<label index="tx_sjevents_domain_model_location">Location of the Event</label>
-			<label index="tx_sjevents_domain_model_location.title">Title</label>
-			<label index="tx_sjevents_domain_model_location.description">Description</label>
-			<label index="tx_sjevents_domain_model_location.address">Address</label>
-			<label index="tx_sjevents_domain_model_location.coordinates">coordinates</label>
-			<label index="tx_sjevents_domain_model_location.events">Events</label>
-			<label index="tx_sjevents_domain_model_reservation">Reservations</label>
-			<label index="tx_sjevents_domain_model_reservation.count">Number of reservations</label>
-			<label index="tx_sjevents_domain_model_reservation.note">Notes</label>
-			<label index="tx_sjevents_domain_model_reservation.person">Person</label>
-			<label index="tx_sjevents_domain_model_reservation.event">Event</label>
-			<label index="tx_sjevents_domain_model_reservation.events">Reservation for events</label>
-			<label index="tx_sjevents_domain_model_reservation.reservationkey">Reservationkey</label>
+			<label index="tx_nboevents_domain_model_event">Event</label>
+			<label index="tx_nboevents_domain_model_event.title">Title</label>
+			<label index="tx_nboevents_domain_model_event.description">Description</label>
+			<label index="tx_nboevents_domain_model_event.date">Date</label>
+			<label index="tx_nboevents_domain_model_event.maxreservations">Maximum Reservations</label>
+			<label index="tx_nboevents_domain_model_event.reservationdate">Reservations until date</label>
+			<label index="tx_nboevents_domain_model_event.reservationnotes">Notes</label>
+			<label index="tx_nboevents_domain_model_event.images">Images</label>
+			<label index="tx_nboevents_domain_model_event.reservations">Reservations</label>
+			<label index="tx_nboevents_domain_model_event.locations">Locations</label>
+			<label index="tx_nboevents_domain_model_person">Persons</label>
+			<label index="tx_nboevents_domain_model_person.lastname">Lastname</label>
+			<label index="tx_nboevents_domain_model_person.firstname">Firstname</label>
+			<label index="tx_nboevents_domain_model_person.email">E-mail</label>
+			<label index="tx_nboevents_domain_model_person.phone">Phone</label>
+			<label index="tx_nboevents_domain_model_person.address">Address</label>
+			<label index="tx_nboevents_domain_model_person.reservations">Reservation for Events</label>
+			<label index="tx_nboevents_domain_model_location">Location of the Event</label>
+			<label index="tx_nboevents_domain_model_location.title">Title</label>
+			<label index="tx_nboevents_domain_model_location.description">Description</label>
+			<label index="tx_nboevents_domain_model_location.address">Address</label>
+			<label index="tx_nboevents_domain_model_location.coordinates">coordinates</label>
+			<label index="tx_nboevents_domain_model_location.events">Events</label>
+			<label index="tx_nboevents_domain_model_reservation">Reservations</label>
+			<label index="tx_nboevents_domain_model_reservation.count">Number of reservations</label>
+			<label index="tx_nboevents_domain_model_reservation.note">Notes</label>
+			<label index="tx_nboevents_domain_model_reservation.person">Person</label>
+			<label index="tx_nboevents_domain_model_reservation.event">Event</label>
+			<label index="tx_nboevents_domain_model_reservation.events">Reservation for events</label>
+			<label index="tx_nboevents_domain_model_reservation.reservationkey">Reservationkey</label>
 			
 			<label index="newPerson.email">E-Mail:</label>
 			<label index="newPerson.email.1242859509">Bitte geben Sie ein gültige E-Mail Adresse an.</label>
+			
+			<label index="backend.wizard">Events</label>
+			<label index="backend.wizard.description"><![CDATA[Displays events on the website.]]></label>
 		</languageKey>
 		<languageKey index="de" type="array">
-			<label index="tx_sjevents_domain_model_event">Anlass</label>
-			<label index="tx_sjevents_domain_model_event.title">Titel</label>
-			<label index="tx_sjevents_domain_model_event.description">Beschreibung</label>
-			<label index="tx_sjevents_domain_model_event.date">Datum</label>
-			<label index="tx_sjevents_domain_model_event.maxreservations">Maximale Anmeldungen (leer = anmeldungen geschlossen)</label>
-			<label index="tx_sjevents_domain_model_event.reservationdate">Anmeldeschluss</label>
-			<label index="tx_sjevents_domain_model_event.reservationnotes">Hinweise zur Anmeldung</label>
-			<label index="tx_sjevents_domain_model_event.images">Bilder</label>
-			<label index="tx_sjevents_domain_model_event.reservations">Anmeldungen</label>
-			<label index="tx_sjevents_domain_model_event.locations">Orte</label>
-			<label index="tx_sjevents_domain_model_person">Person</label>
-			<label index="tx_sjevents_domain_model_person.lastname">Nachname</label>
-			<label index="tx_sjevents_domain_model_person.firstname">Vorname</label>
-			<label index="tx_sjevents_domain_model_person.email">E-Mail Adresse</label>
-			<label index="tx_sjevents_domain_model_person.phone">Telefon / Mobile</label>
-			<label index="tx_sjevents_domain_model_person.address">Adresse</label>
-			<label index="tx_sjevents_domain_model_person.reservations">Anmeldung für Anlässe</label>
-			<label index="tx_sjevents_domain_model_location">Ort des Anlass</label>
-			<label index="tx_sjevents_domain_model_location.title">Titel</label>
-			<label index="tx_sjevents_domain_model_location.description">Beschreibung</label>
-			<label index="tx_sjevents_domain_model_location.address">Adresse</label>
-			<label index="tx_sjevents_domain_model_location.coordinates">Koordinaten</label>
-			<label index="tx_sjevents_domain_model_location.events">Anlass</label>
-			<label index="tx_sjevents_domain_model_reservation">Anmeldung</label>
-			<label index="tx_sjevents_domain_model_reservation.person">Person</label>
-			<label index="tx_sjevents_domain_model_reservation.count">Anzahl Personen</label>
-			<label index="tx_sjevents_domain_model_reservation.note">Bemerkungen</label>
-			<label index="tx_sjevents_domain_model_reservation.events">Reservation für Anlass</label>
-			<label index="tx_sjevents_domain_model_reservation.reservationkey">Anmeldeschlüssel</label>
+			<label index="tx_nboevents_domain_model_event">Anlass</label>
+			<label index="tx_nboevents_domain_model_event.title">Titel</label>
+			<label index="tx_nboevents_domain_model_event.description">Beschreibung</label>
+			<label index="tx_nboevents_domain_model_event.date">Datum</label>
+			<label index="tx_nboevents_domain_model_event.maxreservations">Maximale Anmeldungen (leer = anmeldungen geschlossen)</label>
+			<label index="tx_nboevents_domain_model_event.reservationdate">Anmeldeschluss</label>
+			<label index="tx_nboevents_domain_model_event.reservationnotes">Hinweise zur Anmeldung</label>
+			<label index="tx_nboevents_domain_model_event.images">Bilder</label>
+			<label index="tx_nboevents_domain_model_event.reservations">Anmeldungen</label>
+			<label index="tx_nboevents_domain_model_event.locations">Orte</label>
+			<label index="tx_nboevents_domain_model_person">Person</label>
+			<label index="tx_nboevents_domain_model_person.lastname">Nachname</label>
+			<label index="tx_nboevents_domain_model_person.firstname">Vorname</label>
+			<label index="tx_nboevents_domain_model_person.email">E-Mail Adresse</label>
+			<label index="tx_nboevents_domain_model_person.phone">Telefon / Mobile</label>
+			<label index="tx_nboevents_domain_model_person.address">Adresse</label>
+			<label index="tx_nboevents_domain_model_person.reservations">Anmeldung für Anlässe</label>
+			<label index="tx_nboevents_domain_model_location">Ort des Anlass</label>
+			<label index="tx_nboevents_domain_model_location.title">Titel</label>
+			<label index="tx_nboevents_domain_model_location.description">Beschreibung</label>
+			<label index="tx_nboevents_domain_model_location.address">Adresse</label>
+			<label index="tx_nboevents_domain_model_location.coordinates">Koordinaten</label>
+			<label index="tx_nboevents_domain_model_location.events">Anlass</label>
+			<label index="tx_nboevents_domain_model_reservation">Anmeldung</label>
+			<label index="tx_nboevents_domain_model_reservation.person">Person</label>
+			<label index="tx_nboevents_domain_model_reservation.count">Anzahl Personen</label>
+			<label index="tx_nboevents_domain_model_reservation.note">Bemerkungen</label>
+			<label index="tx_nboevents_domain_model_reservation.events">Reservation für Anlass</label>
+			<label index="tx_nboevents_domain_model_reservation.reservationkey">Anmeldeschlüssel</label>
 			
 			<label index="newPerson.lastname">Nachname</label>
 			<label index="newPerson.firstname">Vorname</label>
 			<label index="newPerson.email">E-Mail</label>
 			<label index="newPerson.1242859509">ist ein Pflichtfelt. Bitte tragen Sie einen gültien Wert ein.</label>
+			
+			<label index="backend.wizard">Anlässe</label>
+			<label index="backend.wizard.description"><![CDATA[Zeigt Anlässe auf der Webseite an.]]></label>
 		</languageKey>
 	</data>
 </T3locallang>

@@ -27,11 +27,11 @@
 /**
  *
  *
- * @package sjevents
+ * @package nboevents
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Tx_Sjevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntity {
+class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
 	 * Title
@@ -100,14 +100,14 @@ class Tx_Sjevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEnt
 	/**
 	 * Reservations
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Sjevents_Domain_Model_Reservation>
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Reservation>
 	 */
 	protected $reservations;
 
 	/**
 	 * Locations
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Sjevents_Domain_Model_Location>
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Location>
 	 */
 	protected $locations;
 
@@ -210,7 +210,7 @@ class Tx_Sjevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEnt
 	 */
 	public function getCount($uid = 0) {
 		$uid = $uid > 0 ? $uid : $this->getUid();
-		$reservationRepository = t3lib_div::makeInstance('Tx_Sjevents_Domain_Repository_ReservationRepository');
+		$reservationRepository = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_ReservationRepository');
 		return $reservationRepository->countByEvent($uid);
 	}
 
@@ -282,11 +282,11 @@ class Tx_Sjevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEnt
 	 * @return boolean
 	 */
 	public function getHasReservation() {
-		$result =  Tx_Sjevents_Utility_Cookies::getCookieValue('Reservation'.$this->getUid());
+		$result =  Tx_Nboevents_Utility_Cookies::getCookieValue('Reservation'.$this->getUid());
 		
 		$has = false;
 		if($result > 0){
-			$reservationRepository = t3lib_div::makeInstance('Tx_Sjevents_Domain_Repository_ReservationRepository');
+			$reservationRepository = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_ReservationRepository');
 			if($reservationRepository->countByUid($result)){
 				$has =  true;
 			}
@@ -373,27 +373,27 @@ class Tx_Sjevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEnt
 	/**
 	 * Adds a Reservation
 	 *
-	 * @param Tx_Sjevents_Domain_Model_Reservation $reservation
+	 * @param Tx_Nboevents_Domain_Model_Reservation $reservation
 	 * @return void
 	 */
-	public function addReservation(Tx_Sjevents_Domain_Model_Reservation $reservation) {
+	public function addReservation(Tx_Nboevents_Domain_Model_Reservation $reservation) {
 		$this->reservations->attach($reservation);
 	}
 
 	/**
 	 * Removes a Reservation
 	 *
-	 * @param Tx_Sjevents_Domain_Model_Reservation $reservationToRemove The Reservation to be removed
+	 * @param Tx_Nboevents_Domain_Model_Reservation $reservationToRemove The Reservation to be removed
 	 * @return void
 	 */
-	public function removeReservation(Tx_Sjevents_Domain_Model_Reservation $reservationToRemove) {
+	public function removeReservation(Tx_Nboevents_Domain_Model_Reservation $reservationToRemove) {
 		$this->reservations->detach($reservationToRemove);
 	}
 
 	/**
 	 * Returns the reservations
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Sjevents_Domain_Model_Reservation> $reservations
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Reservation> $reservations
 	 */
 	public function getReservations() {
 		return $this->reservations;
@@ -402,7 +402,7 @@ class Tx_Sjevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEnt
 	/**
 	 * Sets the reservations
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Sjevents_Domain_Model_Reservation> $reservations
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Reservation> $reservations
 	 * @return void
 	 */
 	public function setReservations(Tx_Extbase_Persistence_ObjectStorage $reservations) {
@@ -412,27 +412,27 @@ class Tx_Sjevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEnt
 	/**
 	 * Adds a Location
 	 *
-	 * @param Tx_Sjevents_Domain_Model_Location $location
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Sjevents_Domain_Model_Location> locations
+	 * @param Tx_Nboevents_Domain_Model_Location $location
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Location> locations
 	 */
-	public function addLocation(Tx_Sjevents_Domain_Model_Location $location) {
+	public function addLocation(Tx_Nboevents_Domain_Model_Location $location) {
 		$this->locations->attach($locations);
 	}
 
 	/**
 	 * Removes a Location
 	 *
-	 * @param Tx_Sjevents_Domain_Model_Location $locationToRemove The Location to be removed
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Sjevents_Domain_Model_Location> locations
+	 * @param Tx_Nboevents_Domain_Model_Location $locationToRemove The Location to be removed
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Location> locations
 	 */
-	public function removeLocation(Tx_Sjevents_Domain_Model_Location $locationToRemove) {
+	public function removeLocation(Tx_Nboevents_Domain_Model_Location $locationToRemove) {
 		$this->locations->detach($locationToRemove);
 	}
 
 	/**
 	 * Returns the locations
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Sjevents_Domain_Model_Location> locations
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Location> locations
 	 */
 	public function getLocations() {
 		return $this->locations;
@@ -441,8 +441,8 @@ class Tx_Sjevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEnt
 	/**
 	 * Sets the locations
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Sjevents_Domain_Model_Location> $locations
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Sjevents_Domain_Model_Location> locations
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Location> $locations
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Location> locations
 	 */
 	public function setLocations(Tx_Extbase_Persistence_ObjectStorage $locations) {
 		$this->locations = $locations;

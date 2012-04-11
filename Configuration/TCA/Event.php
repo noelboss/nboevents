@@ -4,18 +4,18 @@ if (!defined('TYPO3_MODE')) {
 	die('Access denied.');
 }
 
-$TCA['tx_sjevents_domain_model_event'] = array(
-	'ctrl' => $TCA['tx_sjevents_domain_model_event']['ctrl'],
+$TCA['tx_nboevents_domain_model_event'] = array(
+	'ctrl' => $TCA['tx_nboevents_domain_model_event']['ctrl'],
 	'interface' => array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, description, date, maxreservations, reservationsleft, reservationdate, reservationnotes, reservationkey, reservationkeynotes, images, reservations, locations',
 	),
 	'types' => array(
 		'1' => array('showitem' => '
-		--div--;LLL:EXT:sjevents/Resources/Private/Language/locallang_db.xml:tx_sjevents_domain_model_event,
+		--div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event,
 			title, description, date, images, locations,
-		--div--;LLL:EXT:sjevents/Resources/Private/Language/locallang_db.xml:tx_sjevents_domain_model_reservation.settings,
+		--div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.settings,
 				maxreservations;;1;;, reservationdate;;2;;, reservationkey;;3;;,
-		--div--;LLL:EXT:sjevents/Resources/Private/Language/locallang_db.xml:tx_sjevents_domain_model_reservation,
+		--div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation,
 				reservations,
 		--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access, hidden;;1, starttime, endtime'),
 	),
@@ -47,8 +47,8 @@ $TCA['tx_sjevents_domain_model_event'] = array(
 				'items' => array(
 					array('', 0),
 				),
-				'foreign_table' => 'tx_sjevents_domain_model_event',
-				'foreign_table_where' => 'AND tx_sjevents_domain_model_event.pid=###CURRENT_PID### AND tx_sjevents_domain_model_event.sys_language_uid IN (-1,0)',
+				'foreign_table' => 'tx_nboevents_domain_model_event',
+				'foreign_table_where' => 'AND tx_nboevents_domain_model_event.pid=###CURRENT_PID### AND tx_nboevents_domain_model_event.sys_language_uid IN (-1,0)',
 			),
 		),
 		'l10n_diffsource' => array(
@@ -105,7 +105,7 @@ $TCA['tx_sjevents_domain_model_event'] = array(
 		),
 		'title' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:sjevents/Resources/Private/Language/locallang_db.xml:tx_sjevents_domain_model_event.title',
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event.title',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -114,7 +114,7 @@ $TCA['tx_sjevents_domain_model_event'] = array(
 		),
 		'description' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:sjevents/Resources/Private/Language/locallang_db.xml:tx_sjevents_domain_model_event.description',
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event.description',
 			'config' => array(
 				'type' => 'text',
 				'cols' => 60,
@@ -124,7 +124,7 @@ $TCA['tx_sjevents_domain_model_event'] = array(
 		),
 		'date' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:sjevents/Resources/Private/Language/locallang_db.xml:tx_sjevents_domain_model_event.date',
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event.date',
 			'config' => array(
 				'type' => 'input',
 				'size' => 10,
@@ -135,7 +135,7 @@ $TCA['tx_sjevents_domain_model_event'] = array(
 		),
 		'maxreservations' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:sjevents/Resources/Private/Language/locallang_db.xml:tx_sjevents_domain_model_event.maxreservations',
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event.maxreservations',
 			'config' => array(
 				'type' => 'input',
 				'size' => 4,
@@ -145,17 +145,17 @@ $TCA['tx_sjevents_domain_model_event'] = array(
 		),
 		'reservationsleft' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:sjevents/Resources/Private/Language/locallang_db.xml:tx_sjevents_domain_model_event.reservationsleft',
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event.reservationsleft',
 			'config' => array(
 				'type' => 'user',
 				'size' => 4,
 				'eval' => 'int',
-				'userFunc' => 'EXT:sjevents/Classes/Domain/Model/Event.php:Tx_Sjevents_Domain_Model_Event->getRemaining',
+				'userFunc' => 'EXT:nboevents/Classes/Domain/Model/Event.php:Tx_Nboevents_Domain_Model_Event->getRemaining',
 			),
 		),
 		'reservationdate' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:sjevents/Resources/Private/Language/locallang_db.xml:tx_sjevents_domain_model_event.reservationdate',
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event.reservationdate',
 			'config' => array(
 				'type' => 'input',
 				'size' => 10,
@@ -166,7 +166,7 @@ $TCA['tx_sjevents_domain_model_event'] = array(
 		),
 		'reservationnotes' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:sjevents/Resources/Private/Language/locallang_db.xml:tx_sjevents_domain_model_event.reservationnotes',
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event.reservationnotes',
 			'config' => array(
 				'type' => 'text',
 				'cols' => 60,
@@ -176,7 +176,7 @@ $TCA['tx_sjevents_domain_model_event'] = array(
 		),
 		'reservationkey' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:sjevents/Resources/Private/Language/locallang_db.xml:tx_sjevents_domain_model_event.reservationkey',
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event.reservationkey',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -185,7 +185,7 @@ $TCA['tx_sjevents_domain_model_event'] = array(
 		),
 		'reservationkeynotes' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:sjevents/Resources/Private/Language/locallang_db.xml:tx_sjevents_domain_model_event.reservationkeynotes',
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event.reservationkeynotes',
 			'config' => array(
 				'type' => 'text',
 				'cols' => 60,
@@ -195,11 +195,11 @@ $TCA['tx_sjevents_domain_model_event'] = array(
 		),
 		'images' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:sjevents/Resources/Private/Language/locallang_db.xml:tx_sjevents_domain_model_event.images',
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event.images',
 			'config' => array(
 				'type' => 'group',
 				'internal_type' => 'file',
-				'uploadfolder' => 'uploads/tx_sjevents',
+				'uploadfolder' => 'uploads/tx_nboevents',
 				'minitems' => 0,
 				'maxitems' => 10,
 				'disable_controls' => 'upload',
@@ -211,10 +211,10 @@ $TCA['tx_sjevents_domain_model_event'] = array(
 		),
 		'reservations' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:sjevents/Resources/Private/Language/locallang_db.xml:tx_sjevents_domain_model_event.reservations',
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event.reservations',
 			'config' => array(
 				'type' => 'inline',
-				'foreign_table' => 'tx_sjevents_domain_model_reservation',
+				'foreign_table' => 'tx_nboevents_domain_model_reservation',
 				'foreign_field' => 'event',
 				// manually added
 				'foreign_label' => 'person',
@@ -230,11 +230,11 @@ $TCA['tx_sjevents_domain_model_event'] = array(
 		),
 		'locations' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:sjevents/Resources/Private/Language/locallang_db.xml:tx_sjevents_domain_model_event.locations',
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event.locations',
 			'config' => array(
 				'type' => 'select',
-				'foreign_table' => 'tx_sjevents_domain_model_location',
-				'MM' => 'tx_sjevents_event_location_mm',
+				'foreign_table' => 'tx_nboevents_domain_model_location',
+				'MM' => 'tx_nboevents_event_location_mm',
 				'size' => 10,
 				'autoSizeMax' => 30,
 				'maxitems' => 9999,
@@ -255,7 +255,7 @@ $TCA['tx_sjevents_domain_model_event'] = array(
 						'title' => 'Create new',
 						'icon' => 'add.gif',
 						'params' => array(
-							'table' => 'tx_sjevents_domain_model_location',
+							'table' => 'tx_nboevents_domain_model_location',
 							'pid' => '###CURRENT_PID###',
 							'setValue' => 'prepend'
 						),
@@ -271,11 +271,11 @@ $TCA['tx_sjevents_domain_model_event'] = array(
 /*
  * 'images' => array(
   'exclude' => 0,
-  'label' => 'LLL:EXT:sjevents/Resources/Private/Language/locallang_db.xml:tx_sjevents_domain_model_event.images',
+  'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event.images',
   'config' => array(
   'type' => 'group',
   'internal_type' => 'file',
-  'uploadfolder' => 'uploads/tx_sjevents',
+  'uploadfolder' => 'uploads/tx_nboevents',
   'show_thumbs' => 1,
   'minitems' => 3,
   'maxitems' => 10,

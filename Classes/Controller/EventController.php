@@ -27,26 +27,26 @@
 /**
  *
  *
- * @package sjevents
+ * @package nboevents
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Tx_Sjevents_Controller_EventController extends Tx_Extbase_MVC_Controller_ActionController {
+class Tx_Nboevents_Controller_EventController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
 	 * eventRepository
 	 *
-	 * @var Tx_Sjevents_Domain_Repository_EventRepository
+	 * @var Tx_Nboevents_Domain_Repository_EventRepository
 	 */
 	protected $eventRepository;
 
 	/**
 	 * injectEventRepository
 	 *
-	 * @param Tx_Sjevents_Domain_Repository_EventRepository $eventRepository
+	 * @param Tx_Nboevents_Domain_Repository_EventRepository $eventRepository
 	 * @return void
 	 */
-	public function injectEventRepository(Tx_Sjevents_Domain_Repository_EventRepository $eventRepository) {
+	public function injectEventRepository(Tx_Nboevents_Domain_Repository_EventRepository $eventRepository) {
 		$this->eventRepository = $eventRepository;
 	}
 
@@ -66,7 +66,7 @@ class Tx_Sjevents_Controller_EventController extends Tx_Extbase_MVC_Controller_A
 	 * @param $event
 	 * @return void
 	 */
-	public function showAction(Tx_Sjevents_Domain_Model_Event $event) {
+	public function showAction(Tx_Nboevents_Domain_Model_Event $event) {
 		$this->view->assign('event', $event);
 	}
 
@@ -77,7 +77,7 @@ class Tx_Sjevents_Controller_EventController extends Tx_Extbase_MVC_Controller_A
 	 * @dontvalidate $newEvent
 	 * @return void
 	 */
-	public function newAction(Tx_Sjevents_Domain_Model_Event $newEvent = NULL) {
+	public function newAction(Tx_Nboevents_Domain_Model_Event $newEvent = NULL) {
 		$this->view->assign('newEvent', $newEvent);
 	}
 
@@ -87,7 +87,7 @@ class Tx_Sjevents_Controller_EventController extends Tx_Extbase_MVC_Controller_A
 	 * @param $newEvent
 	 * @return void
 	 */
-	public function createAction(Tx_Sjevents_Domain_Model_Event $newEvent) {
+	public function createAction(Tx_Nboevents_Domain_Model_Event $newEvent) {
 		$newEvent->setImages($this->addImage('newEvent'));
 		$this->eventRepository->add($newEvent);
 		$this->flashMessageContainer->add('Your new Event was created.');
@@ -100,7 +100,7 @@ class Tx_Sjevents_Controller_EventController extends Tx_Extbase_MVC_Controller_A
 	 * @param $event
 	 * @return void
 	 */
-	public function editAction(Tx_Sjevents_Domain_Model_Event $event) {
+	public function editAction(Tx_Nboevents_Domain_Model_Event $event) {
 		$this->view->assign('event', $event);
 	}
 
@@ -110,7 +110,7 @@ class Tx_Sjevents_Controller_EventController extends Tx_Extbase_MVC_Controller_A
 	 * @param $event
 	 * @return void
 	 */
-	public function updateAction(Tx_Sjevents_Domain_Model_Event $event) {
+	public function updateAction(Tx_Nboevents_Domain_Model_Event $event) {
 		$event->setImages($this->addImage());
 		$this->eventRepository->update($event);
 		$this->flashMessageContainer->add('Your Event was updated.');
@@ -123,7 +123,7 @@ class Tx_Sjevents_Controller_EventController extends Tx_Extbase_MVC_Controller_A
 	 * @param $event
 	 * @return void
 	 */
-	public function deleteAction(Tx_Sjevents_Domain_Model_Event $event) {
+	public function deleteAction(Tx_Nboevents_Domain_Model_Event $event) {
 		$this->eventRepository->remove($event);
 		$this->flashMessageContainer->add('Your Event was removed.');
 		$this->redirect('list');
@@ -136,10 +136,10 @@ class Tx_Sjevents_Controller_EventController extends Tx_Extbase_MVC_Controller_A
 	 * @return string
 	 */
 	private function addImage($name = "event") {
-		if ($_FILES['tx_sjevents_events']) {
+		if ($_FILES['tx_nboevents_events']) {
 			$basicFileFunctions = t3lib_div::makeInstance('t3lib_basicFileFunctions');
-			$fileName = $basicFileFunctions->getUniqueName($_FILES['tx_sjevents_events']['name'][$name]['images'], t3lib_div::getFileAbsFileName('uploads/tx_sjevents/'));
-			t3lib_div::upload_copy_move($_FILES['tx_sjevents_events']['tmp_name'][$name]['images'], $fileName);
+			$fileName = $basicFileFunctions->getUniqueName($_FILES['tx_nboevents_events']['name'][$name]['images'], t3lib_div::getFileAbsFileName('uploads/tx_nboevents/'));
+			t3lib_div::upload_copy_move($_FILES['tx_nboevents_events']['tmp_name'][$name]['images'], $fileName);
 			return basename($fileName);
 		}
 	}

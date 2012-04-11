@@ -27,11 +27,11 @@
 /**
  *
  *
- * @package sjevents
+ * @package nboevents
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Tx_Sjevents_Domain_Repository_PersonRepository extends Tx_Extbase_Persistence_Repository {
+class Tx_Nboevents_Domain_Repository_PersonRepository extends Tx_Extbase_Persistence_Repository {
 
 }
 ?>

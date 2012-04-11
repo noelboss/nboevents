@@ -27,11 +27,11 @@
 /**
  *
  *
- * @package sjevents
+ * @package nboevents
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Tx_Sjevents_Utility_Cookies {
+class Tx_Nboevents_Utility_Cookies {
 		
 	/**
 	 * Get Cookie Value
@@ -41,7 +41,7 @@ class Tx_Sjevents_Utility_Cookies {
 	 */
 	public function getCookieValue($key) {
 		if($key){
-			$cookie = unserialize($_COOKIE['Tx_Sjevents_Reservation_'.$key]);
+			$cookie = unserialize($_COOKIE['Tx_Nboevents_Reservation_'.$key]);
 		}
 		if(isset($cookie)){
 			return $cookie;
@@ -59,7 +59,7 @@ class Tx_Sjevents_Utility_Cookies {
 	public function setCookieValue($key, $value, $exp = NULL) {
 		if($key){
 			$exp = $exp ? $exp : mktime(0, 0, 0, 12, 32, 2080);
-			setcookie('Tx_Sjevents_Reservation_'.$key, serialize($value), $exp, "/");
+			setcookie('Tx_Nboevents_Reservation_'.$key, serialize($value), $exp, "/");
 		}
 	}
 }

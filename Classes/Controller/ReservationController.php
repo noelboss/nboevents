@@ -27,44 +27,44 @@
 /**
  *
  *
- * @package sjevents
+ * @package nboevents
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Tx_Sjevents_Controller_ReservationController extends Tx_Extbase_MVC_Controller_ActionController {
+class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
 	 *
 	 * reservationRepository
 	 *
-	 * @var Tx_Sjevents_Domain_Repository_ReservationRepository
+	 * @var Tx_Nboevents_Domain_Repository_ReservationRepository
 	 */
 	protected $reservationRepository;
 
 	/**
 	 * injectReservationRepository
 	 *
-	 * @param Tx_Sjevents_Domain_Repository_ReservationRepository $reservationRepository
+	 * @param Tx_Nboevents_Domain_Repository_ReservationRepository $reservationRepository
 	 * @return void
 	 */
-	public function injectReservationRepository(Tx_Sjevents_Domain_Repository_ReservationRepository $reservationRepository) {
+	public function injectReservationRepository(Tx_Nboevents_Domain_Repository_ReservationRepository $reservationRepository) {
 		$this->reservationRepository = $reservationRepository;
 	}
 
 	/**
 	 * personRepository
 	 *
-	 * @var Tx_Sjevents_Domain_Repository_PersonRepository
+	 * @var Tx_Nboevents_Domain_Repository_PersonRepository
 	 */
 	protected $personRepository;
 
 	/**
 	 * injectPersonRepository
 	 *
-	 * @param Tx_Sjevents_Domain_Repository_PersonRepository $personRepository
+	 * @param Tx_Nboevents_Domain_Repository_PersonRepository $personRepository
 	 * @return void
 	 */
-	public function injectPersonRepository(Tx_Sjevents_Domain_Repository_PersonRepository $personRepository) {
+	public function injectPersonRepository(Tx_Nboevents_Domain_Repository_PersonRepository $personRepository) {
 		$this->personRepository = $personRepository;
 	}
 
@@ -84,7 +84,7 @@ class Tx_Sjevents_Controller_ReservationController extends Tx_Extbase_MVC_Contro
 	 * @param $reservation
 	 * @return void
 	 */
-	public function showAction(Tx_Sjevents_Domain_Model_Reservation $reservation) {
+	public function showAction(Tx_Nboevents_Domain_Model_Reservation $reservation) {
 		$this->view->assign('reservation', $reservation);
 	}
 
@@ -94,14 +94,14 @@ class Tx_Sjevents_Controller_ReservationController extends Tx_Extbase_MVC_Contro
 	 * @dontverifyrequesthash
 	 * @return void
 	 */
-	public function newAction(Tx_Sjevents_Domain_Model_Event $event) {
+	public function newAction(Tx_Nboevents_Domain_Model_Event $event) {
 		//$event = $this->request->hasArgument('event') ? $this->request->getArgument('event') : NULL;
 		$newReservation = $this->request->hasArgument('newReservation') ? $this->request->getArgument('newReservation') : NULL;
 		$newPerson = $this->request->hasArgument('newPerson') ? $this->request->getArgument('newPerson') : NULL;
 		$e = $this->request->hasArgument('e') ? $this->request->getArgument('e') : '';
 
 		if (!isset($newPerson)) {
-			$uid = Tx_Sjevents_Utility_Cookies::getCookieValue('Reservation'.$event->getUid());
+			$uid = Tx_Nboevents_Utility_Cookies::getCookieValue('Reservation'.$event->getUid());
 			if ($this->reservationRepository->countByUid($uid)) {
 				$newReservation = $uid;
 				$person = $this->reservationRepository->getPersonUid($newReservation);
@@ -116,7 +116,7 @@ class Tx_Sjevents_Controller_ReservationController extends Tx_Extbase_MVC_Contro
 					);
 				}
 			}
-			$pid = Tx_Sjevents_Utility_Cookies::getCookieValue('Person');
+			$pid = Tx_Nboevents_Utility_Cookies::getCookieValue('Person');
 			$newPerson = $this->personRepository->findByUid($pid);
 		}
 		$this->view->assign('e', $e);		
@@ -134,7 +134,7 @@ class Tx_Sjevents_Controller_ReservationController extends Tx_Extbase_MVC_Contro
 	 * @return void
 	 * @dontverifyrequesthash
 	 */
-	public function createAction(Tx_Sjevents_Domain_Model_Reservation $newReservation, Tx_Sjevents_Domain_Model_Person $newPerson, Tx_Sjevents_Domain_Model_Event $event) {
+	public function createAction(Tx_Nboevents_Domain_Model_Reservation $newReservation, Tx_Nboevents_Domain_Model_Person $newPerson, Tx_Nboevents_Domain_Model_Event $event) {
 		$this->reservationRepository->add($newReservation);
 		
 		if($event->getReservationkey()){
@@ -163,8 +163,8 @@ class Tx_Sjevents_Controller_ReservationController extends Tx_Extbase_MVC_Contro
 		$newPerson->addReservation($newReservation);
 		$event->addReservation($newReservation);
 
-		Tx_Sjevents_Utility_Cookies::setCookieValue('Reservation'.$event->getUid(), $newReservation->getUid());
-		Tx_Sjevents_Utility_Cookies::setCookieValue('Person', $newPerson->getUid());
+		Tx_Nboevents_Utility_Cookies::setCookieValue('Reservation'.$event->getUid(), $newReservation->getUid());
+		Tx_Nboevents_Utility_Cookies::setCookieValue('Person', $newPerson->getUid());
 
 		$this->flashMessageContainer->add('<h3>Danke ' . ($newPerson->getFirstname()) . ' ' . ($newPerson->getLastname()) . '!</h3>Du hast Dich erfolgreicht für ' . ($newReservation->getCount()) . ' Personen angemeldet.');
 		$this->redirect('show', 'Event', NULL, array('event' => $event->getUid()));
@@ -181,7 +181,7 @@ class Tx_Sjevents_Controller_ReservationController extends Tx_Extbase_MVC_Contro
 	 * @dontverifyrequesthash
 	 * @return void
 	 */
-	public function editAction(Tx_Sjevents_Domain_Model_Reservation $newReservation, Tx_Sjevents_Domain_Model_Person $newPerson, Tx_Sjevents_Domain_Model_Event $event) {
+	public function editAction(Tx_Nboevents_Domain_Model_Reservation $newReservation, Tx_Nboevents_Domain_Model_Person $newPerson, Tx_Nboevents_Domain_Model_Event $event) {
 		$e = $this->request->hasArgument('e') ? $this->request->getArgument('e') : '';
 		$this->view->assign('e', $e);
 		$this->view->assign('event', $event);
@@ -198,7 +198,7 @@ class Tx_Sjevents_Controller_ReservationController extends Tx_Extbase_MVC_Contro
 	 * @dontverifyrequesthash
 	 * @return void
 	 */
-	public function updateAction(Tx_Sjevents_Domain_Model_Reservation $newReservation, Tx_Sjevents_Domain_Model_Person $newPerson, Tx_Sjevents_Domain_Model_Event $event) {
+	public function updateAction(Tx_Nboevents_Domain_Model_Reservation $newReservation, Tx_Nboevents_Domain_Model_Person $newPerson, Tx_Nboevents_Domain_Model_Event $event) {
 		if($event->getReservationkey()){
 			if (!$this->request->hasArgument('reservationkey') || trim($this->request->getArgument('reservationkey')) !== $event->getReservationkey()) {
 				$this->redirect('edit', NULL, NULL, array(
@@ -213,7 +213,7 @@ class Tx_Sjevents_Controller_ReservationController extends Tx_Extbase_MVC_Contro
 		$this->reservationRepository->update($newReservation);
 		$this->personRepository->update($newPerson);
 
-		Tx_Sjevents_Utility_Cookies::setCookieValue('Person', $newPerson->getUid());
+		Tx_Nboevents_Utility_Cookies::setCookieValue('Person', $newPerson->getUid());
 
 		$this->flashMessageContainer->add('<h3>Danke ' . ($newPerson->getFirstname()) . ' ' . ($newPerson->getLastname()) . '!</h3>Du hast Dich erfolgreicht für ' . ($newReservation->getCount()) . ' Personen angemeldet.');
 		$this->redirect('show', 'Event', NULL, array('event' => $event->getUid()));
@@ -226,9 +226,9 @@ class Tx_Sjevents_Controller_ReservationController extends Tx_Extbase_MVC_Contro
 	 * @param $event
 	 * @return void
 	 */
-	public function deleteAction(Tx_Sjevents_Domain_Model_Reservation $reservation, Tx_Sjevents_Domain_Model_Event $event) {
+	public function deleteAction(Tx_Nboevents_Domain_Model_Reservation $reservation, Tx_Nboevents_Domain_Model_Event $event) {
 		$this->reservationRepository->remove($reservation);
-		Tx_Sjevents_Utility_Cookies::setCookieValue('Reservation'.$event->getUid(), NULL);
+		Tx_Nboevents_Utility_Cookies::setCookieValue('Reservation'.$event->getUid(), NULL);
 
 		$this->flashMessageContainer->add('<h3>Danke!</h3>Deine Anmeldung wurde gelöscht.');
 		$this->redirect('show', 'Event', NULL, array('event' => $event));

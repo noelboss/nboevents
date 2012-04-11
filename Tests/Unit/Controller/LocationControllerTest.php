@@ -25,7 +25,7 @@
  ***************************************************************/
 
 /**
- * Test case for class Tx_Sjevents_Controller_LocationController.
+ * Test case for class Tx_Nboevents_Controller_LocationController.
  *
  * @version $Id$
  * @copyright Copyright belongs to the respective authors
@@ -36,14 +36,14 @@
  *
  * @author Noel Bossart <n.company@me.com>
  */
-class Tx_Sjevents_Controller_LocationControllerTest extends Tx_Extbase_Tests_Unit_BaseTestCase {
+class Tx_Nboevents_Controller_LocationControllerTest extends Tx_Extbase_Tests_Unit_BaseTestCase {
 	/**
-	 * @var Tx_Sjevents_Domain_Model_Location
+	 * @var Tx_Nboevents_Domain_Model_Location
 	 */
 	protected $fixture;
 
 	public function setUp() {
-		$this->fixture = new Tx_Sjevents_Domain_Model_Location();
+		$this->fixture = new Tx_Nboevents_Domain_Model_Location();
 	}
 
 	public function tearDown() {

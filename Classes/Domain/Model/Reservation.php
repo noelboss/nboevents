@@ -27,11 +27,11 @@
 /**
  *
  *
- * @package sjevents
+ * @package nboevents
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Tx_Sjevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_AbstractEntity {
+class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
 	 * How many People
@@ -50,14 +50,14 @@ class Tx_Sjevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abstr
 	/**
 	 * Reservation for Events
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Sjevents_Domain_Model_Event>
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Event>
 	 */
 	protected $events;
 
 	/**
 	 * Reservation for Person
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Sjevents_Domain_Model_Person>
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Person>
 	 */
 	protected $persons;
 
@@ -117,7 +117,7 @@ class Tx_Sjevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abstr
 	 */
 	public function getLabel(&$return) {
 		$uid = $return['row']['uid'];
-		$repo = t3lib_div::makeInstance('Tx_Sjevents_Domain_Repository_ReservationRepository');
+		$repo = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_ReservationRepository');
 		$return['title'] = $repo->findLabel($uid);
 	}
 
@@ -143,27 +143,27 @@ class Tx_Sjevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abstr
 	/**
 	 * Adds a Event
 	 *
-	 * @param Tx_Sjevents_Domain_Model_Event $event
+	 * @param Tx_Nboevents_Domain_Model_Event $event
 	 * @return void
 	 */
-	public function addEvent(Tx_Sjevents_Domain_Model_Event $event) {
+	public function addEvent(Tx_Nboevents_Domain_Model_Event $event) {
 		$this->events->attach($event);
 	}
 
 	/**
 	 * Removes a Event
 	 *
-	 * @param Tx_Sjevents_Domain_Model_Event $eventToRemove The Event to be removed
+	 * @param Tx_Nboevents_Domain_Model_Event $eventToRemove The Event to be removed
 	 * @return void
 	 */
-	public function removeEvent(Tx_Sjevents_Domain_Model_Event $eventToRemove) {
+	public function removeEvent(Tx_Nboevents_Domain_Model_Event $eventToRemove) {
 		$this->events->detach($eventToRemove);
 	}
 
 	/**
 	 * Returns the events
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Sjevents_Domain_Model_Event> $events
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Event> $events
 	 */
 	public function getEvents() {
 		return $this->events;
@@ -172,7 +172,7 @@ class Tx_Sjevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abstr
 	/**
 	 * Sets the events
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Sjevents_Domain_Model_Event> $events
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Event> $events
 	 * @return void
 	 */
 	public function setEvents(Tx_Extbase_Persistence_ObjectStorage $events) {
@@ -182,20 +182,20 @@ class Tx_Sjevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abstr
 	/**
 	 * Adds a Person
 	 *
-	 * @param Tx_Sjevents_Domain_Model_Person $person
+	 * @param Tx_Nboevents_Domain_Model_Person $person
 	 * @return void
 	 */
-	public function addPerson(Tx_Sjevents_Domain_Model_Person $person) {
+	public function addPerson(Tx_Nboevents_Domain_Model_Person $person) {
 		$this->persons->attach($person);
 	}
 
 	/**
 	 * Removes a Person
 	 *
-	 * @param Tx_Sjevents_Domain_Model_Person $personToRemove The Person to be removed
+	 * @param Tx_Nboevents_Domain_Model_Person $personToRemove The Person to be removed
 	 * @return void
 	 */
-	public function removePerson(Tx_Sjevents_Domain_Model_Person $personToRemove) {
+	public function removePerson(Tx_Nboevents_Domain_Model_Person $personToRemove) {
 		$this->persons->detach($personToRemove);
 	}
 

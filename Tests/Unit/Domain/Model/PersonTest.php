@@ -25,7 +25,7 @@
  ***************************************************************/
 
 /**
- * Test case for class Tx_Sjevents_Domain_Model_Person.
+ * Test case for class Tx_Nboevents_Domain_Model_Person.
  *
  * @version $Id$
  * @copyright Copyright belongs to the respective authors
@@ -36,14 +36,14 @@
  *
  * @author Noel Bossart <n.company@me.com>
  */
-class Tx_Sjevents_Domain_Model_PersonTest extends Tx_Extbase_Tests_Unit_BaseTestCase {
+class Tx_Nboevents_Domain_Model_PersonTest extends Tx_Extbase_Tests_Unit_BaseTestCase {
 	/**
-	 * @var Tx_Sjevents_Domain_Model_Person
+	 * @var Tx_Nboevents_Domain_Model_Person
 	 */
 	protected $fixture;
 
 	public function setUp() {
-		$this->fixture = new Tx_Sjevents_Domain_Model_Person();
+		$this->fixture = new Tx_Nboevents_Domain_Model_Person();
 	}
 
 	public function tearDown() {
@@ -138,7 +138,7 @@ class Tx_Sjevents_Domain_Model_PersonTest extends Tx_Extbase_Tests_Unit_BaseTest
 	/**
 	 * @test
 	 */
-	public function getReservationsReturnsInitialValueForObjectStorageContainingTx_Sjevents_Domain_Model_Reservation() { 
+	public function getReservationsReturnsInitialValueForObjectStorageContainingTx_Nboevents_Domain_Model_Reservation() { 
 		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
 		$this->assertEquals(
 			$newObjectStorage,
@@ -149,8 +149,8 @@ class Tx_Sjevents_Domain_Model_PersonTest extends Tx_Extbase_Tests_Unit_BaseTest
 	/**
 	 * @test
 	 */
-	public function setReservationsForObjectStorageContainingTx_Sjevents_Domain_Model_ReservationSetsReservations() { 
-		$reservation = new Tx_Sjevents_Domain_Model_Reservation();
+	public function setReservationsForObjectStorageContainingTx_Nboevents_Domain_Model_ReservationSetsReservations() { 
+		$reservation = new Tx_Nboevents_Domain_Model_Reservation();
 		$objectStorageHoldingExactlyOneReservations = new Tx_Extbase_Persistence_ObjectStorage();
 		$objectStorageHoldingExactlyOneReservations->attach($reservation);
 		$this->fixture->setReservations($objectStorageHoldingExactlyOneReservations);
@@ -165,7 +165,7 @@ class Tx_Sjevents_Domain_Model_PersonTest extends Tx_Extbase_Tests_Unit_BaseTest
 	 * @test
 	 */
 	public function addReservationToObjectStorageHoldingReservations() {
-		$reservation = new Tx_Sjevents_Domain_Model_Reservation();
+		$reservation = new Tx_Nboevents_Domain_Model_Reservation();
 		$objectStorageHoldingExactlyOneReservation = new Tx_Extbase_Persistence_ObjectStorage();
 		$objectStorageHoldingExactlyOneReservation->attach($reservation);
 		$this->fixture->addReservation($reservation);
@@ -180,7 +180,7 @@ class Tx_Sjevents_Domain_Model_PersonTest extends Tx_Extbase_Tests_Unit_BaseTest
 	 * @test
 	 */
 	public function removeReservationFromObjectStorageHoldingReservations() {
-		$reservation = new Tx_Sjevents_Domain_Model_Reservation();
+		$reservation = new Tx_Nboevents_Domain_Model_Reservation();
 		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
 		$localObjectStorage->attach($reservation);
 		$localObjectStorage->detach($reservation);

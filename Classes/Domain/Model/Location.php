@@ -27,11 +27,11 @@
 /**
  *
  *
- * @package sjevents
+ * @package nboevents
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Tx_Sjevents_Domain_Model_Location extends Tx_Extbase_DomainObject_AbstractEntity {
+class Tx_Nboevents_Domain_Model_Location extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
 	 * Title
@@ -66,7 +66,7 @@ class Tx_Sjevents_Domain_Model_Location extends Tx_Extbase_DomainObject_Abstract
 	/**
 	 * Events
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Sjevents_Domain_Model_Event>
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Event>
 	 */
 	protected $events;
 
@@ -186,27 +186,27 @@ class Tx_Sjevents_Domain_Model_Location extends Tx_Extbase_DomainObject_Abstract
 	/**
 	 * Adds a Event
 	 *
-	 * @param Tx_Sjevents_Domain_Model_Event $event
+	 * @param Tx_Nboevents_Domain_Model_Event $event
 	 * @return void
 	 */
-	public function addEvent(Tx_Sjevents_Domain_Model_Event $event) {
+	public function addEvent(Tx_Nboevents_Domain_Model_Event $event) {
 		$this->events->attach($event);
 	}
 
 	/**
 	 * Removes a Event
 	 *
-	 * @param Tx_Sjevents_Domain_Model_Event $eventToRemove The Event to be removed
+	 * @param Tx_Nboevents_Domain_Model_Event $eventToRemove The Event to be removed
 	 * @return void
 	 */
-	public function removeEvent(Tx_Sjevents_Domain_Model_Event $eventToRemove) {
+	public function removeEvent(Tx_Nboevents_Domain_Model_Event $eventToRemove) {
 		$this->events->detach($eventToRemove);
 	}
 
 	/**
 	 * Returns the events
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Sjevents_Domain_Model_Event> $events
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Event> $events
 	 */
 	public function getEvents() {
 		return $this->events;
@@ -215,7 +215,7 @@ class Tx_Sjevents_Domain_Model_Location extends Tx_Extbase_DomainObject_Abstract
 	/**
 	 * Sets the events
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Sjevents_Domain_Model_Event> $events
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Event> $events
 	 * @return void
 	 */
 	public function setEvents(Tx_Extbase_Persistence_ObjectStorage $events) {
