@@ -73,7 +73,7 @@
 			</label>
 		</div>
 	</div>
-	<div class="control-group countGroup" <f:if condition="{newReservation.count} > 1">style="display:block;"</f:if>>
+	<div class="control-group countGroup" <f:if condition="{newReservation.count} < 2">style="display:none;"</f:if>>
 		<label for="count" class="control-label">
 			<f:translate key="tx_nboevents_domain_model_reservation.count" />
 		</label>
