@@ -9,22 +9,22 @@ plugin.tx_nboevents {
 	}
 }
 
-plugin.tx_nboevents._CSS_DEFAULT_STYLE (
-	input.f3-form-error {
-		background-color:#FF9F9F;
-		border: 1px #FF0000 solid;
+page{
+	headerData {
+		94987 = TEXT
+		94987.value = <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
 	}
-
-	.tx-nboevents table {
-		border-collapse:separate;
-		border-spacing:10px;
+	
+	includeCSS {
+		bootstrap20 = 	EXT:nboevents/Resources/Public/css/bootstrap/bootstrap.css
+		slider = 		EXT:nboevents/Resources/Public/css/nivo-slider/nivo-slider.css
+		sliderTheme = 	EXT:nboevents/Resources/Public/css/nivo-slider/default.css
+		nboevents = 	EXT:nboevents/Resources/Public/css/application.css
 	}
-
-	.tx-nboevents table th {
-		font-weight:bold;
+		
+	includeJSFooter {
+		jq171 = 		EXT:nboevents/Resources/Public/js/jquery-1.7.1.min.js
+		nivoslider =	EXT:nboevents/Resources/Public/js/jquery.nivo.slider.pack.js
+		nboevents = 	EXT:nboevents/Resources/Public/js/application.js
 	}
-
-	.tx-nboevents table td {
-		vertical-align:top;
-	}
-)
+}
