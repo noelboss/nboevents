@@ -16,7 +16,7 @@ page{
 	}
 	
 	includeCSS {
-		bootstrap20 = 	EXT:nboevents/Resources/Public/css/bootstrap/bootstrap.css
+		#bootstrap20 = 	EXT:nboevents/Resources/Public/css/bootstrap/bootstrap.css
 		slider = 		EXT:nboevents/Resources/Public/css/nivo-slider/nivo-slider.css
 		sliderTheme = 	EXT:nboevents/Resources/Public/css/nivo-slider/default.css
 		nboevents = 	EXT:nboevents/Resources/Public/css/application.css
