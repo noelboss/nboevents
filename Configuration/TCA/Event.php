@@ -234,6 +234,7 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_nboevents_domain_model_location',
+				'foreign_table_where' => 'AND tx_nboevents_domain_model_location.pid=###CURRENT_PID### AND tx_nboevents_domain_model_location.sys_language_uid IN (-1,0)',
 				'MM' => 'tx_nboevents_event_location_mm',
 				'size' => 10,
 				'autoSizeMax' => 30,
