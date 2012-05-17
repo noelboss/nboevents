@@ -141,7 +141,7 @@ if (TYPO3_MODE == 'BE') {
 	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_person'][0]['fList'] = 'firstname,lastname,email';
 	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_person'][0]['icon'] = TRUE;
 	
-	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_reservation'][0]['fList'] = 'person,event,count';
+	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_reservation'][0]['fList'] = 'person,event,count,notes';
 	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_reservation'][0]['icon'] = TRUE;
 }
 ?>
