@@ -47,7 +47,7 @@ class Tx_Nboevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Pe
 					AND res.starttime<=' . $now . '
 					AND (res.endtime=0 OR res.endtime>' . $now . ')
 					AND res.sys_language_uid IN (0,-1)
-					AND res.pid IN (10) LIMIT 999';
+					LIMIT 999';
 		$query->statement($queryText);
 		$rows = $query->execute();
 
@@ -72,7 +72,7 @@ class Tx_Nboevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Pe
 					AND res.starttime<=' . $now . '
 					AND (res.endtime=0 OR res.endtime>' . $now . ')
 					AND res.sys_language_uid IN (0,-1)
-					AND res.pid IN (10) LIMIT 1';
+					LIMIT 1';
 		$query->statement($queryText);
 		$rows = $query->execute();
 		foreach ($rows as $row) {
@@ -97,7 +97,7 @@ class Tx_Nboevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Pe
 					AND res.starttime<=' . $now . '
 					AND (res.endtime=0 OR res.endtime>' . $now . ')
 					AND res.sys_language_uid IN (0,-1)
-					AND res.pid IN (10) LIMIT 1';
+					LIMIT 1';
 
 		$query->statement($queryText);
 		$rows = $query->execute();
