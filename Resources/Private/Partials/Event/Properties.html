@@ -43,7 +43,7 @@
 		</f:else>
 	</f:if>
 
-	<h1 class="resTitle">{event.title} <small>{event.date -> f:format.date(format:"d.m.Y")}</small></h1>
+	<h1 class="resTitle">{event.title} <small>{event.date -> f:format.date(format:"d.m.Y G:i")}</small></h1>
 	<f:format.raw>
 		<f:format.nl2br>
 			{event.description}
