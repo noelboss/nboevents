@@ -18,7 +18,7 @@
 			</f:if>
 			<h2>
 				<f:link.action action="show" arguments="{event : event}" class="noColor">
-					{event.title} <small>{event.date -> f:format.date(format:"d.m.Y G:i")}</small>
+					{event.title} <small>{event.date -> f:format.date(format:"d.m.Y")} um {event.date -> f:format.date(format:"G:i")}</small>
 				</f:link.action>
 			</h2>
 			<p>
