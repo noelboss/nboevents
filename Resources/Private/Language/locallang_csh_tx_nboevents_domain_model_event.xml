@@ -15,6 +15,7 @@
 			<label index="reservationnotes.description">Notes for Reservations</label>
 			<label index="images.description">Images</label>
 			<label index="reservations.description">Reservations</label>
+			<label index="course.description">Course</label>
 			<label index="locations.description">Locations</label>
 		</languageKey>
 	</data>

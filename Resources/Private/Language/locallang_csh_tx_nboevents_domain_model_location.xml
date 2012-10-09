@@ -11,6 +11,7 @@
 			<label index="description.description">Description</label>
 			<label index="address.description">Address</label>
 			<label index="coordinates.description">coordinates</label>
+			<label index="courses.description">Courses</label>
 			<label index="events.description">Events</label>
 		</languageKey>
 	</data>

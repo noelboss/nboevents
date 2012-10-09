@@ -4,13 +4,13 @@
  *  Copyright notice
  *
  *  (c) 2012 Noel Bossart <n.company@me.com>
- *  			
+ *  
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
  *  free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
+ *  the Free Software Foundation; either version 3 of the License, or
  *  (at your option) any later version.
  *
  *  The GNU General Public License can be found at
@@ -25,36 +25,39 @@
  ***************************************************************/
 
 /**
- * Test case for class Tx_Nboevents_Controller_PersonController.
  *
- * @version $Id$
- * @copyright Copyright belongs to the respective authors
+ *
+ * @package nboevents
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
- * @package TYPO3
- * @subpackage Events
- *
- * @author Noel Bossart <n.company@me.com>
  */
-class Tx_Nboevents_Controller_PersonControllerTest extends Tx_Extbase_Tests_Unit_BaseTestCase {
-	/**
-	 * @var Tx_Nboevents_Domain_Model_Person
-	 */
-	protected $fixture;
-
-	public function setUp() {
-		$this->fixture = new Tx_Nboevents_Domain_Model_Person();
-	}
-
-	public function tearDown() {
-		unset($this->fixture);
-	}
+class Tx_Nboevents_Controller_CategoriesController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
-	 * @test
+	 * categoriesRepository
+	 *
+	 * @var Tx_Nboevents_Domain_Repository_CategoriesRepository
 	 */
-	public function dummyMethod() {
-		$this->markTestIncomplete();
+	protected $categoriesRepository;
+
+	/**
+	 * injectCategoriesRepository
+	 *
+	 * @param Tx_Nboevents_Domain_Repository_CategoriesRepository $categoriesRepository
+	 * @return void
+	 */
+	public function injectCategoriesRepository(Tx_Nboevents_Domain_Repository_CategoriesRepository $categoriesRepository) {
+		$this->categoriesRepository = $categoriesRepository;
+	}
+
+	/**
+	 * action list
+	 *
+	 * @return void
+	 */
+	public function listAction() {
+		$categoriess = $this->categoriesRepository->findAll();
+		$this->view->assign('categoriess', $categoriess);
 	}
 
 }

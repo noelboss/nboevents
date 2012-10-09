@@ -4,7 +4,7 @@
  *  Copyright notice
  *
  *  (c) 2012 Noel Bossart <n.company@me.com>
- *
+ *  
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -31,7 +31,7 @@
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Tx_Nboevents_Domain_Model_Location extends Tx_Extbase_DomainObject_AbstractEntity {
+class Tx_Nboevents_Domain_Model_Categories extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
 	 * Title
@@ -42,32 +42,9 @@ class Tx_Nboevents_Domain_Model_Location extends Tx_Extbase_DomainObject_Abstrac
 	protected $title;
 
 	/**
-	 * Description
-	 *
-	 * @var string
-	 */
-	protected $description;
-
-	/**
-	 * Address
-	 *
-	 * @var string
-	 * @validate NotEmpty
-	 */
-	protected $address;
-
-	/**
-	 * coordinates
-	 *
-	 * @var string
-	 */
-	protected $coordinates;
-
-	/**
 	 * Courses
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Course>
-	 * @lazy
 	 */
 	protected $courses;
 
@@ -115,90 +92,20 @@ class Tx_Nboevents_Domain_Model_Location extends Tx_Extbase_DomainObject_Abstrac
 	}
 
 	/**
-	 * Returns the description
-	 *
-	 * @return string $description
-	 */
-	public function getDescription() {
-		return $this->description;
-	}
-
-	/**
-	 * Sets the description
-	 *
-	 * @param string $description
-	 * @return void
-	 */
-	public function setDescription($description) {
-		$this->description = $description;
-	}
-
-	/**
-	 * Returns the address
-	 *
-	 * @return string $address
-	 */
-	public function getAddress() {
-		//$search = array("\r\n", "\n");
-		//return str_replace($search, ',', $this->address);
-		return $this->address;
-	}
-
-	/**
-	 * Returns the coded address
-	 *
-	 * @return string $address
-	 */
-	public function getCodedAddress() {
-		$search = array("\r\n", "\n");
-		return str_replace($search, ', ', $this->address);
-		//return $this->address;
-	}
-
-	/**
-	 * Sets the address
-	 *
-	 * @param string $address
-	 * @return void
-	 */
-	public function setAddress($address) {
-		$this->address = $address;
-	}
-
-	/**
-	 * Returns the coordinates
-	 *
-	 * @return string $coordinates
-	 */
-	public function getCoordinates() {
-		return $this->coordinates;
-	}
-
-	/**
-	 * Sets the coordinates
-	 *
-	 * @param string $coordinates
-	 * @return void
-	 */
-	public function setCoordinates($coordinates) {
-		$this->coordinates = $coordinates;
-	}
-
-	/**
-	 * Adds a Event
+	 * Adds a Course
 	 *
 	 * @param Tx_Nboevents_Domain_Model_Course $course
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Course> courses
+	 * @return void
 	 */
 	public function addCourse(Tx_Nboevents_Domain_Model_Course $course) {
 		$this->courses->attach($course);
 	}
 
 	/**
-	 * Removes a Event
+	 * Removes a Course
 	 *
 	 * @param Tx_Nboevents_Domain_Model_Course $courseToRemove The Course to be removed
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Course> courses
+	 * @return void
 	 */
 	public function removeCourse(Tx_Nboevents_Domain_Model_Course $courseToRemove) {
 		$this->courses->detach($courseToRemove);
@@ -207,7 +114,7 @@ class Tx_Nboevents_Domain_Model_Location extends Tx_Extbase_DomainObject_Abstrac
 	/**
 	 * Returns the courses
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Course> courses
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Course> $courses
 	 */
 	public function getCourses() {
 		return $this->courses;
@@ -217,7 +124,7 @@ class Tx_Nboevents_Domain_Model_Location extends Tx_Extbase_DomainObject_Abstrac
 	 * Sets the courses
 	 *
 	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Course> $courses
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Course> courses
+	 * @return void
 	 */
 	public function setCourses(Tx_Extbase_Persistence_ObjectStorage $courses) {
 		$this->courses = $courses;
