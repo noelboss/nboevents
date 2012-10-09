@@ -228,43 +228,6 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 				),
 			),
 		),
-		'locations' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event.locations',
-			'config' => array(
-				'type' => 'select',
-				'foreign_table' => 'tx_nboevents_domain_model_location',
-				'foreign_table_where' => 'AND tx_nboevents_domain_model_location.pid=###CURRENT_PID### AND tx_nboevents_domain_model_location.sys_language_uid IN (-1,0)',
-				'MM' => 'tx_nboevents_event_location_mm',
-				'size' => 10,
-				'autoSizeMax' => 30,
-				'maxitems' => 9999,
-				'multiple' => 0,
-				'wizards' => array(
-					'_PADDING' => 1,
-					'_VERTICAL' => 1,
-					'edit' => array(
-						'type' => 'popup',
-						'title' => 'Edit',
-						'script' => 'wizard_edit.php',
-						'icon' => 'edit2.gif',
-						'popup_onlyOpenIfSelected' => 1,
-						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-					),
-					'add' => Array(
-						'type' => 'script',
-						'title' => 'Create new',
-						'icon' => 'add.gif',
-						'params' => array(
-							'table' => 'tx_nboevents_domain_model_location',
-							'pid' => '###CURRENT_PID###',
-							'setValue' => 'prepend'
-						),
-						'script' => 'wizard_add.php',
-					),
-				),
-			),
-		),
 	),
 );
 

@@ -131,13 +131,13 @@ $TCA['tx_nboevents_domain_model_location'] = array(
 				'eval' => 'trim'
 			),
 		),
-		'events' => array(
+		'courses' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_location.events',
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_location.courses',
 			'config' => array(
 				'type' => 'select',
-				'foreign_table' => 'tx_nboevents_domain_model_event',
-				'MM' => 'tx_nboevents_event_location_mm',
+				'foreign_table' => 'tx_nboevents_domain_model_course',
+				'MM' => 'tx_nboevents_course_location_mm',
 				'MM_opposite_field' => 'locations',
 				'size' => 10,
 				'autoSizeMax' => 30,
@@ -159,7 +159,7 @@ $TCA['tx_nboevents_domain_model_location'] = array(
 						'title' => 'Create new',
 						'icon' => 'add.gif',
 						'params' => array(
-							'table' => 'tx_nboevents_domain_model_event',
+							'table' => 'tx_nboevents_domain_model_course',
 							'pid' => '###CURRENT_PID###',
 							'setValue' => 'prepend'
 							),

@@ -34,6 +34,20 @@
 class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
+	 * Reservation Key
+	 *
+	 * @var string
+	 */
+	protected $reservationkey;
+
+	/**
+	 * Reservation Key Notes
+	 *
+	 * @var string
+	 */
+	protected $reservationkeynotes;
+
+	/**
 	 * Title
 	 *
 	 * @var string
@@ -49,9 +63,9 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	protected $description;
 
 	/**
-	 * date
+	 * Date
 	 *
-	 * @var integer
+	 * @var DateTime
 	 */
 	protected $date;
 
@@ -63,32 +77,18 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	protected $maxreservations;
 
 	/**
-	 * Reservations until date
+	 * Reservations possible until
 	 *
-	 * @var integer
+	 * @var DateTime
 	 */
 	protected $reservationdate;
 
 	/**
-	 * Reservation Notes
+	 * Notes for Reservations
 	 *
 	 * @var string
 	 */
 	protected $reservationnotes;
-
-	/**
-	 * Reservation Key
-	 *
-	 * @var string
-	 */
-	protected $reservationkey;
-		
-	/**
-	 * Reservation Key Notes
-	 *
-	 * @var string
-	 */
-	protected $reservationkeynotes;
 
 	/**
 	 * Images
@@ -101,15 +101,16 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	 * Reservations
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Reservation>
+	 * @lazy
 	 */
 	protected $reservations;
 
 	/**
-	 * Locations
+	 * Course
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Location>
+	 * @var Tx_Nboevents_Domain_Model_Course
 	 */
-	protected $locations;
+	protected $course;
 
 	/**
 	 * __construct
@@ -133,7 +134,6 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 		 * You may modify the constructor of this class instead
 		 */
 		$this->reservations = new Tx_Extbase_Persistence_ObjectStorage();
-		$this->locations = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
@@ -312,7 +312,7 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	public function setReservationnotes($reservationnotes) {
 		$this->reservationnotes = $reservationnotes;
 	}
-	
+
 	/**
 	 * Returns the Reservation Key
 	 *
@@ -331,7 +331,7 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	public function setReservationkey($reservationkey) {
 		$this->reservationkey = $reservationkey;
 	}
-	
+
 	/**
 	 * Returns the Reservation Key Notes
 	 *
@@ -410,42 +410,22 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	}
 
 	/**
-	 * Adds a Location
+	 * Returns the course
 	 *
-	 * @param Tx_Nboevents_Domain_Model_Location $location
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Location> locations
+	 * @return Tx_Nboevents_Domain_Model_Course $course
 	 */
-	public function addLocation(Tx_Nboevents_Domain_Model_Location $location) {
-		$this->locations->attach($locations);
+	public function getCourse() {
+		return $this->course;
 	}
 
 	/**
-	 * Removes a Location
+	 * Sets the course
 	 *
-	 * @param Tx_Nboevents_Domain_Model_Location $locationToRemove The Location to be removed
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Location> locations
+	 * @param Tx_Nboevents_Domain_Model_Course $course
+	 * @return void
 	 */
-	public function removeLocation(Tx_Nboevents_Domain_Model_Location $locationToRemove) {
-		$this->locations->detach($locationToRemove);
-	}
-
-	/**
-	 * Returns the locations
-	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Location> locations
-	 */
-	public function getLocations() {
-		return $this->locations;
-	}
-
-	/**
-	 * Sets the locations
-	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Location> $locations
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Location> locations
-	 */
-	public function setLocations(Tx_Extbase_Persistence_ObjectStorage $locations) {
-		$this->locations = $locations;
+	public function setCourse(Tx_Nboevents_Domain_Model_Course $course) {
+		$this->course = $course;
 	}
 
 }

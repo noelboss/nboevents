@@ -34,6 +34,14 @@
 class Tx_Nboevents_Domain_Model_Course extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
+	 * Price
+	 *
+	 * @var string
+	 * @validate NotEmpty
+	 */
+	protected $price;
+
+	/**
 	 * Title
 	 *
 	 * @var string
@@ -70,14 +78,6 @@ class Tx_Nboevents_Domain_Model_Course extends Tx_Extbase_DomainObject_AbstractE
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Categories>
 	 */
 	protected $categories;
-
-	/**
-	 * Price
-	 *
-	 * @var string
-	 * @validate NotEmpty
-	 */
-	protected $price;
 
 	/**
 	 * __construct

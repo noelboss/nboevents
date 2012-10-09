@@ -8,9 +8,10 @@
 	<data type="array">
 		<languageKey index="default" type="array">
 			<label index="count.description">Number of reservations</label>
-			<label index="note.description">Notes</label>
+			<label index="notes.description">Notes</label>
 			<label index="person.description">Person</label>
 			<label index="event.description">Event</label>
+			<label index="note.description">Notes</label>
 		</languageKey>
 	</data>
 </T3locallang>

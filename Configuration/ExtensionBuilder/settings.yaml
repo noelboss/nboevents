@@ -5,8 +5,6 @@
 # See http://www.yaml.org/spec/1.2/spec.html
 #
 
----
-
 ###########    Overwrite settings  ###########
 #
 # These settings only apply, if the roundtrip feature of the extension builder
@@ -48,7 +46,11 @@ overwriteSettings:
       Repository: merge
 
   Configuration:
-    TCA: keep
+    TCA:
+      Event.php: keep
+      Location.php: keep
+      Person.php: keep
+      Reservation.php: keep
     TypoScript: keep
 
   Resources:
@@ -57,13 +59,14 @@ overwriteSettings:
       Templates: keep
       Language: merge
       Templates: keep
+    Public: keep
 
   ext_icon.gif: keep
 
 #  ext_localconf.php: merge
-#  ext_tables.php: merge
 
-ext_tables.sql: keep
+ext_tables.php: keep
+ext_tables.sql: merge
 
 ## ext_autoload.php is only needed in special cases ##
 createAutoloadRegistry: false

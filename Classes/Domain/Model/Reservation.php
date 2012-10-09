@@ -34,13 +34,6 @@
 class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
-	 * How many People
-	 *
-	 * @var integer
-	 */
-	protected $count;
-
-	/**
 	 * Notes
 	 *
 	 * @var string
@@ -62,6 +55,30 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 	protected $persons;
 
 	/**
+	 * Number of reservations
+	 *
+	 * @var integer
+	 * @validate NotEmpty
+	 */
+	protected $count;
+
+	/**
+	 * Person
+	 *
+	 * @var Tx_Nboevents_Domain_Model_Person
+	 * @lazy
+	 */
+	protected $person;
+
+	/**
+	 * Event
+	 *
+	 * @var Tx_Nboevents_Domain_Model_Event
+	 * @lazy
+	 */
+	protected $event;
+
+	/**
 	 * __construct
 	 *
 	 * @return void
@@ -77,13 +94,13 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 	 * @return void
 	 */
 	protected function initStorageObjects() {
-		/**
-		 * Do not modify this method!
-		 * It will be rewritten on each save in the extension builder
-		 * You may modify the constructor of this class instead
-		 */
-		$this->events = new Tx_Extbase_Persistence_ObjectStorage();
-		$this->persons = new Tx_Extbase_Persistence_ObjectStorage();
+        /**
+         * Do not modify this method!
+         * It will be rewritten on each save in the extension builder
+         * You may modify the constructor of this class instead
+         */
+        $this->events = new Tx_Extbase_Persistence_ObjectStorage();
+        $this->persons = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
@@ -97,7 +114,6 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 		}
 		return $this->count;
 	}
-
 
 	/**
 	 * Sets the count

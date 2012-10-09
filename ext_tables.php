@@ -1,24 +1,76 @@
 <?php
-
 if (!defined('TYPO3_MODE')) {
-	die('Access denied.');
+	die ('Access denied.');
 }
 
 Tx_Extbase_Utility_Extension::registerPlugin(
-		$_EXTKEY, 'Events', 'Events'
+	$_EXTKEY,
+	'Events',
+	'Events'
 );
 
 t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Events');
+
+t3lib_extMgm::addLLrefForTCAdescr('tx_nboevents_domain_model_course', 'EXT:nboevents/Resources/Private/Language/locallang_csh_tx_nboevents_domain_model_course.xml');
+t3lib_extMgm::allowTableOnStandardPages('tx_nboevents_domain_model_course');
+$TCA['tx_nboevents_domain_model_course'] = array(
+	'ctrl' => array(
+		'title'	=> 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_course',
+		'label' => 'title',
+		'tstamp' => 'tstamp',
+		'crdate' => 'crdate',
+		'cruser_id' => 'cruser_id',
+		'dividers2tabs' => TRUE,
+		'versioningWS' => 2,
+		'versioning_followPages' => TRUE,
+		'origUid' => 't3_origuid',
+		'languageField' => 'sys_language_uid',
+		'transOrigPointerField' => 'l10n_parent',
+		'transOrigDiffSourceField' => 'l10n_diffsource',
+		'delete' => 'deleted',
+		'enablecolumns' => array(
+			'disabled' => 'hidden',
+			'starttime' => 'starttime',
+			'endtime' => 'endtime',
+		),
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Course.php',
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_nboevents_domain_model_course.gif'
+	),
+);
+
+t3lib_extMgm::addLLrefForTCAdescr('tx_nboevents_domain_model_categories', 'EXT:nboevents/Resources/Private/Language/locallang_csh_tx_nboevents_domain_model_categories.xml');
+t3lib_extMgm::allowTableOnStandardPages('tx_nboevents_domain_model_categories');
+$TCA['tx_nboevents_domain_model_categories'] = array(
+	'ctrl' => array(
+		'title'	=> 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_categories',
+		'label' => 'title',
+		'tstamp' => 'tstamp',
+		'crdate' => 'crdate',
+		'cruser_id' => 'cruser_id',
+		'dividers2tabs' => TRUE,
+		'versioningWS' => 2,
+		'versioning_followPages' => TRUE,
+		'origUid' => 't3_origuid',
+		'languageField' => 'sys_language_uid',
+		'transOrigPointerField' => 'l10n_parent',
+		'transOrigDiffSourceField' => 'l10n_diffsource',
+		'delete' => 'deleted',
+		'enablecolumns' => array(
+			'disabled' => 'hidden',
+			'starttime' => 'starttime',
+			'endtime' => 'endtime',
+		),
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Categories.php',
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_nboevents_domain_model_categories.gif'
+	),
+);
 
 t3lib_extMgm::addLLrefForTCAdescr('tx_nboevents_domain_model_event', 'EXT:nboevents/Resources/Private/Language/locallang_csh_tx_nboevents_domain_model_event.xml');
 t3lib_extMgm::allowTableOnStandardPages('tx_nboevents_domain_model_event');
 $TCA['tx_nboevents_domain_model_event'] = array(
 	'ctrl' => array(
-		'title' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event',
+		'title'	=> 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event',
 		'label' => 'title',
-		'label_alt' => 'date',
-		'label_alt_force' => TRUE,
-		'thumbnail' => 'images',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
@@ -44,9 +96,8 @@ t3lib_extMgm::addLLrefForTCAdescr('tx_nboevents_domain_model_person', 'EXT:nboev
 t3lib_extMgm::allowTableOnStandardPages('tx_nboevents_domain_model_person');
 $TCA['tx_nboevents_domain_model_person'] = array(
 	'ctrl' => array(
-		'title' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_person',
-		'label'     => 'firstname',
-		'label_userFunc' => 'EXT:nboevents/Classes/Domain/Model/Person.php:Tx_Nboevents_Domain_Model_Person->getLabel',
+		'title'	=> 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_person',
+		'label' => 'lastname',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
@@ -58,11 +109,11 @@ $TCA['tx_nboevents_domain_model_person'] = array(
 		'transOrigPointerField' => 'l10n_parent',
 		'transOrigDiffSourceField' => 'l10n_diffsource',
 		'delete' => 'deleted',
-		/*'enablecolumns' => array(
+		'enablecolumns' => array(
 			'disabled' => 'hidden',
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
-		),*/
+		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Person.php',
 		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_nboevents_domain_model_person.gif'
 	),
@@ -72,12 +123,10 @@ t3lib_extMgm::addLLrefForTCAdescr('tx_nboevents_domain_model_location', 'EXT:nbo
 t3lib_extMgm::allowTableOnStandardPages('tx_nboevents_domain_model_location');
 $TCA['tx_nboevents_domain_model_location'] = array(
 	'ctrl' => array(
-		'title' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_location',
+		'title'	=> 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_location',
 		'label' => 'title',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
-		'label_alt' => 'title,address',
-		'label_alt_force' => TRUE,
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
 		'versioningWS' => 2,
@@ -101,11 +150,8 @@ t3lib_extMgm::addLLrefForTCAdescr('tx_nboevents_domain_model_reservation', 'EXT:
 t3lib_extMgm::allowTableOnStandardPages('tx_nboevents_domain_model_reservation');
 $TCA['tx_nboevents_domain_model_reservation'] = array(
 	'ctrl' => array(
-		'title' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation',
-
-		'label' => 'Reservation',
-		'label_userFunc' => 'EXT:nboevents/Classes/Domain/Model/Reservation.php:Tx_Nboevents_Domain_Model_Reservation->getLabel',
-
+		'title'	=> 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation',
+		'label' => 'count',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
@@ -117,31 +163,68 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 		'transOrigPointerField' => 'l10n_parent',
 		'transOrigDiffSourceField' => 'l10n_diffsource',
 		'delete' => 'deleted',
-		/*'enablecolumns' => array(
+		'enablecolumns' => array(
 			'disabled' => 'hidden',
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
-		),*/
+		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Reservation.php',
 		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_nboevents_domain_model_reservation.gif'
 	),
 );
 
-if (TYPO3_MODE == 'BE') {  
-	// Add Wizard Icon
-	$TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['Tx_Nboevents_Utilities_PluginWizard'] = t3lib_extMgm::extPath($_EXTKEY).'Classes/Utility/Backend/PluginWizard.php';
+t3lib_extMgm::addLLrefForTCAdescr('tx_nboevents_domain_model_course', 'EXT:nboevents/Resources/Private/Language/locallang_csh_tx_nboevents_domain_model_course.xml');
+t3lib_extMgm::allowTableOnStandardPages('tx_nboevents_domain_model_course');
+$TCA['tx_nboevents_domain_model_course'] = array(
+	'ctrl' => array(
+		'title'	=> 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_course',
+		'label' => 'title',
+		'tstamp' => 'tstamp',
+		'crdate' => 'crdate',
+		'cruser_id' => 'cruser_id',
+		'dividers2tabs' => TRUE,
+		'versioningWS' => 2,
+		'versioning_followPages' => TRUE,
+		'origUid' => 't3_origuid',
+		'languageField' => 'sys_language_uid',
+		'transOrigPointerField' => 'l10n_parent',
+		'transOrigDiffSourceField' => 'l10n_diffsource',
+		'delete' => 'deleted',
+		'enablecolumns' => array(
+			'disabled' => 'hidden',
+			'starttime' => 'starttime',
+			'endtime' => 'endtime',
+		),
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Course.php',
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_nboevents_domain_model_course.gif'
+	),
+);
 
-	// Add tables on Pages:
-	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_event'][0]['fList'] = 'title,date,images';
-	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_event'][0]['icon'] = TRUE;
-	
-	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_location'][0]['fList'] = 'title,address';
-	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_location'][0]['icon'] = TRUE;
-		
-	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_person'][0]['fList'] = 'firstname,lastname,email';
-	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_person'][0]['icon'] = TRUE;
-	
-	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_reservation'][0]['fList'] = 'person,event,count,notes';
-	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_reservation'][0]['icon'] = TRUE;
-}
+t3lib_extMgm::addLLrefForTCAdescr('tx_nboevents_domain_model_categories', 'EXT:nboevents/Resources/Private/Language/locallang_csh_tx_nboevents_domain_model_categories.xml');
+t3lib_extMgm::allowTableOnStandardPages('tx_nboevents_domain_model_categories');
+$TCA['tx_nboevents_domain_model_categories'] = array(
+	'ctrl' => array(
+		'title'	=> 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_categories',
+		'label' => 'title',
+		'tstamp' => 'tstamp',
+		'crdate' => 'crdate',
+		'cruser_id' => 'cruser_id',
+		'dividers2tabs' => TRUE,
+		'versioningWS' => 2,
+		'versioning_followPages' => TRUE,
+		'origUid' => 't3_origuid',
+		'languageField' => 'sys_language_uid',
+		'transOrigPointerField' => 'l10n_parent',
+		'transOrigDiffSourceField' => 'l10n_diffsource',
+		'delete' => 'deleted',
+		'enablecolumns' => array(
+			'disabled' => 'hidden',
+			'starttime' => 'starttime',
+			'endtime' => 'endtime',
+		),
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Categories.php',
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_nboevents_domain_model_categories.gif'
+	),
+);
+
 ?>
