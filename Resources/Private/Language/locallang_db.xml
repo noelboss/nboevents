@@ -7,7 +7,7 @@
 	<data type="array">
 		<languageKey index="default" type="array">
 			<label index="tx_nboevents_domain_model_event">Event</label>
-			<label index="tx_nboevents_domain_model_event.title">Title</label>
+			<label index="tx_nboevents_domain_model_event.title">Kurs Nr.</label>
 			<label index="tx_nboevents_domain_model_event.description">Description</label>
 			<label index="tx_nboevents_domain_model_event.date">Date</label>
 			<label index="tx_nboevents_domain_model_event.maxreservations">Maximum Reservations (empty reservations closed)</label>

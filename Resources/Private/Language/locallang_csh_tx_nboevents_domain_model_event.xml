@@ -7,7 +7,7 @@
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
-			<label index="title.description">Title</label>
+			<label index="title.description">Kurs Nr.</label>
 			<label index="description.description">Description</label>
 			<label index="date.description">Date</label>
 			<label index="maxreservations.description">Maximum Reservations</label>

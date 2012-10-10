@@ -7,12 +7,12 @@ if (!defined('TYPO3_MODE')) {
 $TCA['tx_nboevents_domain_model_event'] = array(
 	'ctrl' => $TCA['tx_nboevents_domain_model_event']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, description, date, maxreservations, reservationsleft, reservationdate, reservationnotes, reservationkey, reservationkeynotes, images, reservations, locations',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, description, date, course, maxreservations, reservationsleft, reservationdate, reservationnotes, reservationkey, reservationkeynotes, images, reservations',
 	),
 	'types' => array(
 		'1' => array('showitem' => '
 		--div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event,
-			title, description, date, images, locations,
+			title, description, date, images, course,
 		--div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.settings,
 				maxreservations;;1;;, reservationdate;;2;;, reservationkey;;3;;,
 		--div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation,
@@ -207,6 +207,42 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 				'show_thumbs' => 1,
 				'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
 				'disallowed' => '',
+			),
+		),
+		'course' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event.course',
+			'config' => array(
+				'type' => 'select',
+				'foreign_table' => 'tx_nboevents_domain_model_course',
+				//'MM' => 'tx_nboevents_course_categories_mm',
+				'size' => 1,
+				'autoSizeMax' => 1,
+				'maxitems' => 1,
+				'multiple' => 0,
+				'wizards' => array(
+					'_PADDING' => 1,
+					'_VERTICAL' => 1,
+					'edit' => array(
+						'type' => 'popup',
+						'title' => 'Edit',
+						'script' => 'wizard_edit.php',
+						'icon' => 'edit2.gif',
+						'popup_onlyOpenIfSelected' => 1,
+						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+						),
+					'add' => Array(
+						'type' => 'script',
+						'title' => 'Create new',
+						'icon' => 'add.gif',
+						'params' => array(
+							'table' => 'tx_nboevents_domain_model_categories',
+							'pid' => '###CURRENT_PID###',
+							'setValue' => 'prepend'
+							),
+						'script' => 'wizard_add.php',
+					),
+				),
 			),
 		),
 		'reservations' => array(

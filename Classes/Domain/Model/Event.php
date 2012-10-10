@@ -79,7 +79,7 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	/**
 	 * Reservations possible until
 	 *
-	 * @var DateTime
+	 * @var integer
 	 */
 	protected $reservationdate;
 

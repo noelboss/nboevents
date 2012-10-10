@@ -8,7 +8,7 @@
 				<f:render partial="Reservation/FormFields" arguments="{event:event, newPerson: newPerson, newReservation: newReservation, e: e}"/>
 
 				<div class="btn-group">
-					<f:link.action action="show" controller="Event" arguments="{event:event}" class="btn  btn-large">
+					<f:link.action action="show" controller="Course" arguments="{course : event.course}" class="btn  btn-large">
 						<i class="icon-arrow-left"></i> Abbrechen
 					</f:link.action>
 					<button class="btn btn-success btn-large" type="submit">
@@ -18,7 +18,7 @@
 			</f:form>
 		</div>
 		<div class="span5">
-			<h1 class="resTitle">{event.title} <small>{event.date -> f:format.date(format:"d.m.Y")}</small></h1>
+			<h1 class="resTitle">{event.course.title}  <small>{event.date -> f:format.date(format:"d.m.Y")} um {event.date -> f:format.date(format:"G:i")} ({event.title})</small></h1>
 			<f:format.raw>
 				<f:format.nl2br>
 					{event.description}

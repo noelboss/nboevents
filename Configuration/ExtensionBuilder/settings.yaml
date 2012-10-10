@@ -37,36 +37,47 @@
 
 emConf:
   dependencies: cms,extbase,fluid
+#
+#overwriteSettings:
+#  Classes:
+#    Controller: keep
+#    Domain:
+#      Model: merge
+#      Repository: merge
+#
+#  Configuration:
+#    TCA:
+#      Event.php: keep
+#      Location.php: keep
+#      Person.php: keep
+#      Reservation.php: keep
+#    TypoScript: keep
+#
+#  Resources:
+#    Private:
+#      Partials: keep
+#      Templates: keep
+#      Language: merge
+#      Templates: keep
+#    Public: keep
+#
+#  ext_icon.gif: keep
+#
+##  ext_localconf.php: merge
+#
+#ext_tables.php: keep
+#ext_tables.sql: merge
 
 overwriteSettings:
-  Classes:
-    Controller: keep
-    Domain:
-      Model: merge
-      Repository: merge
-
-  Configuration:
-    TCA:
-      Event.php: keep
-      Location.php: keep
-      Person.php: keep
-      Reservation.php: keep
-    TypoScript: keep
-
-  Resources:
-    Private:
-      Partials: keep
-      Templates: keep
-      Language: merge
-      Templates: keep
-    Public: keep
-
+  Classes: keep
+  Configuration: keep
+  Resources: keep
   ext_icon.gif: keep
 
 #  ext_localconf.php: merge
 
 ext_tables.php: keep
-ext_tables.sql: merge
+ext_tables.sql: keep
 
 ## ext_autoload.php is only needed in special cases ##
 createAutoloadRegistry: false

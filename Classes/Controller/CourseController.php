@@ -60,5 +60,16 @@ class Tx_Nboevents_Controller_CourseController extends Tx_Extbase_MVC_Controller
 		$this->view->assign('courses', $courses);
 	}
 
+
+	/**
+	 * action show
+	 *
+	 * @param $course
+	 * @return void
+	 */
+	public function showAction(Tx_Nboevents_Domain_Model_Course $course) {
+		$this->view->assign('course', $course);
+	}
+
 }
 ?>
