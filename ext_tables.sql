@@ -8,7 +8,7 @@ CREATE TABLE tx_nboevents_domain_model_event (
 
 	course int(11) unsigned DEFAULT '0' NOT NULL,
 
-	title varchar(255) DEFAULT '' NOT NULL,
+	eventnr varchar(255) DEFAULT '' NOT NULL,
 	description text NOT NULL,
 	date int(11) DEFAULT '0' NOT NULL,
 	maxreservations int(11) DEFAULT '0' NOT NULL,
@@ -16,7 +16,6 @@ CREATE TABLE tx_nboevents_domain_model_event (
 	reservationnotes text NOT NULL,
 	reservationkey varchar(255) DEFAULT '' NOT NULL,
 	reservationkeynotes text NOT NULL,
-	images text NOT NULL,
 	reservations int(11) unsigned DEFAULT '0' NOT NULL,
 	course int(11) unsigned DEFAULT '0',
 
@@ -195,6 +194,7 @@ CREATE TABLE tx_nboevents_domain_model_course (
 	title varchar(255) DEFAULT '' NOT NULL,
 	description text NOT NULL,
 	price varchar(255) DEFAULT '' NOT NULL,
+	images text NOT NULL,
 	events int(11) unsigned DEFAULT '0' NOT NULL,
 	locations int(11) unsigned DEFAULT '0',
 	categories int(11) unsigned DEFAULT '0' NOT NULL,

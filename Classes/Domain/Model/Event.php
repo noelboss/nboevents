@@ -91,13 +91,6 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	protected $reservationnotes;
 
 	/**
-	 * Images
-	 *
-	 * @var string
-	 */
-	protected $images;
-
-	/**
 	 * Reservations
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Reservation>
@@ -349,25 +342,6 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	 */
 	public function setReservationkeynotes($reservationkeynotes) {
 		$this->reservationkeynotes = $reservationkeynotes;
-	}
-
-	/**
-	 * Returns the images
-	 *
-	 * @return string $images
-	 */
-	public function getImages() {
-		return explode(',', $this->images);
-	}
-
-	/**
-	 * Sets the images
-	 *
-	 * @param string $images
-	 * @return void
-	 */
-	public function setImages($images) {
-		$this->images = $images;
 	}
 
 	/**

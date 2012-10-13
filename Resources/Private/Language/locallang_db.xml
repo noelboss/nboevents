@@ -13,7 +13,6 @@
 			<label index="tx_nboevents_domain_model_event.maxreservations">Maximum Reservations (empty reservations closed)</label>
 			<label index="tx_nboevents_domain_model_event.reservationdate">Reservations until date</label>
 			<label index="tx_nboevents_domain_model_event.reservationnotes">Notes</label>
-			<label index="tx_nboevents_domain_model_event.images">Images</label>
 			<label index="tx_nboevents_domain_model_event.reservations">Reservations</label>
 			<label index="tx_nboevents_domain_model_event.course">Course</label>
 			<label index="tx_nboevents_domain_model_person">Person</label>
@@ -38,6 +37,7 @@
 			<label index="tx_nboevents_domain_model_course.title">Title</label>
 			<label index="tx_nboevents_domain_model_course.description">Description</label>
 			<label index="tx_nboevents_domain_model_course.price">Price</label>
+			<label index="tx_nboevents_domain_model_course.images">Images</label>
 			<label index="tx_nboevents_domain_model_course.events">Events</label>
 			<label index="tx_nboevents_domain_model_course.locations">Locations</label>
 			<label index="tx_nboevents_domain_model_course.categories">Categories</label>

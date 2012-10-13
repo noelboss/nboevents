@@ -78,6 +78,14 @@ class Tx_Nboevents_Domain_Model_Course extends Tx_Extbase_DomainObject_AbstractE
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Categories>
 	 */
 	protected $categories;
+	
+
+	/**
+	 * Images
+	 *
+	 * @var string
+	 */
+	protected $images;
 
 	/**
 	 * __construct
@@ -257,6 +265,26 @@ class Tx_Nboevents_Domain_Model_Course extends Tx_Extbase_DomainObject_AbstractE
 	 */
 	public function setPrice($price) {
 		$this->price = $price;
+	}
+
+
+	/**
+	 * Returns the images
+	 *
+	 * @return string $images
+	 */
+	public function getImages() {
+		return explode(',', $this->images);
+	}
+
+	/**
+	 * Sets the images
+	 *
+	 * @param string $images
+	 * @return void
+	 */
+	public function setImages($images) {
+		$this->images = $images;
 	}
 
 }
