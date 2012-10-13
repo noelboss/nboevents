@@ -7,12 +7,12 @@ if (!defined('TYPO3_MODE')) {
 $TCA['tx_nboevents_domain_model_event'] = array(
 	'ctrl' => $TCA['tx_nboevents_domain_model_event']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, description, date, course, maxreservations, reservationsleft, reservationdate, reservationnotes, reservationkey, reservationkeynotes, reservations',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, eventnr, description, date, course, maxreservations, reservationsleft, reservationdate, reservationnotes, reservationkey, reservationkeynotes, reservations',
 	),
 	'types' => array(
 		'1' => array('showitem' => '
 		--div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event,
-			title, description, date,course,
+			eventnr, description, date,course,
 		--div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.settings,
 				maxreservations;;1;;, reservationdate;;2;;, reservationkey;;3;;,
 		--div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation,
@@ -103,9 +103,9 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 				),
 			),
 		),
-		'title' => array(
+		'eventnr' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event.title',
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event.eventnr',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,

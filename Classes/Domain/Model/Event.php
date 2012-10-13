@@ -48,12 +48,12 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	protected $reservationkeynotes;
 
 	/**
-	 * Title
+	 * Eventnr
 	 *
 	 * @var string
 	 * @validate NotEmpty
 	 */
-	protected $title;
+	protected $eventnr;
 
 	/**
 	 * Description
@@ -130,22 +130,22 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	}
 
 	/**
-	 * Returns the title
+	 * Returns the eventnr
 	 *
-	 * @return string $title
+	 * @return string $eventnr
 	 */
-	public function getTitle() {
-		return $this->title;
+	public function getEventnr() {
+		return $this->eventnr;
 	}
 
 	/**
-	 * Sets the title
+	 * Sets the eventnr
 	 *
-	 * @param string $title
+	 * @param string $eventnr
 	 * @return void
 	 */
-	public function setTitle($title) {
-		$this->title = $title;
+	public function setEventnr($eventnr) {
+		$this->eventnr = $eventnr;
 	}
 
 	/**
