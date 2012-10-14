@@ -19,39 +19,6 @@
 				</div>
 			</f:form>
 		</div>
-		<div class="span5">
-			<legend>Kurs Details:</legend>
-			<p>
-				<strong>Kurs:</strong> {event.eventnr}<br />
-				<strong>Datum:</strong> {event.date -> f:format.date(format:"d.m.Y")}<br />
-				<strong>Uhrzeit:</strong> {event.date -> f:format.date(format:"G:i")}
-			</p>
-			<f:if condition="{event.course.images.0}">
-			<div class="slider-wrapper theme-default">
-				<div class="ribbon"></div>
-				<div id="slider" class="nivoSlider">
-					<f:for each="{event.course.images}" as="image" key="number">
-						<f:if condition="{image}">
-							<f:image src="uploads/tx_nboevents/{image}" alt="{event.course.title}" width="380c" height="300c" />
-						</f:if>
-					</f:for>
-				</div>
-			</div>
-			</f:if>
-			<f:if condition="{f:count(subject:'{event.course.locations}')} > 0">
-				<hr/>
-				<f:for each="{event.course.locations}" as="location" key="number">
-					<div class="section row-fluid">
-						<div class="gmap well" style="width: 325px; height: 185px;" title="{location.title}" data-address="{location.codedAddress}" data-zoom="8">
-							<h4>{location.title}</h4>
-							<f:format.nl2br>{location.address}</f:format.nl2br>
-						</div>
-						<f:link.action action="show" controller="Location" arguments="{location : location, course: course}">
-							Mehr Informationen zum Ort <i class="icon-arrow-right"></i>
-						</f:link.action>
-					</div>
-				</f:for>
-			</f:if>
-		</div>
+		<f:render partial="Reservation/Info" arguments="{event:event}"/>
 	</div>
 </f:section>
