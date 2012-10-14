@@ -76,7 +76,7 @@ class Tx_Nboevents_Controller_EventController extends Tx_Extbase_MVC_Controller_
 	 * @param $newEvent
 	 * @dontvalidate $newEvent
 	 * @return void
-	 */
+	 *
 	public function newAction(Tx_Nboevents_Domain_Model_Event $newEvent = NULL) {
 		$this->view->assign('newEvent', $newEvent);
 	}
@@ -86,7 +86,7 @@ class Tx_Nboevents_Controller_EventController extends Tx_Extbase_MVC_Controller_
 	 *
 	 * @param $newEvent
 	 * @return void
-	 */
+	 *
 	public function createAction(Tx_Nboevents_Domain_Model_Event $newEvent) {
 		$newEvent->setImages($this->addImage('newEvent'));
 		$this->eventRepository->add($newEvent);
@@ -99,7 +99,7 @@ class Tx_Nboevents_Controller_EventController extends Tx_Extbase_MVC_Controller_
 	 *
 	 * @param $event
 	 * @return void
-	 */
+	 *
 	public function editAction(Tx_Nboevents_Domain_Model_Event $event) {
 		$this->view->assign('event', $event);
 	}
@@ -109,7 +109,7 @@ class Tx_Nboevents_Controller_EventController extends Tx_Extbase_MVC_Controller_
 	 *
 	 * @param $event
 	 * @return void
-	 */
+	 *
 	public function updateAction(Tx_Nboevents_Domain_Model_Event $event) {
 		$event->setImages($this->addImage());
 		$this->eventRepository->update($event);
@@ -122,7 +122,7 @@ class Tx_Nboevents_Controller_EventController extends Tx_Extbase_MVC_Controller_
 	 *
 	 * @param $event
 	 * @return void
-	 */
+	 *
 	public function deleteAction(Tx_Nboevents_Domain_Model_Event $event) {
 		$this->eventRepository->remove($event);
 		$this->flashMessageContainer->add('Your Event was removed.');

@@ -1,33 +1,55 @@
 <f:layout name="Default" />
 
 <f:section name="main">
+	<h1 class="resTitle">Anmeldung für {event.course.title}</h1>
+	<br />
 	<f:render partial="FormErrors" />
 	<div class="row">
 		<div class="span7">
-			<f:form method="post" action="update"  enctype="multipart/form-data"  name="newReservation" object="{newReservation}" arguments="{event: event, newPerson: newPerson}" class="form-horizontal well">
-				<f:render partial="Reservation/FormFields" arguments="{newReservation: newReservation,event:event, newPerson: newPerson, e: e}"/>
+			<f:form method="post" action="update"  enctype="multipart/form-data"  name="newReservation" object="{newReservation}" arguments="{event: event, newPerson: newPerson}" class="form-horizontal">
+				<f:render partial="Reservation/FormFields" arguments="{event:event, newPerson: newPerson, newReservation: newReservation, e: e}"/>
 
 				<div class="btn-group">
-					<f:link.action action="show" controller="Event" arguments="{event:event}" class="btn  btn-large">
+					<f:link.action action="show" controller="Course" arguments="{course : event.course}" class="btn  btn-large">
 						<i class="icon-arrow-left"></i> Abbrechen
 					</f:link.action>
 					<button class="btn btn-success btn-large" type="submit">
-						Anmeldung anpassen <i class="icon-ok icon-white"></i>
+						Anmelden <i class="icon-ok icon-white"></i>
 					</button>
 				</div>
 			</f:form>
 		</div>
 		<div class="span5">
-			<h1 class="resTitle">{event.title} <small>{event.date -> f:format.date(format:"d.m.Y")}</small></h1>
-			<f:format.raw>
-				<f:format.nl2br>
-					{event.description}
-				</f:format.nl2br>
-			</f:format.raw>
-			<f:if condition="{f:count(subject:'{event.locations}')} > 0">
+			<legend>Kurs Details:</legend>
+			<p>
+				<strong>Kurs:</strong> {event.eventnr}<br />
+				<strong>Datum:</strong> {event.date -> f:format.date(format:"d.m.Y")}<br />
+				<strong>Uhrzeit:</strong> {event.date -> f:format.date(format:"G:i")}
+			</p>
+			<f:if condition="{event.course.images.0}">
+			<div class="slider-wrapper theme-default">
+				<div class="ribbon"></div>
+				<div id="slider" class="nivoSlider">
+					<f:for each="{event.course.images}" as="image" key="number">
+						<f:if condition="{image}">
+							<f:image src="uploads/tx_nboevents/{image}" alt="{event.course.title}" width="380c" height="300c" />
+						</f:if>
+					</f:for>
+				</div>
+			</div>
+			</f:if>
+			<f:if condition="{f:count(subject:'{event.course.locations}')} > 0">
 				<hr/>
-				<f:for each="{event.locations}" as="location" key="number">
-					<f:render partial="Location/Properties" arguments="{location:location, event:event.uid, noControls: 1}" />
+				<f:for each="{event.course.locations}" as="location" key="number">
+					<div class="section row-fluid">
+						<div class="gmap well" style="width: 325px; height: 185px;" title="{location.title}" data-address="{location.codedAddress}" data-zoom="8">
+							<h4>{location.title}</h4>
+							<f:format.nl2br>{location.address}</f:format.nl2br>
+						</div>
+						<f:link.action action="show" controller="Location" arguments="{location : location, course: course}">
+							Mehr Informationen zum Ort <i class="icon-arrow-right"></i>
+						</f:link.action>
+					</div>
 				</f:for>
 			</f:if>
 		</div>

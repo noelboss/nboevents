@@ -67,8 +67,7 @@ class Tx_Nboevents_Domain_Model_Course extends Tx_Extbase_DomainObject_AbstractE
 	/**
 	 * Locations
 	 *
-	 * @var Tx_Nboevents_Domain_Model_Location
-	 * @lazy
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Location>
 	 */
 	protected $locations;
 
@@ -191,9 +190,29 @@ class Tx_Nboevents_Domain_Model_Course extends Tx_Extbase_DomainObject_AbstractE
 	}
 
 	/**
+	 * Adds a Location
+	 *
+	 * @param Tx_Nboevents_Domain_Model_Location $location
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Location> $locations
+	 */
+	public function addLocation(Tx_Nboevents_Domain_Model_Location $location) {
+		$this->locations->attach($locations);
+	}
+
+	/**
+	 * Removes a Location
+	 *
+	 * @param Tx_Nboevents_Domain_Model_Location $locationToRemove The Location to be removed
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Location> $locations
+	 */
+	public function removeLocation(Tx_Nboevents_Domain_Model_Location $locationToRemove) {
+		$this->locations->detach($locationToRemove);
+	}
+
+	/**
 	 * Returns the locations
 	 *
-	 * @return Tx_Nboevents_Domain_Model_Location $locations
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Location> $locations
 	 */
 	public function getLocations() {
 		return $this->locations;
@@ -202,10 +221,10 @@ class Tx_Nboevents_Domain_Model_Course extends Tx_Extbase_DomainObject_AbstractE
 	/**
 	 * Sets the locations
 	 *
-	 * @param Tx_Nboevents_Domain_Model_Location $locations
-	 * @return void
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Location> $locations
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Location> $locations
 	 */
-	public function setLocations(Tx_Nboevents_Domain_Model_Location $locations) {
+	public function setLocations(Tx_Extbase_Persistence_ObjectStorage $locations) {
 		$this->locations = $locations;
 	}
 

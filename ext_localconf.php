@@ -8,21 +8,19 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	'Events',
 	array(
 		'Course' => 'list,show',
-		'Event' => 'list, show, new, create, edit, update, delete',
-		'Person' => 'list, show, new, create, edit, update, delete',
-		'Location' => 'list, show, new, create, edit, update, delete',
+		'Event' => 'list, show',
+		'Location' => 'list, show,',
 		'Reservation' => 'list, show, new, create, edit, update, delete',
 		'Categories' => 'list',
 	),
 	// non-cacheable actions
 	array(
 		'Course' => 'list,show',
-		'Event' => 'list, show, create, update, delete',
+		'Event' => 'list, show',
 		'Person' => 'create, update, delete',
 		'Location' => 'create, update, delete',
 		'Reservation' => 'create, update, delete',
-		'Categories' => '',
-		
+		'Categories' => 'list',
 	)
 );
 

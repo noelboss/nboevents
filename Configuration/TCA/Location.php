@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_nboevents_domain_model_location'] = array(
 	'ctrl' => $TCA['tx_nboevents_domain_model_location']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, description, address, coordinates, events',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, description, address, coordinates, courses',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'title, description, address, events,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,hidden;;1, starttime, endtime'),
+		'1' => array('showitem' => 'title, description, address, courses,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,hidden;;1, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),

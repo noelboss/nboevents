@@ -74,9 +74,9 @@ class Tx_Nboevents_Controller_LocationController extends Tx_Extbase_MVC_Controll
 	 * @return void
 	 */
 	public function showAction(Tx_Nboevents_Domain_Model_Location $location) {
-		$event = $this->request->hasArgument('event') ? $this->request->getArgument('event') : NULL;
+		$course = $this->request->hasArgument('course') ? $this->request->getArgument('course') : NULL;
 
-		$this->view->assign('event', $event);
+		$this->view->assign('course', $course);
 		$this->view->assign('location', $location);
 	}
 
@@ -86,7 +86,7 @@ class Tx_Nboevents_Controller_LocationController extends Tx_Extbase_MVC_Controll
 	 * @param $newLocation
 	 * @dontvalidate $newLocation
 	 * @return void
-	 */
+	 *
 	public function newAction(Tx_Nboevents_Domain_Model_Location $newLocation = NULL) {
 		$this->view->assign('newLocation', $newLocation);
 	}
@@ -96,7 +96,7 @@ class Tx_Nboevents_Controller_LocationController extends Tx_Extbase_MVC_Controll
 	 *
 	 * @param $newLocation
 	 * @return void
-	 */
+	 *
 	public function createAction(Tx_Nboevents_Domain_Model_Location $newLocation) {
 		$this->locationRepository->add($newLocation);
 		$this->flashMessageContainer->add('Your new Location was created.');
@@ -108,7 +108,7 @@ class Tx_Nboevents_Controller_LocationController extends Tx_Extbase_MVC_Controll
 	 *
 	 * @param $location
 	 * @return void
-	 */
+	 *
 	public function editAction(Tx_Nboevents_Domain_Model_Location $location) {
 		$this->view->assign('location', $location);
 	}
@@ -118,7 +118,7 @@ class Tx_Nboevents_Controller_LocationController extends Tx_Extbase_MVC_Controll
 	 *
 	 * @param $location
 	 * @return void
-	 */
+	 *
 	public function updateAction(Tx_Nboevents_Domain_Model_Location $location) {
 		$this->locationRepository->update($location);
 		$this->flashMessageContainer->add('Your Location was updated.');
@@ -130,7 +130,7 @@ class Tx_Nboevents_Controller_LocationController extends Tx_Extbase_MVC_Controll
 	 *
 	 * @param $location
 	 * @return void
-	 */
+	 *
 	public function deleteAction(Tx_Nboevents_Domain_Model_Location $location) {
 		$this->locationRepository->remove($location);
 		$this->flashMessageContainer->add('Your Location was removed.');

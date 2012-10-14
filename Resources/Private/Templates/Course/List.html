@@ -1,6 +1,11 @@
 <f:layout name="Default" />
 <f:section name="main">
 	<div class="row">
+		<f:for each="{categoriess}" as="categories">
+			<div span="span2">
+				<f:link.action action="show" arguments="{categories : categories}"> {categories.title}</f:link.action>
+			</div>
+		</f:for>
 		<f:for each="{courses}" as="course" iteration="iterationCourse">
 			<f:if condition="{course.images.0}">
 				<f:then>
@@ -25,7 +30,7 @@
 					</h3>
 				</f:if>
 				<f:link.action action="show" arguments="{course : course}" class="btn btn">
-					Kursdaten (<f:count>{course.events}</f:count>) <i class="icon-arrow-right"></i>
+					Details &amp; Kursdaten (<f:count>{course.events}</f:count>) <i class="icon-arrow-right"></i>
 				</f:link.action>
 			</div><!-- div span 4 or 6 -->
 			<f:if condition="{iterationCourse.index} % 2">

@@ -34,7 +34,7 @@
 			<p class="btn-group">
 				<br/>
 			<f:if condition="{event.reservationsPossible} > 0">
-				<f:if condition="{event.hasReservation} > 0">
+				<f:if condition="{f:count(subject:'{event.reservations}')} > 0">
 					<f:then>
 						<f:link.action action="new" controller="Reservation" arguments="{event : event}"  class="btn">
 							<i class="icon-pencil"></i> Anmeldung anpassen

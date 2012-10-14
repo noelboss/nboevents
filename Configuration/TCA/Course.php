@@ -169,16 +169,36 @@ $TCA['tx_nboevents_domain_model_course'] = array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_course.locations',
 			'config' => array(
-				'type' => 'inline',
+				'type' => 'select',
 				'foreign_table' => 'tx_nboevents_domain_model_location',
+				'MM' => 'tx_nboevents_course_location_mm',
+				'size' => 1,
+				'autoSizeMax' => 1,
 				'minitems' => 0,
 				'maxitems' => 1,
-				'appearance' => array(
-					'collapse' => 0,
-					'levelLinksPosition' => 'top',
-					'showSynchronizationLink' => 1,
-					'showPossibleLocalizationRecords' => 1,
-					'showAllLocalizationLink' => 1
+				'multiple' => 0,
+				'wizards' => array(
+					'_PADDING' => 1,
+					'_VERTICAL' => 1,
+					'edit' => array(
+						'type' => 'popup',
+						'title' => 'Edit',
+						'script' => 'wizard_edit.php',
+						'icon' => 'edit2.gif',
+						'popup_onlyOpenIfSelected' => 1,
+						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+						),
+					'add' => Array(
+						'type' => 'script',
+						'title' => 'Create new',
+						'icon' => 'add.gif',
+						'params' => array(
+							'table' => 'tx_nboevents_domain_model_location',
+							'pid' => '###CURRENT_PID###',
+							'setValue' => 'prepend'
+							),
+						'script' => 'wizard_add.php',
+					),
 				),
 			),
 		),
@@ -188,7 +208,7 @@ $TCA['tx_nboevents_domain_model_course'] = array(
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_nboevents_domain_model_categories',
-				'MM' => 'tx_nboevents_course_categories_mm',
+				'MM' => 'tx_nboevents_course_location_mm',
 				'size' => 10,
 				'autoSizeMax' => 30,
 				'maxitems' => 9999,
@@ -209,7 +229,7 @@ $TCA['tx_nboevents_domain_model_course'] = array(
 						'title' => 'Create new',
 						'icon' => 'add.gif',
 						'params' => array(
-							'table' => 'tx_nboevents_domain_model_categories',
+							'table' => 'tx_nboevents_course_location_mm',
 							'pid' => '###CURRENT_PID###',
 							'setValue' => 'prepend'
 							),

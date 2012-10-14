@@ -5,80 +5,103 @@
 	<f:flashMessages class="alert alert-success" renderMode="div"/>
 
 	<div class="row">
-		<f:if condition="{event.images.0}">
-			<f:then>
-				<div class="span5 down section">
-					<div class="slider-wrapper theme-default">
-						<div class="ribbon"></div>
-						<div id="slider" class="nivoSlider">
-							<f:for each="{event.images}" as="image" key="number">
-								<f:if condition="{image}">
-									<f:image src="uploads/tx_nboevents/{image}" alt="{event.title}" width="380c" height="300c" />
-								</f:if>
-							</f:for>
-						</div>
-					</div>
-					<section>
-						<p class="btn-group">
-						<f:link.action action="list"  class="btn">
-							<i class="icon-arrow-left"></i> {event.course.title}
-						</f:link.action>
-						<f:if condition="{event.hasReservation} > 0">
-							<f:then>
-								<f:link.action action="new" controller="Reservation" arguments="{event : event}"  class="btn">
-									Anmelden anpassen <i class="icon-pencil"></i>
-								</f:link.action>
-							</f:then>
-
-							<f:else>
-								<f:if condition="{event.reservationsPossible} > 0">
-									<f:link.action action="new" controller="Reservation" arguments="{event : event}"  class="btn btn-success">
-										Anmelden <i class="icon-user icon-white"></i>
-									</f:link.action>
-								</f:if>
-							</f:else>
-
-						</f:if>
-						</p>
-					</section>
+		<div class="span5">
+			<h2>
+				{event.course.title}
+			</h2>
+			<br/>
+			<div class="section row-fluid">
+				<div class="span11">
+					<f:format.html><f:format.raw>{event.course.description}</f:format.raw></f:format.html>
 				</div>
-				<div class="span7">
-			</f:then>
-			<f:else>
-				<div class="span12">
-			</f:else>
-		</f:if>
-
-		<h1 class="resTitle">{event.course.title} – {event.date -> f:format.date(format:"d.m.Y")} um {event.date -> f:format.date(format:"G:i")}<small>({event.title})</small></h1>
-		<f:format.raw><f:format.nl2br>{event.description}</f:format.nl2br></f:format.raw>
-		<f:if condition="{f:count(subject:'{event.locations}')} > 0">
-			<hr/>
-			<f:for each="{event.locations}" as="location" key="number">
-				<f:render partial="Location/Properties" arguments="{location:location, event:event.uid, noControls: 1}" />
-			</f:for>
-		</f:if>
-		<f:if condition="{event.images.0} < 1">
-			<div class="section">
-				<hr/>
-				<f:link.action action="show" controller="Course" arguments="{course : event.course}" class="btn">
-					<i class="icon-arrow-left"></i> {event.course.title}
-				</f:link.action>
-				<f:if condition="{event.hasReservation} > 0">
-					<f:then>
-						<f:link.action action="new" controller="Reservation" arguments="{event : event}"  class="btn">
-							Anmelden anpassen <i class="icon-pencil"></i>
-						</f:link.action>
-					</f:then>
-					<f:else>
-						<f:if condition="{event.reservationsPossible} > 0">
-							<f:link.action action="new" controller="Reservation" arguments="{event : event}"  class="btn btn-success">
-								Anmelden <i class="icon-user icon-white"></i>
-							</f:link.action>
-						</f:if>
-					</f:else>
-				</f:if>
 			</div>
-		</f:if>
-	</div> <!-- span7 or span12 -->
+		</div>
+	
+		<div class="span7 down section">
+			<f:if condition="{event.course.images.0}">
+			<div class="slider-wrapper theme-default">
+				<div class="ribbon"></div>
+				<div id="slider" class="nivoSlider">
+					<f:for each="{event.course.images}" as="image" key="number">
+						<f:if condition="{image}">
+							<f:image src="uploads/tx_nboevents/{image}" alt="{event.course.title}" width="540c" height="330c" />
+						</f:if>
+					</f:for>
+				</div>
+			</div>
+			</f:if>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span5 section">
+			<f:if condition="{f:count(subject:'{event.course.locations}')} > 0">
+				<h3>Ort:</h3>
+				<div class="section">
+					<f:for each="{event.course.locations}" as="location" key="number">
+						<div class="section row-fluid">
+							<div class="gmap well" style="width: 325px; height: 185px;" title="{location.title}" data-address="{location.codedAddress}" data-zoom="8">
+								<h4>{location.title}</h4>
+								<f:format.nl2br>{location.address}</f:format.nl2br>
+							</div>
+							<f:link.action action="show" controller="Location" arguments="{location : location, course: course}">
+								Mehr Informationen zum Ort <i class="icon-arrow-right"></i>
+							</f:link.action>
+						</div>
+					</f:for>
+				</div>
+			</f:if>
+		</div>
+		<div class="span7">
+			<h3>Kursdaten</h3>
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>Kurs</th>
+						<th>Datum</th>
+						<th>Uhrzeit</th>
+						<th>Anmeldung</th>
+					</tr>
+				</thead>
+				<tbody>
+						<tr>
+							<td>
+								{event.eventnr}
+							</td>
+							<td>
+								{event.date -> f:format.date(format:"d.m.Y")}
+							</td>
+							<td>
+								{event.date -> f:format.date(format:"G:i")}
+							</td>
+							<td>
+								<f:if condition="{f:count(subject:'{event.reservations}')} > 0">
+									<f:then>
+										<f:link.action action="new" controller="Reservation" arguments="{event : event}">
+											anpassen <i class="icon-pencil"></i>
+										</f:link.action>
+										&nbsp; &nbsp;
+										<f:for each="{event.reservations}" as="reservation" iteration="ireservation">
+											<f:link.action action="delete" controller="Reservation"
+												arguments="{reservation: reservation, event:event}">
+												löschen <i class="icon-trash"></i>
+											</f:link.action>
+										</f:for>
+									</f:then>
+									<f:else>
+										<f:if condition="{event.reservationsPossible} > 0">
+											<f:link.action action="new" controller="Reservation" arguments="{event : event}">
+												anmelden <i class="icon-user"></i>
+											</f:link.action>
+										</f:if>
+									</f:else>
+								</f:if>
+							</td>
+						</tr>
+				</tbody>
+			</table>
+			<f:link.action action="show" controller="Course" arguments="{course : event.course}" class="btn btn">
+				<i class="icon-arrow-left"></i> Alle Kurse anzeigen
+			</f:link.action>
+		</div><!-- div span 7 or 12 -->
 	</div>
 </f:section>

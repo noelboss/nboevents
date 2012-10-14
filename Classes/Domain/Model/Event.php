@@ -273,7 +273,7 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	 * Event has Reservation
 	 *
 	 * @return boolean
-	 */
+	 *
 	public function getHasReservation() {
 		$result =  Tx_Nboevents_Utility_Cookies::getCookieValue('Reservation'.$this->getUid());
 		
