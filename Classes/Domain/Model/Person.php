@@ -61,6 +61,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * Phone
 	 *
 	 * @var string
+	 * @validate NotEmpty
 	 */
 	protected $phone;
 
@@ -68,6 +69,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * Address
 	 *
 	 * @var string
+	 * @validate NotEmpty
 	 */
 	protected $address;
 

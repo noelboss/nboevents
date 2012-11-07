@@ -21,7 +21,7 @@
 		<hr/>
 		<f:for each="{event.course.locations}" as="location" key="number">
 			<div class="section row-fluid">
-				<div class="gmap well" style="width: 325px; height: 185px;" title="{location.title}" data-address="{location.codedAddress}" data-zoom="8">
+				<div class="gmap well" style="width: 325px; height: 185px;" title="{location.title}" data-address="{location.address}" data-zoom="8">
 					<h4>{location.title}</h4>
 					<f:format.nl2br>{location.address}</f:format.nl2br>
 				</div>

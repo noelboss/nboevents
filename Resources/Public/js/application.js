@@ -4,28 +4,7 @@
 ;
 (function($){
 	$(document).ready(function(){
-		var $mod = $('.tx-nboevents');
-		
-		if($mod.length < 1){
-			return;
-		}
-		
-		// toggle checkbox
-		$('[data-toggle]',$mod).click(function(e){
-			var $t = $($(this).attr('data-toggle'));
-			if($t.is(':visible')){
-				$t.slideUp(150);
-			}else{
-				$t.slideDown(100).find('input').val('');
-			} 
-		});
-		
-		// focus error on load
-		$('.error input:eq(0)',$mod),$mod.focus();
 
-		// Gallery
-		$('.nivoSlider',$mod).nivoSlider();
-		
 		// google maps
 		$('.gmap',$mod).each(function(){
 			var that = this;
@@ -38,9 +17,10 @@
 			}
 
 			var search = {
-				'address': $t.attr('data-address'),
+				'address': $t.attr('data-address').replace(/\r?\n|\r/g, ", "),
 				region: 'sgg'
 			};
+
 			var address = $t.html();
 			var map = new google.maps.Map(that, myOptions);
 			var gc  = geocoder = new google.maps.Geocoder();
@@ -63,6 +43,30 @@
 					//console.log([results,status]);
 				}
 			});
+		});
+
+		var $mod = $('.tx-nboevents');
+		
+		if($mod.length < 1){
+			return;
+		}
+		
+		// toggle checkbox
+		$('[data-toggle]',$mod).click(function(e){
+			var $t = $($(this).attr('data-toggle'));
+			if($t.is(':visible')){
+				$t.slideUp(150);
+			}else{
+				$t.slideDown(100).find('input').val('');
+			} 
+		});
+		
+		// focus error on load
+		$('.error input:eq(0)',$mod),$mod.focus();
+
+		// Gallery
+		$('.nivoSlider',$mod).nivoSlider({
+			effect: 'fade' // Specify sets like: 'fold,fade,sliceDown'
 		});
 	});
 })(jQuery);

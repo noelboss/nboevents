@@ -1,11 +1,11 @@
 <f:layout name="Default" />
 <f:section name="main">
+<f:for each="{categoriess}" as="categories">
+	<div span="span2">
+		<f:link.action action="show" arguments="{categories : categories}"> {categories.title}</f:link.action>
+	</div>
+</f:for>
 	<div class="row nboevents nboevents-list">
-		<f:for each="{categoriess}" as="categories">
-			<div span="span2">
-				<f:link.action action="show" arguments="{categories : categories}"> {categories.title}</f:link.action>
-			</div>
-		</f:for>
 		<f:for each="{courses}" as="course" iteration="iterationCourse">
 			<f:if condition="{course.images.0}">
 				<f:then>
@@ -35,7 +35,7 @@
 			</div><!-- div span 4 or 6 -->
 			<f:if condition="{iterationCourse.index} % 2">
 				</div><!-- start new row every second time-->
-				<div class="row">
+				<div class="row nboevents nboevents-list">
 			</f:if>
 		</f:for>
 	</div><!-- close last row -->

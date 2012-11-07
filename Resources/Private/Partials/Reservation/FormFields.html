@@ -33,7 +33,7 @@
 	</div>
 	<div class="control-group">
 		<label for="phone"  class="control-label">
-			<f:translate key="tx_nboevents_domain_model_person.phone" />
+			<f:translate key="tx_nboevents_domain_model_person.phone" /> <i class="icon-star-empty" title="Pflichtfeld"></i>
 		</label>
 		<div class="controls">
 			<input type="text" id="phone" value="{newPerson.phone}" name="tx_nboevents_events[newPerson][phone]" placeholder="optional"  class="span3"/>
@@ -41,7 +41,7 @@
 	</div>
 	<div class="control-group">
 		<label for="address"  class="control-label">
-			<f:translate key="tx_nboevents_domain_model_person.address" />
+			<f:translate key="tx_nboevents_domain_model_person.address" /> <i class="icon-star-empty" title="Pflichtfeld"></i>
 		</label>
 		<div class="controls">
 			<textarea id="address" name="tx_nboevents_events[newPerson][address]" rows="10" cols="10" class="span3">{newPerson.address}</textarea>
@@ -73,7 +73,7 @@
 		</label>
 		<div class="controls">
 			<f:form.textfield id="count" property="count" class="span1" placeholder="1" />
-			<p class="help-inline">Falls mehr Personen mitkommen, bitte Anzahl angeben.</p>
+			<p class="help-inline">Bitte geben Sie die Anzahl Teilnehmer an.</p>
 		</div>
 	</div>
 	<div class="control-group">

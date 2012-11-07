@@ -103,7 +103,7 @@ class Tx_Nboevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Pe
 				$query = $this->createQuery();
 				$query->getQuerySettings()->setReturnRawQueryResult(true);
 				$now = time();
-				$queryText = 'SELECT ps.firstname, ps.lastname, ev.title, res.count
+				$queryText = 'SELECT ps.firstname, ps.lastname, ev.eventnr, res.count
 							FROM `tx_nboevents_domain_model_reservation` AS res
 							LEFT JOIN tx_nboevents_domain_model_event AS ev ON res.event = ev.uid
 							LEFT JOIN tx_nboevents_domain_model_person AS ps ON res.person = ps.uid
