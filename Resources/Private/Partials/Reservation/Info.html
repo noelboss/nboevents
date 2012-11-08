@@ -1,5 +1,5 @@
 <div class="span5">
-	<legend>Kurs Details:</legend>
+	<legend>Sie buchen:</legend>
 	<p>
 		<strong>Kurs:</strong> {event.eventnr}<br />
 		<strong>Datum:</strong> {event.date -> f:format.date(format:"d.m.Y")}<br />
@@ -17,18 +17,9 @@
 		</div>
 	</div>
 	</f:if>
-	<f:if condition="{f:count(subject:'{event.course.locations}')} > 0">
-		<hr/>
-		<f:for each="{event.course.locations}" as="location" key="number">
-			<div class="section row-fluid">
-				<div class="gmap well" style="width: 325px; height: 185px;" title="{location.title}" data-address="{location.address}" data-zoom="8">
-					<h4>{location.title}</h4>
-					<f:format.nl2br>{location.address}</f:format.nl2br>
-				</div>
-				<!--f:link.action action="show" controller="Location" arguments="{location : location, course: event.course}">
-					Mehr Informationen zum Ort <i class="icon-arrow-right"></i>
-				</f:link.action-->
-			</div>
-		</f:for>
-	</f:if>
+	<div class="section row-fluid">
+		<div class="span11">
+			<f:format.html><f:format.raw>{event.course.description}</f:format.raw></f:format.html>
+		</div>
+	</div>
 </div>

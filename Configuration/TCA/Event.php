@@ -140,7 +140,7 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 				'type' => 'input',
 				'size' => 4,
 				'eval' => 'int',
-				'default' => 0,
+				'default' => 15,
 			),
 		),
 		'reservationsleft' => array(

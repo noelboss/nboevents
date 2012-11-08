@@ -6,8 +6,26 @@ plugin.tx_nboevents {
 	}
 	persistence {
 		storagePid = {$plugin.tx_nboevents.persistence.storagePid}
+		classes {
+			Tx_Nboevents_Domain_Model_Person {
+				storagePid = 35
+				newRecordStoragePid = 35
+			}
+			Tx_Nboevents_Domain_Model_Reservation {
+				storagePid = 35
+				newRecordStoragePid = 35
+			}
+		}
 	}
 }
+
+library.plugin.tx_nboevents.warteliste = TEXT
+library.plugin.tx_nboevents.warteliste {
+	noTrimWrap =|<p>Anmeldung für die Warteliste von <strong>|</strong></p>|
+	data = GP:tx_powermail_pi1|field|8
+	required = 1
+}
+
 
 page{
 	headerData {

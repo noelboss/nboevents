@@ -43,12 +43,12 @@
 			</f:if>
 		</div>
 		<div class="span7 section">
-			<h3>Kursdaten</h3>
-			<p>Dieser Kurs wird <f:count>{course.events}</f:count> mal durchgeführt:</p>
+			<h3>Daten</h3>
+			<p>Dieser Anlass wird <f:count>{course.events}</f:count> mal durchgeführt:</p>
 			<table class="table table-striped table-hover">
 				<thead>
 					<tr>
-						<th>Kurs</th>
+						<th>Nr.</th>
 						<th>Datum</th>
 						<th>Beginn</th>
 						<th>Preis</th>
@@ -81,14 +81,21 @@
 								<f:if condition="{f:count(subject:'{event.reservations}')} > 0">
 									<f:then>
 										<f:link.page pageUid="34" >
-											Informationen zur Anmeldung <i class="icon-ok"></i>
+											Informationen zur Anmeldung <i class="icon-info-sign"></i>
 										</f:link.page>
 									</f:then>
 									<f:else>
 										<f:if condition="{event.reservationsPossible} > 0">
+										<f:then>
 											<f:link.action action="new" controller="Reservation" arguments="{event : event}">
-												anmelden <i class="icon-user"></i>
+												Anmelden <i class="icon-user"></i>
 											</f:link.action>
+										</f:then>
+										<f:else>
+											<f:link.page pageUid="39" additionalParams="{tx_powermail_pi1:{field:{8:'{event.eventnr} – {course.title}'}}}">
+												Warteliste <i class="icon-bookmark"></i>
+											</f:link.page>
+										</f:else>
 										</f:if>
 									</f:else>
 								</f:if>
