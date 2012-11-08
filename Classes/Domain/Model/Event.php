@@ -173,7 +173,7 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	 * @return DateTime $date
 	 */
 	public function getDate() {
-		return new DateTime(date('Y-m-d H:i:s', $this->date));
+		return $this->date;
 	}
 
 	/**

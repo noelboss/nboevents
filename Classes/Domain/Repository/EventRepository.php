@@ -32,6 +32,34 @@
  *
  */
 class Tx_Nboevents_Domain_Repository_EventRepository extends Tx_Extbase_Persistence_Repository {
-
+	/**
+	 * defaultOrderings
+	 *
+	 * @var array
+	 */
+	protected $defaultOrderings = array(
+	    'date' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING,
+	);
+	
+	
+	/**
+	 * findByCourse
+	 *
+	 * @param $uid
+	 * @return
+	 */
+	public function findByCourse($course = 0, $limit = 99) {
+		$now = time();
+		$query = $this->createQuery();
+		$query->matching(
+			$query->logicalAnd(
+				$query->equals('course', $course), 
+				$query->greaterThanOrEqual('date', $now)
+			)
+		);
+		$query->setLimit((integer)$limit);
+		$posts = $query->execute();
+		return $posts;
+	}
 }
 ?>

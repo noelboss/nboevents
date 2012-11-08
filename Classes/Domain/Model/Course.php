@@ -108,10 +108,9 @@ class Tx_Nboevents_Domain_Model_Course extends Tx_Extbase_DomainObject_AbstractE
 		 * You may modify the constructor of this class instead
 		 */
 		$this->events = new Tx_Extbase_Persistence_ObjectStorage();
-		
 		$this->categories = new Tx_Extbase_Persistence_ObjectStorage();
 	}
-
+	
 	/**
 	 * Returns the title
 	 *
@@ -176,7 +175,17 @@ class Tx_Nboevents_Domain_Model_Course extends Tx_Extbase_DomainObject_AbstractE
 	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Event> $events
 	 */
 	public function getEvents() {
-		return $this->events;
+		$eventRepository = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_EventRepository');
+		return $eventRepository->findByCourse($this->getUid());
+	}
+	/**
+	 * Returns the next event
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Event> $events
+	 */
+	public function getNextevent() {
+		$eventRepository = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_EventRepository');
+		return $eventRepository->findByCourse($this->getUid(), 1);
 	}
 
 	/**

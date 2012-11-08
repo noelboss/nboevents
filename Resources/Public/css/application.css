@@ -1,16 +1,5 @@
-
-.tx-nboevents h2 small, 
-.tx-nboevents h1 small{
-	font-family: QuicksandBook, "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 0.25em;
-}
-
-.tx-nboevents h2 small{
-	display:block;
-	font-size: 0.4em;
-	margin-top: -0.5em;
-	margin-bottom: 1em;
-	letter-spacing: 0px;
+.tx-nboevents .morelink:hover {
+	text-decoration: none;
 }
 
 .tx-nboevents .section {
@@ -31,4 +20,9 @@
 
 .tx-nboevents .row {
 	margin-bottom: 1em;
+}
+
+.tx-nboevents .nboevents-list h2{
+	font-size: 2em;
+	margin-bottom:0em;
 }

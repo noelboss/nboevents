@@ -71,8 +71,8 @@ t3lib_extMgm::allowTableOnStandardPages('tx_nboevents_domain_model_event');
 $TCA['tx_nboevents_domain_model_event'] = array(
 	'ctrl' => array(
 		'title'	=> 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event',
-		'label' => 'course',
-		'label_alt' => 'eventnr,date',
+		'label' => 'date',
+		'label_alt' => 'eventnr,course',
 		'label_alt_force' => true,
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',

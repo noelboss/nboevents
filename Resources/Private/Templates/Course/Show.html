@@ -44,68 +44,80 @@
 		</div>
 		<div class="span7 section">
 			<h3>Daten</h3>
-			<p>Dieser Anlass wird <f:count>{course.events}</f:count> mal durchgeführt:</p>
-			<table class="table table-striped table-hover">
-				<thead>
-					<tr>
-						<th>Nr.</th>
-						<th>Datum</th>
-						<th>Beginn</th>
-						<th>Preis</th>
-						<th>Anmeldung</th>
-					</tr>
-				</thead>
-				<tbody>
-					<f:for each="{course.events}" as="event" iteration="ievent">
-						<tr>
-							<td>
-								{event.eventnr}
-							</td>
-							<td>
-								{event.date -> f:format.date(format:"j. m. Y")}
-							</td>
-							<td>
-								{event.date -> f:format.date(format:"G:i")}
-							</td>
-							<td>
-								<f:if condition="{course.price} > 0">
-								<f:then>
-									{course.price -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
-								</f:then>
-								<f:else>
-									auf Anfrage
-								</f:else>
-								</f:if>
-							</td>
-							<td>
-								<f:if condition="{f:count(subject:'{event.reservations}')} > 0">
-									<f:then>
-										<f:link.page pageUid="34" >
-											Informationen zur Anmeldung <i class="icon-info-sign"></i>
-										</f:link.page>
-									</f:then>
-									<f:else>
-										<f:if condition="{event.reservationsPossible} > 0">
+			<f:if condition="{course.nextevent}">
+				<f:then>
+					<table class="table table-striped table-hover">
+						<thead>
+							<tr>
+								<th>Nr.</th>
+								<th>Datum</th>
+								<th>Beginn</th>
+								<th>Preis</th>
+								<th>Anmeldung</th>
+							</tr>
+						</thead>
+						<tbody>
+							<f:for each="{course.events}" as="event" iteration="ievent">
+								<tr>
+									<td>
+										{event.eventnr}
+									</td>
+									<td>
+										{event.date -> f:format.date(format:"j. m. Y")}
+									</td>
+									<td>
+										{event.date -> f:format.date(format:"G:i")}
+									</td>
+									<td>
+										<f:if condition="{course.price} > 0">
 										<f:then>
-											<f:link.action action="new" controller="Reservation" arguments="{event : event}">
-												Anmelden <i class="icon-user"></i>
-											</f:link.action>
+											{course.price -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
 										</f:then>
 										<f:else>
-											<f:link.page pageUid="39" additionalParams="{tx_powermail_pi1:{field:{8:'{event.eventnr} – {course.title}'}}}">
-												Warteliste <i class="icon-bookmark"></i>
-											</f:link.page>
+											auf Anfrage
 										</f:else>
 										</f:if>
-									</f:else>
-								</f:if>
-							</td>
-						</tr>
-					</f:for>
-				</tbody>
-			</table>
+									</td>
+									<td>
+										<f:if condition="{f:count(subject:'{event.reservations}')} > 0">
+											<f:then>
+												<f:link.page pageUid="34" >
+													Informationen zur Anmeldung <i class="icon-info-sign"></i>
+												</f:link.page>
+											</f:then>
+											<f:else>
+												<f:if condition="{event.reservationsPossible} > 0">
+												<f:then>
+													<f:link.action action="new" controller="Reservation" arguments="{event : event}">
+														Anmelden <i class="icon-user"></i>
+													</f:link.action>
+												</f:then>
+												<f:else>
+													<f:link.page pageUid="39" additionalParams="{tx_powermail_pi1:{field:{8:'{event.eventnr} – {course.title}'}}}">
+														Warteliste <i class="icon-bookmark"></i>
+													</f:link.page>
+												</f:else>
+												</f:if>
+											</f:else>
+										</f:if>
+									</td>
+								</tr>
+							</f:for>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="5">Dieses Angebot wird <f:count>{course.events}</f:count> mal angeboten.
+							</tr>
+						</tfoot>
+					</table>
+				</f:then>
+				<f:else>
+					<p>Es sind noch keine Termine bekannt. Bitte <f:link.page pageUid="16">kontaktieren Sie uns</f:link.page> für weitere Informationen.</p>
+				</f:else>
+			</f:if>
+			
 			<f:link.action action="list" class="btn btn">
-				<i class="icon-arrow-left"></i> Alle Kurse anzeigen
+				<i class="icon-arrow-left"></i> Alle Angebote anzeigen
 			</f:link.action>
 		</div>
 	</div>
