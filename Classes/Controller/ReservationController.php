@@ -69,26 +69,6 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 	}
 
 	/**
-	 * action list
-	 *
-	 * @return void
-	 */
-	public function listAction() {
-		$reservations = $this->reservationRepository->findAll();
-		$this->view->assign('reservations', $reservations);
-	}
-
-	/**
-	 * action show
-	 *
-	 * @param $reservation
-	 * @return void
-	 */
-	public function showAction(Tx_Nboevents_Domain_Model_Reservation $reservation) {
-		$this->view->assign('reservation', $reservation);
-	}
-
-	/**
 	 * action new
 	 *
 	 * @dontverifyrequesthash
@@ -147,6 +127,28 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 						'e' => array('reskey' => true)
 				));
 			}
+		}
+		if($event->getMaxreservationsperperson() < $newReservation->getCount()){
+			$this->flashMessageContainer->add('<h3>Sorry, '.$newPerson->getFirstname().'</h3>Du kannst maximal ' . ($newReservation->getMaxreservationsperperson()) . ' Person' . ($newReservation->getMaxreservationsperperson() > 1 ? 'en': '') . ' anmelden.');
+			$this->redirect(
+				'new', NULL, NULL, array(
+					'event' => $event->getUid(),
+					'newReservation' => $this->request->getArgument('newReservation'),
+					'newPerson' => $this->request->getArgument('newPerson'),
+					'e' => array('reskey' => true)
+			));
+		}
+		
+		$remaining = $event->getRemaining();
+		if($remaining < $newReservation->getCount()){
+			$this->flashMessageContainer->add('<h3>Sorry, '.$newPerson->getFirstname().'</h3>Es hat leider nicht mehr Platz für ' . ($newReservation->getCount()) . ' Person' . ($newReservation->getCount() > 1 ? 'en': '') . '. Es hat noch Platz für '.$remaining.' Person'.($remaining > 1 ? 'en': '').'.');
+			$this->redirect(
+				'new', NULL, NULL, array(
+					'event' => $event->getUid(),
+					'newReservation' => $this->request->getArgument('newReservation'),
+					'newPerson' => $this->request->getArgument('newPerson'),
+					'e' => array('reskey' => true)
+			));
 		}
 		
 		$newReservation->setCount($newReservation->getCount());
@@ -208,6 +210,34 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 					'e' => array('reskey' => true)
 				));
 			}
+		}
+		
+		if($event->getMaxreservationsperperson() < $newReservation->getCount()){
+			$this->flashMessageContainer->add('<h3>Sorry, '.$newPerson->getFirstname().'</h3>Du kannst maximal ' . ($newReservation->getMaxreservationsperperson()) . ' Person' . ($newReservation->getMaxreservationsperperson() > 1 ? 'en': '') . ' anmelden.');
+			$this->redirect(
+				'edit', NULL, NULL, array(
+					'newReservation' => $newReservation,
+					'newPerson' => $newPerson,
+					'event' => $event,
+					'e' => array('reskey' => true)
+			));
+		}
+		
+		$remaining = $event->getRemaining();
+		if ($this->reservationRepository->countByUid($newReservation->getUid()) > 0) {
+			$currentReservation = $this->reservationRepository->findByUid($newReservation->getUid());
+			$remaining = $remaining + $currentReservation->getCount();
+		}
+		
+		if($remaining < $newReservation->getCount()){
+			$this->flashMessageContainer->add('<h3>Sorry, '.$newPerson->getFirstname().'</h3>Es hat leider nicht mehr Platz für ' . ($newReservation->getCount()) . ' Person' . ($newReservation->getCount() > 1 ? 'en': '') . '. Es hat noch Platz für '.$remaining.' Person'.($remaining > 1 ? 'en': '').'.');
+			$this->redirect(
+				'edit', NULL, NULL, array(
+					'newReservation' => $newReservation,
+					'newPerson' => $newPerson,
+					'event' => $event,
+					'e' => array('reskey' => true)
+			));
 		}
 
 		$this->reservationRepository->update($newReservation);

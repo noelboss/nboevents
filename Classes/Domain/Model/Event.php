@@ -61,6 +61,13 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	 * @var integer
 	 */
 	protected $maxreservations;
+	
+	/**
+	 * Maximum Reservations per Person
+	 *
+	 * @var integer
+	 */
+	protected $maxreservationsperperson;
 
 	/**
 	 * Reservations until date
@@ -203,6 +210,35 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	}
 
 	/**
+	 * Sets the maxreservations
+	 *
+	 * @param integer $maxreservations
+	 * @return void
+	 */
+	public function setMaxreservations($maxreservations) {
+		$this->maxreservations = $maxreservations;
+	}
+	
+	/**
+	 * Returns the maxreservationsperperson
+	 *
+	 * @return integer $maxreservationsperperson
+	 */
+	public function getMaxreservationsperperson() {
+		return $this->maxreservationsperperson;
+	}
+
+	/**
+	 * Sets the maxreservationsperperson
+	 *
+	 * @param integer $maxreservationsperperson
+	 * @return void
+	 */
+	public function setMaxreservationsperperson($maxreservationsperperson) {
+		$this->maxreservationsperperson = $maxreservationsperperson;
+	}
+
+	/**
 	 * Returns the count of reservations
 	 *
 	 * @param integer $uid
@@ -231,16 +267,6 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 			$remaining = 0;
 		}
 		return $remaining;
-	}
-
-	/**
-	 * Sets the maxreservations
-	 *
-	 * @param integer $maxreservations
-	 * @return void
-	 */
-	public function setMaxreservations($maxreservations) {
-		$this->maxreservations = $maxreservations;
 	}
 
 	/**

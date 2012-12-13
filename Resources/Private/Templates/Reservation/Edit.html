@@ -1,7 +1,7 @@
 <f:layout name="Default" />
-
 <f:section name="main">
 	<f:render partial="FormErrors" />
+	<f:flashMessages class="alert alert-error" renderMode="div"/>
 	<div class="row">
 		<div class="span7">
 			<f:form method="post" action="update"  enctype="multipart/form-data"  name="newReservation" object="{newReservation}" arguments="{event: event, newPerson: newPerson}" class="form-horizontal well">

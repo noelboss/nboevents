@@ -10,7 +10,7 @@
 			<label index="tx_nboevents_domain_model_event.title">Title</label>
 			<label index="tx_nboevents_domain_model_event.description">Description</label>
 			<label index="tx_nboevents_domain_model_event.date">Date</label>
-			<label index="tx_nboevents_domain_model_event.maxreservations">Maximum Reservations</label>
+			<label index="tx_nboevents_domain_model_event.maxreservations">Maximum reservations (0 = reservations closed)</label>
 			<label index="tx_nboevents_domain_model_event.reservationdate">Reservations until date</label>
 			<label index="tx_nboevents_domain_model_event.reservationnotes">Notes</label>
 			<label index="tx_nboevents_domain_model_event.images">Images</label>
@@ -48,7 +48,7 @@
 			<label index="tx_nboevents_domain_model_event.title">Titel</label>
 			<label index="tx_nboevents_domain_model_event.description">Beschreibung</label>
 			<label index="tx_nboevents_domain_model_event.date">Datum</label>
-			<label index="tx_nboevents_domain_model_event.maxreservations">Maximale Anmeldungen (leer = anmeldungen geschlossen)</label>
+			<label index="tx_nboevents_domain_model_event.maxreservations">Maximale Anmeldungen (0 = Anmeldungen geschlossen)</label>
 			<label index="tx_nboevents_domain_model_event.reservationdate">Anmeldeschluss</label>
 			<label index="tx_nboevents_domain_model_event.reservationnotes">Hinweise zur Anmeldung</label>
 			<label index="tx_nboevents_domain_model_event.images">Bilder</label>

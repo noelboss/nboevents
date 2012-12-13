@@ -11,6 +11,7 @@
 			<label index="tx_nboevents_domain_model_event.description">Description</label>
 			<label index="tx_nboevents_domain_model_event.date">Date</label>
 			<label index="tx_nboevents_domain_model_event.maxreservations">Maximum Reservations (empty reservations closed)</label>
+			<label index="tx_nboevents_domain_model_event.maxreservationsperperson">Maximum persons per reservation (0 = no limit)</label>
 			<label index="tx_nboevents_domain_model_event.reservationsleft">Open reservatins</label>
 			<label index="tx_nboevents_domain_model_event.reservationdate">Reservations until date</label>
 			<label index="tx_nboevents_domain_model_event.reservationnotes">Notes</label>
@@ -46,6 +47,7 @@
 			<label index="tx_nboevents_domain_model_event.description">Beschreibung</label>
 			<label index="tx_nboevents_domain_model_event.date">Datum</label>
 			<label index="tx_nboevents_domain_model_event.maxreservations">Maximale Anmeldungen (leer = Anmeldungen geschlossen)</label>
+			<label index="tx_nboevents_domain_model_event.maxreservationsperperson">Maximale Anzahl Personen pro Anmeldung (0 = unbeschränkt)</label>
 			<label index="tx_nboevents_domain_model_event.reservationsleft">Noch freie Plätze</label>
 			<label index="tx_nboevents_domain_model_event.reservationdate">Anmeldeschluss</label>
 			<label index="tx_nboevents_domain_model_event.reservationnotes">Hinweise zur Anmeldung</label>

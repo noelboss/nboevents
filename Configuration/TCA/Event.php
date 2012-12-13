@@ -20,7 +20,7 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 		--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access, hidden;;1, starttime, endtime'),
 	),
 	'palettes' => array(
-		'1' => array('showitem' => 'reservationsleft'),
+		'1' => array('showitem' => 'maxreservationsperperson,reservationsleft'),
 		'2' => array('showitem' => 'reservationnotes'),
 		'3' => array('showitem' => 'reservationkeynotes'),
 	),
@@ -140,7 +140,17 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 				'type' => 'input',
 				'size' => 4,
 				'eval' => 'int',
-				'default' => 0,
+				'default' => 100,
+			),
+		),
+		'maxreservationsperperson' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event.maxreservationsperperson',
+			'config' => array(
+				'type' => 'input',
+				'size' => 4,
+				'eval' => 'int',
+				'default' => 2,
 			),
 		),
 		'reservationsleft' => array(

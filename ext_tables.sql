@@ -10,6 +10,7 @@ CREATE TABLE tx_nboevents_domain_model_event (
 	description text NOT NULL,
 	date int(11) DEFAULT '0' NOT NULL,
 	maxreservations int(11) DEFAULT '0' NOT NULL,
+	maxreservationsperperson int(11) DEFAULT '0' NOT NULL,
 	reservationdate int(11) DEFAULT '0' NOT NULL,
 	reservationnotes text NOT NULL,
 	reservationkey varchar(255) DEFAULT '' NOT NULL,

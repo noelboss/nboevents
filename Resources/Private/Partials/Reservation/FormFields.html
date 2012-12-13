@@ -78,8 +78,11 @@
 			<f:translate key="tx_nboevents_domain_model_reservation.count" />
 		</label>
 		<div class="controls">
-			<f:form.textfield id="count" property="count" class="span1" placeholder="1" />
-			<p class="help-inline">Falls mehr Personen mitkommen, bitte Anzahl angeben.</p>
+			<input id="count" type="number" name="tx_nboevents_events[newReservation][count]" max="{event.maxreservationsperperson}" min="1" placeholder="1" class="span1" value="{newReservation.count}">
+			<!--f:form.textfield id="count" property="count" class="span1" placeholder="1" /-->
+			<p class="help-inline">Falls mehrere Personen mitkommen, bitte deren Anzahl angeben.
+				<f:if condition="{event.maxreservationsperperson} > 1"> (Maximal {event.maxreservationsperperson} Personen)</f:if>
+			</p>
 		</div>
 	</div>
 	<div class="control-group">
@@ -107,7 +110,7 @@
 				</label>
 				<div class="controls">
 					<input type="text" id="reservationkey" name="tx_nboevents_events[reservationkey]" class="span4" placeholder="Persönlicher Anmeldeschlüssel hier eintragen" />
-					<p class="help-inline">Um sich an diesem Anlass anzumelden muss der persönliche Anmeldeschlüssel eingetragen werden.</p>
+					<p class="help-inline">Um dich an diesem Anlass anzumelden, muss du deinen persönlichen Anmeldeschlüssel eingetragen.</p>
 				</div>
 			</div>
 	</fieldset>
