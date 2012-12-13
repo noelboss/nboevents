@@ -2,7 +2,8 @@
 .tx-nboevents h2 small, 
 .tx-nboevents h1 small{
 	font-family: QuicksandBook, "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 0.25em;
+	float: right;
+	font-size: 0.35em;
 }
 
 .tx-nboevents h2 small{
