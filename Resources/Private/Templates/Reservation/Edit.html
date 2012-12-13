@@ -27,7 +27,7 @@
 			<f:if condition="{f:count(subject:'{event.locations}')} > 0">
 				<hr/>
 				<f:for each="{event.locations}" as="location" key="number">
-					<f:render partial="Location/Properties" arguments="{location:location, event:event.uid, noControls: 1}" />
+					<f:render partial="Location/Properties" arguments="{location:location, event:event.uid, noControls: 1, mapOnTop: 1}" />
 				</f:for>
 			</f:if>
 		</div>

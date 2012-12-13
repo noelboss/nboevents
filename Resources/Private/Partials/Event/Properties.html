@@ -44,11 +44,7 @@
 	</f:if>
 
 	<h1 class="resTitle">{event.title} <small>{event.date -> f:format.date(format:"d.m.Y")} um {event.date -> f:format.date(format:"G:i")}</small></h1>
-	<f:format.raw>
-		<f:format.nl2br>
-			{event.description}
-		</f:format.nl2br>
-	</f:format.raw>
+	<f:format.raw><f:format.nl2br>{event.description}</f:format.nl2br></f:format.raw>
 	<f:if condition="{f:count(subject:'{event.locations}')} > 0">
 		<hr/>
 		<f:for each="{event.locations}" as="location" key="number">
