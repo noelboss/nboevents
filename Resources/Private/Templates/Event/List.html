@@ -27,8 +27,8 @@
 			</f:link.action>
 			</p>
 			<f:if condition="{f:count(subject:'{event.locations}')} > 0">
-				<h3>Locations:
-					<f:for each="{event.locations}" as="location" iteration="iterLoc"><small><f:if condition="{iterLoc.isFirst} != 1">, </f:if><f:link.action action="show" controller="Location" arguments="{location : location}">{location.title}</f:link.action></small></f:for>
+				<h3>Ort<f:if condition="{f:count(subject:'{event.locations}')} > 1">e</f:if>:
+					<f:for each="{event.locations}" as="location" iteration="iterLoc"><f:if condition="{iterLoc.isFirst} != 1">, </f:if><f:link.action action="show" controller="Location" arguments="{location : location}">{location.title}</f:link.action></f:for>
 				</h3>
 			</f:if>
 			<p class="btn-group">
