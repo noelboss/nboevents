@@ -149,6 +149,18 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 			}
 		}
 		
+		$remaining = $event->getRemaining();
+		if($remaining < $newReservation->getCount()){
+			$this->flashMessageContainer->add('<h3>Entschuldigung, ' . ($newPerson->getFirstname()) . ' ' . ($newPerson->getLastname()) . '</h3>Es hat leider nicht mehr Platz für ' . ($newReservation->getCount()) . ' Person' . ($newReservation->getCount() > 1 ? 'en': '') . '. Es hat noch Platz für '.$remaining.' Person'.($remaining > 1 ? 'en': '').'.');
+			$this->redirect(
+				'new', NULL, NULL, array(
+					'event' => $event->getUid(),
+					'newReservation' => $this->request->getArgument('newReservation'),
+					'newPerson' => $this->request->getArgument('newPerson'),
+					'e' => array('reskey' => true)
+			));
+		}
+		
 		$newReservation->setCount($newReservation->getCount());
 		if (!$newPerson->getUid()) {
 			$this->personRepository->add($newPerson);
@@ -208,6 +220,23 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 					'e' => array('reskey' => true)
 				));
 			}
+		}
+		
+		$remaining = $event->getRemaining();
+		if ($this->reservationRepository->countByUid($newReservation->getUid()) > 0) {
+			$currentReservation = $this->reservationRepository->findByUid($newReservation->getUid());
+			$remaining = $remaining + $currentReservation->getCount();
+		}
+		
+		if($remaining < $newReservation->getCount()){
+			$this->flashMessageContainer->add('<h3>Entschuldigung, ' . ($newPerson->getFirstname()) . ' ' . ($newPerson->getLastname()) . '</h3>Es hat leider nicht mehr Platz für ' . ($newReservation->getCount()) . ' Person' . ($newReservation->getCount() > 1 ? 'en': '') . '. Es hat noch Platz für '.$remaining.' Person'.($remaining > 1 ? 'en': '').'.');
+			$this->redirect(
+				'edit', NULL, NULL, array(
+					'newReservation' => $newReservation,
+					'newPerson' => $newPerson,
+					'event' => $event,
+					'e' => array('reskey' => true)
+			));
 		}
 
 		$this->reservationRepository->update($newReservation);
