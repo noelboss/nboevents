@@ -14,8 +14,13 @@
 	text-decoration: none;
 }
 
+.tx-nboevents .expanded,
 .tx-nboevents .message-error {
 	display: none;
+}
+
+.tx-nboevents .expand {
+	font-size: 0.9em;
 }
 
 .tx-nboevents .row {

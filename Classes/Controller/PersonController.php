@@ -102,7 +102,7 @@ class Tx_Nboevents_Controller_PersonController extends Tx_Extbase_MVC_Controller
 
 		$GLOBALS['TSFE']->fe_user->setKey('ses', 'Tx_Nboevents_Domain_Model_Person', $newPerson->getUid());
 
-		$this->flashMessageContainer->add('<h3>Danke!</h3>Du hast Dich erfolgreicht für ' . ($newPerson->getCount()) . ' Personen angemeldet.');
+		$this->flashMessageContainer->add('<h3>Danke!</h3>Sie haben sich erfolgreicht für ' . ($newPerson->getCount()) . ' Person'.($newPerson->getCount() > 1 ? 'en' : '').' angemeldet.');
 		$this->redirect('show', 'Event', NULL, array('event' => $event->getUid()));
 	}
 

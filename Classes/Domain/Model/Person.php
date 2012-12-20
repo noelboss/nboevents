@@ -53,7 +53,6 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * email
 	 *
 	 * @var string
-	 * @validate EmailAddress
 	 */
 	protected $email;
 

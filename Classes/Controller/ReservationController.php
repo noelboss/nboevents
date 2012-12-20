@@ -166,7 +166,7 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 		Tx_Nboevents_Utility_Cookies::setCookieValue('Reservation'.$event->getUid(), $newReservation->getUid());
 		Tx_Nboevents_Utility_Cookies::setCookieValue('Person', $newPerson->getUid());
 
-		$this->flashMessageContainer->add('<h3>Danke ' . ($newPerson->getFirstname()) . ' ' . ($newPerson->getLastname()) . '!</h3>Du hast Dich erfolgreicht für ' . ($newReservation->getCount()) . ' Personen angemeldet.');
+		$this->flashMessageContainer->add('<h3>Danke ' . ($newPerson->getFirstname()) . ' ' . ($newPerson->getLastname()) . '!</h3>Sie haben sich erfolgreicht für ' . ($newReservation->getCount()) . ' Person'.($newReservation->getCount() > 1 ? 'en' : '').' angemeldet.');
 		$this->redirect('show', 'Course', NULL, array('course' => $event->getCourse()));
 	}
 
@@ -215,25 +215,9 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 
 		Tx_Nboevents_Utility_Cookies::setCookieValue('Person', $newPerson->getUid());
 
-		$this->flashMessageContainer->add('<h3>Danke ' . ($newPerson->getFirstname()) . ' ' . ($newPerson->getLastname()) . '!</h3>Du hast Dich erfolgreicht für ' . ($newReservation->getCount()) . ' Personen angemeldet.');
+		$this->flashMessageContainer->add('<h3>Danke ' . ($newPerson->getFirstname()) . ' ' . ($newPerson->getLastname()) . '!</h3>Sie haben sich erfolgreicht für ' . ($newPerson->getCount()) . ' Person'.($newPerson->getCount() > 1 ? 'en' : '').' angemeldet.');
 		$this->redirect('show', 'Course', NULL, array('course' => $event->getCourse()));
 	}
-
-	/**
-	 * action delete
-	 *
-	 * @param $reservation
-	 * @param $event
-	 * @return void
-	 */
-	public function deleteAction(Tx_Nboevents_Domain_Model_Reservation $reservation, Tx_Nboevents_Domain_Model_Event $event) {
-		$this->reservationRepository->remove($reservation);
-		Tx_Nboevents_Utility_Cookies::setCookieValue('Reservation'.$event->getUid(), NULL);
-
-		$this->flashMessageContainer->add('<h3>Danke!</h3>Deine Anmeldung wurde gelöscht.');
-		$this->redirect('show', 'Course', NULL, array('course' => $event->getCourse()));
-	}
-	
 
 }
 

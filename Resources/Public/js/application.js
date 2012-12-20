@@ -12,7 +12,7 @@
 
 			var myOptions = {
 				zoom: 6,
-				center: new google.maps.LatLng(47.3686498, 8.539182500000038), // zurich
+				center: new google.maps.LatLng(47.478232, 9.047241), // Bissfest
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			}
 
@@ -60,6 +60,21 @@
 				$t.slideDown(100).find('input').val('');
 			} 
 		});
+		
+		// toggle checkbox
+		$('.expand',$mod).click(function(e){
+			$(this).hide().next('.expanded').slideDown(300);
+		});
+		
+		// toggle checkbox
+		$('.info',$mod).fancybox({
+			type: 'ajax',
+			height: '70%',
+			width: '70%',
+			maxWidth: '800'
+		});
+		
+
 		
 		// focus error on load
 		$('.error input:eq(0)',$mod),$mod.focus();

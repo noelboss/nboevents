@@ -8,13 +8,21 @@
 			<f:form method="post" action="create"  enctype="multipart/form-data"  name="newReservation" object="{newReservation}" arguments="{event: event, newPerson: newPerson}" class="form-horizontal">
 				<f:render partial="Reservation/FormFields" arguments="{event:event, newPerson: newPerson, newReservation: newReservation, e: e}"/>
 
-				<div class="btn-group">
-					<f:link.action action="show" controller="Course" arguments="{course : event.course}" class="btn  btn-large">
-						<i class="icon-arrow-left"></i> Abbrechen
-					</f:link.action>
-					<button class="btn btn-success btn-large" type="submit">
-						Anmelden <i class="icon-ok icon-white"></i>
-					</button>
+				<div class="control-group">
+					<div class="controls">
+						<div class="btn-group">
+							<f:link.action action="show" controller="Course" arguments="{course : event.course}" class="btn  btn-large">
+								<i class="icon-arrow-left"></i> Abbrechen
+							</f:link.action>
+							<button class="btn btn-success btn-large" type="submit">
+								Anmelden <i class="icon-ok icon-white"></i>
+							</button>
+						</div>
+						<br/>
+						<f:link.page pageUid="34" pageType="99" class="info">
+							Informationen zur Anmeldung <i class="icon-info-sign"></i>
+						</f:link.page>
+					</div>
 				</div>
 			</f:form>
 		</div>

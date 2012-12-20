@@ -23,12 +23,12 @@
 					</f:if>
 							<h2>
 								{course.title}
-								<small>
+								<!--small>
 									<f:if condition="{course.nextevent}">
 										<f:then>Nächster Termin: {course.nextevent.0.date -> f:format.date(format:"j. m. Y")}</f:then>
 										<f:else>Termine auf Anfrage</f:else>
 									</f:if>
-								</small>
+								</small-->
 							</h2>
 							<f:format.crop maxCharacters="250" append="&nbsp;<i class='icon-arrow-right'></i>"><f:format.html>{course.description}</f:format.html></f:format.crop>
 					</div><!-- div span 4 or 6 -->
