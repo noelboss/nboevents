@@ -86,6 +86,8 @@
 			<label index="tx_nboevents_domain_model_reservation.reservationkey">Anmeldeschlüssel</label>
 			<label index="newPerson.lastname">Nachname</label>
 			<label index="newPerson.firstname">Vorname</label>
+			<label index="newPerson.phone">Telefon / Mobile</label>
+			<label index="newPerson.address">Adresse</label>
 			<label index="newPerson.email">E-Mail</label>
 			<label index="newPerson.1242859509">ist ein Pflichtfelt. Bitte tragen Sie einen gültien Wert ein.</label>
 			<label index="backend.wizard">Anlässe</label>
