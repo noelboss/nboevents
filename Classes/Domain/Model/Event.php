@@ -260,7 +260,7 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	 *
 	 * @return boolean
 	 */
-	public function getReservationsPossible() {
+	public function getReservationsPossible() {		
 		if(($this->reservationdate > time()) && ($this->getRemaining() > 0)){
 			$possible =  true;
 		} else {
@@ -273,13 +273,13 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	 * Event has Reservation
 	 *
 	 * @return boolean
-	 *
+	 */
 	public function getHasReservation() {
 		$result =  Tx_Nboevents_Utility_Cookies::getCookieValue('Reservation'.$this->getUid());
-		
 		$has = false;
 		if($result > 0){
 			$reservationRepository = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_ReservationRepository');
+
 			if($reservationRepository->countByUid($result)){
 				$has =  true;
 			}

@@ -33,6 +33,34 @@
  */
 class Tx_Nboevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Persistence_Repository {
 
+
+	/**
+	 * countByEvent
+	 *
+	 * @param $uid
+	 * @return
+	 */
+	public function countByUid($uid = "0") {
+		$query = $this->createQuery();
+		$query->getQuerySettings()->setReturnRawQueryResult(true);
+		$now = time();
+		$queryText = 'SELECT res.uid
+			FROM `tx_nboevents_domain_model_reservation` AS res WHERE res.uid = \'' . $uid . '\'
+			AND res.deleted=0
+			AND res.t3ver_state<=0
+			AND res.pid<>-1
+			AND res.hidden=0
+			AND res.starttime<=' . $now . '
+			AND (res.endtime=0 OR res.endtime>' . $now . ')
+			AND res.sys_language_uid IN (0,-1)
+			LIMIT 999';
+
+		$query->statement($queryText);
+		$count = $query->execute();
+		return count($count);
+	}
+	
+	
 	/**
 	 * countByEvent
 	 *
@@ -40,21 +68,20 @@ class Tx_Nboevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Pe
 	 * @return
 	 */
 	public function countByEvent($uid = "0") {
-		
 		$query = $this->createQuery();
 		$query->getQuerySettings()->setReturnRawQueryResult(true);
 		$now = time();
-		$queryText = 'SELECT count
-			FROM `tx_nboevents_domain_model_reservation` 
-			WHERE event = \'' . $uid . '\'
-			AND deleted=0
-			AND t3ver_state<=0
-			AND pid<>-1
-			AND hidden=0
-			AND starttime<=' . $now . '
-			AND (endtime=0 OR endtime>' . $now . ')
-			AND sys_language_uid IN (0,-1)
+		$queryText = 'SELECT res.count
+			FROM `tx_nboevents_domain_model_reservation` AS res WHERE res.event = \'' . $uid . '\'
+			AND res.deleted=0
+			AND res.t3ver_state<=0
+			AND res.pid<>-1
+			AND res.hidden=0
+			AND res.starttime<=' . $now . '
+			AND (res.endtime=0 OR res.endtime>' . $now . ')
+			AND res.sys_language_uid IN (0,-1)
 			LIMIT 999';
+
 		$query->statement($queryText);
 		$rows = $query->execute();
 		
@@ -105,18 +132,18 @@ class Tx_Nboevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Pe
 		$query = $this->createQuery();
 		$query->getQuerySettings()->setReturnRawQueryResult(true);
 		$now = time();
-		$queryText = 'SELECT ps.firstname, ps.lastname, ev.eventnr, count
-			FROM `tx_nboevents_domain_model_reservation`
-			LEFT JOIN tx_nboevents_domain_model_event AS ev ON event = ev.uid
-			LEFT JOIN tx_nboevents_domain_model_person AS ps ON person = ps.uid
-			WHERE uid = \'' . $uid . '\'
-			AND deleted=0
-			AND t3ver_state<=0
-			AND pid<>-1
-			AND hidden=0
-			AND starttime<=' . $now . '
-			AND (endtime=0 OR endtime>' . $now . ')
-			AND sys_language_uid IN (0,-1)
+		$queryText = 'SELECT ps.firstname, ps.lastname, ev.eventnr, res.count
+			FROM `tx_nboevents_domain_model_reservation` AS res
+			LEFT JOIN tx_nboevents_domain_model_event AS ev ON res.event = ev.uid
+			LEFT JOIN tx_nboevents_domain_model_person AS ps ON res.person = ps.uid
+			WHERE res.uid = \'' . $uid . '\'
+			AND res.deleted=0
+			AND res.t3ver_state<=0
+			AND res.pid<>-1
+			AND res.hidden=0
+			AND res.starttime<=' . $now . '
+			AND (res.endtime=0 OR res.endtime>' . $now . ')
+			AND res.sys_language_uid IN (0,-1)
 			LIMIT 1';
 		
 		$query->statement($queryText);
