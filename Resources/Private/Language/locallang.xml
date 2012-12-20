@@ -89,7 +89,7 @@
 			<label index="newPerson.phone">Telefon / Mobile</label>
 			<label index="newPerson.address">Adresse</label>
 			<label index="newPerson.email">E-Mail</label>
-			<label index="newPerson.1242859509">ist ein Pflichtfelt. Bitte tragen Sie einen gültien Wert ein.</label>
+			<label index="newPerson.1242859509">ist ein Pflichtfelt. Bitte tragen Sie einen gültigen Wert ein.</label>
 			<label index="backend.wizard">Anlässe</label>
 			<label index="backend.wizard.description">Zeigt Anlässe auf der Webseite an.</label>
 		</languageKey>
