@@ -33,6 +33,14 @@
  */
 class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_AbstractEntity {
 
+
+	/**
+	 * Pid
+	 *
+	 * @var integer
+	 */
+	protected $pid;
+	
 	/**
 	 * Notes
 	 *
@@ -135,6 +143,25 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 		$uid = $return['row']['uid'];
 		$repo = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_ReservationRepository');
 		$return['title'] = $repo->findLabel($uid);
+	}
+	
+	/**
+	 * Returns the pid
+	 *
+	 * @return string $pid
+	 */
+	public function getPid() {
+		return $this->pid;
+	}
+
+	/**
+	 * Sets the pid
+	 *
+	 * @param string $pid
+	 * @return void
+	 */
+	public function setPid($pid) {
+		$this->pid = $pid;
 	}
 
 	/**

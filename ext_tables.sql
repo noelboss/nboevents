@@ -150,8 +150,13 @@ CREATE TABLE tx_nboevents_domain_model_reservation (
 
 	count int(11) DEFAULT '1' NOT NULL,
 	notes text NOT NULL,
+	notesbissfest text NOT NULL,
 	person int(11) unsigned DEFAULT '0',
 	event int(11) unsigned DEFAULT '0',
+	status int(11) unsigned DEFAULT '0',
+	sent int(11) unsigned DEFAULT '0' NOT NULL,
+	payuntil int(11) unsigned DEFAULT '0' NOT NULL,
+	payed int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,

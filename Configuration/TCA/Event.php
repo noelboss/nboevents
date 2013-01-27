@@ -7,14 +7,14 @@ if (!defined('TYPO3_MODE')) {
 $TCA['tx_nboevents_domain_model_event'] = array(
 	'ctrl' => $TCA['tx_nboevents_domain_model_event']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, eventnr, date, course, description, maxreservations, reservationsleft, reservationdate, reservationnotes, reservationkey, reservationkeynotes, reservations',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, eventnr, date, course, description, maxreservations, reservationsleft, reservationdate, reservationnotes, reservations',
 	),
 	'types' => array(
 		'1' => array('showitem' => '
 		--div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event,
 			eventnr, date,course,description,
 		--div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.settings,
-				maxreservations;;1;;, reservationdate;;2;;, reservationkey;;3;;,
+				maxreservations;;1;;, reservationdate;;2;;,
 		--div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation,
 				reservations,
 		--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access, hidden;;1, starttime, endtime'),
@@ -22,7 +22,6 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 	'palettes' => array(
 		'1' => array('showitem' => 'reservationsleft'),
 		'2' => array('showitem' => 'reservationnotes'),
-		'3' => array('showitem' => 'reservationkeynotes'),
 	),
 	'columns' => array(
 		'sys_language_uid' => array(
@@ -230,7 +229,7 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 						'title' => 'Create new',
 						'icon' => 'add.gif',
 						'params' => array(
-							'table' => 'tx_nboevents_domain_model_categories',
+							'table' => 'tx_nboevents_domain_model_course',
 							'pid' => '###CURRENT_PID###',
 							'setValue' => 'prepend'
 							),

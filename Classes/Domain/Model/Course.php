@@ -37,7 +37,6 @@ class Tx_Nboevents_Domain_Model_Course extends Tx_Extbase_DomainObject_AbstractE
 	 * Price
 	 *
 	 * @var string
-	 * @validate NotEmpty
 	 */
 	protected $price;
 

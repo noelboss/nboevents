@@ -11,7 +11,7 @@
 ########################################################################
 
 $EM_CONF[$_EXTKEY] = array(
-	'title' => 'Events',
+	'title' => 'Kurse und Reisen',
 	'description' => 'Create Events and Register Persons',
 	'category' => 'plugin',
 	'author' => 'Noel Bossart',

@@ -63,7 +63,7 @@
 										{event.eventnr}
 									</td>
 									<td>
-										{event.date -> f:format.date(format:"j. m. Y")}
+										{event.date -> f:format.date(format:"d. m. Y")}
 										<f:if condition="{event.description}">
 											<h4 class="expand"><a href="#more">Alle Daten »</a></h4>
 											<div class="expanded"><f:format.nl2br>{event.description}</f:format.nl2br></div>
@@ -83,7 +83,7 @@
 										</f:if>
 									</td>
 									<td>
-										<f:if condition="{f:count(subject:'{event.reservations}')} > 0">
+										<f:if condition="{event.hasReservation} > 0">
 											<f:then>
 												<f:link.page pageUid="34" pageType="99" class="info">
 													Sie sind angemeldet <i class="icon-info-sign"></i>

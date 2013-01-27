@@ -7,10 +7,10 @@ if (!defined('TYPO3_MODE')) {
 $TCA['tx_nboevents_domain_model_reservation'] = array(
 	'ctrl' => $TCA['tx_nboevents_domain_model_reservation']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'count, notes, person, event',
+		'showRecordFieldList' => 'count, notes, person, event, pid, status',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'hidden;;1, count, notes, person, event,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'count, notes, person, event, --div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.billing, status, sent, payuntil, payed, notesbissfest'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -106,12 +106,80 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 		),
 		'notes' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.note',
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.notes',
 			'config' => array(
 				'type' => 'text',
 				'cols' => 60,
 				'rows' => 4,
 				'eval' => 'trim'
+			),
+		),
+		'status' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.status',
+			'config' => array(
+				'type' => 'select',
+				'foreign_table' => 'pages',
+				'suppress_icons' => 1,
+				//'foreign_table_where' => 'AND tx_nboevents_domain_model_event.pid=###CURRENT_PID### AND tx_nboevents_domain_model_event.sys_language_uid IN (-1,0)',
+				'foreign_table_where' => 'AND (pages.pid IN (35) OR pages.uid IN (35)) AND (pages.hidden = 0 AND pages.deleted = 0)',
+				'minitems' => 1,
+				'maxitems' => 1,
+			),
+		),
+		'notesbissfest' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.notesbissfest',
+			'config' => array(
+				'type' => 'text',
+				'cols' => 60,
+				'rows' => 4,
+				'eval' => 'trim'
+			),
+		),
+		'sent' => array(
+			'exclude' => 0,
+			'l10n_mode' => 'mergeIfNotBlank',
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.sent',
+			'config' => array(
+				'type' => 'input',
+				'size' => 13,
+				'max' => 20,
+				'eval' => 'date',
+				'default' => 0,
+				/*'range' => array(
+					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
+				),*/
+			),
+		),
+		'payuntil' => array(
+			'exclude' => 0,
+			'l10n_mode' => 'mergeIfNotBlank',
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.payuntil',
+			'config' => array(
+				'type' => 'input',
+				'size' => 13,
+				'max' => 20,
+				'eval' => 'date',
+				'default' => 0,
+				/*'range' => array(
+					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
+				),*/
+			),
+		),
+		'payed' => array(
+			'exclude' => 0,
+			'l10n_mode' => 'mergeIfNotBlank',
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.payed',
+			'config' => array(
+				'type' => 'input',
+				'size' => 13,
+				'max' => 20,
+				'eval' => 'date',
+				'default' => 0,
+				/*'range' => array(
+					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
+				),*/
 			),
 		),
 		'person' => array(
@@ -120,7 +188,8 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_nboevents_domain_model_person',
-				'foreign_table_where' => 'AND tx_nboevents_domain_model_person.pid=###CURRENT_PID### AND tx_nboevents_domain_model_person.sys_language_uid IN (-1,0)',
+				//'foreign_table_where' => 'AND tx_nboevents_domain_model_person.pid=###CURRENT_PID### AND tx_nboevents_domain_model_person.sys_language_uid IN (-1,0)',
+				'foreign_table_where' => 'AND tx_nboevents_domain_model_person.sys_language_uid IN (-1,0) ORDER BY lastname,firstname',
 				'minitems' => 1,
 				'maxitems' => 1,
 				'wizards' => array(
@@ -154,7 +223,8 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_nboevents_domain_model_event',
-				'foreign_table_where' => 'AND tx_nboevents_domain_model_event.pid=###CURRENT_PID### AND tx_nboevents_domain_model_event.sys_language_uid IN (-1,0)',
+				//'foreign_table_where' => 'AND tx_nboevents_domain_model_event.pid=###CURRENT_PID### AND tx_nboevents_domain_model_event.sys_language_uid IN (-1,0)',
+				'foreign_table_where' => 'AND tx_nboevents_domain_model_event.sys_language_uid IN (-1,0) ORDER BY eventnr,date',
 				'minitems' => 1,
 				'maxitems' => 1,
 				'wizards' => array(

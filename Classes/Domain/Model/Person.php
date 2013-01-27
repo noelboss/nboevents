@@ -144,7 +144,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 		$person = $repo->findByUid($uid);
 		$label = 'hello';
 		if($person){
-			$label = $person->getFirstname().' '.$person->getLastname();
+			$label = $person->getLastname().', '.$person->getFirstname();
 		}
 		$return['title'] = $label;
 	}

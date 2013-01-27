@@ -10,7 +10,7 @@
 			<label index="tx_nboevents_domain_model_event.eventnr">Kurs Nr.</label>
 			<label index="tx_nboevents_domain_model_event.description">Weiter Durchführungen</label>
 			<label index="tx_nboevents_domain_model_event.date">Date</label>
-			<label index="tx_nboevents_domain_model_event.maxreservations">Maximum Reservations (empty reservations closed)</label>
+			<label index="tx_nboevents_domain_model_event.maxreservations">Max reservations</label>
 			<label index="tx_nboevents_domain_model_event.reservationdate">Reservations until date</label>
 			<label index="tx_nboevents_domain_model_event.reservationnotes">Notes</label>
 			<label index="tx_nboevents_domain_model_event.reservations">Reservations</label>
@@ -31,6 +31,7 @@
 			<label index="tx_nboevents_domain_model_reservation">Reservations</label>
 			<label index="tx_nboevents_domain_model_reservation.count">Number of reservations</label>
 			<label index="tx_nboevents_domain_model_reservation.notes">Notes</label>
+			<label index="tx_nboevents_domain_model_reservation.notesbissfest">Notes</label>
 			<label index="tx_nboevents_domain_model_reservation.person">Person</label>
 			<label index="tx_nboevents_domain_model_reservation.event">Event</label>
 			<label index="tx_nboevents_domain_model_course">Course</label>
@@ -44,8 +45,14 @@
 			<label index="tx_nboevents_domain_model_categories">Categories</label>
 			<label index="tx_nboevents_domain_model_categories.title">Title</label>
 			<label index="tx_nboevents_domain_model_categories.courses">Courses</label>
-			<label index="tx_nboevents_domain_model_reservation.note">Notes</label>
-			<label index="tx_nboevents_domain_model_event.reservationsleft">Open reservatins</label>
+			<label index="tx_nboevents_domain_model_reservation.notes">Notes</label>
+			<label index="tx_nboevents_domain_model_reservation.notesbissfest">Internal notes</label>
+			<label index="tx_nboevents_domain_model_reservation.billing">Billing</label>
+			<label index="tx_nboevents_domain_model_reservation.status">Orderstatus</label>
+			<label index="tx_nboevents_domain_model_reservation.sent">Bill sent</label>
+			<label index="tx_nboevents_domain_model_reservation.payuntil">Pay until</label>
+			<label index="tx_nboevents_domain_model_reservation.payed">Payed</label>
+			<label index="tx_nboevents_domain_model_event.reservationsleft">Open reservations</label>
 			<label index="tx_nboevents_domain_model_event.reservationkey">Reservationkey (VIP Password)</label>
 			<label index="tx_nboevents_domain_model_event.reservationkeynotes">ReservationKey Notes</label>
 			<label index="tx_nboevents_domain_model_event.locations">Locations</label>
@@ -58,7 +65,7 @@
 			<label index="tx_nboevents_domain_model_event.title">Titel</label>
 			<label index="tx_nboevents_domain_model_event.description">Beschreibung</label>
 			<label index="tx_nboevents_domain_model_event.date">Datum</label>
-			<label index="tx_nboevents_domain_model_event.maxreservations">Maximale Anmeldungen (leer = Anmeldungen geschlossen)</label>
+			<label index="tx_nboevents_domain_model_event.maxreservations">Plätze</label>
 			<label index="tx_nboevents_domain_model_event.reservationsleft">Noch freie Plätze</label>
 			<label index="tx_nboevents_domain_model_event.reservationdate">Anmeldeschluss</label>
 			<label index="tx_nboevents_domain_model_event.reservationnotes">Hinweise zur Anmeldung</label>
@@ -84,7 +91,13 @@
 			<label index="tx_nboevents_domain_model_reservation.settings">Anmeldeoptionen</label>
 			<label index="tx_nboevents_domain_model_reservation.person">Person</label>
 			<label index="tx_nboevents_domain_model_reservation.count">Anzahl Personen</label>
-			<label index="tx_nboevents_domain_model_reservation.note">Bemerkungen</label>
+			<label index="tx_nboevents_domain_model_reservation.notes">Bemerkungen Kunde</label>
+			<label index="tx_nboevents_domain_model_reservation.billing">Buchhaltung</label>
+			<label index="tx_nboevents_domain_model_reservation.notesbissfest">Interne Bemerkungen</label>
+			<label index="tx_nboevents_domain_model_reservation.status">Rechnungsstatus</label>
+			<label index="tx_nboevents_domain_model_reservation.sent">Rechnung versendet am</label>
+			<label index="tx_nboevents_domain_model_reservation.payuntil">Zahlbar bis</label>
+			<label index="tx_nboevents_domain_model_reservation.payed">Bezahlt am</label>
 			<label index="tx_nboevents_domain_model_reservation.events">Reservation für Anlass</label>
 		</languageKey>
 	</data>
