@@ -32,6 +32,18 @@
  *
  */
 class Tx_Nboevents_Domain_Repository_CourseRepository extends Tx_Extbase_Persistence_Repository {
-
+	
+	/**
+	 * findAll
+	 *
+	 * @param $limit
+	 * @return
+	 */
+	public function findAll($limit = 999) {
+		$query = $this->createQuery();
+		return $query->setOrderings(array('sorting' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING))
+			->setLimit((integer)$limit)
+			->execute();
+	}
 }
 ?>

@@ -18,14 +18,15 @@ $TCA['tx_nboevents_domain_model_course'] = array(
 	'ctrl' => array(
 		'title' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_course',
 		'label' => 'title',
+		'sortby' => 'sorting',
 		'default_sortby' => 'ORDER BY title',
 		'searchFields' => 'title,description,price',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
-		'versioningWS' => 2,
-		'thumbnail' => 'images',
+		'versioningWS' => 0,
+		//'thumbnail' => 'images',
 		'versioning_followPages' => TRUE,
 		'origUid' => 't3_origuid',
 		'languageField' => 'sys_language_uid',
@@ -192,7 +193,7 @@ if (TYPO3_MODE == 'BE') {
 	$TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['Tx_Nboevents_Utilities_PluginWizard'] = t3lib_extMgm::extPath($_EXTKEY).'Classes/Utility/Backend/PluginWizard.php';
 	
 	// Add tables on Pages:
-	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_course'][0]['fList'] = 'title,price';
+	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_course'][0]['fList'] = 'title,type,price';
 	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_course'][0]['icon'] = TRUE;
 	
 	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_event'][0]['fList'] = 'eventnr,date,course,maxreservations';

@@ -47,6 +47,13 @@ class Tx_Nboevents_Domain_Model_Course extends Tx_Extbase_DomainObject_AbstractE
 	 * @validate NotEmpty
 	 */
 	protected $title;
+	
+	/**
+	 * Type
+	 *
+	 * @var string
+	 */
+	protected $type;
 
 	/**
 	 * Description
@@ -127,6 +134,25 @@ class Tx_Nboevents_Domain_Model_Course extends Tx_Extbase_DomainObject_AbstractE
 	 */
 	public function setTitle($title) {
 		$this->title = $title;
+	}
+	
+	/**
+	 * Returns the type
+	 *
+	 * @return string $type
+	 */
+	public function getType() {
+		return $this->type;
+	}
+
+	/**
+	 * Sets the type
+	 *
+	 * @param string $type
+	 * @return void
+	 */
+	public function setType($type) {
+		$this->type = $type;
 	}
 
 	/**

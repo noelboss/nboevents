@@ -28,6 +28,13 @@
 }
 
 .tx-nboevents .nboevents-list h2{
-	font-size: 2em;
+	font-size: 1.7em;
 	margin-bottom:0em;
+}
+
+.tx-nboevents .nboevents-list h2 small{
+	font-size: 0.75em;
+	vertical-align: top;
+	display: inline;
+	color: #0088CC;
 }

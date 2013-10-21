@@ -21,27 +21,19 @@ plugin.tx_nboevents {
 
 library.plugin.tx_nboevents.warteliste = TEXT
 library.plugin.tx_nboevents.warteliste {
-	noTrimWrap =|<label class="control-label">Angebot</label><div class="controls"><strong>|</strong></div>|
+	VisualContantWrap =|<label class="control-label">Angebot</label><div class="controls"><strong>|</strong></div>|
 	data = GP:tx_powermail_pi1|field|8
 	required = 1
 }
 
 
 page{
-	headerData {
-		94987 = TEXT
-		94987.value = <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
-	}
-	
 	includeCSS {
-		#bootstrap20 = 	EXT:nboevents/Resources/Public/css/bootstrap/bootstrap.css
 		slider = 		EXT:nboevents/Resources/Public/css/nivo-slider/nivo-slider.css
 		sliderTheme = 	EXT:nboevents/Resources/Public/css/nivo-slider/default.css
 		nboevents = 	EXT:nboevents/Resources/Public/css/application.css
 	}
-		
 	includeJSFooter {
-		jq171 = 		EXT:nboevents/Resources/Public/js/jquery-1.7.1.min.js
 		nivoslider =	EXT:nboevents/Resources/Public/js/jquery.nivo.slider.pack.js
 		nboevents = 	EXT:nboevents/Resources/Public/js/application.js
 	}

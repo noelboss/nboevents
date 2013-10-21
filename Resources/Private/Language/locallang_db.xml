@@ -36,6 +36,7 @@
 			<label index="tx_nboevents_domain_model_reservation.event">Event</label>
 			<label index="tx_nboevents_domain_model_course">Course</label>
 			<label index="tx_nboevents_domain_model_course.title">Title</label>
+			<label index="tx_nboevents_domain_model_course.type">Title-Addition</label>
 			<label index="tx_nboevents_domain_model_course.description">Description</label>
 			<label index="tx_nboevents_domain_model_course.price">Price</label>
 			<label index="tx_nboevents_domain_model_course.images">Images</label>
@@ -87,6 +88,15 @@
 			<label index="tx_nboevents_domain_model_location.address">Adresse</label>
 			<label index="tx_nboevents_domain_model_location.coordinates">Koordinaten</label>
 			<label index="tx_nboevents_domain_model_location.events">Anlass</label>
+			<label index="tx_nboevents_domain_model_course">Kurs</label>
+			<label index="tx_nboevents_domain_model_course.title">Titel</label>
+			<label index="tx_nboevents_domain_model_course.type">Titel-Zusatz</label>
+			<label index="tx_nboevents_domain_model_course.description">Beschreibung</label>
+			<label index="tx_nboevents_domain_model_course.price">Preis</label>
+			<label index="tx_nboevents_domain_model_course.images">Bilder</label>
+			<label index="tx_nboevents_domain_model_course.events">Anlässe</label>
+			<label index="tx_nboevents_domain_model_course.locations">Ort</label>
+			<label index="tx_nboevents_domain_model_course.categories">Kategorie</label>
 			<label index="tx_nboevents_domain_model_reservation">Anmeldung</label>
 			<label index="tx_nboevents_domain_model_reservation.settings">Anmeldeoptionen</label>
 			<label index="tx_nboevents_domain_model_reservation.person">Person</label>
