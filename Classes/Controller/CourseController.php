@@ -4,7 +4,7 @@
  *  Copyright notice
  *
  *  (c) 2012 Noel Bossart <n.company@me.com>
- *  
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -68,7 +68,23 @@ class Tx_Nboevents_Controller_CourseController extends Tx_Extbase_MVC_Controller
 	 * @return void
 	 */
 	public function showAction(Tx_Nboevents_Domain_Model_Course $course) {
-		$this->view->assign('course', $course);
+		$link = $course->getLink();
+		if($link !== false){
+		    if (file_exists($link)) {
+				header($_SERVER["SERVER_PROTOCOL"] . " 200 OK");
+				header("Cache-Control: public"); // needed for i.e.
+				header("Content-Type: ".mime_content_type($link));
+				header("Content-Transfer-Encoding: ".mb_detect_encoding($link));
+				header("Content-Length:".filesize($link));
+				header("Content-Disposition: attachment; filename=".basename($link));
+				readfile($link);
+				die();
+			} else {
+				header( 'Location: '.$link );
+			}
+		} else {
+			$this->view->assign('course', $course);
+		}
 	}
 
 }

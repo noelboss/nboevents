@@ -4,7 +4,7 @@
  *  Copyright notice
  *
  *  (c) 2012 Noel Bossart <n.company@me.com>
- *  
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -47,7 +47,7 @@ class Tx_Nboevents_Domain_Model_Course extends Tx_Extbase_DomainObject_AbstractE
 	 * @validate NotEmpty
 	 */
 	protected $title;
-	
+
 	/**
 	 * Type
 	 *
@@ -83,7 +83,7 @@ class Tx_Nboevents_Domain_Model_Course extends Tx_Extbase_DomainObject_AbstractE
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Categories>
 	 */
 	protected $categories;
-	
+
 
 	/**
 	 * Images
@@ -116,7 +116,7 @@ class Tx_Nboevents_Domain_Model_Course extends Tx_Extbase_DomainObject_AbstractE
 		$this->events = new Tx_Extbase_Persistence_ObjectStorage();
 		$this->categories = new Tx_Extbase_Persistence_ObjectStorage();
 	}
-	
+
 	/**
 	 * Returns the title
 	 *
@@ -135,14 +135,16 @@ class Tx_Nboevents_Domain_Model_Course extends Tx_Extbase_DomainObject_AbstractE
 	public function setTitle($title) {
 		$this->title = $title;
 	}
-	
+
 	/**
 	 * Returns the type
 	 *
 	 * @return string $type
 	 */
 	public function getType() {
-		return $this->type;
+		if(!$this->typeIsLink()){
+			return $this->type;
+		}
 	}
 
 	/**
@@ -154,6 +156,35 @@ class Tx_Nboevents_Domain_Model_Course extends Tx_Extbase_DomainObject_AbstractE
 	public function setType($type) {
 		$this->type = $type;
 	}
+
+	/**
+	 * Returns true if the type is a url
+	 *
+	 * @return boolean $isurl
+	 */
+	private function typeIsLink() {
+		$isurl = false;
+		if(file_exists(PATH_site.$this->type) && $this->type){
+			$isurl = PATH_site.$this->type;
+		}
+		else if (count(explode('/', $this->type)) > 1){
+			$isurl = $GLOBALS['TSFE']->baseUrl.$this->type;
+		}
+		else if (count(explode('://', $this->type)) > 1){
+			$isurl = $this->type;
+		}
+		return $isurl;
+	}
+
+	/**
+	 * Returns the UID of the corse or the link to the file linked in type
+	 *
+	 * @return string $link
+	 */
+	public function getLink() {
+		return $this->typeIsLink();
+	}
+
 
 	/**
 	 * Returns the description

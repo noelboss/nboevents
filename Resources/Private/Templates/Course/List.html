@@ -9,7 +9,8 @@
 		<f:if condition="{courses}">
 			<f:then>
 				<f:for each="{courses}" as="course" iteration="iterationCourse">
-					<f:link.action action="show" arguments="{course : course}" class="morelink">
+					<f:link.action action="show" arguments="{course: course}" class="morelink">
+
 					<f:if condition="{course.images.0}">
 						<f:then>
 							<div class="span2">
