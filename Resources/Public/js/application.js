@@ -13,7 +13,7 @@
 		// toggle checkbox
 		$('[data-toggle]',$mod).click(function(e){
 			var $t = $($(this).attr('data-toggle'));
-			$t.find(':input').val('');
+			$t.find(':input').val('1');
 			if($t.is(':visible')){
 				$t.slideUp(150);
 			}else{
