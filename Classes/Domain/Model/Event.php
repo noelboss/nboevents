@@ -225,7 +225,7 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	 * @return integer $maxreservationsperperson
 	 */
 	public function getMaxreservationsperperson() {
-		return isset($this->maxreservationsperperson) ? $this->maxreservationsperperson : 0;
+		return $this->maxreservationsperperson < 1 ? 999 : $this->maxreservationsperperson;
 	}
 
 	/**
