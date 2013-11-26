@@ -61,7 +61,7 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	 * @var integer
 	 */
 	protected $maxreservations;
-	
+
 	/**
 	 * Maximum Reservations per Person
 	 *
@@ -89,7 +89,7 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	 * @var string
 	 */
 	protected $reservationkey;
-		
+
 	/**
 	 * Reservation Key Notes
 	 *
@@ -218,14 +218,14 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	public function setMaxreservations($maxreservations) {
 		$this->maxreservations = $maxreservations;
 	}
-	
+
 	/**
 	 * Returns the maxreservationsperperson
 	 *
 	 * @return integer $maxreservationsperperson
 	 */
 	public function getMaxreservationsperperson() {
-		return $this->maxreservationsperperson;
+		return isset($this->maxreservationsperperson) ? $this->maxreservationsperperson : 0;
 	}
 
 	/**
@@ -309,7 +309,7 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	 */
 	public function getHasReservation() {
 		$result =  Tx_Nboevents_Utility_Cookies::getCookieValue('Reservation'.$this->getUid());
-		
+
 		$has = false;
 		if($result > 0){
 			$reservationRepository = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_ReservationRepository');
@@ -338,7 +338,7 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	public function setReservationnotes($reservationnotes) {
 		$this->reservationnotes = $reservationnotes;
 	}
-	
+
 	/**
 	 * Returns the Reservation Key
 	 *
@@ -357,7 +357,7 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	public function setReservationkey($reservationkey) {
 		$this->reservationkey = $reservationkey;
 	}
-	
+
 	/**
 	 * Returns the Reservation Key Notes
 	 *
