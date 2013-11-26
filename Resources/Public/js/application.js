@@ -5,27 +5,28 @@
 (function($){
 	$(document).ready(function(){
 		var $mod = $('.tx-nboevents');
-		
+
 		if($mod.length < 1){
 			return;
 		}
-		
+
 		// toggle checkbox
 		$('[data-toggle]',$mod).click(function(e){
 			var $t = $($(this).attr('data-toggle'));
+			$t.find('input').val('');
 			if($t.is(':visible')){
 				$t.slideUp(150);
 			}else{
-				$t.slideDown(100).find('input').val('');
-			} 
+				$t.slideDown(100);
+			}
 		});
-		
+
 		// focus error on load
 		$('.error input:eq(0)',$mod),$mod.focus();
 
 		// Gallery
 		$('.nivoSlider',$mod).nivoSlider();
-		
+
 		// google maps
 		$('.gmap',$mod).each(function(){
 			var that = this;
