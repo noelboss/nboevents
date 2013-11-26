@@ -71,7 +71,7 @@ Author URI: http://dev7studios.com
 }
 
 .theme-default .nivo-caption {
-	display: none;
+	display: none !important;
 	font-family: Helvetica, Arial, sans-serif;
 }
 .theme-default .nivo-caption a {
