@@ -128,7 +128,7 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 				));
 			}
 		}
-		if($event->getMaxreservationsperperson() && $event->getMaxreservationsperperson() < $newReservation->getCount()){
+		if($event->getMaxreservationsperperson() > 0 && $event->getMaxreservationsperperson() < $newReservation->getCount()){
 			$this->flashMessageContainer->add('<h3>Sorry, '.$newPerson->getFirstname().'</h3>Du kannst maximal ' . ($event->getMaxreservationsperperson()) . ' Person' . ($event->getMaxreservationsperperson() > 1 ? 'en': '') . ' anmelden.');
 			$this->redirect(
 				'new', NULL, NULL, array(
@@ -213,7 +213,7 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 		}
 
 		if($event->getMaxreservationsperperson() < $newReservation->getCount()){
-			$this->flashMessageContainer->add('<h3>Sorry, '.$newPerson->getFirstname().'</h3>Du kannst maximal ' . ($newReservation->getMaxreservationsperperson()) . ' Person' . ($newReservation->getMaxreservationsperperson() > 1 ? 'en': '') . ' anmelden.');
+			$this->flashMessageContainer->add('<h3>Sorry, '.$newPerson->getFirstname().'</h3>Du kannst maximal ' . ($event->getMaxreservationsperperson()) . ' Person' . ($event->getMaxreservationsperperson() > 1 ? 'en': '') . ' anmelden.');
 			$this->redirect(
 				'edit', NULL, NULL, array(
 					'newReservation' => $newReservation,
