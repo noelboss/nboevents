@@ -99,7 +99,7 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 			$pid = Tx_Nboevents_Utility_Cookies::getCookieValue('Person');
 			$newPerson = $this->personRepository->findByUid($pid);
 		}
-		$this->view->assign('e', $e);		
+		$this->view->assign('e', $e);
 		$this->view->assign('event', $event);
 		$this->view->assign('newPerson', $newPerson);
 		$this->view->assign('newReservation', $newReservation);
@@ -116,7 +116,7 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 	 */
 	public function createAction(Tx_Nboevents_Domain_Model_Reservation $newReservation, Tx_Nboevents_Domain_Model_Person $newPerson, Tx_Nboevents_Domain_Model_Event $event) {
 		$this->reservationRepository->add($newReservation);
-		
+
 		if($event->getReservationkey()){
 			if (!$this->request->hasArgument('reservationkey') || trim($this->request->getArgument('reservationkey')) !== $event->getReservationkey()) {
 				$this->redirect(
@@ -129,7 +129,7 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 			}
 		}
 		if($event->getMaxreservationsperperson() < $newReservation->getCount()){
-			$this->flashMessageContainer->add('<h3>Sorry, '.$newPerson->getFirstname().'</h3>Du kannst maximal ' . ($newReservation->getMaxreservationsperperson()) . ' Person' . ($newReservation->getMaxreservationsperperson() > 1 ? 'en': '') . ' anmelden.');
+			$this->flashMessageContainer->add('<h3>Sorry, '.$newPerson->getFirstname().'</h3>Du kannst maximal ' . ($event->getMaxreservationsperperson()) . ' Person' . ($event->getMaxreservationsperperson() > 1 ? 'en': '') . ' anmelden.');
 			$this->redirect(
 				'new', NULL, NULL, array(
 					'event' => $event->getUid(),
@@ -138,7 +138,7 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 					'e' => array('reskey' => true)
 			));
 		}
-		
+
 		$remaining = $event->getRemaining();
 		if($remaining < $newReservation->getCount()){
 			$this->flashMessageContainer->add('<h3>Sorry, '.$newPerson->getFirstname().'</h3>Es hat leider nicht mehr Platz für ' . ($newReservation->getCount()) . ' Person' . ($newReservation->getCount() > 1 ? 'en': '') . '. Es hat noch Platz für '.$remaining.' Person'.($remaining > 1 ? 'en': '').'.');
@@ -150,7 +150,7 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 					'e' => array('reskey' => true)
 			));
 		}
-		
+
 		$newReservation->setCount($newReservation->getCount());
 		if (!$newPerson->getUid()) {
 			$this->personRepository->add($newPerson);
@@ -211,7 +211,7 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 				));
 			}
 		}
-		
+
 		if($event->getMaxreservationsperperson() < $newReservation->getCount()){
 			$this->flashMessageContainer->add('<h3>Sorry, '.$newPerson->getFirstname().'</h3>Du kannst maximal ' . ($newReservation->getMaxreservationsperperson()) . ' Person' . ($newReservation->getMaxreservationsperperson() > 1 ? 'en': '') . ' anmelden.');
 			$this->redirect(
@@ -222,13 +222,13 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 					'e' => array('reskey' => true)
 			));
 		}
-		
+
 		$remaining = $event->getRemaining();
 		if ($this->reservationRepository->countByUid($newReservation->getUid()) > 0) {
 			$currentReservation = $this->reservationRepository->findByUid($newReservation->getUid());
 			$remaining = $remaining + $currentReservation->getCount();
 		}
-		
+
 		if($remaining < $newReservation->getCount()){
 			$this->flashMessageContainer->add('<h3>Sorry, '.$newPerson->getFirstname().'</h3>Es hat leider nicht mehr Platz für ' . ($newReservation->getCount()) . ' Person' . ($newReservation->getCount() > 1 ? 'en': '') . '. Es hat noch Platz für '.$remaining.' Person'.($remaining > 1 ? 'en': '').'.');
 			$this->redirect(
@@ -263,7 +263,7 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 		$this->flashMessageContainer->add('<h3>Danke!</h3>Deine Anmeldung wurde gelöscht.');
 		$this->redirect('show', 'Event', NULL, array('event' => $event));
 	}
-	
+
 
 }
 
