@@ -16,7 +16,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	// non-cacheable actions
 	array(
 		'Course' => '',
-		'Event' => '',
+		'Event' => 'show',
 		'Person' => 'create, update, delete',
 		'Location' => 'create, update, delete',
 		'Reservation' => 'new, create',
