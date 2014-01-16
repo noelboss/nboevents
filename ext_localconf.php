@@ -10,17 +10,17 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 		'Course' => 'list,show',
 		'Event' => 'list, show',
 		'Location' => 'list, show,',
-		'Reservation' => 'list, show, new, create',
-		'Categories' => 'list',
+		'Reservation' => 'show, new, create',
+		//'Categories' => 'list',
 	),
 	// non-cacheable actions
 	array(
-		'Course' => 'list,show',
-		'Event' => 'list, show',
+		'Course' => '',
+		'Event' => '',
 		'Person' => 'create, update, delete',
 		'Location' => 'create, update, delete',
-		'Reservation' => '',
-		'Categories' => 'list',
+		'Reservation' => 'new, create',
+		//'Categories' => 'list',
 	)
 );
 
