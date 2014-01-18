@@ -203,7 +203,7 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 						'popup_onlyOpenIfSelected' => 1,
 						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
 					),
-					'add' => Array(
+					/*'add' => Array(
 						'type' => 'script',
 						'title' => 'Create new',
 						'icon' => 'add.gif',
@@ -213,7 +213,7 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 							'setValue' => 'prepend'
 						),
 						'script' => 'wizard_add.php',
-					),
+					),*/
 				),
 			),
 		),
@@ -230,6 +230,9 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 				'wizards' => array(
 					'_PADDING' => 1,
 					'_VERTICAL' => 0,
+					'suggest' => array(
+						'type' => 'suggest',
+					),
 					'edit' => array(
 						'type' => 'popup',
 						'title' => 'Edit',
@@ -238,7 +241,7 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 						'popup_onlyOpenIfSelected' => 1,
 						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
 					),
-					'add' => Array(
+					/*'add' => Array(
 						'type' => 'script',
 						'title' => 'Create new',
 						'icon' => 'add.gif',
@@ -248,7 +251,7 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 							'setValue' => 'prepend'
 						),
 						'script' => 'wizard_add.php',
-					),
+					),*/
 				),
 			),
 		),

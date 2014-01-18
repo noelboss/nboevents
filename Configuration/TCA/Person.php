@@ -97,7 +97,7 @@ $TCA['tx_nboevents_domain_model_person'] = array(
 			'config' => array(
 				'type' => 'text',
 				'cols' => 40,
-				'rows' => 5,	
+				'rows' => 5,
 				'eval' => 'required'
 			),
 		),
@@ -117,6 +117,13 @@ $TCA['tx_nboevents_domain_model_person'] = array(
 					'showSynchronizationLink' => 1,
 					'showPossibleLocalizationRecords' => 1,
 					'showAllLocalizationLink' => 1
+				),
+				'wizards' => array(
+					'_PADDING' => 1,
+					'_VERTICAL' => 0,
+					'suggest' => array(
+						'type' => 'suggest',
+					),
 				),
 			),
 		),
