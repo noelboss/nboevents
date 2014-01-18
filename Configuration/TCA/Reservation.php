@@ -203,6 +203,13 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 						'popup_onlyOpenIfSelected' => 1,
 						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
 					),
+					'wizards' => array(
+						'_PADDING' => 1,
+						'_VERTICAL' => 0,
+						'suggest' => array(
+							'type' => 'suggest',
+						),
+					),
 					/*'add' => Array(
 						'type' => 'script',
 						'title' => 'Create new',
