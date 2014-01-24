@@ -76,7 +76,7 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 	'ctrl' => array(
 		'title' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event',
 		'label' => 'eventnr',
-		'default_sortby' => 'ORDER BY eventnr',
+		'sortby' => 'date DESC',
 		'searchFields' => 'date,course,eventnr',
 		'label_alt' => 'date,course',
 		'label_alt_force' => true,
@@ -131,7 +131,7 @@ $TCA['tx_nboevents_domain_model_person'] = array(
 		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_nboevents_domain_model_person.gif'
 	),
 );
- 
+
 t3lib_extMgm::addLLrefForTCAdescr('tx_nboevents_domain_model_location', 'EXT:nboevents/Resources/Private/Language/locallang_csh_tx_nboevents_domain_model_location.xml');
 t3lib_extMgm::allowTableOnStandardPages('tx_nboevents_domain_model_location');
 $TCA['tx_nboevents_domain_model_location'] = array(
@@ -162,11 +162,12 @@ $TCA['tx_nboevents_domain_model_location'] = array(
 		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_nboevents_domain_model_location.gif'
 	),
 );
- 
+
 t3lib_extMgm::addLLrefForTCAdescr('tx_nboevents_domain_model_reservation', 'EXT:nboevents/Resources/Private/Language/locallang_csh_tx_nboevents_domain_model_reservation.xml');
 t3lib_extMgm::allowTableOnStandardPages('tx_nboevents_domain_model_reservation');
 $TCA['tx_nboevents_domain_model_reservation'] = array(
 	'ctrl' => array(
+		/*'hideTable' => 1, /* don't display in backend-list */
 		'title' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation',
 		'label_userFunc' => 'EXT:nboevents/Classes/Domain/Model/Reservation.php:Tx_Nboevents_Domain_Model_Reservation->getLabel',
 		'tstamp' => 'tstamp',
@@ -186,25 +187,24 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_nboevents_domain_model_reservation.gif'
 	),
 );
-
-
-if (TYPO3_MODE == 'BE') {  
+if (TYPO3_MODE == 'BE') {
+	$GLOBALS['TBE_STYLES']['inDocStyles_TBEstyle'] .= '#typo3-docbody .typo3-page-stdlist { width: auto; min-width: 50%; }';
 	// Add Wizard Icon
 	$TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['Tx_Nboevents_Utilities_PluginWizard'] = t3lib_extMgm::extPath($_EXTKEY).'Classes/Utility/Backend/PluginWizard.php';
-	
+
 	// Add tables on Pages:
-	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_course'][0]['fList'] = 'title,type,price';
-	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_course'][0]['icon'] = TRUE;
-	
 	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_event'][0]['fList'] = 'eventnr,date,course,maxreservations';
 	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_event'][0]['icon'] = TRUE;
-	
+
+	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_course'][0]['fList'] = 'title,type,price';
+	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_course'][0]['icon'] = TRUE;
+
 	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_location'][0]['fList'] = 'title,address';
 	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_location'][0]['icon'] = TRUE;
-	
+
 	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_person'][0]['fList'] = 'lastname,firstname,email';
 	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_person'][0]['icon'] = TRUE;
-	 
+
 	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_reservation'][0]['fList'] = 'event,person;count,sent;payuntil;payed,notes;notesbissfest';
 	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_reservation'][0]['icon'] = TRUE;
 }

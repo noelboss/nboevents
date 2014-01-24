@@ -13,7 +13,8 @@
 			<label index="tx_nboevents_domain_model_event.maxreservations">Max reservations</label>
 			<label index="tx_nboevents_domain_model_event.reservationdate">Reservations until date</label>
 			<label index="tx_nboevents_domain_model_event.reservationnotes">Notes</label>
-			<label index="tx_nboevents_domain_model_event.reservations">Reservations</label>
+			<label index="tx_nboevents_domain_model_event.reservations">Reservations for this event</label>
+			<label index="tx_nboevents_domain_model_event.reservations-person"></label>
 			<label index="tx_nboevents_domain_model_event.course">Course</label>
 			<label index="tx_nboevents_domain_model_person">Person</label>
 			<label index="tx_nboevents_domain_model_person.lastname">Lastname</label>
@@ -21,7 +22,7 @@
 			<label index="tx_nboevents_domain_model_person.email">E-Mail</label>
 			<label index="tx_nboevents_domain_model_person.phone">Phone</label>
 			<label index="tx_nboevents_domain_model_person.address">Address</label>
-			<label index="tx_nboevents_domain_model_person.reservations">Reservation for events</label>
+			<label index="tx_nboevents_domain_model_person.reservations">This person participates in the following events</label>
 			<label index="tx_nboevents_domain_model_location">Location of the event</label>
 			<label index="tx_nboevents_domain_model_location.title">Title</label>
 			<label index="tx_nboevents_domain_model_location.description">Description</label>
@@ -73,7 +74,7 @@
 			<label index="tx_nboevents_domain_model_event.reservationkey">Anmeldeschlüssel (VIP Passwort)</label>
 			<label index="tx_nboevents_domain_model_event.reservationkeynotes">Hinweise zum Anmeldeschlüssel</label>
 			<label index="tx_nboevents_domain_model_event.images">Bilder</label>
-			<label index="tx_nboevents_domain_model_event.reservations">Anmeldungen</label>
+			<label index="tx_nboevents_domain_model_event.reservations">Folgende Anmeldungen bestehen für diesen Anlass</label>
 			<label index="tx_nboevents_domain_model_event.locations">Orte</label>
 			<label index="tx_nboevents_domain_model_person">Person</label>
 			<label index="tx_nboevents_domain_model_person.lastname">Nachname</label>
@@ -81,7 +82,7 @@
 			<label index="tx_nboevents_domain_model_person.email">E-Mail Adresse</label>
 			<label index="tx_nboevents_domain_model_person.phone">Telefon / Mobile</label>
 			<label index="tx_nboevents_domain_model_person.address">Adresse</label>
-			<label index="tx_nboevents_domain_model_person.reservations">Anmeldung für Anlässe</label>
+			<label index="tx_nboevents_domain_model_person.reservations">Diese Person ist an folgenden Anlässen angemeldet</label>
 			<label index="tx_nboevents_domain_model_location">Ort</label>
 			<label index="tx_nboevents_domain_model_location.title">Titel</label>
 			<label index="tx_nboevents_domain_model_location.description">Beschreibung</label>

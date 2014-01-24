@@ -210,6 +210,7 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_nboevents_domain_model_course',
+				'foreign_table_where' => ' ORDER BY title',
 				//'MM' => 'tx_nboevents_course_categories_mm',
 				'size' => 1,
 				'autoSizeMax' => 1,
@@ -252,10 +253,10 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 				'maxitems' => 9999,
 				'appearance' => array(
 					'collapse' => 0,
-					'levelLinksPosition' => 'top',
+					'levelLinksPosition' => 'none',
 					'showSynchronizationLink' => 1,
 					'showPossibleLocalizationRecords' => 1,
-					'showAllLocalizationLink' => 1
+					'showAllLocalizationLink' => 1,
 				),
 			),
 		),

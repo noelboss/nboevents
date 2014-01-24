@@ -227,7 +227,7 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 				'type' => 'select',
 				'foreign_table' => 'tx_nboevents_domain_model_event',
 				//'foreign_table_where' => 'AND tx_nboevents_domain_model_event.pid=###CURRENT_PID### AND tx_nboevents_domain_model_event.sys_language_uid IN (-1,0)',
-				'foreign_table_where' => 'AND tx_nboevents_domain_model_event.sys_language_uid IN (-1,0) ORDER BY eventnr,date',
+				'foreign_table_where' => 'AND tx_nboevents_domain_model_event.sys_language_uid IN (-1,0) ORDER BY tx_nboevents_domain_model_event.date, tx_nboevents_domain_model_event.eventnr DESC',
 				'minitems' => 1,
 				'maxitems' => 1,
 				'wizards' => array(
@@ -236,14 +236,14 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 					'suggest' => array(
 						'type' => 'suggest',
 					),
-					'edit' => array(
+					/*'edit' => array(
 						'type' => 'popup',
 						'title' => 'Edit',
 						'script' => 'wizard_edit.php',
 						'icon' => 'edit2.gif',
 						'popup_onlyOpenIfSelected' => 1,
 						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-					),
+					),*/
 					/*'add' => Array(
 						'type' => 'script',
 						'title' => 'Create new',

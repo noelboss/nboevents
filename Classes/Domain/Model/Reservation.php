@@ -40,7 +40,7 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 	 * @var integer
 	 */
 	protected $pid;
-	
+
 	/**
 	 * Notes
 	 *
@@ -102,13 +102,13 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 	 * @return void
 	 */
 	protected function initStorageObjects() {
-        /**
-         * Do not modify this method!
-         * It will be rewritten on each save in the extension builder
-         * You may modify the constructor of this class instead
-         */
-        $this->events = new Tx_Extbase_Persistence_ObjectStorage();
-        $this->persons = new Tx_Extbase_Persistence_ObjectStorage();
+		/**
+		 * Do not modify this method!
+		 * It will be rewritten on each save in the extension builder
+		 * You may modify the constructor of this class instead
+		 */
+		$this->events = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->persons = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
@@ -144,7 +144,7 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 		$repo = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_ReservationRepository');
 		$return['title'] = $repo->findLabel($uid);
 	}
-	
+
 	/**
 	 * Returns the pid
 	 *
