@@ -169,6 +169,7 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 	'ctrl' => array(
 		/*'hideTable' => 1, /* don't display in backend-list */
 		'title' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation',
+		'label' => 'tx_nboevents_domain_model_reservation',
 		'label_userFunc' => 'EXT:nboevents/Classes/Domain/Model/Reservation.php:Tx_Nboevents_Domain_Model_Reservation->getLabel',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
