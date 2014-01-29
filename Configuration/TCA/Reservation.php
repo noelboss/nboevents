@@ -123,7 +123,7 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 				'foreign_table' => 'pages',
 				'suppress_icons' => 1,
 				//'foreign_table_where' => 'AND tx_nboevents_domain_model_event.pid=###CURRENT_PID### AND tx_nboevents_domain_model_event.sys_language_uid IN (-1,0)',
-				'foreign_table_where' => 'AND (pages.pid IN (35) OR pages.uid IN (35)) AND (pages.hidden = 0 AND pages.deleted = 0)',
+				'foreign_table_where' => 'AND (pages.pid IN (35) OR pages.uid IN (35)) AND (pages.hidden = 0 AND pages.deleted = 0 AND pages.doktype = 254)',
 				'minitems' => 1,
 				'maxitems' => 1,
 			),

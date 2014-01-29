@@ -1,8 +1,15 @@
 @media all {
 	body {
-		background: #fff;
-		width: 29.7cm;
+		background: #F8F8F8;
+		width: 90%;
+		margin: 0 auto;
 		font-size: 10pt;
+		border-top: 0;
+		padding-top: 1px;
+	}
+
+	.navbar-fixed-top {
+		display: none;
 	}
 
 	h1{
@@ -31,13 +38,10 @@
 		width: 100%;
 	}
 
-	.navbar-fixed-top .container {
-		width: 90%;
-	}
-
 	.containerWrapper {
-		padding-top: 130px;
 		width:auto;
+		padding-top: 20px;
+		background: #F8F8F8;
 	}
 
 	.span12 {
