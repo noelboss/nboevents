@@ -5,7 +5,34 @@ if (!defined('TYPO3_MODE')) {
 
 Tx_Extbase_Utility_Extension::configurePlugin(
 	$_EXTKEY,
+	'Courses',
+	array(
+		'Course' => 'list,show',
+		'Reservation' => 'show, new, create',
+	),
+	// non-cacheable actions
+	array(
+		'Course' => '',
+		'Reservation' => 'new, create',
+		//'Categories' => 'list',
+	)
+);
+
+Tx_Extbase_Utility_Extension::configurePlugin(
+	$_EXTKEY,
 	'Events',
+	array(
+		'Event' => 'list, show',
+	),
+	// non-cacheable actions
+	array(
+		'Event' => 'list, show',
+	)
+);
+
+Tx_Extbase_Utility_Extension::configurePlugin(
+	$_EXTKEY,
+	'Bills',
 	array(
 		'Course' => 'list,show',
 		'Event' => 'list, show',

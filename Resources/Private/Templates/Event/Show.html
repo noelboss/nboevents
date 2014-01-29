@@ -1,0 +1,92 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+
+<f:flashMessages />
+<f:if condition="{login}">
+	<f:then>
+		<p class="alert alert-error">
+			Sie müssen angemeldet sein um diesen Bereich zu sehen.
+		</p>
+	</f:then>
+	<f:else>
+		<f:if condition="{event.reservations}">
+			<f:then>
+				<h1>{event.eventnr} – {event.course.title}
+					<span>
+						{event.date -> f:format.date(format:"d.m.Y – G:i")}
+						<strong>
+						{event.count} Anmeldungen
+						</strong>
+					</span>
+				</h1>
+				<table class="table table-striped table-hover singletable tablesorter-ice">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Vorname</th>
+							<th>Adresse</th>
+							<th data-sorter="false">Telefon</th>
+							<th>E-Mail</th>
+							<th data-sorter="false">Bemerkungen</th>
+							<th>Angemeldet</th>
+							<th>Anzahl</th>
+							<th>Rechnungstatus</th>
+						</tr>
+					</thead>
+					<tbody>
+						<f:for each="{event.reservations}" as="reservation">
+							<tr>
+								<td>
+									{reservation.person.lastname}
+								</td>
+								<td>
+									{reservation.person.firstname}
+								</td>
+								<td>
+									{reservation.person.address}
+								</td>
+								<td>
+									{reservation.person.phone}
+								</td>
+								<td>
+									<f:if condition="{reservation.person.email}">
+										<a href="mailto:{reservation.person.email}">{reservation.person.email}</a>
+									</f:if>
+								</td>
+								<td>
+									{reservation.notes}
+								</td>
+								<td>
+									<span style="display:none;">{reservation.tstamp -> f:format.date(format:"YmdGi")}</span>
+									{reservation.tstamp -> f:format.date(format:"d. m. Y – G:i")}
+								</td>
+								<td>
+									{reservation.count}
+								</td>
+								<td>
+									<span style="display:none;">{reservation.pid}</span>
+									<f:cObject typoscriptObjectPath="library.plugin.tx_nboevents.billstate" data="{reservation}" />
+								</td>
+							</tr>
+						</f:for>
+					</tbody>
+				</table>
+				<span class="btn pull-right print">
+					Anmeldeliste Drucken
+					<i class="icon-print"></i>
+				</span>
+			</f:then>
+			<f:else>
+				<h1>{event.eventnr} – {event.course.title}
+					<span>{event.date -> f:format.date(format:"d. m. Y – G:i")}</span>
+				</h1>
+				<p class="alert alert-info">
+					Es sind keine Anmeldungen für diesen Kurs vorhanden.
+				</p>
+			</f:else>
+		</f:if>
+		<f:link.action action="list" class="btn"><i class="icon-arrow-left"></i> Kursübersicht</f:link.action>
+	</f:else>
+</f:if>
+</f:section>

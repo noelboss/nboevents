@@ -259,6 +259,15 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 				),
 			),
 		),
+		'tstamp' => Array (
+			'exclude' => 1,
+			'label' => 'Creation date',
+			'config' => Array (
+				'type' => 'none',
+				'format' => 'date',
+				'eval' => 'date',
+			)
+		),
 	),
 );
 

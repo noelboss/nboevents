@@ -33,6 +33,12 @@
  */
 class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_AbstractEntity {
 
+	/**
+	 * Create Date
+	 *
+	 * @var DateTime
+	 */
+	protected $tstamp;
 
 	/**
 	 * Pid
@@ -245,16 +251,34 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 	/**
 	 * Returns the persons
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Sjpersons_Domain_Model_Person> $persons
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Person> $persons
 	 */
 	public function getPersons() {
 		return $this->persons;
 	}
 
 	/**
+	 * Returns the person
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Person> $person
+	 */
+	public function getPerson() {
+		return $this->person;
+	}
+
+	/**
+	 * Returns the tstamp
+	 *
+	 * @return DateTime $tstamp
+	 */
+	public function getTstamp() {
+		return $this->tstamp;
+	}
+
+	/**
 	 * Sets the persons
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Sjpersons_Domain_Model_Person> $persons
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Person> $persons
 	 * @return void
 	 */
 	public function setPersons(Tx_Extbase_Persistence_ObjectStorage $persons) {

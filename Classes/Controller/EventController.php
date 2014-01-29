@@ -34,20 +34,20 @@
 class Tx_Nboevents_Controller_EventController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
-	 * eventRepository
+	 * courseRepository
 	 *
-	 * @var Tx_Nboevents_Domain_Repository_EventRepository
+	 * @var Tx_Nboevents_Domain_Repository_CourseRepository
 	 */
-	protected $eventRepository;
+	protected $courseRepository;
+
 
 	/**
-	 * injectEventRepository
+	 * Initializes the current action
 	 *
-	 * @param Tx_Nboevents_Domain_Repository_EventRepository $eventRepository
 	 * @return void
 	 */
-	public function injectEventRepository(Tx_Nboevents_Domain_Repository_EventRepository $eventRepository) {
-		$this->eventRepository = $eventRepository;
+	protected function initializeAction() {
+		$this->courseRepository = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_CourseRepository');
 	}
 
 	/**
@@ -55,9 +55,13 @@ class Tx_Nboevents_Controller_EventController extends Tx_Extbase_MVC_Controller_
 	 *
 	 * @return void
 	 */
-	public function listAction() {
-		$events = $this->eventRepository->findAll();
-		$this->view->assign('events', $events);
+	public function listAction(){
+		if($GLOBALS['TSFE']->beUserLogin){
+			$courses = $this->courseRepository->findAll();
+			$this->view->assign('courses', $courses);
+		} else {
+			$this->view->assign('login', 1);
+		}
 	}
 
 	/**
@@ -67,7 +71,11 @@ class Tx_Nboevents_Controller_EventController extends Tx_Extbase_MVC_Controller_
 	 * @return void
 	 */
 	public function showAction(Tx_Nboevents_Domain_Model_Event $event) {
-		$this->view->assign('event', $event);
+		if($GLOBALS['TSFE']->beUserLogin){
+			$this->view->assign('event', $event);
+		} else {
+			$this->view->assign('login', 1);
+		}
 	}
 }
 

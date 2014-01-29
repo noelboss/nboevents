@@ -1,0 +1,76 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+	<f:flashMessages />
+	<f:if condition="{login}">
+		<f:then>
+			<p class="alert alert-error">
+				Sie müssen angemeldet sein um diesen Bereich zu sehen.
+			</p>
+		</f:then>
+		<f:else>
+			<f:if condition="{courses}">
+				<span class="btn pull-right print">
+					Kursliste Drucken
+					<iclass="icon-print"></i>
+				</span>
+			</f:if>
+			<h1>Bevorstehenden Kurse</h1>
+			<f:if condition="{courses}">
+				<f:then>
+					<table class="table table-striped table-hover listtable tablesorter-ice">
+						<thead>
+							<tr>
+								<th>Nr.</th>
+								<th>Kurs</th>
+								<th>Datum &amp; Zeit</th>
+								<th>Beginn</th>
+								<th data-sorter="false">Anmeldungen</th>
+							</tr>
+						</thead>
+						<tbody>
+							<f:for each="{courses}" as="course" iteration="iterationCourse">
+								<f:for each="{course.events}" as="event" iteration="iterationEvent">
+									<tr>
+										<td>
+											{event.eventnr}
+										</td>
+										<td>
+											{course.title}
+										</td>
+										<td>
+											<span style="display:none;">{event.date -> f:format.date(format:"YmdGi")}</span>
+											{event.date -> f:format.date(format:"d.m.Y G:i")}
+										</td>
+										<td>
+											{event.count} von {event.maxreservations}
+										</td>
+										<td>
+											<f:if condition="{event.reservations}">
+												<f:link.action action="show" arguments="{event: event}" class="morelink">
+													Teilnehmerliste anzeigen <i class="icon-arrow-right"></i>
+												</f:link.action>
+											</f:if>
+										</td>
+									</tr>
+								</f:for>
+							</f:for>
+						</tbody>
+					</table>
+					<p class="clearfix">
+						<span class="btn pull-right print">
+							Kursliste Drucken
+							<i class="icon-print"></i>
+						</span>
+					</p>
+				</f:then>
+				<f:else>
+					<p class="alert alert-info">
+						Aktuell sind keine Kurse vorhanden.
+					</p>
+				</f:else>
+			</f:if>
+		</f:else>
+	</f:if>
+
+</f:section>

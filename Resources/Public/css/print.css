@@ -1,0 +1,75 @@
+@media all {
+	body {
+		background: #fff;
+		width: 29.7cm;
+		font-size: 10pt;
+	}
+
+	h1{
+		font-size: 20pt;
+	}
+	h1 span{
+		font-size: 15pt;
+		margin-left: 10pt;
+		float: right;
+	}
+	h1 strong{
+		margin-left: 20pt;
+		font-weight: normal;
+	}
+
+	.container {
+		width: auto;
+	}
+
+	.contentHeader {
+		display: none;
+	}
+
+
+	.containerOuter {
+		width: 100%;
+	}
+
+	.navbar-fixed-top .container {
+		width: 90%;
+	}
+
+	.containerWrapper {
+		padding-top: 130px;
+		width:auto;
+	}
+
+	.span12 {
+		float: none;
+		width:auto;
+	}
+
+	.span6 {
+		width: 47%;
+	}
+}
+
+@media print {
+	@page { size: landscape; }
+
+	body {
+		border-top: 0;
+		padding-top: 1px;
+		width: 29.7cm;
+	}
+
+	.btn,
+	.navbar-fixed-top {
+		display: none;
+	}
+
+	.containerWrapper {
+		padding-top: 20px;
+	}
+
+	a,
+	a:visited {
+		color: #000;
+	}
+}

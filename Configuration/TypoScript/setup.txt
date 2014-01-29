@@ -26,6 +26,11 @@ library.plugin.tx_nboevents.warteliste {
 	required = 1
 }
 
+library.plugin.tx_nboevents.billstate = TEXT
+library.plugin.tx_nboevents.billstate {
+	data.dataWrap = DB:pages:{field:pid}:title
+}
+
 
 page{
 	includeCSS {
@@ -33,8 +38,22 @@ page{
 		sliderTheme = 	EXT:nboevents/Resources/Public/css/nivo-slider/default.css
 		nboevents = 	EXT:nboevents/Resources/Public/css/application.css
 	}
-	includeJSFooter {
+	includeJSFooterlibs {
 		nivoslider =	EXT:nboevents/Resources/Public/js/jquery.nivo.slider.pack.js
+	}
+	includeJSFooter {
 		nboevents = 	EXT:nboevents/Resources/Public/js/application.js
 	}
 }
+
+[PIDinRootline = 38]
+page{
+	includeCSS {
+		nboeventstablesorter = 	EXT:nboevents/Resources/Public/css/theme.ice.css
+		nboeventsprint = 	EXT:nboevents/Resources/Public/css/print.css
+	}
+	includeJSFooterlibs {
+		nboeventstablesorter = EXT:nboevents/Resources/Public/js/jquery.tablesorter.min.js
+	}
+}
+[global]

@@ -5,6 +5,18 @@
 (function($){
 	$(document).ready(function(){
 
+		$(".print").click(function(){
+			window.print();
+		});
+
+		$(".singletable").tablesorter({
+			sortList: [[0,0]]
+		});
+
+		$(".listtable").tablesorter({
+			sortList: [[2,0]]
+		});
+
 		// google maps
 		$('.gmap',$mod).each(function(){
 			var that = this;
@@ -46,11 +58,11 @@
 		});
 
 		var $mod = $('.tx-nboevents');
-		
+
 		if($mod.length < 1){
 			return;
 		}
-		
+
 		// toggle checkbox
 		$('[data-toggle]',$mod).click(function(e){
 			var $t = $($(this).attr('data-toggle'));
@@ -58,14 +70,14 @@
 				$t.slideUp(150);
 			}else{
 				$t.slideDown(100).find('input').val('');
-			} 
+			}
 		});
-		
+
 		// toggle checkbox
 		$('.expand',$mod).click(function(e){
 			$(this).hide().next('.expanded').slideDown(300);
 		});
-		
+
 		// toggle checkbox
 		$('.info',$mod).fancybox({
 			type: 'ajax',
@@ -73,9 +85,9 @@
 			width: '70%',
 			maxWidth: '800'
 		});
-		
 
-		
+
+
 		// focus error on load
 		$('.error input:eq(0)',$mod),$mod.focus();
 
