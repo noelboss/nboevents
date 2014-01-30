@@ -201,7 +201,6 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 	),
 );
 if (TYPO3_MODE == 'BE') {
-	$GLOBALS['TBE_STYLES']['inDocStyles_TBEstyle'] .= '#typo3-docbody .typo3-page-stdlist { width: auto; min-width: 50%; }';
 	// Add Wizard Icon
 	$TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['Tx_Nboevents_Utilities_PluginWizard'] = t3lib_extMgm::extPath($_EXTKEY).'Classes/Utility/Backend/PluginWizard.php';
 
