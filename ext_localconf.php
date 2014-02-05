@@ -12,9 +12,8 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	),
 	// non-cacheable actions
 	array(
-		'Course' => '',
+		'Course' => 'list,show',
 		'Reservation' => 'new, create',
-		//'Categories' => 'list',
 	)
 );
 
