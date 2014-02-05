@@ -53,6 +53,7 @@ page{
 		nboeventsprint = 	EXT:nboevents/Resources/Public/css/print.css
 	}
 	includeJSFooterlibs {
+		nboeventstablesorterapp = 	EXT:nboevents/Resources/Public/js/tablesorter-app.js
 		nboeventstablesorter = EXT:nboevents/Resources/Public/js/jquery.tablesorter.min.js
 	}
 }
