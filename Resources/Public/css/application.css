@@ -38,3 +38,7 @@
 	display: inline;
 	color: #0088CC;
 }
+
+.tx-nboevents tr.linked {
+	cursor: pointer;
+}

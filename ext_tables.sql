@@ -105,6 +105,7 @@ CREATE TABLE tx_nboevents_domain_model_person (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
+	gender int(11) DEFAULT '0' NOT NULL,
 	lastname varchar(255) DEFAULT '' NOT NULL,
 	firstname varchar(255) DEFAULT '' NOT NULL,
 	email varchar(255) DEFAULT '' NOT NULL,

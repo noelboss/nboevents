@@ -10,7 +10,7 @@ $TCA['tx_nboevents_domain_model_person'] = array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, firstname, lastname, email, phone, address, reservations',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'firstname, lastname, email, phone, address, reservations'),
+		'1' => array('showitem' => 'gender, firstname, lastname, email, phone, address, reservations'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -54,6 +54,17 @@ $TCA['tx_nboevents_domain_model_person'] = array(
 				'size' => 30,
 				'max' => 255,
 			)
+		),
+		'gender' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_person.gender',
+			'config' => array(
+				'type' => 'select',
+				'items' => array(
+					array('LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_person.gender.0', 0),
+					array('LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_person.gender.1', 1)
+				),
+			),
 		),
 		'firstname' => array(
 			'exclude' => 0,

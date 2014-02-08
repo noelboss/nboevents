@@ -5,6 +5,9 @@
 (function($){
 	$(document).ready(function(){
 
+		$('tr[data-href]', $mod).click(function(){
+			window.location = $(this).attr('data-href');
+		});
 		// google maps
 		$('.gmap',$mod).each(function(){
 			var that = this;

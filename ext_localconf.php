@@ -22,31 +22,30 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	'Events',
 	array(
 		'Event' => 'list, show',
+		'Person' => 'list',
+		'Reservation' => 'show',
 	),
 	// non-cacheable actions
 	array(
+		'Person' => 'list',
+		'Reservation' => 'show',
 		'Event' => 'list, show',
 	)
 );
 
 Tx_Extbase_Utility_Extension::configurePlugin(
 	$_EXTKEY,
-	'Bills',
+	'Persons',
 	array(
-		'Course' => 'list,show',
+		'Person' => 'list',
+		'Reservation' => 'show',
 		'Event' => 'list, show',
-		'Location' => 'list, show,',
-		'Reservation' => 'show, new, create',
-		//'Categories' => 'list',
 	),
 	// non-cacheable actions
 	array(
-		'Course' => '',
-		'Event' => 'show',
-		'Person' => 'create, update, delete',
-		'Location' => 'create, update, delete',
-		'Reservation' => 'new, create',
-		//'Categories' => 'list',
+		'Person' => 'list',
+		'Reservation' => 'show',
+		'Event' => 'list, show',
 	)
 );
 

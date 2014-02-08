@@ -6,19 +6,19 @@ if (!defined('TYPO3_MODE')) {
 Tx_Extbase_Utility_Extension::registerPlugin(
 	$_EXTKEY,
 	'Courses',
-	'Liste der Kurse & Reisen'
+	'Kurse: Liste der Kurse & Reisen'
 );
 
 Tx_Extbase_Utility_Extension::registerPlugin(
 	$_EXTKEY,
 	'Events',
-	'Liste der Anlässe'
+	'Kurse: Liste der Anlässe'
 );
 
 Tx_Extbase_Utility_Extension::registerPlugin(
 	$_EXTKEY,
-	'Bills',
-	'Rechnungen'
+	'Persons',
+	'Kurse: Personen und Rechnungen'
 );
 
 t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Events');

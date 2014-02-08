@@ -219,12 +219,35 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 	}
 
 	/**
+	 * Returns the event
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Event> $event
+	 */
+	public function getEvent() {
+		return $this->event;
+	}
+
+	/**
+	 * Returns the totel
+	 *
+	 * @return integer $count
+	 */
+	public function getTotal() {
+		if($this->getEvent() && $this->getEvent()->getCourse() && $this->getEvent()->getCourse()->getPrice()){
+			return $this->getCount() * $this->getEvent()->getCourse()->getPrice();
+		} else {
+			return 0;
+		}
+	}
+
+	/**
 	 * Sets the events
 	 *
 	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Event> $events
 	 * @return void
 	 */
 	public function setEvents(Tx_Extbase_Persistence_ObjectStorage $events) {
+
 		$this->events = $events;
 	}
 

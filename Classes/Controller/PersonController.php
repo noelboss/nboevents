@@ -47,8 +47,18 @@ class Tx_Nboevents_Controller_PersonController extends Tx_Extbase_MVC_Controller
 	 * @param Tx_Nboevents_Domain_Model_Person
 	 */
 	public function listAction() {
-		$persons = $this->personRepository->findAll();
-		$this->view->assign('persons', $persons);
+		if($GLOBALS['TSFE']->beUserLogin){
+			$defaultOrdering = array(
+				'lastname' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING
+			);
+			$this->personRepository->setDefaultOrderings($defaultOrdering);
+			$persons = $this->personRepository->findAll();
+			$this->view->assign('persons', $persons);
+		} else {
+			$this->view->assign('login', 1);
+		}
+
+
 	}
 
 	/**
@@ -58,7 +68,11 @@ class Tx_Nboevents_Controller_PersonController extends Tx_Extbase_MVC_Controller
 	 * @return void
 	 */
 	public function showAction(Tx_Nboevents_Domain_Model_Person $person) {
-		$this->view->assign('person', $person);
+		if($GLOBALS['TSFE']->beUserLogin){
+			$this->view->assign('person', $person);
+		} else {
+			$this->view->assign('login', 1);
+		}
 	}
 
 	/**

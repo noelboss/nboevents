@@ -17,6 +17,9 @@
 			<label index="tx_nboevents_domain_model_event.reservations">Reservations</label>
 			<label index="tx_nboevents_domain_model_event.course">Course</label>
 			<label index="tx_nboevents_domain_model_person">Persons</label>
+			<label index="tx_nboevents_domain_model_person.gender">Gender</label>
+			<label index="tx_nboevents_domain_model_person.gender.0">Mr.</label>
+			<label index="tx_nboevents_domain_model_person.gender.1">Mrs.</label>
 			<label index="tx_nboevents_domain_model_person.lastname">Lastname</label>
 			<label index="tx_nboevents_domain_model_person.firstname">Firstname</label>
 			<label index="tx_nboevents_domain_model_person.email">E-mail</label>
@@ -66,6 +69,10 @@
 			<label index="tx_nboevents_domain_model_event.reservations">Anmeldungen</label>
 			<label index="tx_nboevents_domain_model_event.locations">Orte</label>
 			<label index="tx_nboevents_domain_model_person">Person</label>
+			<label index="tx_nboevents_domain_model_person.gender">Anrede</label>
+			<label index="tx_nboevents_domain_model_person.gender.0">Herr</label>
+			<label index="tx_nboevents_domain_model_person.gender.1">Frau</label>
+
 			<label index="tx_nboevents_domain_model_person.lastname">Nachname</label>
 			<label index="tx_nboevents_domain_model_person.firstname">Vorname</label>
 			<label index="tx_nboevents_domain_model_person.email">E-Mail Adresse</label>

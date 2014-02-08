@@ -1,0 +1,103 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+
+<f:flashMessages />
+<f:if condition="{login}">
+	<f:then>
+		<p class="alert alert-error">
+			Sie müssen angemeldet sein um diesen Bereich zu sehen.
+		</p>
+	</f:then>
+	<f:else>
+		<f:if condition="{reservation}">
+			<f:then>
+
+				<address contenteditable="true">
+					{reservation.person.firstname} {reservation.person.lastname}<br/>
+					<f:format.nl2br>{reservation.person.address}</f:format.nl2br>
+				</address>
+
+				<h3>Rechnung für: {reservation.event.eventnr} – {reservation.event.course.title}
+				<h4>{reservation.event.course.description}</h4>
+				<h4>
+					Datum: {reservation.event.date -> f:format.date(format:"d.m.Y – G:i")}
+				</h4>
+				<p class="count">Anzahl Teilnehmer {reservation.event.count}</p>
+
+
+
+				<p>Angemeldet am {reservation.tstamp -> f:format.date(format:"d. m. Y – G:i")}</p>
+
+
+				<p>
+					{reservation.event.course.price -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
+				</p>
+				<p>
+					{reservation.count}
+				</p>
+				<p>
+					{reservation.total -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
+				</p>
+
+				<f:if condition="<f:count>{reservation.person.reservations}</f:count> > 1">
+
+				<h3>Weitere Rechnungen dieser Person</h3>
+					<table class="tablesorter table-striped table-hover singletable tablesorter-ice">
+						<thead>
+							<tr>
+								<th>Nr.</th>
+								<th>Kurs</th>
+								<th>Datum</th>
+								<th>Preis</th>
+								<th>Anzahl</th>
+								<th>Total</th>
+							</tr>
+						</thead>
+						<tbody>
+							<f:for each="{reservation.person.reservations}" as="other" iteration="iterationOther">
+								<f:if condition="{other.uid} <> {reservation.uid}">
+									<tr>
+										<td>
+											{other.event.eventnr}
+										</td>
+										<td>
+											{other.event.course.title}
+										</td>
+										<td>
+											<span style="display:none;">{other.event.date -> f:format.date(format:"YmdGi")}</span>
+											{other.event.date -> f:format.date(format:"d.m.Y G:i")}
+										</td>
+										<td>
+											{other.event.course.price -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
+										</td>
+										<td>
+											{other.count}
+										</td>
+										<td>
+											{other.total -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
+										</td>
+									</tr>
+								</f:if>
+							</f:for>
+						</tbody>
+					</table>
+				</f:if>
+				<span class="btn pull-right print">
+					Rechnung Drucken
+					<i class="icon-print"></i>
+				</span>
+			</f:then>
+			<f:else>
+				<h1>{reservation.event.eventnr} – {reservation.event.course.title}
+					<span>{reservation.event.date -> f:format.date(format:"d. m. Y – G:i")}</span>
+				</h1>
+				<p class="alert alert-info">
+					Es ist keine offene Rechnung vorhanden.
+				</p>
+			</f:else>
+		</f:if>
+		<f:link.action action="list" controller="Person" class="btn"><i class="icon-arrow-left"></i> Rechnungsübersicht</f:link.action>
+	</f:else>
+</f:if>
+</f:section>

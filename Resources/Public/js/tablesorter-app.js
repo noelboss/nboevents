@@ -9,12 +9,22 @@
 			window.print();
 		});
 
-		$(".singletable").tablesorter({
-			sortList: [[0,0]]
-		});
 
-		$(".listtable").tablesorter({
-			sortList: [[2,0]]
+		$(".tablesorter").each(function(){
+			var $t = $(this),
+				sort = $t.attr('data-sort');
+
+			if(typeof eval(sort) === 'object'){
+				$t.tablesorter({
+					sortList: eval(sort),
+					cssChildRow: "childrow"
+				});
+			} else {
+				$t.tablesorter({
+					cssChildRow: "childrow"
+				});
+			}
+
 		});
 
 	});

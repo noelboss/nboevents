@@ -1,0 +1,99 @@
+<f:layout name="Default" />
+<f:section name="main">
+	<f:flashMessages />
+	<f:if condition="{login}">
+		<f:then>
+			<p class="alert alert-error">
+				Sie müssen angemeldet sein um diesen Bereich zu sehen.
+			</p>
+		</f:then>
+		<f:else>
+			<f:if condition="{persons}">
+				<span class="btn pull-right print">
+					Personenliste Drucken
+					<iclass="icon-print"></i>
+				</span>
+			</f:if>
+			<h1>Offenen Rechnungen</h1>
+			<f:if condition="{persons}">
+				<f:then>
+					<table class="tablesorter table-striped table-hover listtable tablesorter-ice">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Vorname</th>
+								<th>E-Mail</th>
+								<th>Adresse</th>
+								<th data-sorter="false">Telefon</th>
+								<th>Nr.</th>
+								<th>Kurs</th>
+								<th>Datum</th>
+								<th style="width: 60px;">Preis</th>
+								<th style="width: 35px;">Anzahl</th>
+								<th style="width: 70px;">Total</th>
+							</tr>
+						</thead>
+						<tbody>
+							<f:for each="{persons}" as="person" iteration="iterationPerson">
+								<f:if condition="{person.reservations}">
+									<f:for each="{person.reservations}" as="reservation" iteration="iterationReservation">
+										<tr class="linked <f:if condition='{iterationReservation.index} > 0'>childrow</f:if>" data-href="<f:uri.action action='show' controller='Reservation' arguments='{reservation: reservation}' />">
+											<f:if condition="{iterationReservation.isFirst}">
+												<td rowspan="<f:count>{person.reservations}</f:count>">
+													{person.lastname}
+												</td>
+												<td rowspan="<f:count>{person.reservations}</f:count>">
+													{person.firstname}
+												</td>
+												<td rowspan="<f:count>{person.reservations}</f:count>">
+													{person.email}
+												</td>
+												<td rowspan="<f:count>{person.reservations}</f:count>">
+													<f:format.nl2br>{person.address}</f:format.nl2br>
+												</td>
+												<td rowspan="<f:count>{person.reservations}</f:count>">
+													{person.phone}
+												</td>
+											</f:if>
+											<td>
+												{reservation.event.eventnr}
+											</td>
+											<td>
+												{reservation.event.course.title}
+											</td>
+											<td>
+												<span style="display:none;">{reservation.event.date -> f:format.date(format:"YmdGi")}</span>
+												{reservation.event.date -> f:format.date(format:"d.m.Y G:i")}
+											</td>
+											<td>
+												{reservation.event.course.price -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
+											</td>
+											<td>
+												{reservation.count}
+											</td>
+											<td>
+												{reservation.total -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
+											</td>
+										</tr>
+									</f:for>
+								</f:if>
+							</f:for>
+						</tbody>
+					</table>
+					<p class="clearfix">
+						<span class="btn pull-right print">
+							Personenliste Drucken
+							<i class="icon-print"></i>
+						</span>
+					</p>
+				</f:then>
+				<f:else>
+					<p class="alert alert-info">
+						Aktuell sind keine Kurse vorhanden.
+					</p>
+				</f:else>
+			</f:if>
+		</f:else>
+	</f:if>
+
+</f:section>

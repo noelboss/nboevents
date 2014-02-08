@@ -20,7 +20,7 @@
 						</strong>
 					</span>
 				</h1>
-				<table class="table table-striped table-hover singletable tablesorter-ice">
+				<table class="tablesorter table-striped table-hover tablesorter-ice" data-sort="[[0,0],[1,0]]">
 					<thead>
 						<tr>
 							<th>Name</th>
@@ -36,7 +36,7 @@
 					</thead>
 					<tbody>
 						<f:for each="{event.reservations}" as="reservation">
-							<tr>
+							<tr class="linked" data-href="<f:uri.action action='show' controller='Reservation' arguments='{reservation: reservation}' />">
 								<td>
 									{reservation.person.lastname}
 								</td>
@@ -44,7 +44,7 @@
 									{reservation.person.firstname}
 								</td>
 								<td>
-									{reservation.person.address}
+									<f:format.nl2br>{reservation.person.address}</f:format.nl2br>
 								</td>
 								<td>
 									{reservation.person.phone}
@@ -66,7 +66,7 @@
 								</td>
 								<td>
 									<span style="display:none;">{reservation.pid}</span>
-									<f:cObject typoscriptObjectPath="library.plugin.tx_nboevents.billstate" data="{reservation}" />
+									<f:cObject typoscriptObjectPath="plugin.tx_nboevents.billstate" data="{reservation}" />
 								</td>
 							</tr>
 						</f:for>

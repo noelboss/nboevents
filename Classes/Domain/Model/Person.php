@@ -124,6 +124,25 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	}
 
 	/**
+	 * Returns the gender
+	 *
+	 * @return string $gender
+	 */
+	public function getGender() {
+		return $this->gender;
+	}
+
+	/**
+	 * Sets the gender
+	 *
+	 * @param integer $gender
+	 * @return void
+	 */
+	public function setGender($gender) {
+		$this->gender = $gender;
+	}
+
+	/**
 	 * Returns the firstname
 	 *
 	 * @return string $firstname

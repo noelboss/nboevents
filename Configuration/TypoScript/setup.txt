@@ -19,17 +19,34 @@ plugin.tx_nboevents {
 	}
 }
 
-library.plugin.tx_nboevents.warteliste = TEXT
-library.plugin.tx_nboevents.warteliste {
+plugin.tx_nboevents.warteliste = TEXT
+plugin.tx_nboevents.warteliste {
 	noTrimWrap =|<label class="control-label">Angebot</label><div class="controls"><strong>|</strong></div>|
 	data = GP:tx_powermail_pi1|field|8
 	required = 1
 }
 
-library.plugin.tx_nboevents.billstate = TEXT
-library.plugin.tx_nboevents.billstate {
+plugin.tx_nboevents.billstate = TEXT
+plugin.tx_nboevents.billstate {
 	data.dataWrap = DB:pages:{field:pid}:subtitle // DB:pages:{field:pid}:title
 }
+
+
+plugin.tx_nboevents.events = TEXT
+plugin.tx_nboevents.events {
+	data.dataWrap = DB:pages:{field:pid}:subtitle // DB:pages:{field:pid}:title
+}
+
+plugin.tx_nboevents.plugin-persons =< tt_content.list.20.nboevents_persons
+plugin.tx_nboevents.plugin-persons {
+	show = TEXT
+	show.value = 1
+	show.if.value.data = GP:tx_nboevents_persons|action
+	show.if.equals = show
+}
+
+plugin.tx_nboevents.plugin-bill =< tt_content.list.20.nboevents_bill
+plugin.tx_nboevents.plugin-footer =< tt_content.list.20.nboevents_footer
 
 
 page{
