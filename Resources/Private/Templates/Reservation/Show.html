@@ -14,29 +14,39 @@
 			<f:then>
 
 				<address contenteditable="true">
+					<f:if condition="{newPerson.gender}">
+					<f:then>
+						<f:translate key="tx_nboevents_domain_model_person.gender.1"/>
+					</f:then>
+					<f:else>
+						<f:translate key="tx_nboevents_domain_model_person.gender.0"/>
+					</f:else>
+					</f:if>
+					<br/>
 					{reservation.person.firstname} {reservation.person.lastname}<br/>
 					<f:format.nl2br>{reservation.person.address}</f:format.nl2br>
 				</address>
 
-				<h3>Rechnung für: {reservation.event.eventnr} – {reservation.event.course.title}
+				<h3>{reservation.event.eventnr} – {reservation.event.course.title}
 				<h4>{reservation.event.course.description}</h4>
 				<h4>
 					Datum: {reservation.event.date -> f:format.date(format:"d.m.Y – G:i")}
 				</h4>
-				<p class="count">Anzahl Teilnehmer {reservation.event.count}</p>
-
-
-
-				<p>Angemeldet am {reservation.tstamp -> f:format.date(format:"d. m. Y – G:i")}</p>
-
-
-				<p>
-					{reservation.event.course.price -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
+				<p class="count">
+					Anmeldung für
+					<f:if condition="{reservation.count} > 1">
+						<f:then>
+							{reservation.count} Personen</p>
+						</f:then>
+						<f:else>
+							eine Person</p>
+						</f:else>
+					</f:if>
 				</p>
+				<p class="when">{reservation.tstamp -> f:format.date(format:"d. m. Y")}</p>
 				<p>
-					{reservation.count}
-				</p>
-				<p>
+					{reservation.count} x {reservation.event.course.price -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
+					=
 					{reservation.total -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
 				</p>
 
@@ -56,8 +66,8 @@
 						</thead>
 						<tbody>
 							<f:for each="{reservation.person.reservations}" as="other" iteration="iterationOther">
-								<f:if condition="{other.uid} <> {reservation.uid}">
-									<tr>
+								<f:if condition="{other.uid} != {reservation.uid}">
+									<tr  class="linked" data-href="<f:uri.action action='show' controller='Reservation' arguments='{reservation: other}' />">
 										<td>
 											{other.event.eventnr}
 										</td>

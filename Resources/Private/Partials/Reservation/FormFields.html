@@ -11,11 +11,11 @@
 		</label>
 		<div class="controls">
 			<label class="radio" for="man">
-				<input type="radio" <f:if condition="{newReservation.count} < 1">checked="checked"</f:if> id="man" name="tx_nboevents_events[newPerson][gender]" value="0" />
+				<input type="radio" <f:if condition="{newPerson.gender} < 1">checked="checked"</f:if> id="man" name="tx_nboevents_events[newPerson][gender]" value="0" />
 				<f:translate key="tx_nboevents_domain_model_person.gender.0" />
 			</label>
 			<label class="radio" for="woman">
-				<input type="radio" <f:if condition="{newReservation.count} > 1">checked="checked"</f:if> id="woman" name="tx_nboevents_events[newPerson][gender]" value="1" />
+				<input type="radio" <f:if condition="{newPerson.gender} > 1">checked="checked"</f:if> id="woman" name="tx_nboevents_events[newPerson][gender]" value="1" />
 				<f:translate key="tx_nboevents_domain_model_person.gender.1" />
 			</label>
 		</div>

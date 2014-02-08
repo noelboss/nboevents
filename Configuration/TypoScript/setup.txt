@@ -45,6 +45,11 @@ plugin.tx_nboevents.plugin-persons {
 	show.if.equals = show
 }
 
+plugin.tx_nboevents.plugin-storage = TEXT
+plugin.tx_nboevents.plugin-persons {
+	current = 1
+}
+
 plugin.tx_nboevents.plugin-bill =< tt_content.list.20.nboevents_bill
 plugin.tx_nboevents.plugin-footer =< tt_content.list.20.nboevents_footer
 

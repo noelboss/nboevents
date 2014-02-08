@@ -42,3 +42,10 @@
 .tx-nboevents tr.linked {
 	cursor: pointer;
 }
+
+@media screen {
+	.tx-nboevents [contenteditable="true"] {
+		border: 1px solid #999;
+	}
+}
+

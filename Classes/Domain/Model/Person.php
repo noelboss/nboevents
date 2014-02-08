@@ -135,7 +135,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	/**
 	 * Sets the gender
 	 *
-	 * @param integer $gender
+	 * @param string $gender
 	 * @return void
 	 */
 	public function setGender($gender) {

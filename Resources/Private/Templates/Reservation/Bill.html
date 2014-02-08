@@ -1,27 +1,34 @@
 <f:if condition="{TSFE.beUserLogin}">
 	<f:then>
 		<f:if condition="<f:cObject typoscriptObjectPath='plugin.tx_nboevents.plugin-persons.show'/>">
-			<div class="tx-nboevents bill">
-				<address class="recipient">
-					Here comes recipient...
-				</address>
+			<div class="tx-nboevents bill-head">
 				<address class="pull-right">
 					<f:format.nl2br><f:format.raw>{field.address}</f:format.raw></f:format.nl2br>
 				</address>
 
 				<p>
 					{field.city}, <f:format.date format="d. m. Y" >today</f:format.date><br/>
-					Rechnung Zahlbar bis: <f:format.date format="d. m. Y" >today + 30 days</f:format.date>
+					Rechnung Zahlbar bis: <span contenteditable="true"><f:format.date format="d. m. Y" >today + 30 days</f:format.date></span>
 				</p>
 
 				<h1>{field.title}</h1>
-				<p>
-					{field.text}
-				</p>
+				<h2>
+					{field.subtitle}
+				</h2>
+			</div>
+			<div class="tx-nboevents bill-foot">
 
+				<div>
+					<f:format.nl2br><f:format.raw>{field.bank}</f:format.raw></f:format.nl2br>
+				</div>
+				<div>{field.konto}</div>
+
+				<p>
+				<f:format.nl2br><f:format.raw>{field.code}</f:format.raw></f:format.nl2br>
+				</p>
 			</div>
 		</f:if>
-		<div class="Rechnung">
+		<div class="data">
 			<f:cObject typoscriptObjectPath="plugin.tx_nboevents.plugin-persons" />
 		</div>
 	</f:then>
