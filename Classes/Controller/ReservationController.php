@@ -122,7 +122,6 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 	 * @param $newPerson
 	 * @param $event
 	 * @return void
-	 * @dontvalidate $newPerson
 	 * @dontverifyrequesthash
 	 */
 	public function createAction(Tx_Nboevents_Domain_Model_Reservation $newReservation, Tx_Nboevents_Domain_Model_Person $newPerson, Tx_Nboevents_Domain_Model_Event $event) {

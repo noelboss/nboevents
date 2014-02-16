@@ -34,6 +34,14 @@
 class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
+	 * Gender
+	 *
+	 * @var integer
+	 */
+	protected $gender;
+
+
+	/**
 	 * Lastname
 	 *
 	 * @var string
@@ -104,6 +112,27 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 		$this->reservations = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
+
+	/**
+	 * Returns the gender
+	 *
+	 * @return integer $gender
+	 */
+	public function getGender() {
+		return $this->gender;
+	}
+
+	/**
+	 * Sets the gender
+	 *
+	 * @param integer $gender
+	 * @return void
+	 */
+	public function setGender($gender) {
+		$this->gender = $gender;
+	}
+
+
 	/**
 	 * Returns the lastname
 	 *
@@ -121,25 +150,6 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 */
 	public function setLastname($lastname) {
 		$this->lastname = $lastname;
-	}
-
-	/**
-	 * Returns the gender
-	 *
-	 * @return string $gender
-	 */
-	public function getGender() {
-		return $this->gender;
-	}
-
-	/**
-	 * Sets the gender
-	 *
-	 * @param string $gender
-	 * @return void
-	 */
-	public function setGender($gender) {
-		$this->gender = $gender;
 	}
 
 	/**
