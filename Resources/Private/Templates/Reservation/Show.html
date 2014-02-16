@@ -51,52 +51,54 @@
 				</p>
 
 				<f:if condition="<f:count>{reservation.person.reservations}</f:count> > 1">
+				<div class="no-print">
 
-				<h3>Weitere Rechnungen dieser Person</h3>
-					<table class="tablesorter table-striped table-hover singletable tablesorter-ice">
-						<thead>
-							<tr>
-								<th>Nr.</th>
-								<th>Kurs</th>
-								<th>Datum</th>
-								<th>Preis</th>
-								<th>Anzahl</th>
-								<th>Total</th>
-							</tr>
-						</thead>
-						<tbody>
-							<f:for each="{reservation.person.reservations}" as="other" iteration="iterationOther">
-								<f:if condition="{other.uid} != {reservation.uid}">
-									<tr  class="linked" data-href="<f:uri.action action='show' controller='Reservation' arguments='{reservation: other}' />">
-										<td>
-											{other.event.eventnr}
-										</td>
-										<td>
-											{other.event.course.title}
-										</td>
-										<td>
-											<span style="display:none;">{other.event.date -> f:format.date(format:"YmdGi")}</span>
-											{other.event.date -> f:format.date(format:"d.m.Y G:i")}
-										</td>
-										<td>
-											{other.event.course.price -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
-										</td>
-										<td>
-											{other.count}
-										</td>
-										<td>
-											{other.total -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
-										</td>
-									</tr>
-								</f:if>
-							</f:for>
-						</tbody>
-					</table>
-				</f:if>
-				<span class="btn pull-right print">
-					Rechnung Drucken
-					<i class="icon-print"></i>
-				</span>
+					<h3>Weitere Rechnungen dieser Person</h3>
+						<table class="tablesorter table-striped table-hover singletable tablesorter-ice">
+							<thead>
+								<tr>
+									<th>Nr.</th>
+									<th>Kurs</th>
+									<th>Datum</th>
+									<th>Preis</th>
+									<th>Anzahl</th>
+									<th>Total</th>
+								</tr>
+							</thead>
+							<tbody>
+								<f:for each="{reservation.person.reservations}" as="other" iteration="iterationOther">
+									<f:if condition="{other.uid} != {reservation.uid}">
+										<tr  class="linked" data-href="<f:uri.action action='show' controller='Reservation' arguments='{reservation: other}' />">
+											<td>
+												{other.event.eventnr}
+											</td>
+											<td>
+												{other.event.course.title}
+											</td>
+											<td>
+												<span style="display:none;">{other.event.date -> f:format.date(format:"YmdGi")}</span>
+												{other.event.date -> f:format.date(format:"d.m.Y G:i")}
+											</td>
+											<td>
+												{other.event.course.price -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
+											</td>
+											<td>
+												{other.count}
+											</td>
+											<td>
+												{other.total -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
+											</td>
+										</tr>
+									</f:if>
+								</f:for>
+							</tbody>
+						</table>
+					</f:if>
+					<span class="btn pull-right print">
+						Rechnung Drucken
+						<i class="icon-print"></i>
+					</span>
+				</div>
 			</f:then>
 			<f:else>
 				<h1>{reservation.event.eventnr} – {reservation.event.course.title}
