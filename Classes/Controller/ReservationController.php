@@ -125,7 +125,7 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 	 * @dontvalidate $newPerson
 	 * @dontverifyrequesthash
 	 */
-	public function createAction(Tx_Nboevents_Domain_Model_Reservation $newReservation, Tx_Nboevents_Domain_Model_Person $newPerson = NULL, Tx_Nboevents_Domain_Model_Event $event) {
+	public function createAction(Tx_Nboevents_Domain_Model_Reservation $newReservation, Tx_Nboevents_Domain_Model_Person $newPerson, Tx_Nboevents_Domain_Model_Event $event) {
 		$this->reservationRepository->add($newReservation);
 
 		if($event->getReservationkey()){
