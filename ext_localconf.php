@@ -8,7 +8,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	'Courses',
 	array(
 		'Course' => 'list,show',
-		'Reservation' => 'show, new, create',
+		'Reservation' => 'new, create',
 	),
 	// non-cacheable actions
 	array(
