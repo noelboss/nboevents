@@ -1,35 +1,137 @@
 <f:if condition="{TSFE.beUserLogin}">
 	<f:then>
-		<f:if condition="<f:cObject typoscriptObjectPath='plugin.tx_nboevents.plugin-persons.show'/>">
-			<div class="tx-nboevents bill-head">
-				<address class="pull-right">
-					<f:format.nl2br><f:format.raw>{field.address}</f:format.raw></f:format.nl2br>
-				</address>
+		<div class="tx-nboevents">
+			<f:if condition="<f:cObject typoscriptObjectPath='plugin.tx_nboevents.plugin-persons.show'/>">
+				<f:then>
+					<div class="data-pool">
 
-				<p>
-					{field.city}, <f:format.date format="d. m. Y" >today</f:format.date><br/>
-					Rechnung Zahlbar bis: <span contenteditable="true"><f:format.date format="d. m. Y" >today + 30 days</f:format.date></span>
-				</p>
+						<div id="address">
+							<f:format.html>{field.address}</f:format.html>
+						</div>
 
-				<h1>{field.title}</h1>
-				<h2>
-					{field.subtitle}
-				</h2>
-			</div>
-			<div class="tx-nboevents bill-foot">
+						<div id="sender">
+							<f:format.html>{field.sender}</f:format.html>
+						</div>
 
-				<div>
-					<f:format.nl2br><f:format.raw>{field.bank}</f:format.raw></f:format.nl2br>
-				</div>
-				<div>{field.konto}</div>
+						<div id="placedate">
+							{field.city}, <f:format.date format="d. m. Y" >today</f:format.date><br/>
+						</div>
 
-				<p>
-				<f:format.nl2br><f:format.raw>{field.code}</f:format.raw></f:format.nl2br>
-				</p>
-			</div>
-		</f:if>
-		<div class="data">
-			<f:cObject typoscriptObjectPath="plugin.tx_nboevents.plugin-persons" />
+						<span id="title">{field.title}</span>
+						<span id="text">{field.subtitle}</span>
+
+						<div id="bodytext">
+							<f:format.html>{field.text}</f:format.html>
+						</div>
+						<div id="greeting">
+							<f:format.html>{field.greeting}</f:format.html>
+						</div>
+
+						<div id="bank">
+							<f:format.nl2br><f:format.raw>{field.bank}</f:format.raw></f:format.nl2br>
+						</div>
+
+						<div id="konto">
+							{field.konto}
+						</div>
+
+						<div id="code">
+							<f:format.nl2br><f:format.raw>{field.code}</f:format.raw></f:format.nl2br>
+						</div>
+
+						<f:cObject typoscriptObjectPath="plugin.tx_nboevents.plugin-persons" />
+					</div>
+
+
+					<div class="header">
+						<span class="btn pull-right print">
+							Rechnung Drucken
+							<i class="icon-print"></i>
+						</span>
+						<f:link.action action="list" controller="Person" class="btn"><i class="icon-arrow-left"></i> Rechnungsübersicht</f:link.action>
+					</div>
+
+					<div class="template">
+						<div class="bill-header">
+							<h1 class="logo">
+								<img src="<f:uri.image src="EXT:nbobase/Resources/Public/img/bissfest-plate-black.png" width="320" />" alt="bissFEST" />
+								<strong>
+									bissFEST
+								</strong>
+							</h1>
+							<div class="senderinfo">
+								<div class="data-address"></div>
+								<div class="data-billinginfo"></div>
+							</div>
+							<div class="recipient">
+								<div class="data-sender"></div>
+								<div class="data-recipient"></div>
+								<div class="data-placedate"></div>
+							</div>
+						</div>
+						<div class="bill-body">
+							<h1 class="data-title"></h1>
+							<h2 class="data-salutation"></h2>
+							<div class="data-text"></div>
+							<table>
+								<thead>
+									<tr>
+										<th>Kurs</th>
+										<th>Anmeldungen</th>
+										<th>Preis pro Person</th>
+										<th class="t-right">Betrag</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="data-course"></td>
+										<td class="data-count"></td>
+										<td class="data-price"></td>
+										<td class="data-calc t-right"></td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="3" class="data-billingdate"></td>
+										<td class="data-total t-right"></td>
+									</tr>
+								</tfoot>
+							</table>
+							<div class="data-bodytext"></div>
+							<div class="data-greeting"></div>
+						</div>
+						<div class="bill-footer">
+							<div class="left">
+								<div class="pos data-bank"></div>
+								<div class="pos data-konto"></div>
+								<div class="pos data-billprice"></div>
+								<div class="pos data-recipient"></div>
+							</div>
+							<div class="main">
+								<div class="pos data-bank"></div>
+								<div class="pos data-konto"></div>
+								<div class="pos data-billprice"></div>
+							</div>
+							<div class="right">
+								<div class="pos data-billremark"></div>
+								<div class="pos data-recipient"></div>
+							</div>
+							<div class="pos data-code"></div>
+						</div>
+					</div>
+
+					<div class="footer">
+						<span class="btn pull-right print">
+							Rechnung Drucken
+							<i class="icon-print"></i>
+						</span>
+						<f:link.action action="list" controller="Person" class="btn"><i class="icon-arrow-left"></i> Rechnungsübersicht</f:link.action>
+					</div>
+				</f:then>
+				<f:else>
+					<f:cObject typoscriptObjectPath="plugin.tx_nboevents.plugin-persons" />
+				</f:else>
+			</f:if>
 		</div>
 	</f:then>
 	<f:else>

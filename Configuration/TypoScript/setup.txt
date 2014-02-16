@@ -45,6 +45,29 @@ plugin.tx_nboevents.plugin-persons {
 	show.if.equals = show
 }
 
+page.bodyTagCObject = TEXT
+page.bodyTagCObject {
+	value = <body class="tx-nboevents-bill">
+	if.value.data = GP:tx_nboevents_persons|action
+	if.equals = show
+}
+
+page.bodyTagCObject = COA
+page.bodyTagCObject {
+	10 = TEXT
+	10 {
+		value = <body class="tx-nboevents-bill">
+		if.value.data = GP:tx_nboevents_persons|action
+		if.equals = show
+	}
+	20 = TEXT
+	20 {
+		value = <body class="tx-nboevents-list">
+		if.value.data = GP:tx_nboevents_events|action
+		if.equals = show
+	}
+}
+
 page{
 	includeCSS {
 		slider = 		EXT:nboevents/Resources/Public/css/nivo-slider/nivo-slider.css

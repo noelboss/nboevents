@@ -1,3 +1,5 @@
+{namespace fed=Tx_Fed_ViewHelpers}
+
 <f:layout name="Default" />
 <f:section name="main">
 	<f:flashMessages />
@@ -37,7 +39,7 @@
 							<f:for each="{persons}" as="person" iteration="iterationPerson">
 								<f:if condition="{person.reservations}">
 									<f:for each="{person.reservations}" as="reservation" iteration="iterationReservation">
-										<tr class="linked <f:if condition='{iterationReservation.index} > 0'>childrow</f:if>" data-href="<f:uri.action action='show' controller='Reservation' arguments='{reservation: reservation}' />">
+										<tr class="linked <f:if condition='{iterationReservation.index} > 0'>childrow</f:if>" data-href="<f:uri.action action='show' controller='Reservation' arguments='{reservation: reservation}'/>">
 											<f:if condition="{iterationReservation.isFirst}">
 												<td rowspan="<f:count>{person.reservations}</f:count>">
 													{person.lastname}
@@ -81,6 +83,8 @@
 						</tbody>
 					</table>
 					<p class="clearfix">
+						<f:link.page pageUid="50" class="btn">Kurslisten <i class="icon-arrow-right"></i></f:link.page>
+
 						<span class="btn pull-right print">
 							Personenliste Drucken
 							<i class="icon-print"></i>

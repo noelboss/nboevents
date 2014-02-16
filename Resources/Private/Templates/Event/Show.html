@@ -36,7 +36,7 @@
 					</thead>
 					<tbody>
 						<f:for each="{event.reservations}" as="reservation">
-							<tr class="linked" data-href="<f:uri.action action='show' controller='Reservation' arguments='{reservation: reservation}' />">
+							<tr class="linked" data-href="<f:uri.action action='show' pluginName='persons' pageUid='51' controller='Reservation' arguments='{reservation: reservation}' />">
 								<td>
 									{reservation.person.lastname}
 								</td>
@@ -72,10 +72,6 @@
 						</f:for>
 					</tbody>
 				</table>
-				<span class="btn pull-right print">
-					Anmeldeliste Drucken
-					<i class="icon-print"></i>
-				</span>
 			</f:then>
 			<f:else>
 				<h1>{event.eventnr} – {event.course.title}
@@ -86,7 +82,15 @@
 				</p>
 			</f:else>
 		</f:if>
-		<f:link.action action="list" class="btn"><i class="icon-arrow-left"></i> Kursübersicht</f:link.action>
+		<div class="footer">
+			<f:if condition="{event.reservations}">
+				<span class="btn pull-right print">
+					Anmeldeliste Drucken
+					<i class="icon-print"></i>
+				</span>
+			</f:if>
+			<f:link.action action="list" class="btn"><i class="icon-arrow-left"></i> Kursübersicht</f:link.action>
+		</div>
 	</f:else>
 </f:if>
 </f:section>

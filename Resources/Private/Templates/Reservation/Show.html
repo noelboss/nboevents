@@ -1,115 +1,129 @@
 <f:layout name="Default" />
 
 <f:section name="main">
+	<f:if condition="{reservation}">
+		<f:then>
+			<address id="recipient" contenteditable="true">
+				<f:if condition="{newPerson.gender}">
+				<f:then>
+					<f:translate key="tx_nboevents_domain_model_person.gender.1"/>
+				</f:then>
+				<f:else>
+					<f:translate key="tx_nboevents_domain_model_person.gender.0"/>
+				</f:else>
+				</f:if>
+				<br/>
+				{reservation.person.firstname} {reservation.person.lastname}<br/>
+				<f:format.nl2br>{reservation.person.address}</f:format.nl2br>
+			</address>
 
-<f:flashMessages />
-<f:if condition="{login}">
-	<f:then>
-		<p class="alert alert-error">
-			Sie müssen angemeldet sein um diesen Bereich zu sehen.
-		</p>
-	</f:then>
-	<f:else>
-		<f:if condition="{reservation}">
-			<f:then>
+			<span id="billinginfo">
+				<label>Rechnung:</label> {reservation.event.eventnr}-{reservation.uid}-{reservation.event.date -> f:format.date(format:"ymd")}<br />
+				<label>Reservations-Datum:</label> {reservation.tstamp -> f:format.date(format:"d.m.Y")}<br/>
+				<label>Zahlbar bis:</label><span class="data-paydate"></span>
+			</span>
 
-				<address contenteditable="true">
-					<f:if condition="{newPerson.gender}">
-					<f:then>
-						<f:translate key="tx_nboevents_domain_model_person.gender.1"/>
-					</f:then>
-					<f:else>
-						<f:translate key="tx_nboevents_domain_model_person.gender.0"/>
-					</f:else>
-					</f:if>
-					<br/>
-					{reservation.person.firstname} {reservation.person.lastname}<br/>
-					<f:format.nl2br>{reservation.person.address}</f:format.nl2br>
-				</address>
+			<span id="billingdate">
+				<label>Zahlbar bis:</label><span class="data-paydate"></span>
+			</span>
+			<span id="paydate" contenteditable="true"><f:format.date format="d. m. Y" >today + 30 days</f:format.date></span>
 
-				<h3>{reservation.event.eventnr} – {reservation.event.course.title}
-				<h4>{reservation.event.course.description}</h4>
-				<h4>
-					Datum: {reservation.event.date -> f:format.date(format:"d.m.Y – G:i")}
-				</h4>
-				<p class="count">
-					Anmeldung für
-					<f:if condition="{reservation.count} > 1">
-						<f:then>
-							{reservation.count} Personen</p>
-						</f:then>
-						<f:else>
-							eine Person</p>
-						</f:else>
-					</f:if>
-				</p>
-				<p class="when">{reservation.tstamp -> f:format.date(format:"d. m. Y")}</p>
-				<p>
-					{reservation.count} x {reservation.event.course.price -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
-					=
-					{reservation.total -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
-				</p>
 
-				<f:if condition="<f:count>{reservation.person.reservations}</f:count> > 1">
-				<div class="no-print">
+			<span id="salutation">
+				Sehr geehrte
+				<f:if condition="{newPerson.gender}">
+				<f:then> <f:translate key="tx_nboevents_domain_model_person.gender.1"/></f:then>
+				<f:else>r <f:translate key="tx_nboevents_domain_model_person.gender.0"/></f:else>
+				</f:if> {reservation.person.lastname}
+			</span>
 
+			<span id="course">
+				<strong>{reservation.event.eventnr} – {reservation.event.course.title}</strong><br/>
+				Am {reservation.event.date -> f:format.date(format:"d.m.Y")} um
+				{reservation.event.date -> f:format.date(format:"G:i")} Uhr
+			</span>
+
+
+			<div id="count">{reservation.count}
+				<f:if condition="{reservation.count} > 1">
+					<f:then>Personen</f:then>
+					<f:else>Person</f:else>
+				</f:if>
+			</div>
+
+			<div id="price">
+				{reservation.event.course.price -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
+			</div>
+			<span id="calc">
+				{reservation.count} x {reservation.event.course.price -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
+			</span>
+			<span id="total">
+				{reservation.total -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
+			</span>
+
+			<div id="billremark">
+				{reservation.event.eventnr} – <f:format.crop maxCharacters="20">{reservation.event.course.title}</f:format.crop> <br />
+				{reservation.count}
+				<f:if condition="{reservation.count} > 1">
+					<f:then>Personen</f:then>
+					<f:else>Person</f:else>
+				</f:if>
+				x {reservation.event.course.price -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}<br />
+				<strong>{reservation.total -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}</strong>
+			</div>
+			<div id="billprice">{reservation.total -> f:format.currency(currencySign:"",  decimalSeparator:"&nbsp;" thousandsSeparator:"")}</div>
+			<f:if condition="<f:count>{reservation.person.reservations}</f:count> > 1">
+				<div class="footer no-print">
 					<h3>Weitere Rechnungen dieser Person</h3>
-						<table class="tablesorter table-striped table-hover singletable tablesorter-ice">
-							<thead>
-								<tr>
-									<th>Nr.</th>
-									<th>Kurs</th>
-									<th>Datum</th>
-									<th>Preis</th>
-									<th>Anzahl</th>
-									<th>Total</th>
-								</tr>
-							</thead>
-							<tbody>
-								<f:for each="{reservation.person.reservations}" as="other" iteration="iterationOther">
-									<f:if condition="{other.uid} != {reservation.uid}">
-										<tr  class="linked" data-href="<f:uri.action action='show' controller='Reservation' arguments='{reservation: other}' />">
-											<td>
-												{other.event.eventnr}
-											</td>
-											<td>
-												{other.event.course.title}
-											</td>
-											<td>
-												<span style="display:none;">{other.event.date -> f:format.date(format:"YmdGi")}</span>
-												{other.event.date -> f:format.date(format:"d.m.Y G:i")}
-											</td>
-											<td>
-												{other.event.course.price -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
-											</td>
-											<td>
-												{other.count}
-											</td>
-											<td>
-												{other.total -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
-											</td>
-										</tr>
-									</f:if>
-								</f:for>
-							</tbody>
-						</table>
-					</f:if>
-					<span class="btn pull-right print">
-						Rechnung Drucken
-						<i class="icon-print"></i>
-					</span>
+					<table class="tablesorter table-striped table-hover singletable tablesorter-ice">
+						<thead>
+							<tr>
+								<th>Nr.</th>
+								<th>Kurs</th>
+								<th>Datum</th>
+								<th>Preis</th>
+								<th>Anzahl</th>
+								<th>Total</th>
+							</tr>
+						</thead>
+						<tbody>
+							<f:for each="{reservation.person.reservations}" as="other" iteration="iterationOther">
+								<f:if condition="{other.uid} != {reservation.uid}">
+									<tr  class="linked" data-href="<f:uri.action action='show' controller='Reservation' arguments='{reservation: other}' />">
+										<td>
+											{other.event.eventnr}
+										</td>
+										<td>
+											{other.event.course.title}
+										</td>
+										<td>
+											<span style="display:none;">{other.event.date -> f:format.date(format:"YmdGi")}</span>
+											{other.event.date -> f:format.date(format:"d.m.Y G:i")}
+										</td>
+										<td>
+											{other.event.course.price -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
+										</td>
+										<td>
+											{other.count}
+										</td>
+										<td>
+											{other.total -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
+										</td>
+									</tr>
+								</f:if>
+							</f:for>
+						</tbody>
+					</table>
 				</div>
-			</f:then>
-			<f:else>
-				<h1>{reservation.event.eventnr} – {reservation.event.course.title}
-					<span>{reservation.event.date -> f:format.date(format:"d. m. Y – G:i")}</span>
-				</h1>
-				<p class="alert alert-info">
-					Es ist keine offene Rechnung vorhanden.
-				</p>
-			</f:else>
-		</f:if>
-		<f:link.action action="list" controller="Person" class="btn"><i class="icon-arrow-left"></i> Rechnungsübersicht</f:link.action>
-	</f:else>
-</f:if>
+			</f:if>
+		</f:then>
+		<f:else>
+			<h1>{reservation.event.eventnr} – {reservation.event.course.title}
+				<span>{reservation.event.date -> f:format.date(format:"d. m. Y – G:i")}</span>
+			</h1>
+			<p class="alert alert-info">
+				Es ist keine offene Rechnung vorhanden.
+			</p>
+		</f:else>
+	</f:if>
 </f:section>

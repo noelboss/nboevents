@@ -1,15 +1,19 @@
 @media all {
 	body {
 		background: #F8F8F8;
-		width: 90%;
 		margin: 0 auto;
 		font-size: 10pt;
 		border-top: 0;
-		padding-top: 1px;
+		padding-top: 1pt;
 	}
 
-	.navbar-fixed-top{
+	.data-pool,
+	.navbar-fixed-top {
 		display: none;
+	}
+
+	.containerWrapper {
+		bottom: auto;
 	}
 
 	h1{
@@ -27,6 +31,7 @@
 
 	.container {
 		width: auto;
+		padding-top: 0;
 	}
 
 	.contentHeader {
@@ -40,7 +45,7 @@
 
 	.containerWrapper {
 		width:auto;
-		padding-top: 20px;
+		padding: 0;
 		background: #F8F8F8;
 	}
 
@@ -52,29 +57,350 @@
 	.span6 {
 		width: 47%;
 	}
+
+	.template {
+		position: relative;
+		font-size: 10pt;
+		line-height: 11pt;
+		background: #fff;
+	}
+
+	.template * {
+		margin: 0;
+		padding: 0;
+	}
+
+
+	.template h1,
+	.template h2,
+	.template h3,
+	.template h4,
+	.template p {
+		font-family: Arial, sans-serif;
+		font-size: 1em;
+		margin: 0;
+		padding: 0;
+		line-height: 120%;
+	}
+
+	.template label{
+		display: inline-block;
+		font-size: 1em;
+	}
+
+	/* HEADER */
+
+	.bill-header {
+		position: relative;
+		height: 8cm;
+		padding-top: 1cm;
+		padding-left: 1.5cm;
+	}
+
+
+	.bill-header .logo {
+		position: absolute;
+		text-align: center;
+	}
+	.bill-header .logo img{
+		height: 2.2cm;
+	}
+	.bill-header .logo strong {
+		display: inline;
+		font-family: QuattrocentoRomanRegular, Georgia, "Trebuchet MS", "Helvetica Neue",Helvetica,Arial,sans-serif;
+		font-weight: normal;
+		font-size: 1.7em;
+		line-height: 2.8cm;;
+		padding-top: 1cm;
+		padding-left: 0.3cm;
+	}
+
+
+	.bill-header label{
+		display: inline-block;
+		font-size: 1em;
+	}
+
+	.bill-header .senderinfo {
+		float: right;
+		padding-right: 1cm;
+	}
+	.bill-body .senderinfo h3{
+		font-weight: bold;
+	}
+
+	.template .senderinfo p {
+		margin-bottom: 0.5cm;
+	}
+	.template .senderinfo label{
+		display: inline-block;
+		font-size: 1em;
+		width: 4.2cm;
+	}
+	.bill-header .data-address {
+		padding-left:0.5cm;
+		border-left: 1pt #666 solid;
+	}
+	.bill-header .data-billinginfo {
+		margin-top: 0.5cm;
+		padding-left:0.5cm;
+		border-left: 1pt #666 solid;
+	}
+
+	.bill-header .recipient {
+		padding-top: 3.5cm;
+		width: 8cm;
+	}
+	.bill-header .data-placedate {
+		position: absolute;
+		bottom: 1cm;
+	}
+
+	.bill-header .data-sender {
+		font-size: 8pt;
+		border-bottom: 1pt solid #000;
+	}
+	.bill-header .data-recipient {
+		padding-top: 0.5cm;
+	}
+
+	/* Body */
+	.bill-body {
+		position: relative;
+		height: 10cm;
+		padding: 0 1.5cm;
+	}
+
+	.bill-body h1 {
+		font-size: 14pt;
+		margin-bottom: 0.8cm;
+	}
+
+	.bill-body h1 span{
+		float: none;
+	}
+
+	.bill-body h2{
+		margin-bottom: 0.25cm;
+	}
+
+	.bill-body table {
+		width: 100%;
+		margin: 0.5cm 0;
+		border-top: 1pt solid #000;
+		font-size: 10pt;
+	}
+
+	.bill-body td {
+		vertical-align: top;
+	}
+
+	.bill-body th {
+		font-weight: normal;
+		text-align: left;
+		padding: 0.1cm 0.25cm;
+	}
+
+	.bill-body tbody td {
+		border-top: 1pt solid #999;
+		padding: 0.25cm 0 0.25cm 0.25cm;
+		background: #eee;
+		font-size: 10pt;
+	}
+
+
+	.bill-body .data-course {
+		width: 9cm;
+	}
+	.bill-body tfoot td {
+		padding: 0.1cm 0.25cm;
+		border-top: 1pt solid #999;
+	}
+	.bill-body tfoot .data-total{
+		font-weight: bold;
+	}
+	.bill-body .t-right{
+		text-align:right;
+		padding-right: 0.25cm;
+	}
+	.bill-body .data-greeting p{
+		margin-top: 0.5cm;
+	}
+
+	.bill-body .data-bodytext p{
+		margin-bottom: 0.2cm;
+	}
+
+	.bill-body .data-bodytext p{
+		margin-bottom: 0.2cm;
+	}
+
+	/* Footer */
+
+	.bill-footer {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 10.5cm;
+	}
+
+	.bill-footer .left,
+	.bill-footer .main,
+	.bill-footer .right {
+		position: absolute;
+		left: 0;
+		top: 0.5cm;
+		width: 5.7cm;
+		height: 10cm;
+	}
+
+	.bill-footer .main {
+		left: 6cm;
+	}
+	.bill-footer .right {
+		left: 11.8cm;
+		right: 0;
+		width: auto;
+	}
+
+	.bill-footer .pos {
+		position: absolute;
+	}
+	.bill-footer .data-bank {
+		line-height: 9pt;
+		top: 0.8cm;
+		left: 0.5cm;
+		width: 5cm;
+	}
+	.bill-footer .main .data-bank {
+		left: 0.3cm;
+	}
+	.bill-footer .data-konto {
+		bottom: 5.8cm;
+		left: 3.1cm;
+	}
+
+	.bill-footer .left .data-recipient {
+		font-size: 11pt;
+		bottom: 2.3cm;
+		left: 0.5cm;
+	}
+
+	.bill-footer .right .data-recipient {
+		font-size: 11pt;
+		top: 4.5cm;
+		left: 0.3cm;
+	}
+
+	.bill-footer .data-billremark {
+		top: 0.5cm;
+		left: 0.3cm;
+		width: 5.3cm;
+	}
+
+	.bill-footer .data-billprice {
+		font-size: 14pt;
+		bottom: 5cm;
+		right: 0.1cm;
+		text-align: right;
+		letter-spacing: 2.5mm;
+	}
+
+	.bill-footer .data-code {
+		bottom: 1.2cm;
+		right: 1.2cm;
+		width: 11.8cm;
+		text-align: right;
+		font-size: 12pt;
+		letter-spacing: 1.5pt;
+	}
+
+	.footer {
+		clear: both;
+	}
+
+	.tx-nboevents {
+		margin-bottom: 2em;
+	}
 }
 
-@media print {
-	@page { size: landscape; }
-
+@media screen {
 	body {
-		border-top: 0;
-		padding-top: 1px;
+		padding-top: 2em;
+		width: 90%;
+	}
+
+	.tx-nboevents-list {
 		width: 29.7cm;
 	}
 
+	.tx-nboevents-bill {
+		width: 21cm;
+	}
+
+	.template {
+		height: 29.7cm;
+		width: 21cm;
+		border: 1px solid #999;
+		margin-bottom: 2em;
+	}
+
+	.template [contenteditable="true"] {
+		background: #efefef;
+		border: 1px dashed #999;
+	}
+	.bill-footer {
+		background: #fee;
+	}
+
+	.tx-nboevents .header,
+	.tx-nboevents .footer {
+		margin-bottom: 2em;
+	}
+}
+
+@page {
+	size: auto;
+	margin: 0mm !important;
+}
+
+@media print {
+
+
+	.template {
+		position: absolute;
+		top: 0;
+		height: 29.7cm;
+		width: 21cm;
+		margin: 0;
+		padding: 0mm;
+	}
+
+
+	html {
+		margin: 0mm;
+		padding: 0mm;
+	}
+	body {
+		border-top: 0;
+		padding-top: 0.1px;
+		margin: 0mm;
+		padding: 0mm;
+		width: auto;
+		-webkit-print-color-adjust: exact;
+	}
+
+	hr,
+	footer,
 	.no-print,
 	.btn,
 	.navbar-fixed-top {
 		display: none;
 	}
 
-	.containerWrapper {
-		padding-top: 20px;
-	}
-
 	a,
 	a:visited {
 		color: #000;
+		text-decoration: none;
 	}
 }

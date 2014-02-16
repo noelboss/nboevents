@@ -5,6 +5,19 @@
 (function($){
 	$(document).ready(function(){
 
+		var $templ = $('.template');
+		$('.data-pool [id]').each(function(){
+			var $t = $(this).detach();
+			$templ.find('.data-'+this.id).html($t.clone());
+		});
+
+		$templ.after($('.data-pool .tx-nboevents'));
+
+		$('[ contenteditable="true"]', $templ).blur(function(){
+			var html = this.innerHTML;
+			$('.data-'+this.id+' [contenteditable="true"]').html(html);
+		});
+
 		$('tr[data-href]', $mod).click(function(){
 			window.location = $(this).attr('data-href');
 		});
