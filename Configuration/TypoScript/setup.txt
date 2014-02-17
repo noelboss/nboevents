@@ -41,8 +41,8 @@ plugin.tx_nboevents.plugin-persons =< tt_content.list.20.nboevents_persons
 plugin.tx_nboevents.plugin-persons {
 	show = TEXT
 	show.value = 1
-	show.if.value.data = GP:tx_nboevents_persons|action
-	show.if.equals = show
+	show.if.value.data = GP:tx_nboevents_persons|reservation
+	show.if.isGreaterThan = 0
 }
 
 page.bodyTagCObject = TEXT
