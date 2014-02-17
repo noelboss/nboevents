@@ -72,7 +72,7 @@
 				x {reservation.event.course.price -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}<br />
 				<strong>{reservation.total -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}</strong>
 			</div>
-			<div id="billprice">{reservation.total -> f:format.currency(currencySign:"",  decimalSeparator:"&nbsp;" thousandsSeparator:"")}</div>
+			<div id="billprice">{reservation.total -> f:format.currency(currencySign:"",  decimalSeparator:" " thousandsSeparator:"")}</div>
 			<f:if condition="<f:count>{reservation.person.reservations}</f:count> > 1">
 				<div class="footer no-print">
 					<h3>Weitere Rechnungen dieser Person</h3>
