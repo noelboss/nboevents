@@ -3,7 +3,7 @@
 		Persönliche Angaben: {newPerson.uid}
 	</legend>
 	<f:if condition="{newPerson.uid} > 0">
-		<input type="hidden" value="{newPerson.uid}" name="tx_nboevents_events[newPerson][__identity]" />
+		<input type="hidden" value="{newPerson.uid}" name="tx_nboevents_courses[newPerson][__identity]" />
 	</f:if>
 	<div class="control-group">
 		<label for="woman" class="control-label">
@@ -11,11 +11,11 @@
 		</label>
 		<div class="controls">
 			<label class="radio" for="man">
-				<input type="radio" <f:if condition="{newPerson.gender} < 1">checked="checked"</f:if> id="man" name="tx_nboevents_events[newPerson][gender]" value="0" />
+				<input type="radio" <f:if condition="{newPerson.gender} < 1">checked="checked"</f:if> id="man" name="tx_nboevents_courses[newPerson][gender]" value="0" />
 				<f:translate key="tx_nboevents_domain_model_person.gender.0" />
 			</label>
 			<label class="radio" for="woman">
-				<input type="radio" <f:if condition="{newPerson.gender} > 1">checked="checked"</f:if> id="woman" name="tx_nboevents_events[newPerson][gender]" value="1" />
+				<input type="radio" <f:if condition="{newPerson.gender} > 0">checked="checked"</f:if> id="woman" name="tx_nboevents_courses[newPerson][gender]" value="1" />
 				<f:translate key="tx_nboevents_domain_model_person.gender.1" />
 			</label>
 		</div>
@@ -25,7 +25,7 @@
 			<f:translate key="tx_nboevents_domain_model_person.firstname" /> <i class="icon-star-empty" title="Pflichtfeld"></i>
 		</label>
 		<div class="controls">
-			<input type="text" id="firstname" value="{newPerson.firstname}" name="tx_nboevents_events[newPerson][firstname]" class="span3" placeholder="" />
+			<input type="text" id="firstname" value="{newPerson.firstname}" name="tx_nboevents_courses[newPerson][firstname]" class="span3" placeholder="" />
 		</div>
 	</div>
 	<div class="control-group">
@@ -33,7 +33,7 @@
 			<f:translate key="tx_nboevents_domain_model_person.lastname" /> <i class="icon-star-empty" title="Pflichtfeld"></i>
 		</label>
 		<div class="controls">
-			<input type="text"  id="lastname" value="{newPerson.lastname}" name="tx_nboevents_events[newPerson][lastname]"  class="span3" placeholder="" />
+			<input type="text"  id="lastname" value="{newPerson.lastname}" name="tx_nboevents_courses[newPerson][lastname]"  class="span3" placeholder="" />
 		</div>
 	</div>
 	<div class="control-group">
@@ -42,7 +42,7 @@
 		</label>
 		<div class="controls">
 			<div class="input-prepend">
-				<span class="add-on">@</span><input type="text" id="email" value="{newPerson.email}" name="tx_nboevents_events[newPerson][email]" placeholder="deine@mail.ch"  class="span2"/>
+				<span class="add-on">@</span><input type="text" id="email" value="{newPerson.email}" name="tx_nboevents_courses[newPerson][email]" placeholder="deine@mail.ch"  class="span2"/>
 			</div>
 		</div>
 	</div>
@@ -51,7 +51,7 @@
 			<f:translate key="tx_nboevents_domain_model_person.phone" /> <i class="icon-star-empty" title="Pflichtfeld"></i>
 		</label>
 		<div class="controls">
-			<input type="text" id="phone" value="{newPerson.phone}" name="tx_nboevents_events[newPerson][phone]" class="span3"/>
+			<input type="text" id="phone" value="{newPerson.phone}" name="tx_nboevents_courses[newPerson][phone]" class="span3"/>
 		</div>
 	</div>
 	<div class="control-group">
@@ -59,7 +59,7 @@
 			<f:translate key="tx_nboevents_domain_model_person.address" /> <i class="icon-star-empty" title="Pflichtfeld"></i>
 		</label>
 		<div class="controls">
-			<textarea id="address" name="tx_nboevents_events[newPerson][address]" rows="3" cols="12" class="span3">{newPerson.address}</textarea>
+			<textarea id="address" name="tx_nboevents_courses[newPerson][address]" rows="3" cols="12" class="span3">{newPerson.address}</textarea>
 		</div>
 	</div>
 </fieldset>
@@ -115,7 +115,7 @@
 					<f:translate key="tx_nboevents_domain_model_reservation.reservationkey" /> <i class="icon-star-empty" title="Pflichtfeld"></i>
 				</label>
 				<div class="controls">
-					<input type="text" id="reservationkey" name="tx_nboevents_events[reservationkey]" class="span4" placeholder="Persönlicher Anmeldeschlüssel hier eintragen" />
+					<input type="text" id="reservationkey" name="tx_nboevents_courses[reservationkey]" class="span4" placeholder="Persönlicher Anmeldeschlüssel hier eintragen" />
 					<p class="help-inline">Um sich an diesem Anlass anzumelden muss der persönliche Anmeldeschlüssel eingetragen werden.</p>
 				</div>
 			</div>

@@ -4,13 +4,10 @@
 	<f:if condition="{reservation}">
 		<f:then>
 			<address id="recipient" contenteditable="true">
-				<f:if condition="{newPerson.gender}">
-				<f:then>
-					<f:translate key="tx_nboevents_domain_model_person.gender.1"/>
-				</f:then>
-				<f:else>
-					<f:translate key="tx_nboevents_domain_model_person.gender.0"/>
-				</f:else>
+				{newPerson.gender}
+				<f:if condition="{reservation.person.gender} > 0">
+					<f:then><f:translate key="tx_nboevents_domain_model_person.gender.1"/></f:then>
+					<f:else><f:translate key="tx_nboevents_domain_model_person.gender.0"/></f:else>
 				</f:if>
 				<br/>
 				{reservation.person.firstname} {reservation.person.lastname}<br/>
@@ -31,7 +28,7 @@
 
 			<span id="salutation">
 				Sehr geehrte
-				<f:if condition="{newPerson.gender}">
+				<f:if condition="{reservation.person.gender} > 0">
 				<f:then> <f:translate key="tx_nboevents_domain_model_person.gender.1"/></f:then>
 				<f:else>r <f:translate key="tx_nboevents_domain_model_person.gender.0"/></f:else>
 				</f:if> {reservation.person.lastname}
