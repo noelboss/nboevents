@@ -88,7 +88,7 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 	'ctrl' => array(
 		'title' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event',
 		'label' => 'eventnr',
-		'sortby' => 'date DESC',
+		'sortby' => 'date ASC',
 		'searchFields' => 'date,course,eventnr',
 		'label_alt' => 'date,course',
 		'label_alt_force' => true,
@@ -119,7 +119,7 @@ $TCA['tx_nboevents_domain_model_person'] = array(
 	'ctrl' => array(
 		'title' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_person',
 		'label'		=> 'lastname',
-		'label_alt' => 'firstname,address',
+		'label_alt' => 'firstname,',
 		'default_sortby' => 'ORDER BY lastname,firstname',
 		'label_userFunc' => 'EXT:nboevents/Classes/Domain/Model/Person.php:Tx_Nboevents_Domain_Model_Person->getLabel',
 		'searchFields' => 'lastname,firstname,address,phone,email',
@@ -217,7 +217,7 @@ if (TYPO3_MODE == 'BE') {
 	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_reservation'][0]['fList'] = 'event,person;count,sent;payuntil;payed,notes;notesbissfest';
 	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_reservation'][0]['icon'] = TRUE;
 
-	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_person'][0]['fList'] = 'gender,lastname,firstname,email';
+	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_person'][0]['fList'] = 'gender,lastname,firstname,address,email';
 	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_person'][0]['icon'] = TRUE;
 }
 ?>
