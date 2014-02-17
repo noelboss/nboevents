@@ -62,8 +62,8 @@ $TCA['tx_nboevents_domain_model_person'] = array(
 				'type' => 'select',
 				'items' => array(
 					array('LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_person.gender.0', 0),
-					array('LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_person.gender.1', 1)
-					array('LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_person.gender.2', 2)
+					array('LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_person.gender.1', 1),
+					array('LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_person.gender.2', 2),
 				),
 			),
 		),
