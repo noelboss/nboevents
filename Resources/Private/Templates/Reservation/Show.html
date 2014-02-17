@@ -22,7 +22,7 @@
 			<span id="billingdate">
 				<label>Zahlbar bis:</label><span class="data-paydate"></span>
 			</span>
-			<span id="paydate" contenteditable="true"><f:format.date format="d. m. Y" >today + 30 days</f:format.date></span>
+			<span id="paydate" contenteditable="true"><f:format.date format="d. m. Y" >{reservation.event.date -> f:format.date(format:"d.m.Y")} - 30 days</f:format.date></span>
 
 
 			<span id="salutation">
