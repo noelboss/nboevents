@@ -90,7 +90,7 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 		'label' => 'eventnr',
 		'sortby' => 'date DESC',
 		'searchFields' => 'date,course,eventnr',
-		'label_alt' => 'date,course',
+		'label_alt' => 'date,course,reservationsleft',
 		'label_alt_force' => true,
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
@@ -205,7 +205,7 @@ if (TYPO3_MODE == 'BE') {
 	$TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['Tx_Nboevents_Utilities_PluginWizard'] = t3lib_extMgm::extPath($_EXTKEY).'Classes/Utility/Backend/PluginWizard.php';
 
 	// Add tables on Pages:
-	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_event'][0]['fList'] = 'eventnr,date,course,maxreservations';
+	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_event'][0]['fList'] = 'eventnr,date,course,maxreservations,reservationsleft';
 	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_event'][0]['icon'] = TRUE;
 
 	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['cms']['db_layout']['addTables']['tx_nboevents_domain_model_course'][0]['fList'] = 'title,type,price';

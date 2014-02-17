@@ -228,7 +228,7 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 				'type' => 'select',
 				'foreign_table' => 'tx_nboevents_domain_model_event',
 				//'foreign_table_where' => 'AND tx_nboevents_domain_model_event.pid=###CURRENT_PID### AND tx_nboevents_domain_model_event.sys_language_uid IN (-1,0)',
-				'foreign_table_where' => 'AND tx_nboevents_domain_model_event.sys_language_uid IN (-1,0) ORDER BY tx_nboevents_domain_model_event.date, tx_nboevents_domain_model_event.eventnr DESC',
+				'foreign_table_where' => 'AND tx_nboevents_domain_model_event.sys_language_uid IN (-1,0) ORDER BY tx_nboevents_domain_model_event.date, tx_nboevents_domain_model_event.eventnr ASC',
 				'minitems' => 1,
 				'maxitems' => 1,
 				'wizards' => array(

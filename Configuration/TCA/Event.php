@@ -16,14 +16,10 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 		--div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event,
 			eventnr, date,course,description,
 		--div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.settings,
-				maxreservations;;1;;, reservationdate;;2;;,
+				maxreservations, reservationsleft, reservationdate, reservationnotes,
 		--div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation,
 				reservations,
 		--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access, hidden;;1, starttime, endtime'),
-	),
-	'palettes' => array(
-		'1' => array('showitem' => 'reservationsleft'),
-		'2' => array('showitem' => 'reservationnotes'),
 	),
 	'columns' => array(
 		'sys_language_uid' => array(
