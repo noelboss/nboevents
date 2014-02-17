@@ -6,7 +6,7 @@
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
-			<label index="tx_nboevents_domain_model_event">Event</label>
+			<label index="tx_nboevents_domain_model_event">Course Date</label>
 			<label index="tx_nboevents_domain_model_event.eventnr">Kurs Nr.</label>
 			<label index="tx_nboevents_domain_model_event.description">Weiter Durchführungen</label>
 			<label index="tx_nboevents_domain_model_event.date">Date</label>
@@ -67,7 +67,7 @@
 			<label index="tx_nboevents_domain_model_reservation.events">Reservation for events</label>
 		</languageKey>
 		<languageKey index="de" type="array">
-			<label index="tx_nboevents_domain_model_event">Anlass</label>
+			<label index="tx_nboevents_domain_model_event">Kurs Datum</label>
 			<label index="tx_nboevents_domain_model_event.title">Titel</label>
 			<label index="tx_nboevents_domain_model_event.description">Beschreibung</label>
 			<label index="tx_nboevents_domain_model_event.date">Datum</label>
@@ -99,7 +99,7 @@
 			<label index="tx_nboevents_domain_model_location.events">Anlass</label>
 			<label index="tx_nboevents_domain_model_course">Kurs</label>
 			<label index="tx_nboevents_domain_model_course.title">Titel</label>
-			<label index="tx_nboevents_domain_model_course.type">Titel-Zusatz</label>
+			<label index="tx_nboevents_domain_model_course.type">Titel-Zusatz (PDF Link)</label>
 			<label index="tx_nboevents_domain_model_course.description">Beschreibung</label>
 			<label index="tx_nboevents_domain_model_course.price">Preis</label>
 			<label index="tx_nboevents_domain_model_course.images">Bilder</label>

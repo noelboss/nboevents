@@ -59,7 +59,7 @@
 			<label index="backend.wizard.description">Displays events on the website.</label>
 		</languageKey>
 		<languageKey index="de" type="array">
-			<label index="tx_nboevents_domain_model_event">Anlass</label>
+			<label index="tx_nboevents_domain_model_event">Kurs Datum</label>
 			<label index="tx_nboevents_domain_model_event.title">Titel</label>
 			<label index="tx_nboevents_domain_model_event.description">Beschreibung</label>
 			<label index="tx_nboevents_domain_model_event.date">Datum</label>
