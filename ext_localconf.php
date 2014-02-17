@@ -27,9 +27,9 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	),
 	// non-cacheable actions
 	array(
+		'Event' => 'list, show',
 		'Person' => 'list',
 		'Reservation' => 'show',
-		'Event' => 'list, show',
 	)
 );
 
