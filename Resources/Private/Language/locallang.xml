@@ -86,7 +86,7 @@
 			<label index="tx_nboevents_domain_model_location.description">Beschreibung</label>
 			<label index="tx_nboevents_domain_model_location.address">Adresse</label>
 			<label index="tx_nboevents_domain_model_location.coordinates">Koordinaten</label>
-			<label index="tx_nboevents_domain_model_location.events">Anlass</label>
+			<label index="tx_nboevents_domain_model_location.events">Kurs Datum</label>
 			<label index="tx_nboevents_domain_model_reservation">Anmeldung</label>
 			<label index="tx_nboevents_domain_model_reservation.person">Person</label>
 			<label index="tx_nboevents_domain_model_reservation.count">Anzahl Personen</label>
