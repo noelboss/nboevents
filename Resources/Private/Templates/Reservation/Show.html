@@ -14,15 +14,15 @@
 			</address>
 
 			<span id="billinginfo">
-				<label>Rechnung:</label> {reservation.event.eventnr}-{reservation.uid}-{reservation.event.date -> f:format.date(format:"ymd")}<br />
-				<label>Reservations-Datum:</label> {reservation.tstamp -> f:format.date(format:"d.m.Y")}<br/>
+				<label>Rechnungsnummer:</label> {reservation.event.eventnr}.{reservation.uid}<br />
+				<label>Reservations-Datum:</label>{reservation.tstamp -> f:format.date(format:"d.m.Y")}<br/>
 				<label>Zahlbar bis:</label><span class="data-paydate"></span>
 			</span>
 
 			<span id="billingdate">
 				<label>Zahlbar bis:</label><span class="data-paydate"></span>
 			</span>
-			<span id="paydate" contenteditable="true"><f:format.date format="d. m. Y" >{reservation.event.date -> f:format.date(format:"d.m.Y")} - 30 days</f:format.date></span>
+			<span id="paydate" contenteditable="true"><f:format.date format="d. m. Y" >{reservation.event.date -> f:format.date(format:"Y/m/d")} - 30 days</f:format.date></span>
 
 
 			<span id="salutation">

@@ -59,8 +59,8 @@ class Tx_Nboevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Pe
 		$count = $query->execute();
 		return count($count);
 	}
-	
-	
+
+
 	/**
 	 * countByEvent
 	 *
@@ -84,7 +84,7 @@ class Tx_Nboevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Pe
 
 		$query->statement($queryText);
 		$rows = $query->execute();
-		
+
 		$count = 0;
 		foreach ($rows as $row) {
 			$count = $count + $row['count'];
@@ -99,12 +99,12 @@ class Tx_Nboevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Pe
 	 * @return
 	 */
 	public function getPersonUid($uid = "0") {
-		
+
 		$query = $this->createQuery();
 		$query->getQuerySettings()->setReturnRawQueryResult(true);
 		$now = time();
 		$queryText = 'SELECT person
-			FROM `tx_nboevents_domain_model_reservation` 
+			FROM `tx_nboevents_domain_model_reservation`
 			WHERE uid = \'' . $uid . '\'
 			AND deleted=0
 			AND t3ver_state<=0
@@ -128,11 +128,11 @@ class Tx_Nboevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Pe
 	 * @return
 	 */
 	public function findLabel($uid = "0") {
-		
+
 		$query = $this->createQuery();
 		$query->getQuerySettings()->setReturnRawQueryResult(true);
 		$now = time();
-		$queryText = 'SELECT ev.eventnr, ps.lastname, ps.firstname, res.count
+		$queryText = 'SELECT ev.eventnr, res.uid, ps.lastname, ps.firstname, res.count
 			FROM `tx_nboevents_domain_model_reservation` AS res
 			LEFT JOIN tx_nboevents_domain_model_event AS ev ON res.event = ev.uid
 			LEFT JOIN tx_nboevents_domain_model_person AS ps ON res.person = ps.uid
@@ -145,15 +145,18 @@ class Tx_Nboevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Pe
 			AND (res.endtime=0 OR res.endtime>' . $now . ')
 			AND res.sys_language_uid IN (0,-1)
 			LIMIT 1';
-		
+
 		$query->statement($queryText);
 		$rows = $query->execute();
 		$label = '';
-		
+
 		foreach ($rows as $row) {
 			foreach ($row as $key => $value) {
 				switch ($key) {
 					case 'eventnr':
+						$label .= $row[$key] . ' – ';
+						break;
+					case 'uid':
 						$label .= $row[$key] . ' – ';
 						break;
 					case 'lastname':
