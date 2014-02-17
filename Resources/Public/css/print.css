@@ -269,7 +269,7 @@
 		width: 5cm;
 	}
 	.bill-footer .main .data-bank {
-		left: 0cm;
+		left: 0.3cm;
 	}
 	.bill-footer .data-konto {
 		bottom: 6cm;
@@ -297,7 +297,7 @@
 	.bill-footer .data-billprice {
 		font-size: 14pt;
 		bottom: 5.2cm;
-		right: 0.1cm;
+		right: 0cm;
 		text-align: right;
 		letter-spacing: 2.5mm;
 	}
@@ -323,15 +323,17 @@
 @media screen {
 	body {
 		padding-top: 2em;
-		width: 90%;
+		width: 29.7cm;
+		color: #000;
 	}
 
-	.tx-nboevents-list {
-		width: 29.7cm;
+	.tx-nboevents {
+		color: #000;
 	}
 
 	.tx-nboevents-bill {
 		width: 21cm;
+		color: #000;
 	}
 
 	.template {
