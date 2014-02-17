@@ -120,7 +120,7 @@ $TCA['tx_nboevents_domain_model_course'] = array(
 				'cols' => 40,
 				'rows' => 15,
 				'eval' => 'trim,required',
-				'wizards' => array(
+				/*'wizards' => array(
 					'RTE' => array(
 						'icon' => 'wizard_rte2.gif',
 						'notNewRecords'=> 1,
@@ -129,9 +129,9 @@ $TCA['tx_nboevents_domain_model_course'] = array(
 						'title' => 'LLL:EXT:cms/locallang_ttc.xml:bodytext.W.RTE',
 						'type' => 'script'
 					)
-				)
+				)*/
 			),
-			'defaultExtras' => 'richtext[]',
+			//'defaultExtras' => 'richtext[]',
 		),
 		'price' => array(
 			'exclude' => 0,
