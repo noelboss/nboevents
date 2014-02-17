@@ -11,7 +11,7 @@
 			$templ.find('.data-'+this.id).html($t.clone());
 		});
 
-		$templ.after($('.data-pool .tx-nboevents'));
+		$templ.before($('.data-pool .tx-nboevents'));
 
 		$('[ contenteditable="true"]', $templ).blur(function(){
 			var html = this.innerHTML;
