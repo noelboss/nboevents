@@ -157,11 +157,11 @@
 	}
 
 	.bill-header .data-sender {
-		font-size: 8pt;
+		font-size: 9pt;
 		border-bottom: 1pt solid #000;
 	}
 	.bill-header .data-recipient {
-		padding-top: 0.5cm;
+		padding-top: 0.25cm;
 	}
 
 	/* Body */
@@ -225,10 +225,6 @@
 	}
 	.bill-body .data-greeting p{
 		margin-top: 0.5cm;
-	}
-
-	.bill-body .data-bodytext p{
-		margin-bottom: 0.2cm;
 	}
 
 	.bill-body .data-bodytext p{
