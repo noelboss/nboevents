@@ -96,7 +96,7 @@
 			<label index="tx_nboevents_domain_model_location.description">Beschreibung</label>
 			<label index="tx_nboevents_domain_model_location.address">Adresse</label>
 			<label index="tx_nboevents_domain_model_location.coordinates">Koordinaten</label>
-			<label index="tx_nboevents_domain_model_location.events">Anlass</label>
+			<label index="tx_nboevents_domain_model_location.events">Kurs Datum</label>
 			<label index="tx_nboevents_domain_model_course">Kurs</label>
 			<label index="tx_nboevents_domain_model_course.title">Titel</label>
 			<label index="tx_nboevents_domain_model_course.type">Titel-Zusatz (PDF Link)</label>
@@ -117,7 +117,7 @@
 			<label index="tx_nboevents_domain_model_reservation.sent">Rechnung versendet am</label>
 			<label index="tx_nboevents_domain_model_reservation.payuntil">Zahlbar bis</label>
 			<label index="tx_nboevents_domain_model_reservation.payed">Bezahlt am</label>
-			<label index="tx_nboevents_domain_model_reservation.events">Reservation für Anlass</label>
+			<label index="tx_nboevents_domain_model_reservation.events">Reservation für Kurs</label>
 		</languageKey>
 	</data>
 </T3locallang>

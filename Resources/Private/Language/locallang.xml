@@ -81,7 +81,7 @@
 			<label index="tx_nboevents_domain_model_person.phone">Telefon / Mobile</label>
 			<label index="tx_nboevents_domain_model_person.address">Adresse</label>
 			<label index="tx_nboevents_domain_model_person.reservations">Anmeldung für Anlässe</label>
-			<label index="tx_nboevents_domain_model_location">Ort des Anlass</label>
+			<label index="tx_nboevents_domain_model_location">Ort des Kurses</label>
 			<label index="tx_nboevents_domain_model_location.title">Titel</label>
 			<label index="tx_nboevents_domain_model_location.description">Beschreibung</label>
 			<label index="tx_nboevents_domain_model_location.address">Adresse</label>
@@ -91,7 +91,7 @@
 			<label index="tx_nboevents_domain_model_reservation.person">Person</label>
 			<label index="tx_nboevents_domain_model_reservation.count">Anzahl Personen</label>
 			<label index="tx_nboevents_domain_model_reservation.note">Bemerkungen</label>
-			<label index="tx_nboevents_domain_model_reservation.events">Reservation für Anlass</label>
+			<label index="tx_nboevents_domain_model_reservation.events">Reservation für Kurs</label>
 			<label index="tx_nboevents_domain_model_reservation.reservationkey">Anmeldeschlüssel</label>
 			<label index="newPerson.lastname">Nachname</label>
 			<label index="newPerson.firstname">Vorname</label>
