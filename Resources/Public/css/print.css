@@ -123,7 +123,7 @@
 
 	.bill-header .senderinfo {
 		float: right;
-		padding-right: 1cm;
+		padding-right: 1.5cm;
 	}
 	.bill-body .senderinfo h3{
 		font-weight: bold;
@@ -246,7 +246,7 @@
 		position: absolute;
 		left: 0.5;
 		top: 0.5cm;
-		width: 5.7cm;
+		width: 5.9cm;
 		height: 10cm;
 	}
 

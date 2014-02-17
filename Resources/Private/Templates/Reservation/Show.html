@@ -40,7 +40,7 @@
 			</span>
 
 			<span id="course">
-				<strong>{reservation.event.eventnr} – {reservation.event.course.title}</strong><br/>
+				<strong>{reservation.event.eventnr}.{reservation.uid} – {reservation.event.course.title}</strong><br/>
 				Am {reservation.event.date -> f:format.date(format:"d.m.Y")} um
 				{reservation.event.date -> f:format.date(format:"G:i")} Uhr
 			</span>
