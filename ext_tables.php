@@ -143,7 +143,7 @@ $TCA['tx_nboevents_domain_model_person'] = array(
 		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_nboevents_domain_model_person.gif'
 	),
 );
-
+/*
 t3lib_extMgm::addLLrefForTCAdescr('tx_nboevents_domain_model_location', 'EXT:nboevents/Resources/Private/Language/locallang_csh_tx_nboevents_domain_model_location.xml');
 t3lib_extMgm::allowTableOnStandardPages('tx_nboevents_domain_model_location');
 $TCA['tx_nboevents_domain_model_location'] = array(
@@ -174,7 +174,7 @@ $TCA['tx_nboevents_domain_model_location'] = array(
 		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_nboevents_domain_model_location.gif'
 	),
 );
-
+*/
 t3lib_extMgm::addLLrefForTCAdescr('tx_nboevents_domain_model_reservation', 'EXT:nboevents/Resources/Private/Language/locallang_csh_tx_nboevents_domain_model_reservation.xml');
 t3lib_extMgm::allowTableOnStandardPages('tx_nboevents_domain_model_reservation');
 $TCA['tx_nboevents_domain_model_reservation'] = array(
