@@ -46,7 +46,7 @@
 	.containerWrapper {
 		width:auto;
 		padding: 0;
-		background: #F8F8F8;
+		background: transparent;
 	}
 
 	.span12 {
