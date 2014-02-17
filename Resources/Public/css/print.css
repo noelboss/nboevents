@@ -244,17 +244,17 @@
 	.bill-footer .main,
 	.bill-footer .right {
 		position: absolute;
-		left: 0;
+		left: 0.5;
 		top: 0.5cm;
 		width: 5.7cm;
 		height: 10cm;
 	}
 
 	.bill-footer .main {
-		left: 6cm;
+		left: 6.5cm;
 	}
 	.bill-footer .right {
-		left: 11.8cm;
+		left: 12.5cm;
 		right: 0;
 		width: auto;
 	}
@@ -272,13 +272,13 @@
 		left: 0.3cm;
 	}
 	.bill-footer .data-konto {
-		bottom: 5.8cm;
+		bottom: 6cm;
 		left: 3.1cm;
 	}
 
 	.bill-footer .left .data-recipient {
 		font-size: 11pt;
-		bottom: 2.3cm;
+		bottom: 2.6cm;
 		left: 0.5cm;
 	}
 
@@ -296,7 +296,7 @@
 
 	.bill-footer .data-billprice {
 		font-size: 14pt;
-		bottom: 5cm;
+		bottom: 5.2cm;
 		right: 0.1cm;
 		text-align: right;
 		letter-spacing: 2.5mm;

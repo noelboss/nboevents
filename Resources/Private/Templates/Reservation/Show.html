@@ -26,15 +26,16 @@
 
 
 			<span id="salutation">
-				Sehr geehrte
-				<f:if condition="{reservation.person.gender} < 1">
-					r <f:translate key="tx_nboevents_domain_model_person.gender.0"/> {reservation.person.lastname}
-				</f:if>
-				<f:if condition="{reservation.person.gender} = 1">
-					<f:translate key="tx_nboevents_domain_model_person.gender.1"/> {reservation.person.lastname}
-				</f:if>
-				<f:if condition="{reservation.person.gender} = 2">
-					Damen und Herren
+				Sehr geehrte<f:if condition="{reservation.person.gender} < 1">r <f:translate key="tx_nboevents_domain_model_person.gender.0"/> {reservation.person.lastname}</f:if>
+				<f:if condition="{reservation.person.gender} > 0">
+					<f:if condition="{reservation.person.gender} > 1">
+						<f:then>
+							Damen und Herren
+						</f:then>
+						<f:else>
+							<f:translate key="tx_nboevents_domain_model_person.gender.1"/> {reservation.person.lastname}
+						</f:else>
+					</f:if>
 				</f:if>
 			</span>
 
