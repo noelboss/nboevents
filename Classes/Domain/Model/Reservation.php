@@ -48,6 +48,13 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 	protected $pid;
 
 	/**
+	 * Status
+	 *
+	 * @var integer
+	 */
+	protected $status;
+
+	/**
 	 * Notes
 	 *
 	 * @var string
@@ -190,6 +197,7 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 	 * @return void
 	 */
 	public function setPid($pid) {
+		$this->status = $pid;
 		$this->pid = $pid;
 	}
 
