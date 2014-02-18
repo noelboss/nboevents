@@ -25,7 +25,7 @@
 			<span id="paydate" contenteditable="true">
 				<f:if condition="<f:format.date format='Ymd' >{reservation.event.date -> f:format.date(format:'Y/m/d')} - 30 days</f:format.date> < <f:format.date format='Ymd' >today + 30 days</f:format.date>">
 				<f:then>
-					<f:format.date format='d.m.Y'>today + 10 days</f:format.date>
+					<f:format.date format='d.m.Y'>today + 15 days</f:format.date>
 				</f:then>
 				<f:else>
 					<f:format.date format='d.m.Y'>{reservation.event.date -> f:format.date(format:'Y/m/d')} - 30 days</f:format.date>
