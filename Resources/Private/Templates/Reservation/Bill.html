@@ -42,15 +42,6 @@
 						<f:cObject typoscriptObjectPath="plugin.tx_nboevents.plugin-persons" />
 					</div>
 
-
-					<div class="header">
-						<span class="btn pull-right print">
-							Rechnung Drucken
-							<i class="icon-print"></i>
-						</span>
-						<f:link.page class="btn"><i class="icon-arrow-left"></i> Rechnungsübersicht</f:link.page>
-					</div>
-
 					<div class="template">
 						<div class="bill-header">
 							<h1 class="logo">
@@ -70,20 +61,20 @@
 							</div>
 						</div>
 						<div class="bill-body">
-							<h1 class="data-title"></h1>
-							<h2 class="data-salutation"></h2>
-							<div class="data-text"></div>
-							<table>
+							<h1 class="data-title" contenteditable="true"></h1>
+							<h2 class="data-salutation" contenteditable="true"></h2>
+							<div class="data-text" contenteditable="true"></div>
+							<table >
 								<thead>
-									<tr>
+									<tr contenteditable="true">
 										<th>Kurs</th>
-										<th>Anmeldungen</th>
-										<th>Preis pro Person</th>
+										<th>Anzahl</th>
+										<th>Preis</th>
 										<th class="t-right">Betrag</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
+									<tr contenteditable="true">
 										<td class="data-course"></td>
 										<td class="data-count"></td>
 										<td class="data-price"></td>
@@ -93,39 +84,31 @@
 								<tfoot>
 									<tr>
 										<td colspan="3" class="data-billingdate"></td>
-										<td class="data-total t-right"></td>
+										<td class="data-total t-right" contenteditable="true"></td>
 									</tr>
 								</tfoot>
 							</table>
-							<div class="data-bodytext"></div>
+							<div class="data-bodytext" contenteditable="true"></div>
 							<div class="data-greeting"></div>
 						</div>
 						<div class="bill-footer">
 							<div class="left">
 								<div class="pos data-bank"></div>
 								<div class="pos data-konto"></div>
-								<div class="pos data-billprice"></div>
+								<div class="pos data-billprice" contenteditable="true"></div>
 								<div class="pos data-recipient"></div>
 							</div>
 							<div class="main">
 								<div class="pos data-bank"></div>
 								<div class="pos data-konto"></div>
-								<div class="pos data-billprice"></div>
+								<div class="pos data-billprice" contenteditable="true"></div>
 							</div>
 							<div class="right">
-								<div class="pos data-billremark"></div>
+								<div class="pos data-billremark" contenteditable="true"></div>
 								<div class="pos data-recipient"></div>
 							</div>
 							<div class="pos data-code"></div>
 						</div>
-					</div>
-
-					<div class="footer">
-						<span class="btn pull-right print">
-							Rechnung Drucken
-							<i class="icon-print"></i>
-						</span>
-						<f:link.page class="btn"><i class="icon-arrow-left"></i> Rechnungsübersicht</f:link.page>
 					</div>
 				</f:then>
 				<f:else>

@@ -38,13 +38,13 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	'Persons',
 	array(
 		'Person' => 'list',
-		'Reservation' => 'show',
+		'Reservation' => 'show,billed,payed',
 		'Event' => 'list, show',
 	),
 	// non-cacheable actions
 	array(
 		'Person' => 'list',
-		'Reservation' => 'show',
+		'Reservation' => 'show,billed,payed',
 		'Event' => 'list, show',
 	)
 );

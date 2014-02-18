@@ -17,6 +17,10 @@ plugin.tx_nboevents {
 			}
 		}
 	}
+	settings {
+		billedPid = 43
+		payedPid = 45
+	}
 }
 
 plugin.tx_nboevents.warteliste = TEXT

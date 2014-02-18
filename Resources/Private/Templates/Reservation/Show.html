@@ -3,6 +3,7 @@
 <f:section name="main">
 	<f:if condition="{reservation}">
 		<f:then>
+
 			<address id="recipient" contenteditable="true">
 				<f:if condition="{reservation.person.gender} > 0">
 					<f:then><f:translate key="tx_nboevents_domain_model_person.gender.1"/></f:then>
@@ -23,14 +24,7 @@
 				<label>Zahlbar bis:</label><span class="data-paydate"></span>
 			</span>
 			<span id="paydate" contenteditable="true">
-				<f:if condition="<f:format.date format='Ymd' >{reservation.event.date -> f:format.date(format:'Y/m/d')} - 30 days</f:format.date> < <f:format.date format='Ymd' >today + 30 days</f:format.date>">
-				<f:then>
-					<f:format.date format='d.m.Y'>today + 15 days</f:format.date>
-				</f:then>
-				<f:else>
-					<f:format.date format='d.m.Y'>{reservation.event.date -> f:format.date(format:'Y/m/d')} - 30 days</f:format.date>
-				</f:else>
-				</f:if>
+				<f:format.date format='d.m.Y'>{reservation.payuntil}</f:format.date>
 			</span>
 
 
@@ -83,8 +77,51 @@
 				<strong>{reservation.total -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}</strong>
 			</div>
 			<div id="billprice">{reservation.total -> f:format.currency(currencySign:"",  decimalSeparator:" " thousandsSeparator:"")}</div>
+
+			<div class="header  no-print">
+				<p style="text-align:right;" class="pull-right">
+					<f:if condition="{reservation.payuntil -> f:format.date(format:'d.m.Y')}">Zahlbar bis: {reservation.payuntil -> f:format.date(format:'d.m.Y')}<br/></f:if>
+					<f:if condition="{reservation.billsent -> f:format.date(format:'d.m.Y')}">Versendet: {reservation.billsent -> f:format.date(format:'d.m.Y')}<br/></f:if>
+					<f:if condition="{reservation.payed -> f:format.date(format:'d.m.Y')}">Bezahlt: {reservation.payed -> f:format.date(format:'d.m.Y')}</f:if>
+				</p>
+				<h2>Rechnung {reservation.event.eventnr}.{reservation.uid}</h2>
+
+				<div class="clearfix"></div>
+
+					<f:link.action class="btn pull-right ajax print" action='billed' controller='Reservation' arguments='{reservation: reservation}' >
+					Drucken &amp; versenden <i class="icon-print"></i></f:link.action>
+
+					<f:if condition="{reservation.billsent -> f:format.date(format:'Y')} < 1">
+					<f:link.action class="btn pull-right ajax" action='billed' controller='Reservation' arguments='{reservation: reservation}' >
+					Versendet <i class="icon-envelope"></i></f:link.action>
+					</f:if>
+
+					<f:link.action class="btn pull-right ajax" action='payed' controller='Reservation' arguments='{reservation: reservation}' >
+					Bezahlt <i class="icon-ok-sign"></i></f:link.action>
+
+					<f:link.page class="btn"><i class="icon-arrow-left"></i> Rechnungsübersicht</f:link.page>
+
+
+			</div>
+
+			<div class="footer  no-print">
+				<f:link.action class="btn pull-right ajax print" action='billed' controller='Reservation' arguments='{reservation: reservation}' >
+				Drucken &amp; versenden <i class="icon-print"></i></f:link.action>
+
+				<f:if condition="{reservation.billsent -> f:format.date(format:'Y')} < 1">
+				<f:link.action class="btn pull-right ajax" action='billed' controller='Reservation' arguments='{reservation: reservation}' >
+				Versendet <i class="icon-envelope"></i></f:link.action>
+				</f:if>
+
+				<f:link.action class="btn pull-right ajax" action='payed' controller='Reservation' arguments='{reservation: reservation}' >
+				Bezahlt <i class="icon-ok-sign"></i></f:link.action>
+
+				<f:link.page class="btn"><i class="icon-arrow-left"></i> Rechnungsübersicht</f:link.page>
+			</div>
+
+
 			<f:if condition="<f:count>{reservation.person.reservations}</f:count> > 1">
-				<div class="footer no-print">
+				<div class="others no-print">
 					<h3>Weitere Rechnungen dieser Person</h3>
 					<table class="tablesorter table-striped table-hover singletable tablesorter-ice">
 						<thead>

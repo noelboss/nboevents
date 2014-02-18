@@ -70,19 +70,6 @@ class Tx_Nboevents_Domain_Model_Course extends Tx_Extbase_DomainObject_AbstractE
 	 */
 	protected $events;
 
-	/**
-	 * Locations
-	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Location>
-	 */
-	protected $locations;
-
-	/**
-	 * Categories
-	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Categories>
-	 */
-	protected $categories;
 
 
 	/**
@@ -252,84 +239,6 @@ class Tx_Nboevents_Domain_Model_Course extends Tx_Extbase_DomainObject_AbstractE
 	 */
 	public function setEvents(Tx_Extbase_Persistence_ObjectStorage $events) {
 		$this->events = $events;
-	}
-
-	/**
-	 * Adds a Location
-	 *
-	 * @param Tx_Nboevents_Domain_Model_Location $location
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Location> $locations
-	 */
-	public function addLocation(Tx_Nboevents_Domain_Model_Location $location) {
-		$this->locations->attach($locations);
-	}
-
-	/**
-	 * Removes a Location
-	 *
-	 * @param Tx_Nboevents_Domain_Model_Location $locationToRemove The Location to be removed
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Location> $locations
-	 */
-	public function removeLocation(Tx_Nboevents_Domain_Model_Location $locationToRemove) {
-		$this->locations->detach($locationToRemove);
-	}
-
-	/**
-	 * Returns the locations
-	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Location> $locations
-	 */
-	public function getLocations() {
-		return $this->locations;
-	}
-
-	/**
-	 * Sets the locations
-	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Location> $locations
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Location> $locations
-	 */
-	public function setLocations(Tx_Extbase_Persistence_ObjectStorage $locations) {
-		$this->locations = $locations;
-	}
-
-	/**
-	 * Adds a Categories
-	 *
-	 * @param Tx_Nboevents_Domain_Model_Categories $category
-	 * @return void
-	 */
-	public function addCategory(Tx_Nboevents_Domain_Model_Categories $category) {
-		$this->categories->attach($category);
-	}
-
-	/**
-	 * Removes a Categories
-	 *
-	 * @param Tx_Nboevents_Domain_Model_Categories $categoryToRemove The Categories to be removed
-	 * @return void
-	 */
-	public function removeCategory(Tx_Nboevents_Domain_Model_Categories $categoryToRemove) {
-		$this->categories->detach($categoryToRemove);
-	}
-
-	/**
-	 * Returns the categories
-	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Categories> $categories
-	 */
-	public function getCategories() {
-		return $this->categories;
-	}
-
-	/**
-	 * Sets the categories
-	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Categories> $categories
-	 * @return void
-	 */
-	public function setCategories(Tx_Extbase_Persistence_ObjectStorage $categories) {
-		$this->categories = $categories;
 	}
 
 	/**

@@ -58,6 +58,10 @@
 		width: 47%;
 	}
 
+	.btn.ajax {
+		margin-left: 15px;
+	}
+
 	.template {
 		position: relative;
 		font-size: 10pt;

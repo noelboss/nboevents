@@ -93,6 +93,29 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 	protected $event;
 
 	/**
+	 * Billsent date
+	 *
+	 * @var DateTime
+	 */
+	protected $billsent;
+
+	/**
+	 * Payed date
+	 *
+	 * @var DateTime
+	 */
+	protected $payed;
+
+
+	/**
+	 * Payuntil date
+	 *
+	 * @var DateTime
+	 */
+	protected $payuntil;
+
+
+	/**
 	 * __construct
 	 *
 	 * @return void
@@ -297,6 +320,78 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 	public function getTstamp() {
 		return $this->tstamp;
 	}
+
+	/**
+	 * Set payed date
+	 *
+	 * @param DateTime $payed
+	 */
+	public function setPayed($payed = NULL) {
+		if(!isset($payed)){
+			$payed = new DateTime();
+		}
+		$this->payed = $payed;
+	}
+
+
+	/**
+	 * Get payed date
+	 *
+	 * @param DateTime $payed
+	 */
+	public function getPayed() {
+		return $this->payed;
+	}
+
+	/**
+	 * Set billsent date
+	 *
+	 * @param DateTime $billsent
+	 */
+	public function setBillsent($billsent = NULL) {
+		if(!isset($billsent)){
+			$billsent = new DateTime();
+		}
+		$this->billsent = $billsent;
+	}
+
+	/**
+	 * Get billsent date
+	 *
+	 * @param DateTime $billsent
+	 */
+	public function getBillsent() {
+		return $this->billsent;
+	}
+
+
+	/**
+	 * Get payuntil date
+	 *
+	 * @return DateTime $payuntil
+	 */
+	public function getPayuntil() {
+		if($this->event->getDate() > new DateTime('today + 30days')){
+			$d = new DateTime($this->event->getDate()->format('Ymd'));
+			return $d->modify('-30 days');
+		} else {
+			return new DateTime('today + 15days');
+		}
+	}
+
+	/**
+	 * Set payuntil date
+	 *
+	 * @param DateTime $payuntil
+	 */
+	public function setPayuntil($payuntil = NULL) {
+		if(!isset($payuntil)){
+			$payuntil = $this->getPayuntil();
+		}
+		$this->payuntil = $payuntil;
+	}
+
+
 
 	/**
 	 * Sets the persons

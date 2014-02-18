@@ -5,11 +5,6 @@
 (function($){
 	$(document).ready(function(){
 
-		$(".print").click(function(){
-			window.print();
-		});
-
-
 		$(".tablesorter").each(function(){
 			var $t = $(this),
 				sort = $t.attr('data-sort');

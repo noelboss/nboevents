@@ -4,16 +4,44 @@
 ;
 (function($){
 	$(document).ready(function(){
+		var $mod = $('.tx-nboevents');
 
-		var $templ = $('.template');
+		if($mod.length < 1){
+			return;
+		}
+
+		var $templ = $('.template', $mod);
 		$('.data-pool [id]').each(function(){
 			var $t = $(this).detach();
 			$templ.find('.data-'+this.id).html($t.clone());
 		});
 
+		$('.btn.ajax', $mod).click(function(e){
+
+			if($(this).hasClass('print')){
+				window.print();
+			}
+			$.ajax({
+				url: this.href,
+				success: function(data){
+					$.fancybox.open({
+						content:  $(data).find('.tx-nboevents').html()
+					});
+				}
+			});
+			e.preventDefault();
+		});
+
+		$('body').on('click', '.btn.close-fb', function(e){
+			$.fancybox.close();
+		});
+
+		$templ.before($('.data-pool .header'));
+		$templ.after($('.data-pool .footer'));
 		$templ.before($('.data-pool .tx-nboevents'));
 
-		$('[ contenteditable="true"]', $templ).blur(function(){
+
+		$('[contenteditable="true"]').blur(function(){
 			var html = this.innerHTML;
 			$('.data-'+this.id+' [contenteditable="true"]').html(html);
 		});
@@ -21,6 +49,7 @@
 		$('tr[data-href]', $mod).click(function(){
 			window.location = $(this).attr('data-href');
 		});
+
 		// google maps
 		$('.gmap',$mod).each(function(){
 			var that = this;
@@ -60,12 +89,6 @@
 				}
 			});
 		});
-
-		var $mod = $('.tx-nboevents');
-
-		if($mod.length < 1){
-			return;
-		}
 
 		// toggle checkbox
 		$('[data-toggle]',$mod).click(function(e){

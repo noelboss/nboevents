@@ -48,11 +48,7 @@ class Tx_Nboevents_Controller_PersonController extends Tx_Extbase_MVC_Controller
 	 */
 	public function listAction() {
 		if($GLOBALS['TSFE']->beUserLogin){
-			$defaultOrdering = array(
-				'lastname' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING
-			);
-			$this->personRepository->setDefaultOrderings($defaultOrdering);
-			$persons = $this->personRepository->findAll();
+			$persons = $this->personRepository->findWithReservation();
 			$this->view->assign('persons', $persons);
 		} else {
 			$this->view->assign('login', 1);

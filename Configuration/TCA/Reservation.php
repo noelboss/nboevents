@@ -11,7 +11,7 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 		'showRecordFieldList' => 'count, notes, person, event, pid, status',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'count, notes, person, event, --div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.billing, status, sent, payuntil, payed, notesbissfest'),
+		'1' => array('showitem' => 'count, notes, person, event, --div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.billing, status, billsent, payuntil, payed, notesbissfest'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -138,10 +138,10 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 				'eval' => 'trim'
 			),
 		),
-		'sent' => array(
+		'billsent' => array(
 			'exclude' => 0,
 			'l10n_mode' => 'mergeIfNotBlank',
-			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.sent',
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.billsent',
 			'config' => array(
 				'type' => 'input',
 				'size' => 13,
@@ -266,6 +266,14 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 				'type' => 'none',
 				'format' => 'date',
 				'eval' => 'date',
+			)
+		),
+		'pid' => Array (
+			'exclude' => 1,
+			'label' => 'Status',
+			'config' => Array (
+				'type' => 'none',
+				'eval' => 'int',
 			)
 		),
 	),
