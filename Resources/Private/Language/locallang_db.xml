@@ -54,7 +54,7 @@
 			<label index="tx_nboevents_domain_model_reservation.notes">Notes</label>
 			<label index="tx_nboevents_domain_model_reservation.notesbissfest">Internal notes</label>
 			<label index="tx_nboevents_domain_model_reservation.billing">Billing</label>
-			<label index="tx_nboevents_domain_model_reservation.status">Orderstatus</label>
+			<label index="tx_nboevents_domain_model_reservation.orderstatus">Orderstatus</label>
 			<label index="tx_nboevents_domain_model_reservation.billsent">Bill sent</label>
 			<label index="tx_nboevents_domain_model_reservation.payuntil">Pay until</label>
 			<label index="tx_nboevents_domain_model_reservation.payed">Payed</label>
@@ -113,7 +113,7 @@
 			<label index="tx_nboevents_domain_model_reservation.notes">Bemerkungen Kunde</label>
 			<label index="tx_nboevents_domain_model_reservation.billing">Buchhaltung</label>
 			<label index="tx_nboevents_domain_model_reservation.notesbissfest">Interne Bemerkungen</label>
-			<label index="tx_nboevents_domain_model_reservation.status">Rechnungsstatus</label>
+			<label index="tx_nboevents_domain_model_reservation.orderstatus">Rechnungsstatus</label>
 			<label index="tx_nboevents_domain_model_reservation.billsent">Rechnung versendet am</label>
 			<label index="tx_nboevents_domain_model_reservation.payuntil">Zahlbar bis</label>
 			<label index="tx_nboevents_domain_model_reservation.payed">Bezahlt am</label>

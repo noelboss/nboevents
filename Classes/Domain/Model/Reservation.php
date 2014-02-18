@@ -48,11 +48,11 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 	protected $pid;
 
 	/**
-	 * Status
+	 * Orderstatus
 	 *
 	 * @var integer
 	 */
-	protected $status;
+	protected $orderstatus;
 
 	/**
 	 * Notes
@@ -87,7 +87,6 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 	 * Person
 	 *
 	 * @var Tx_Nboevents_Domain_Model_Person
-	 * @lazy
 	 */
 	protected $person;
 
@@ -95,7 +94,6 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 	 * Event
 	 *
 	 * @var Tx_Nboevents_Domain_Model_Event
-	 * @lazy
 	 */
 	protected $event;
 
@@ -197,7 +195,7 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 	 * @return void
 	 */
 	public function setPid($pid) {
-		$this->status = $pid;
+		$this->orderstatus = $pid;
 		$this->pid = $pid;
 	}
 

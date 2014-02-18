@@ -8,10 +8,10 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 	'ctrl' => $TCA['tx_nboevents_domain_model_reservation']['ctrl'],
 	'interface' => array(
 		'maxDBListItems' => 1,
-		'showRecordFieldList' => 'count, notes, person, event, pid, status',
+		'showRecordFieldList' => 'count, notes, person, event, pid, orderstatus',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'count, notes, person, event, --div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.billing, status, billsent, payuntil, payed, notesbissfest'),
+		'1' => array('showitem' => 'count, notes, person, event, --div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.billing, orderstatus, billsent, payuntil, payed, notesbissfest'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -115,9 +115,9 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 				'eval' => 'trim'
 			),
 		),
-		'status' => array(
+		'orderstatus' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.status',
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.orderstatus',
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'pages',
@@ -202,7 +202,7 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 						'script' => 'wizard_edit.php',
 						'icon' => 'edit2.gif',
 						'popup_onlyOpenIfSelected' => 1,
-						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+						'JSopenParams' => 'height=350,width=580,orderstatus=0,menubar=0,scrollbars=1',
 					),
 					'suggest' => array(
 						'type' => 'suggest',
@@ -243,7 +243,7 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 						'script' => 'wizard_edit.php',
 						'icon' => 'edit2.gif',
 						'popup_onlyOpenIfSelected' => 1,
-						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+						'JSopenParams' => 'height=350,width=580,orderstatus=0,menubar=0,scrollbars=1',
 					),*/
 					/*'add' => Array(
 						'type' => 'script',
@@ -270,7 +270,7 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 		),
 		'pid' => Array (
 			'exclude' => 1,
-			'label' => 'Status',
+			'label' => 'Orderstatus',
 			'config' => Array (
 				'type' => 'none',
 				'eval' => 'int',
