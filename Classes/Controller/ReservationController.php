@@ -137,9 +137,6 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 	public function createAction(Tx_Nboevents_Domain_Model_Reservation $newReservation, Tx_Nboevents_Domain_Model_Person $newPerson, Tx_Nboevents_Domain_Model_Event $event) {
 		$this->reservationRepository->add($newReservation);
 
-		//$newPerson = $this->request->hasArgument('newPerson') ? $this->request->getArgument('newPerson') : NULL;
-		//$newPerson = \TYPO3\CMS\Extbase\Property\PropertyMapper::convert($newPerson, "Tx_Nboevents_Domain_Model_Person");
-
 		if($event->getReservationkey()){
 			if (!$this->request->hasArgument('reservationkey') || trim($this->request->getArgument('reservationkey')) !== $event->getReservationkey()) {
 				$this->redirect(
@@ -172,11 +169,14 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 		}
 
 		//Enforce persistence
-		$persistenceManager = t3lib_div::makeInstance('Tx_Extbase_Persistence_Manager');
+		$persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Tx_Extbase_Persistence_Manager');
 		$persistenceManager->persistAll();
 
 		$newPerson->addReservation($newReservation);
 		$event->addReservation($newReservation);
+
+		$persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Tx_Extbase_Persistence_Manager');
+		$persistenceManager->persistAll();
 
 		Tx_Nboevents_Utility_Cookies::setCookieValue('Reservation'.$event->getUid(), $newReservation->getUid());
 		Tx_Nboevents_Utility_Cookies::setCookieValue('Person', $newPerson->getUid());
@@ -215,8 +215,10 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 		$reservation->setPayuntil();
 		$reservation->setBillsent();
 		$this->reservationRepository->update($reservation);
-		$persistenceManager = t3lib_div::makeInstance('Tx_Extbase_Persistence_Manager');
+
+		$persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Tx_Extbase_Persistence_Manager');
 		$persistenceManager->persistAll();
+
 		$this->view->assign('reservation', $reservation);
 	}
 
@@ -230,8 +232,10 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 		$reservation->setPid(1*$this->settings['payedPid']);
 		$reservation->setPayed();
 		$this->reservationRepository->update($reservation);
-		$persistenceManager = t3lib_div::makeInstance('Tx_Extbase_Persistence_Manager');
+
+		$persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Tx_Extbase_Persistence_Manager');
 		$persistenceManager->persistAll();
+
 		$this->view->assign('reservation', $reservation);
 	}
 
