@@ -22,6 +22,7 @@ plugin.tx_nboevents {
 		payedPid = 45
 	}
 }
+config.tx_extbase.features.rewrittenPropertyMapper = 0
 
 plugin.tx_nboevents.warteliste = TEXT
 plugin.tx_nboevents.warteliste {

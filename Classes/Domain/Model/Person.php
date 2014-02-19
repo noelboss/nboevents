@@ -33,13 +33,13 @@
  */
 class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractEntity {
 
+
 	/**
 	 * Gender
 	 *
 	 * @var string
 	 */
 	protected $gender;
-
 
 	/**
 	 * Lastname
@@ -161,21 +161,6 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 		return $this->firstname;
 	}
 
-	/**
-	 * Returns the Label for TCA
-	 *
-	 * @param array $params
-	 * @return integer $remaining
-	 */
-	public function getLabel(&$return) {
-		$uid = $return['row']['uid'];
-		$repo = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_PersonRepository');
-		$person = $repo->findByUid($uid);
-		if($person){
-			$label = $person->getLastname().', '.$person->getFirstname().', '.$person->getAddress();
-		}
-		$return['title'] = $label;
-	}
 
 	/**
 	 * Sets the firstname
@@ -283,6 +268,22 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 		$this->reservations = $reservations;
 	}
 
+
+	/**
+	 * Returns the Label for TCA
+	 *
+	 * @param array $params
+	 * @return integer $remaining
+	 */
+	public function getLabel(&$return) {
+		$uid = $return['row']['uid'];
+		$repo = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_PersonRepository');
+		$person = $repo->findByUid($uid);
+		if($person){
+			$label = $person->getLastname().', '.$person->getFirstname().', '.$person->getAddress();
+		}
+		$return['title'] = $label;
+	}
 }
 
 ?>

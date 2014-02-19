@@ -127,6 +127,11 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 	public function createAction(Tx_Nboevents_Domain_Model_Reservation $newReservation, Tx_Nboevents_Domain_Model_Person $newPerson, Tx_Nboevents_Domain_Model_Event $event) {
 		$this->reservationRepository->add($newReservation);
 
+		/*if($this->request->hasArgument('newOrder')) {
+		$newOrder = $this->request->getArgument('newOrder');
+		$propertyMappingConfiguration =
+		$this->arguments->getArgument('newOrder')->allowAllProperties();*/
+
 		if($event->getReservationkey()){
 			if (!$this->request->hasArgument('reservationkey') || trim($this->request->getArgument('reservationkey')) !== $event->getReservationkey()) {
 				$this->redirect(
@@ -192,54 +197,6 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 	}
 
 	/**
-	 * action update
-	 *
-	 * @param $newReservation
-	 * @param $newPerson
-	 * @param $event
-	 * @dontverifyrequesthash
-	 * @return void
-	 */
-	/*public function updateAction(Tx_Nboevents_Domain_Model_Reservation $newReservation, Tx_Nboevents_Domain_Model_Person $newPerson, Tx_Nboevents_Domain_Model_Event $event) {
-		if($event->getReservationkey()){
-			if (!$this->request->hasArgument('reservationkey') || trim($this->request->getArgument('reservationkey')) !== $event->getReservationkey()) {
-				$this->redirect('edit', NULL, NULL, array(
-					'newReservation' => $newReservation,
-					'newPerson' => $newPerson,
-					'event' => $event,
-					'e' => array('reskey' => true)
-				));
-			}
-		}
-
-		$remaining = $event->getRemaining();
-		if ($this->reservationRepository->countByUid($newReservation->getUid()) > 0) {
-			$currentReservation = $this->reservationRepository->findByUid($newReservation->getUid());
-			$remaining = $remaining + $currentReservation->getCount();
-		}
-
-		if($remaining < $newReservation->getCount()){
-			$this->flashMessageContainer->add('<h3>Entschuldigung, ' . ($newPerson->getFirstname()) . ' ' . ($newPerson->getLastname()) . '</h3>Es hat leider nicht mehr Platz für ' . ($newReservation->getCount()) . ' Person' . ($newReservation->getCount() > 1 ? 'en': '') . '. Es hat noch Platz für '.$remaining.' Person'.($remaining > 1 ? 'en': '').'.');
-			$this->redirect(
-				'edit', NULL, NULL, array(
-					'newReservation' => $newReservation,
-					'newPerson' => $newPerson,
-					'event' => $event,
-					'e' => array('reskey' => true)
-			));
-		}
-
-		$this->reservationRepository->update($newReservation);
-		$this->personRepository->update($newPerson);
-
-		Tx_Nboevents_Utility_Cookies::setCookieValue('Person', $newPerson->getUid());
-
-		$this->flashMessageContainer->add('<h3>Danke ' . ($newPerson->getFirstname()) . ' ' . ($newPerson->getLastname()) . '!</h3>Sie haben sich erfolgreich für ' . ($newPerson->getCount()) . ' Person'.($newPerson->getCount() > 1 ? 'en' : '').' angemeldet.');
-		$this->redirect('show', 'Course', NULL, array('course' => $event->getCourse()));
-	}*/
-
-
-	/**
 	 * action billed
 	 *
 	 * @param $reservation
@@ -250,6 +207,8 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 		$reservation->setPayuntil();
 		$reservation->setBillsent();
 		$this->reservationRepository->update($reservation);
+		$persistenceManager = t3lib_div::makeInstance('Tx_Extbase_Persistence_Manager');
+		$persistenceManager->persistAll();
 		$this->view->assign('reservation', $reservation);
 	}
 
@@ -263,6 +222,8 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 		$reservation->setPid(1*$this->settings['payedPid']);
 		$reservation->setPayed();
 		$this->reservationRepository->update($reservation);
+		$persistenceManager = t3lib_div::makeInstance('Tx_Extbase_Persistence_Manager');
+		$persistenceManager->persistAll();
 		$this->view->assign('reservation', $reservation);
 	}
 

@@ -77,6 +77,13 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	protected $maxreservations;
 
 	/**
+	 * Remaining
+	 *
+	 * @var integer
+	 */
+	protected $remaining;
+
+	/**
 	 * Reservations possible until
 	 *
 	 * @var integer
@@ -208,20 +215,46 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	}
 
 	/**
+	 * Set the remaining reservations
+	 *
+	 * @return void
+	 */
+	public function setRemaining() {
+		$remaining = $this->getMaxreservations() - $this->getCount();
+		if($remaining < 0){
+			$remaining = 0;
+		}
+		$this->remaining = $remaining;
+	}
+
+	/**
+	 * Returns the remaining reservations
+	 *
+	 * @return integer $remaining
+	 */
+	public function getRemaining() {
+		return $this->remaining;
+	}
+
+	/**
 	 * Returns the remaining reservations
 	 *
 	 * @param array $params
 	 * @return integer $remaining
 	 */
-	public function getRemaining($params = NULL) {
+	public function getTcaremaining($params = NULL) {
 		$remaining = 0;
 		if($params){
-			$remaining = ($params['row']['maxreservations'] - $this->getCount($params['row']['uid']));
-		}else {
-			$remaining = ($this->getMaxreservations() - $this->getCount());
-		}
-		if($remaining < 0){
-			$remaining = 0;
+			$uid = $params['row']['uid'];
+			$eventRepository = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_EventRepository');
+			$event = $eventRepository->findByUid($uid);
+			$event->setRemaining();
+
+			$eventRepository->update($event);
+
+			$persistenceManager = t3lib_div::makeInstance('Tx_Extbase_Persistence_Manager');
+			$persistenceManager->persistAll();
+			return $event->getRemaining();
 		}
 		return $remaining;
 	}
@@ -234,6 +267,7 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	 */
 	public function setMaxreservations($maxreservations) {
 		$this->maxreservations = $maxreservations;
+		$this->setRemaining();
 	}
 
 	/**
@@ -260,7 +294,8 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	 *
 	 * @return boolean
 	 */
-	public function getReservationsPossible() {		
+	public function getReservationsPossible() {
+		$this->setRemaining();
 		if(($this->reservationdate > time()) && ($this->getRemaining() > 0)){
 			$possible =  true;
 		} else {

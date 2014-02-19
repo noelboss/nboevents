@@ -9,14 +9,14 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 	'interface' => array(
 		'maxDBListItems' => 10,
 		'maxSingleDBListItems' => 200,
-		'showRecordFieldList' => 'hidden, eventnr, date, course, description, maxreservations, reservationsleft, reservationdate, reservations',
+		'showRecordFieldList' => 'hidden, eventnr, date, course, description, maxreservations, tcaremaining, remaining, reservationdate, reservations',
 	),
 	'types' => array(
 		'1' => array('showitem' => '
 		--div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event,
 			eventnr, date,course,description,
 		--div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.settings,
-				maxreservations, reservationsleft, reservationdate, reservationnotes,
+				maxreservations, tcaremaining, reservationdate, reservationnotes,
 		--div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation,
 				reservations,
 		--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access, hidden;;1, starttime, endtime'),
@@ -140,14 +140,25 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 				'default' => 15,
 			),
 		),
-		'reservationsleft' => array(
+		'remaining' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event.reservationsleft',
 			'config' => array(
 				'type' => 'user',
 				'size' => 4,
+				'readOnly' =>1,
 				'eval' => 'int',
-				'userFunc' => 'EXT:nboevents/Classes/Domain/Model/Event.php:Tx_Nboevents_Domain_Model_Event->getRemaining',
+			),
+		),
+		'tcaremaining' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event.reservationsleft',
+			'config' => array(
+				'type' => 'user',
+				'size' => 4,
+				'readOnly' =>1,
+				'eval' => 'int',
+				'userFunc' => 'EXT:nboevents/Classes/Domain/Model/Event.php:Tx_Nboevents_Domain_Model_Event->getTcaremaining',
 			),
 		),
 		'reservationdate' => array(
