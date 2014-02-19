@@ -168,14 +168,11 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 			$this->personRepository->update($newPerson);
 		}
 
+		$newReservation->addPerson($newPerson);
+		$newReservation->addEvent($event);
+
 		//Enforce persistence
-		$persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Tx_Extbase_Persistence_Manager');
-		$persistenceManager->persistAll();
-
-		$newPerson->addReservation($newReservation);
-		$event->addReservation($newReservation);
-
-		$persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Tx_Extbase_Persistence_Manager');
+		$persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance("TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager");
 		$persistenceManager->persistAll();
 
 		Tx_Nboevents_Utility_Cookies::setCookieValue('Reservation'.$event->getUid(), $newReservation->getUid());
@@ -211,12 +208,15 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 	 * @return void
 	 */
 	public function billedAction(Tx_Nboevents_Domain_Model_Reservation $reservation) {
+		if(!$GLOBALS['TSFE']->beUserLogin){
+			die('Please login');
+		}
 		$reservation->setPid(1*$this->settings['billedPid']);
 		$reservation->setPayuntil();
 		$reservation->setBillsent();
 		$this->reservationRepository->update($reservation);
 
-		$persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Tx_Extbase_Persistence_Manager');
+		$persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance("TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager");
 		$persistenceManager->persistAll();
 
 		$this->view->assign('reservation', $reservation);
@@ -229,11 +229,14 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 	 * @return void
 	 */
 	public function payedAction(Tx_Nboevents_Domain_Model_Reservation $reservation) {
+		if(!$GLOBALS['TSFE']->beUserLogin){
+			die('Please login');
+		}
 		$reservation->setPid(1*$this->settings['payedPid']);
 		$reservation->setPayed();
 		$this->reservationRepository->update($reservation);
 
-		$persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Tx_Extbase_Persistence_Manager');
+		$persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance("TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager");
 		$persistenceManager->persistAll();
 
 		$this->view->assign('reservation', $reservation);
