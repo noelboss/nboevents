@@ -25,6 +25,7 @@
 								<th>Kurs</th>
 								<th>Datum &amp; Zeit</th>
 								<th>Teilnehmer</th>
+								<th>Freie Plätze</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -44,6 +45,9 @@
 											</td>
 											<td>
 												{event.count} von {event.maxreservations}
+											</td>
+											<td>
+												{event.remaining}
 											</td>
 										</tr>
 									</f:if>

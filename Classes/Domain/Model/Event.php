@@ -233,6 +233,7 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	 * @return integer $remaining
 	 */
 	public function getRemaining() {
+		$this->setRemaining();
 		return $this->remaining;
 	}
 
@@ -248,7 +249,7 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 			$uid = $params['row']['uid'];
 			$eventRepository = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_EventRepository');
 			$event = $eventRepository->findByUid($uid);
-			$event->setRemaining();
+			$event->getRemaining();
 
 			$eventRepository->update($event);
 
@@ -295,7 +296,6 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	 * @return boolean
 	 */
 	public function getReservationsPossible() {
-		$this->setRemaining();
 		if(($this->reservationdate > time()) && ($this->getRemaining() > 0)){
 			$possible =  true;
 		} else {
