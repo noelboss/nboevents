@@ -37,7 +37,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	/**
 	 * Gender
 	 *
-	 * @var string
+	 * @var integer
 	 */
 	protected $gender;
 
@@ -116,7 +116,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	/**
 	 * Returns the gender
 	 *
-	 * @return string $gender
+	 * @return integer $gender
 	 */
 	public function getGender() {
 		return $this->gender;
@@ -125,7 +125,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	/**
 	 * Sets the gender
 	 *
-	 * @param string $gender
+	 * @param integer $gender
 	 * @return void
 	 */
 	public function setGender($gender) {
