@@ -16,6 +16,10 @@
 			$templ.find('.data-'+this.id).html($t.clone());
 		});
 
+		$('.print:not(.ajax)', $mod).click(function(e){
+			window.print();
+		});
+
 		$('.btn.ajax', $mod).click(function(e){
 
 			if($(this).hasClass('print')){
