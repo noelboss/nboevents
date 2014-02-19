@@ -116,6 +116,16 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 	}
 
 	/**
+	 * @return void
+	 */
+	protected function initializeCreateAction(){
+		$propertyMappingConfiguration = $this->arguments['newPerson']->getPropertyMappingConfiguration();
+		$propertyMappingConfiguration->allowAllProperties();
+		$propertyMappingConfiguration->setTypeConverterOption('TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_CREATION_ALLOWED, TRUE);
+		$propertyMappingConfiguration->setTypeConverterOption('TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_MODIFICATION_ALLOWED, TRUE);
+	}
+
+	/**
 	 * action create
 	 *
 	 * @param $newReservation
@@ -127,10 +137,8 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 	public function createAction(Tx_Nboevents_Domain_Model_Reservation $newReservation, Tx_Nboevents_Domain_Model_Person $newPerson, Tx_Nboevents_Domain_Model_Event $event) {
 		$this->reservationRepository->add($newReservation);
 
-		/*if($this->request->hasArgument('newOrder')) {
-		$newOrder = $this->request->getArgument('newOrder');
-		$propertyMappingConfiguration =
-		$this->arguments->getArgument('newOrder')->allowAllProperties();*/
+		//$newPerson = $this->request->hasArgument('newPerson') ? $this->request->getArgument('newPerson') : NULL;
+		//$newPerson = \TYPO3\CMS\Extbase\Property\PropertyMapper::convert($newPerson, "Tx_Nboevents_Domain_Model_Person");
 
 		if($event->getReservationkey()){
 			if (!$this->request->hasArgument('reservationkey') || trim($this->request->getArgument('reservationkey')) !== $event->getReservationkey()) {
