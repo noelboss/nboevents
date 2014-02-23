@@ -31,8 +31,8 @@ library.plugin.tx_nboevents.warteliste {
 	required = 1
 }
 
-library.plugin.tx_nboevents.billstate = TEXT
-library.plugin.tx_nboevents.billstate {
+plugin.tx_nboevents.billstate = TEXT
+plugin.tx_nboevents.billstate {
 	data.dataWrap = DB:pages:{field:pid}:subtitle // DB:pages:{field:pid}:title
 }
 
