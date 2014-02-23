@@ -84,9 +84,10 @@ class Tx_Nboevents_Controller_PersonController extends Tx_Extbase_MVC_Controller
 			if ($result) {
 				$person = $this->personRepository->findByUid($result);
 				$this->redirect(
-						'edit', NULL, NULL, array(
-					'person' => $person,
-					'event' => $event
+						'edit', NULL, NULL,
+						array(
+							'person' => $person,
+							'event' => $event
 						)
 				);
 			}
@@ -107,7 +108,7 @@ class Tx_Nboevents_Controller_PersonController extends Tx_Extbase_MVC_Controller
 		$this->personRepository->add($newPerson);
 
 		//Enforce persistence
-		$persistenceManager = t3lib_div::makeInstance('Tx_Extbase_Persistence_Manager');
+		$persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance("TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager");
 		$persistenceManager->persistAll();
 
 		$GLOBALS['TSFE']->fe_user->setKey('ses', 'Tx_Nboevents_Domain_Model_Person', $newPerson->getUid());
@@ -137,8 +138,11 @@ class Tx_Nboevents_Controller_PersonController extends Tx_Extbase_MVC_Controller
 	public function updateAction(Tx_Nboevents_Domain_Model_Person $person, Tx_Nboevents_Domain_Model_Event $event) {
 		$person->addEvent($event);
 		$person->setCount($count, $event->getUid());
-
 		$this->personRepository->update($person);
+
+		$persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance("TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager");
+		$persistenceManager->persistAll();
+
 		$this->flashMessageContainer->add('<h3>Danke!</h3>Deine Anmeldung wurde angepasst.');
 		$this->redirect('show', 'Event', NULL, array('event' => $event->getUid()));
 	}
@@ -152,6 +156,9 @@ class Tx_Nboevents_Controller_PersonController extends Tx_Extbase_MVC_Controller
 	public function deleteAction(Tx_Nboevents_Domain_Model_Person $person, Tx_Nboevents_Domain_Model_Event $event) {
 		$this->personRepository->remove($person);
 		$GLOBALS['TSFE']->fe_user->setKey('ses', 'Tx_Nboevents_Domain_Model_Person', NULL);
+
+		$persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance("TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager");
+		$persistenceManager->persistAll();
 
 		$this->flashMessageContainer->add('<h3>Danke!</h3>Deine Anmeldung wurde gelöscht.');
 		$this->redirect('show', 'Event', NULL, array('event' => $event));

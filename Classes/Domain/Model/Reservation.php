@@ -136,11 +136,6 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 	 * @return void
 	 */
 	protected function initStorageObjects() {
-		/**
-		 * Do not modify this method!
-		 * It will be rewritten on each save in the extension builder
-		 * You may modify the constructor of this class instead
-		 */
 		$this->events = new Tx_Extbase_Persistence_ObjectStorage();
 		$this->persons = new Tx_Extbase_Persistence_ObjectStorage();
 	}
@@ -226,26 +221,9 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 	 */
 	public function addEvent(Tx_Nboevents_Domain_Model_Event $event) {
 		$this->events->attach($event);
+		$this->event = $event;
 	}
 
-	/**
-	 * Removes a Event
-	 *
-	 * @param Tx_Nboevents_Domain_Model_Event $eventToRemove The Event to be removed
-	 * @return void
-	 */
-	public function removeEvent(Tx_Nboevents_Domain_Model_Event $eventToRemove) {
-		$this->events->detach($eventToRemove);
-	}
-
-	/**
-	 * Returns the events
-	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Event> $events
-	 */
-	public function getEvents() {
-		return $this->events;
-	}
 
 	/**
 	 * Returns the event
@@ -255,6 +233,29 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 	public function getEvent() {
 		return $this->event;
 	}
+
+	/**
+	 * Adds a Person
+	 *
+	 * @param Tx_Nboevents_Domain_Model_Person $person
+	 * @return void
+	 */
+	public function addPerson(Tx_Nboevents_Domain_Model_Person $person) {
+		$this->persons->attach($person);
+		$this->person = $person;
+	}
+
+
+
+	/**
+	 * Returns the person
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Person> $person
+	 */
+	public function getPerson() {
+		return $this->person;
+	}
+
 
 	/**
 	 * Returns the totel
@@ -269,54 +270,7 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 		}
 	}
 
-	/**
-	 * Sets the events
-	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Event> $events
-	 * @return void
-	 */
-	public function setEvents(Tx_Extbase_Persistence_ObjectStorage $events) {
 
-		$this->events = $events;
-	}
-
-	/**
-	 * Adds a Person
-	 *
-	 * @param Tx_Nboevents_Domain_Model_Person $person
-	 * @return void
-	 */
-	public function addPerson(Tx_Nboevents_Domain_Model_Person $person) {
-		$this->persons->attach($person);
-	}
-
-	/**
-	 * Removes a Person
-	 *
-	 * @param Tx_Nboevents_Domain_Model_Person $personToRemove The Person to be removed
-	 * @return void
-	 */
-	public function removePerson(Tx_Nboevents_Domain_Model_Person $personToRemove) {
-		$this->persons->detach($personToRemove);
-	}
-
-	/**
-	 * Returns the persons
-	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Person> $persons
-	 */
-	public function getPersons() {
-		return $this->persons;
-	}
-
-	/**
-	 * Returns the person
-	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Person> $person
-	 */
-	public function getPerson() {
-		return $this->person;
-	}
 
 	/**
 	 * Returns the tstamp

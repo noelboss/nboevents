@@ -7,7 +7,8 @@ if (!defined('TYPO3_MODE')) {
 $TCA['tx_nboevents_domain_model_reservation'] = array(
 	'ctrl' => $TCA['tx_nboevents_domain_model_reservation']['ctrl'],
 	'interface' => array(
-		'maxDBListItems' => 1,
+		'maxDBListItems' => 10,
+		'maxSingleDBListItems' => 10,
 		'showRecordFieldList' => 'count, notes, person, event, pid, orderstatus',
 	),
 	'types' => array(
