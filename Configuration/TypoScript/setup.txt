@@ -24,15 +24,15 @@ plugin.tx_nboevents {
 }
 config.tx_extbase.features.rewrittenPropertyMapper = 0
 
-plugin.tx_nboevents.warteliste = TEXT
-plugin.tx_nboevents.warteliste {
+library.plugin.tx_nboevents.warteliste = TEXT
+library.plugin.tx_nboevents.warteliste {
 	noTrimWrap =|<label class="control-label">Angebot</label><div class="controls"><strong>|</strong></div>|
 	data = GP:tx_powermail_pi1|field|8
 	required = 1
 }
 
-plugin.tx_nboevents.billstate = TEXT
-plugin.tx_nboevents.billstate {
+library.plugin.tx_nboevents.billstate = TEXT
+library.plugin.tx_nboevents.billstate {
 	data.dataWrap = DB:pages:{field:pid}:subtitle // DB:pages:{field:pid}:title
 }
 
