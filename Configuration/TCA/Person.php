@@ -58,7 +58,7 @@ $TCA['tx_nboevents_domain_model_person'] = array(
 			)
 		),
 		'gender' => array(
-			'exclude' => 1,
+			'exclude' => 0,
 			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_person.gender',
 			'config' => array(
 				'type' => 'select',
