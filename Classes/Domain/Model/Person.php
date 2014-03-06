@@ -72,6 +72,15 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 */
 	protected $phone;
 
+
+	/**
+	 * Phonecompany
+	 *
+	 * @var string
+	 * @validate NotEmpty
+	 */
+	protected $phonecompany;
+
 	/**
 	 * Address
 	 *
@@ -203,6 +212,25 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 */
 	public function setPhone($phone) {
 		$this->phone = $phone;
+	}
+
+	/**
+	 * Returns the phonecompany
+	 *
+	 * @return string $phonecompany
+	 */
+	public function getPhonecompany() {
+		return $this->phonecompany;
+	}
+
+	/**
+	 * Sets the phonecompany
+	 *
+	 * @param string $phonecompany
+	 * @return void
+	 */
+	public function setPhonecompany($phonecompany) {
+		$this->phonecompany = $phonecompany;
 	}
 
 	/**
