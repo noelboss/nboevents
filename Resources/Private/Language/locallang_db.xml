@@ -45,7 +45,7 @@
 			<label index="tx_nboevents_domain_model_course.description">Beschreibung</label>
 			<label index="tx_nboevents_domain_model_course.price">Preis</label>
 			<label index="tx_nboevents_domain_model_course.images">Bilder</label>
-			<label index="tx_nboevents_domain_model_course.events">Anlässe</label>
+			<label index="tx_nboevents_domain_model_course.events">Kurs Daten</label>
 			<label index="tx_nboevents_domain_model_course.locations">Ort</label>
 			<label index="tx_nboevents_domain_model_course.categories">Kategorie</label>
 			<label index="tx_nboevents_domain_model_reservation">Anmeldung</label>
