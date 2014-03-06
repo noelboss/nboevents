@@ -50,6 +50,8 @@ plugin.tx_nboevents.plugin-persons {
 	show.if.equals = show
 }
 
+plugin.tx_nboevents.plugin-events =< tt_content.list.20.nboevents_events
+
 page.bodyTagCObject = TEXT
 page.bodyTagCObject {
 	value = <body class="tx-nboevents-bill">

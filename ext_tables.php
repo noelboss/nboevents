@@ -21,6 +21,7 @@ Tx_Extbase_Utility_Extension::registerPlugin(
 	'Kurse: Rechnungen drucken'
 );
 
+
 t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Events');
 
 
