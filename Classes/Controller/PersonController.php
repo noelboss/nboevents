@@ -66,6 +66,8 @@ class Tx_Nboevents_Controller_PersonController extends Tx_Extbase_MVC_Controller
 	 * @return void
 	 */
 	public function showAction(Tx_Nboevents_Domain_Model_Person $person) {
+		var_dump($GLOBALS['TSFE']);
+		die('bye');
 		if($GLOBALS['TSFE']->beUserLogin){
 			$this->view->assign('person', $person);
 		} else {
@@ -147,23 +149,6 @@ class Tx_Nboevents_Controller_PersonController extends Tx_Extbase_MVC_Controller
 
 		$this->flashMessageContainer->add('<h3>Danke!</h3>Deine Anmeldung wurde angepasst.');
 		$this->redirect('show', 'Event', NULL, array('event' => $event->getUid()));
-	}
-
-	/**
-	 * action delete
-	 *
-	 * @param Tx_Nboevents_Domain_Model_Person
-	 * @return void
-	 */
-	public function deleteAction(Tx_Nboevents_Domain_Model_Person $person, Tx_Nboevents_Domain_Model_Event $event) {
-		$this->personRepository->remove($person);
-		$GLOBALS['TSFE']->fe_user->setKey('ses', 'Tx_Nboevents_Domain_Model_Person', NULL);
-
-		$persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance("TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager");
-		$persistenceManager->persistAll();
-
-		$this->flashMessageContainer->add('<h3>Danke!</h3>Deine Anmeldung wurde gelöscht.');
-		$this->redirect('show', 'Event', NULL, array('event' => $event));
 	}
 
 	/**
