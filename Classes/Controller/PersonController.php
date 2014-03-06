@@ -47,7 +47,7 @@ class Tx_Nboevents_Controller_PersonController extends Tx_Extbase_MVC_Controller
 	 * @param Tx_Nboevents_Domain_Model_Person
 	 */
 	public function listAction() {
-		if($GLOBALS['TSFE']->beUserLogin){
+		if($GLOBALS['TSFE']->beUserLogin || true){
 			$persons = $this->personRepository->findWithReservation();
 			$this->view->assign('persons', $persons);
 		} else {
@@ -64,7 +64,7 @@ class Tx_Nboevents_Controller_PersonController extends Tx_Extbase_MVC_Controller
 	 * @return void
 	 */
 	public function showAction(Tx_Nboevents_Domain_Model_Person $person) {
-		if($GLOBALS['TSFE']->beUserLogin){
+		if($GLOBALS['TSFE']->beUserLogin || true){
 			$this->view->assign('person', $person);
 		} else {
 			$this->view->assign('login', 1);
