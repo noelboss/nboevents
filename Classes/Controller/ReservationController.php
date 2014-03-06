@@ -198,8 +198,6 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 	 * @return void
 	 */
 	public function billedAction(Tx_Nboevents_Domain_Model_Reservation $reservation) {
-		var_dump($GLOBALS['TSFE']);
-		die('bye');
 		if(!$GLOBALS['TSFE']->beUserLogin){
 			die('Please login');
 		}
@@ -221,8 +219,6 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 	 * @return void
 	 */
 	public function payedAction(Tx_Nboevents_Domain_Model_Reservation $reservation) {
-		var_dump($GLOBALS['TSFE']);
-		die('bye');
 		if(!$GLOBALS['TSFE']->beUserLogin){
 			die('Please login');
 		}
