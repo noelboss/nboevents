@@ -7,7 +7,7 @@ if (!defined('TYPO3_MODE')) {
 $TCA['tx_nboevents_domain_model_event'] = array(
 	'ctrl' => $TCA['tx_nboevents_domain_model_event']['ctrl'],
 	'interface' => array(
-		'maxDBListItems' => 10,
+		'maxDBListItems' => 999,
 		'maxSingleDBListItems' => 10,
 		'showRecordFieldList' => 'hidden, eventnr, date, course, description, maxreservations, tcaremaining, remaining, reservationdate, reservations',
 	),
