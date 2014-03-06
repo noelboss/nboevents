@@ -56,7 +56,7 @@ class Tx_Nboevents_Controller_EventController extends Tx_Extbase_MVC_Controller_
 	 * @return void
 	 */
 	public function listAction(){
-		var_dumpo($GLOBALS['BE_USER']->user);
+		var_dump($GLOBALS['BE_USER']->user);
 
 		if($GLOBALS['TSFE']->beUserLogin){
 			$courses = $this->courseRepository->findAll();
