@@ -58,20 +58,6 @@ class Tx_Nboevents_Controller_PersonController extends Tx_Extbase_MVC_Controller
 	}
 
 	/**
-	 * action show
-	 *
-	 * @param Tx_Nboevents_Domain_Model_Person
-	 * @return void
-	 */
-	public function showAction(Tx_Nboevents_Domain_Model_Person $person) {
-		if($GLOBALS['TSFE']->beUserLogin || true){
-			$this->view->assign('person', $person);
-		} else {
-			$this->view->assign('login', 1);
-		}
-	}
-
-	/**
 	 * action new
 	 *
 	 * @param Tx_Nboevents_Domain_Model_Person

@@ -12,13 +12,13 @@ Tx_Extbase_Utility_Extension::registerPlugin(
 Tx_Extbase_Utility_Extension::registerPlugin(
 	$_EXTKEY,
 	'Events',
-	'Kurse: Liste der Anlässe'
+	'Kurse: Kurslisten drucken'
 );
 
 Tx_Extbase_Utility_Extension::registerPlugin(
 	$_EXTKEY,
 	'Persons',
-	'Kurse: Personen und Rechnungen'
+	'Kurse: Rechnungen drucken'
 );
 
 t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Events');
