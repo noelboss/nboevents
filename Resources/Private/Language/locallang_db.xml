@@ -31,6 +31,7 @@
 			<label index="tx_nboevents_domain_model_person.phonemobile">Telefon Mobil</label>
 			<label index="tx_nboevents_domain_model_person.phonecompany">Telefon Geschäft</label>
 			<label index="tx_nboevents_domain_model_person.address">Adresse</label>
+			<label index="tx_nboevents_domain_model_person.note">Interne Bemerkung</label>
 			<label index="tx_nboevents_domain_model_person.reservations">Anmeldungen</label>
 			<label index="tx_nboevents_domain_model_location">Ort</label>
 			<label index="tx_nboevents_domain_model_location.title">Titel</label>
