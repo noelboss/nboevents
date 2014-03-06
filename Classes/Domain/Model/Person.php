@@ -74,6 +74,13 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 
 
 	/**
+	 * Phonemobile
+	 *
+	 * @var string
+	 */
+	protected $phonemobile;
+
+	/**
 	 * Phonecompany
 	 *
 	 * @var string
@@ -216,6 +223,25 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 */
 	public function setPhone($phone) {
 		$this->phone = $phone;
+	}
+
+	/**
+	 * Returns the phonemobile
+	 *
+	 * @return string $phonemobile
+	 */
+	public function getPhonemobile() {
+		return $this->phonemobile;
+	}
+
+	/**
+	 * Sets the phonemobile
+	 *
+	 * @param string $phonemobile
+	 * @return void
+	 */
+	public function setPhonemobile($phonemobile) {
+		$this->phonemobile = $phonemobile;
 	}
 
 	/**

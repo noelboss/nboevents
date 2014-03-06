@@ -27,7 +27,8 @@
 			<label index="tx_nboevents_domain_model_person.lastname">Nachname</label>
 			<label index="tx_nboevents_domain_model_person.firstname">Vorname</label>
 			<label index="tx_nboevents_domain_model_person.email">E-Mail Adresse</label>
-			<label index="tx_nboevents_domain_model_person.phone">Telefon Privat</label>
+			<label index="tx_nboevents_domain_model_person.phone">Telefon</label>
+			<label index="tx_nboevents_domain_model_person.phonemobile">Telefon Mobil</label>
 			<label index="tx_nboevents_domain_model_person.phonecompany">Telefon Geschäft</label>
 			<label index="tx_nboevents_domain_model_person.address">Adresse</label>
 			<label index="tx_nboevents_domain_model_person.reservations">Anmeldungen</label>
