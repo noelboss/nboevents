@@ -8,7 +8,7 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 	'ctrl' => $TCA['tx_nboevents_domain_model_event']['ctrl'],
 	'interface' => array(
 		'maxDBListItems' => 999,
-		'maxSingleDBListItems' => 10,
+		'maxSingleDBListItems' => 999,
 		'showRecordFieldList' => 'hidden, eventnr, date, course, description, maxreservations, tcaremaining, remaining, reservationdate, reservations',
 	),
 	'types' => array(
