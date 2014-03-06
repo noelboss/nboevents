@@ -48,6 +48,7 @@ class Tx_Nboevents_Controller_PersonController extends Tx_Extbase_MVC_Controller
 	 */
 	public function listAction() {
 		var_dump($GLOBALS['TSFE']);
+		die('bye');
 		if($GLOBALS['TSFE']->beUserLogin){
 			$persons = $this->personRepository->findWithReservation();
 			$this->view->assign('persons', $persons);
