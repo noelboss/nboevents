@@ -102,7 +102,7 @@ $TCA['tx_nboevents_domain_model_person'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
-				'eval' => 'trim,required'
+				'eval' => 'trim'
 			),
 		),
 		'phonecompany' => array(
@@ -111,7 +111,7 @@ $TCA['tx_nboevents_domain_model_person'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
-				'eval' => 'trim,required'
+				'eval' => 'trim'
 			),
 		),
 		'address' => array(
