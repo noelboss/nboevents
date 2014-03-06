@@ -198,9 +198,6 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 	 * @return void
 	 */
 	public function billedAction(Tx_Nboevents_Domain_Model_Reservation $reservation) {
-		if(!$GLOBALS['TSFE']->beUserLogin && false){
-			die('Please login');
-		}
 		$reservation->setPid(1*$this->settings['billedPid']);
 		$reservation->setPayuntil();
 		$reservation->setBillsent();
@@ -219,9 +216,6 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 	 * @return void
 	 */
 	public function payedAction(Tx_Nboevents_Domain_Model_Reservation $reservation) {
-		if(!$GLOBALS['TSFE']->beUserLogin && false){
-			die('Please login');
-		}
 		$reservation->setPid(1*$this->settings['payedPid']);
 		$reservation->setPayed();
 		$this->reservationRepository->update($reservation);

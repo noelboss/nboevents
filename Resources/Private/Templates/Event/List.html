@@ -2,75 +2,66 @@
 
 <f:section name="main">
 	<f:flashMessages />
-	<f:if condition="{login}">
+
+	<f:if condition="{courses}">
+		<span class="btn pull-right print">
+			Kursliste Drucken
+			<i class="icon-print"></i>
+		</span>
+	</f:if>
+	<h1>Bevorstehenden Kurse</h1>
+	<f:if condition="{courses}">
 		<f:then>
-			<p class="alert alert-error">
-				Sie müssen angemeldet sein um diesen Bereich zu sehen.
-			</p>
-		</f:then>
-		<f:else>
-			<f:if condition="{courses}">
+			<table class="tablesorter table-striped table-hover listtable tablesorter-ice" data-sort="[[2,0]]">
+				<thead>
+					<tr>
+						<th>Nr.</th>
+						<th>Kurs</th>
+						<th>Datum &amp; Zeit</th>
+						<th>Teilnehmer</th>
+						<th>Freie Plätze</th>
+					</tr>
+				</thead>
+				<tbody>
+					<f:for each="{courses}" as="course" iteration="iterationCourse">
+						<f:for each="{course.events}" as="event" iteration="iterationEvent">
+							<f:if condition="{event.count}">
+								<tr class="linked" data-href="<f:uri.action action='show' arguments='{event: event}' />">
+									<td>
+										{event.eventnr}
+									</td>
+									<td>
+										{course.title}
+									</td>
+									<td>
+										<span style="display:none;">{event.date -> f:format.date(format:"YmdGi")}</span>
+										{event.date -> f:format.date(format:"d.m.Y G:i")}
+									</td>
+									<td>
+										{event.count} von {event.maxreservations}
+									</td>
+									<td>
+										{event.remaining}
+									</td>
+								</tr>
+							</f:if>
+						</f:for>
+					</f:for>
+				</tbody>
+			</table>
+			<p class="clearfix">
+				<f:link.page pageUid="51" class="btn">Rechnungen <i class="icon-arrow-right"></i></f:link.page>
+
 				<span class="btn pull-right print">
 					Kursliste Drucken
 					<i class="icon-print"></i>
 				</span>
-			</f:if>
-			<h1>Bevorstehenden Kurse</h1>
-			<f:if condition="{courses}">
-				<f:then>
-					<table class="tablesorter table-striped table-hover listtable tablesorter-ice" data-sort="[[2,0]]">
-						<thead>
-							<tr>
-								<th>Nr.</th>
-								<th>Kurs</th>
-								<th>Datum &amp; Zeit</th>
-								<th>Teilnehmer</th>
-								<th>Freie Plätze</th>
-							</tr>
-						</thead>
-						<tbody>
-							<f:for each="{courses}" as="course" iteration="iterationCourse">
-								<f:for each="{course.events}" as="event" iteration="iterationEvent">
-									<f:if condition="{event.count}">
-										<tr class="linked" data-href="<f:uri.action action='show' arguments='{event: event}' />">
-											<td>
-												{event.eventnr}
-											</td>
-											<td>
-												{course.title}
-											</td>
-											<td>
-												<span style="display:none;">{event.date -> f:format.date(format:"YmdGi")}</span>
-												{event.date -> f:format.date(format:"d.m.Y G:i")}
-											</td>
-											<td>
-												{event.count} von {event.maxreservations}
-											</td>
-											<td>
-												{event.remaining}
-											</td>
-										</tr>
-									</f:if>
-								</f:for>
-							</f:for>
-						</tbody>
-					</table>
-					<p class="clearfix">
-						<f:link.page pageUid="51" class="btn">Rechnungen <i class="icon-arrow-right"></i></f:link.page>
-
-						<span class="btn pull-right print">
-							Kursliste Drucken
-							<i class="icon-print"></i>
-						</span>
-					</p>
-				</f:then>
-				<f:else>
-					<p class="alert alert-info">
-						Aktuell sind keine Kurse vorhanden.
-					</p>
-				</f:else>
-			</f:if>
+			</p>
+		</f:then>
+		<f:else>
+			<p class="alert alert-info">
+				Aktuell sind keine Kurse vorhanden.
+			</p>
 		</f:else>
 	</f:if>
-
 </f:section>

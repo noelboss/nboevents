@@ -56,12 +56,8 @@ class Tx_Nboevents_Controller_EventController extends Tx_Extbase_MVC_Controller_
 	 * @return void
 	 */
 	public function listAction(){
-		if($GLOBALS['TSFE']->beUserLogin || true){
-			$courses = $this->courseRepository->findAll();
-			$this->view->assign('courses', $courses);
-		} else {
-			$this->view->assign('login', 1);
-		}
+		$courses = $this->courseRepository->findAll();
+		$this->view->assign('courses', $courses);
 	}
 
 	/**
@@ -71,11 +67,7 @@ class Tx_Nboevents_Controller_EventController extends Tx_Extbase_MVC_Controller_
 	 * @return void
 	 */
 	public function showAction(Tx_Nboevents_Domain_Model_Event $event) {
-		if($GLOBALS['TSFE']->beUserLogin || true){
-			$this->view->assign('event', $event);
-		} else {
-			$this->view->assign('login', 1);
-		}
+		$this->view->assign('event', $event);
 	}
 }
 
