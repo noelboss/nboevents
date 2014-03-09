@@ -33,16 +33,5 @@
  */
 class Tx_Nboevents_Domain_Repository_PersonRepository extends Tx_Extbase_Persistence_Repository {
 
-	public function findWithReservation() {
-		$query = $this->createQuery();
-		$query->matching(
-			$query->greaterThan('reservations', 0)
-		);
-		$query->setOrderings(array(
-			'lastname' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING
-		));
-		$persons = $query->execute();
-		return $persons;
-	}
 }
 ?>

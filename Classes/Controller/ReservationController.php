@@ -79,6 +79,18 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 	}
 
 	/**
+	 * action list
+	 *
+	 * @return void
+	 * @param Tx_Nboevents_Domain_Model_Person
+	 */
+	public function listAction() {
+		$reservations = $this->reservationRepository->findAll();
+		$this->view->assign('reservations', $reservations);
+
+	}
+
+	/**
 	 * action new
 	 *
 	 * @dontverifyrequesthash

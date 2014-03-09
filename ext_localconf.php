@@ -37,14 +37,12 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	$_EXTKEY,
 	'Persons',
 	array(
-		'Person' => 'list',
-		'Reservation' => 'show,billed,payed',
+		'Reservation' => 'list,show,billed,payed',
 		'Event' => 'list, show',
 	),
 	// non-cacheable actions
 	array(
-		'Person' => 'list',
-		'Reservation' => 'show,billed,payed',
+		'Reservation' => 'list,show,billed,payed',
 		'Event' => 'list, show',
 	)
 );

@@ -99,7 +99,6 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * Reservation for Events
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Reservation>
-	 * @lazy
 	 */
 	protected $reservations;
 

@@ -40,16 +40,6 @@ class Tx_Nboevents_Controller_PersonController extends Tx_Extbase_MVC_Controller
 	 */
 	protected $personRepository;
 
-	/**
-	 * action list
-	 *
-	 * @return void
-	 * @param Tx_Nboevents_Domain_Model_Person
-	 */
-	public function listAction() {
-		$persons = $this->personRepository->findWithReservation();
-		$this->view->assign('persons', $persons);
-	}
 
 	/**
 	 * action new
