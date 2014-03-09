@@ -23,13 +23,11 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	array(
 		'Course' => 'events',
 		'Event' => 'show',
-		'Reservation' => 'list,show,billed,payed',
 	),
 	// non-cacheable actions
 	array(
 		'Course' => 'events',
 		'Event' => 'show',
-		'Reservation' => 'list,show,billed,payed',
 	)
 );
 
