@@ -20,7 +20,7 @@ plugin.tx_nboevents {
 				newRecordStoragePid = 35
 			}
 			Tx_Nboevents_Domain_Model_Reservation {
-				storagePid = 35
+				storagePid = 35,43,45
 				newRecordStoragePid = 35
 			}
 		}

@@ -9,6 +9,6 @@ plugin.tx_nboevents {
 	}
 	persistence {
 		# cat=plugin.tx_nboevents//a; type=int+; label=Default storage PID
-		storagePid = 35,36,37,43
+		storagePid = 35,36,37,43,45
 	}
 }
