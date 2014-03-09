@@ -41,7 +41,7 @@ class Tx_Nboevents_Domain_Repository_CourseRepository extends Tx_Extbase_Persist
 	 */
 	public function findAll($limit = 999) {
 		$query = $this->createQuery();
-		$query->getQuerySettings()->setRespectStoragePage(TRUE);
+		$query->getQuerySettings()->setRespectStoragePage(false);
 		return $query->setOrderings(array('sorting' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING))
 			->setLimit((integer)$limit)
 			->execute();
