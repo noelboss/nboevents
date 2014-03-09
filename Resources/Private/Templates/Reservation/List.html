@@ -8,6 +8,7 @@
 		</span>
 	</f:if>
 	<h1>Offenen Rechnungen</h1>
+	<f:debug>{reservations}</f:debug>
 	<f:if condition="{reservations}">
 		<f:then>
 			<table class="tablesorter table-striped table-hover listtable tablesorter-ice">
@@ -27,8 +28,6 @@
 				</thead>
 				<tbody>
 					<f:for each="{reservations}" as="reservation" iteration="iterationReservation">
-						<f:if condition="{reservation.payed -> f:format.date(format:'d.m.Y')}">
-						<f:else>
 						<tr class="linked" data-href="<f:uri.action action='show' controller='Reservation' arguments='{reservation: reservation}'/>">
 							<td>
 								{reservation.person.lastname}
@@ -62,8 +61,6 @@
 								<f:if condition="{reservation.payuntil -> f:format.date(format:'d.m.Y')}">Zahlbar bis: {reservation.payuntil -> f:format.date(format:'d.m.Y')}</f:if>
 							</td>
 						</tr>
-						</f:else>
-						</f:if>
 					</f:for>
 				</tbody>
 			</table>

@@ -34,6 +34,23 @@
 class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
+	 * initialize the controller
+	 *
+	 * @return void
+	 */
+	protected function initializeAction() {
+		parent::initializeAction();
+		//fallback to current pid if no storagePid is defined
+		if (version_compare(TYPO3_version, '6.0.0', '>=')) {
+			$configuration = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+		}
+		if (empty($configuration['persistence']['storagePid'])) {
+			$this->configurationManager->setConfiguration($configuration);
+		}
+
+	}
+
+	/**
 	 *
 	 * reservationRepository
 	 *
@@ -82,7 +99,6 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 	 * action list
 	 *
 	 * @return void
-	 * @param Tx_Nboevents_Domain_Model_Person
 	 */
 	public function listAction() {
 		$reservations = $this->reservationRepository->findAll();

@@ -22,14 +22,12 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	'Events',
 	array(
 		'Event' => 'list, show',
-		'Person' => 'list',
-		'Reservation' => 'show',
+		'Reservation' => 'list,show,billed,payed',
 	),
 	// non-cacheable actions
 	array(
 		'Event' => 'list, show',
-		'Person' => 'list',
-		'Reservation' => 'show',
+		'Reservation' => 'list,show,billed,payed',
 	)
 );
 
