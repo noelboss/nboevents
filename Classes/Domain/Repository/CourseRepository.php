@@ -4,7 +4,7 @@
  *  Copyright notice
  *
  *  (c) 2012 Noel Bossart <n.company@me.com>
- *  
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -32,7 +32,13 @@
  *
  */
 class Tx_Nboevents_Domain_Repository_CourseRepository extends Tx_Extbase_Persistence_Repository {
-	
+
+	public function initializeObject() {
+		$querySettings = $this->objectManager->create('Tx_Extbase_Persistence_Typo3QuerySettings');
+		$querySettings->setRespectStoragePage(FALSE);
+		$this->setDefaultQuerySettings($querySettings);
+	}
+
 	/**
 	 * findAll
 	 *
