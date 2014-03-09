@@ -27,7 +27,6 @@
 				</thead>
 				<tbody>
 					<f:for each="{reservations}" as="reservation" iteration="iterationReservation">
-						<f:debug>{reservation}</f:debug>
 						<f:if condition="{reservation.payed -> f:format.date(format:'d.m.Y')}">
 						<f:else>
 						<tr class="linked" data-href="<f:uri.action action='show' controller='Reservation' arguments='{reservation: reservation}'/>">
