@@ -34,26 +34,6 @@
 class Tx_Nboevents_Controller_EventController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
-	 * courseRepository
-	 *
-	 * @var Tx_Nboevents_Domain_Repository_CourseRepository
-	 */
-	protected $courseRepository;
-
-
-	/**
-	 * action list
-	 *
-	 * @return void
-	 */
-	public function listAction(){
-		$this->courseRepository = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_CourseRepository');
-
-		$courses = $this->courseRepository->findAll();
-		$this->view->assign('courses', $courses);
-	}
-
-	/**
 	 * action show
 	 *
 	 * @param $event

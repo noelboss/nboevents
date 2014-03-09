@@ -21,11 +21,13 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	$_EXTKEY,
 	'Events',
 	array(
+		'Course' => 'events',
 		'Event' => 'list, show',
 		'Reservation' => 'list,show,billed,payed',
 	),
 	// non-cacheable actions
 	array(
+		'Course' => 'events',
 		'Event' => 'list, show',
 		'Reservation' => 'list,show,billed,payed',
 	)
