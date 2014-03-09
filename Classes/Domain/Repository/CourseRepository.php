@@ -35,7 +35,7 @@ class Tx_Nboevents_Domain_Repository_CourseRepository extends Tx_Extbase_Persist
 
 	public function initializeObject() {
 		$querySettings = $this->objectManager->create('Tx_Extbase_Persistence_Typo3QuerySettings');
-		$querySettings->setRespectStoragePage(FALSE);
+		$querySettings->setRespectStoragePage(TRUE);
 		$this->setDefaultQuerySettings($querySettings);
 	}
 
