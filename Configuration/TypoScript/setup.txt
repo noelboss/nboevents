@@ -9,12 +9,12 @@ plugin.tx_nboevents {
 		recursive = 99
 
 		classes {
-			#Tx_Nboevents_Domain_Model_Course {
-			#	storagePid = 36,37
-			#}
-			#Tx_Nboevents_Domain_Model_Event {
-			#	storagePid = 36,37
-			#}
+			Tx_Nboevents_Domain_Model_Course {
+				storagePid = 36,37
+			}
+			Tx_Nboevents_Domain_Model_Event {
+				storagePid = 36,37
+			}
 			Tx_Nboevents_Domain_Model_Person {
 				storagePid = 35
 				newRecordStoragePid = 35
