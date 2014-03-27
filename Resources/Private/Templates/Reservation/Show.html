@@ -130,6 +130,7 @@
 								<th>Preis</th>
 								<th>Anzahl</th>
 								<th>Total</th>
+								<th>Status</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -154,6 +155,9 @@
 										</td>
 										<td>
 											{other.total -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
+										</td>
+										<td>
+											<f:cObject typoscriptObjectPath="plugin.tx_nboevents.billstate" data="{other.pid}" />
 										</td>
 									</tr>
 								</f:if>
