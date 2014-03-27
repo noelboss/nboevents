@@ -221,6 +221,17 @@ class Tx_Nboevents_Domain_Model_Course extends Tx_Extbase_DomainObject_AbstractE
 		$eventRepository = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_EventRepository');
 		return $eventRepository->findByCourse($this->getUid());
 	}
+
+	/**
+	 * Returns the events
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Event> $events
+	 */
+	public function getAllevents() {
+		$eventRepository = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_EventRepository');
+		return $eventRepository->findAllByCourse($this->getUid());
+	}
+
 	/**
 	 * Returns the next event
 	 *
