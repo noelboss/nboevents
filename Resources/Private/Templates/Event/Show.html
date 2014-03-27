@@ -53,7 +53,10 @@
 							</td>
 							<td>
 								<span style="display:none;">{reservation.pid}</span>
-								<f:if condition="{reservation.payed -> f:format.date(format:'d.m.Y')}">
+								<f:cObject typoscriptObjectPath="plugin.tx_nboevents.billstate" data="{reservation.pid}" />
+
+								<f:comment>
+								<f:if condition="{reservation.payed}">
 									<f:then>
 									Bezahlt: {reservation.payed -> f:format.date(format:'d.m.Y')}<br/>
 									</f:then>
@@ -64,6 +67,7 @@
 										</f:if>
 									</f:else>
 								</f:if>
+								</f:comment>
 							</td>
 						</tr>
 					</f:for>
