@@ -38,7 +38,7 @@ class Tx_Nboevents_Domain_Repository_EventRepository extends Tx_Extbase_Persiste
 	 * @var array
 	 */
 	protected $defaultOrderings = array(
-	    'date' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING,
+		'date' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING,
 	);
 
 
@@ -73,8 +73,60 @@ class Tx_Nboevents_Domain_Repository_EventRepository extends Tx_Extbase_Persiste
 			)
 		);
 		$query->setLimit((integer)$limit);
-		$posts = $query->execute();
-		return $posts;
+		$events = $query->execute();
+		return $events;
+	}
+
+	/**
+	 * findAllByCourse
+	 *
+	 * @param $course
+	 * @return
+	 */
+	public function findAllByCourse($course = 0, $limit = 99) {
+		$now = time();
+		$query = $this->createQuery();
+		$query->getQuerySettings()->setRespectStoragePage(false);
+		$query->getQuerySettings()->setRespectEnableFields(false);
+
+		$query->matching(
+			$query->logicalAnd(
+				$query->equals('course', $course),
+				$query->greaterThanOrEqual('date', $now),
+				$query->equals('deleted', 0)
+			)
+		);
+
+		$query->setLimit((integer)$limit);
+		$events = $query->execute();
+		return $events;
+	}
+
+
+	/**
+	 * findAllByUid
+	 *
+	 * @param $course
+	 * @return
+	 */
+	public function findAllByUid($uid = 0, $limit = 1) {
+		$now = time();
+
+		$query = $this->createQuery();
+		$query->getQuerySettings()->setRespectStoragePage(false);
+		$query->getQuerySettings()->setRespectEnableFields(false);
+
+		$query->matching(
+			$query->logicalAnd(
+				$query->equals('uid', $uid),
+				//$query->greaterThanOrEqual('date', $now),
+				$query->equals('deleted', 0)
+			)
+		);
+
+		$query->setLimit((integer)$limit);
+		$events = $query->execute();
+		return $events;
 	}
 }
 ?>
