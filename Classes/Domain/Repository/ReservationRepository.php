@@ -188,7 +188,7 @@ class Tx_Nboevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Pe
 			foreach ($row as $key => $value) {
 				switch ($key) {
 					case 'eventnr':
-						$label .= $row[$key] . ' – ';
+						$label .= $row[$key] . '.';
 						break;
 					case 'uid':
 						$label .= $row[$key] . ' – ';
