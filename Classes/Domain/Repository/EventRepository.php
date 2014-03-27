@@ -85,21 +85,28 @@ class Tx_Nboevents_Domain_Repository_EventRepository extends Tx_Extbase_Persiste
 	 */
 	public function findAllByCourse($course = 0, $limit = 99) {
 		$now = time();
+
 		$query = $this->createQuery();
-		$query->getQuerySettings()->setRespectStoragePage(false);
-		$query->getQuerySettings()->setRespectEnableFields(false);
+		$query->getQuerySettings()->setReturnRawQueryResult(false);
+		$now = time();
+		$queryText = 'SELECT *
+			FROM `tx_nboevents_domain_model_event`
+			WHERE course = \'' . $course . '\'
+			AND deleted=0
+			AND t3ver_state<=0
+			AND date >=' . $now . '
+			AND pid<>-1
+			AND sys_language_uid IN (0,-1)
+			LIMIT '.$limit;
 
-		$query->matching(
-			$query->logicalAnd(
-				$query->equals('course', $course),
-				$query->greaterThanOrEqual('date', $now),
-				$query->equals('deleted', 0)
-			)
-		);
+			/*
+			AND starttime<=' . $now . '
+			AND (endtime=0 OR endtime>' . $now . ')
+			*/
 
-		$query->setLimit((integer)$limit);
-		$events = $query->execute();
-		return $events;
+		$query->statement($queryText);
+		$rows = $query->execute();
+		return $rows;
 	}
 
 

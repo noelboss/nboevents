@@ -70,7 +70,7 @@ class Tx_Nboevents_Controller_CourseController extends Tx_Extbase_MVC_Controller
 		if(isset($_GET['ADMCMD_view'])){
 			$this->redirect('events');
 		}
-		$courses = $this->courseRepository->findAll();
+		$courses = $this->courseRepository->findAllHidden();
 		$this->view->assign('courses', $courses);
 	}
 

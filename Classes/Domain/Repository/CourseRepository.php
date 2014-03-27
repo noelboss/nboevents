@@ -46,5 +46,22 @@ class Tx_Nboevents_Domain_Repository_CourseRepository extends Tx_Extbase_Persist
 			->setLimit((integer)$limit)
 			->execute();
 	}
+
+
+	/**
+	 * findAllHidden
+	 *
+	 * @param $limit
+	 * @return
+	 */
+	public function findAllHidden($limit = 999) {
+		$query = $this->createQuery();
+		$query->getQuerySettings()->setRespectStoragePage(false);
+		$query->getQuerySettings()->setRespectEnableFields(false);
+
+		return $query->setOrderings(array('sorting' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING))
+			->setLimit((integer)$limit)
+			->execute();
+	}
 }
 ?>
