@@ -7,7 +7,7 @@ if (!defined('TYPO3_MODE')) {
 $TCA['tx_nboevents_domain_model_person'] = array(
 	'ctrl' => $TCA['tx_nboevents_domain_model_person']['ctrl'],
 	'interface' => array(
-		'maxDBListItems' => 999,
+		'maxDBListItems' => 30,
 		'maxSingleDBListItems' => 10,
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, firstname, lastname, email, phone, phonemobile, phonecompany, address, note, reservations',
 	),
