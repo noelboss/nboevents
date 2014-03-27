@@ -87,7 +87,6 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 	public function listAction() {
 		$reservations = $this->reservationRepository->findAll();
 		$this->view->assign('reservations', $reservations);
-
 	}
 
 	/**
