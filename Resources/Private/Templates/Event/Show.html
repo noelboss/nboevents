@@ -53,10 +53,17 @@
 							</td>
 							<td>
 								<span style="display:none;">{reservation.pid}</span>
-								<f:if condition="{reservation.billsent -> f:format.date(format:'d.m.Y')}">Versendet: {reservation.billsent -> f:format.date(format:'d.m.Y')}<br/></f:if>
-								<f:if condition="{reservation.payuntil -> f:format.date(format:'d.m.Y')}">Zahlbar bis: {reservation.payuntil -> f:format.date(format:'d.m.Y')}</f:if>
-
-								<!--f:cObject typoscriptObjectPath="plugin.tx_nboevents.billstate" data="{reservation.pid}" /-->
+								<f:if condition="{reservation.payed -> f:format.date(format:'d.m.Y')}">
+									<f:then>
+									Bezahlt: {reservation.payed -> f:format.date(format:'d.m.Y')}<br/>
+									</f:then>
+									<f:else>
+										<f:if condition="{reservation.pid} > 35">
+											<f:if condition="{reservation.billsent -> f:format.date(format:'d.m.Y')}">Versendet: {reservation.billsent -> f:format.date(format:'d.m.Y')}<br/></f:if>
+											<f:if condition="{reservation.payuntil -> f:format.date(format:'d.m.Y')}">Zahlbar bis: {reservation.payuntil -> f:format.date(format:'d.m.Y')}</f:if>
+										</f:if>
+									</f:else>
+								</f:if>
 							</td>
 						</tr>
 					</f:for>
