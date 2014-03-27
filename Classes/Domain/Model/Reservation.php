@@ -170,13 +170,15 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 	/**
 	 * Returns the Label for TCA
 	 *
-	 * @param array $params
-	 * @return integer $remaining
+	 * @param array $return
+	 * @return string $label
 	 */
-	public function getLabel(&$return) {
-		$uid = $return['row']['uid'];
-		$repo = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_ReservationRepository');
-		$return['title'] = $repo->findLabel($uid);
+	public function getLabel(&$return = NULL) {
+		if(is_array($return)){
+			$uid = $return['row']['uid'];
+			$repo = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_ReservationRepository');
+			$return['title'] = $repo->findLabel($uid);
+		}
 	}
 
 	/**

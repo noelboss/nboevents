@@ -35,6 +35,40 @@ class Tx_Nboevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Pe
 
 
 	/**
+	 * findAll
+	 *
+	 * @param $course
+	 * @return
+	 */
+	public function findAll($limit = 999) {
+		try {
+			$now = time();
+
+			$query = $this->createQuery();
+			$query->getQuerySettings()->setReturnRawQueryResult(false);
+			$now = time();
+			$queryText = 'SELECT *
+				FROM `tx_nboevents_domain_model_reservation`
+				WHERE deleted=0
+				AND t3ver_state<=0
+				AND pid<>-1
+				AND sys_language_uid IN (0,-1)
+				LIMIT '.$limit;
+
+				/*
+				AND starttime<=' . $now . '
+				AND (endtime=0 OR endtime>' . $now . ')
+				*/
+
+			$query->statement($queryText);
+			$rows = $query->execute();
+			return $rows;
+		} catch (Exception $e) {
+			echo $e;
+		}
+	}
+
+	/**
 	 * countByEvent
 	 *
 	 * @param $uid
