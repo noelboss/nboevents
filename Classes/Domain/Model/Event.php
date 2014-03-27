@@ -444,5 +444,22 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 		$this->course = $course;
 	}
 
+	/**
+	 * Returns the Label for TCA
+	 *
+	 * @param array $params
+	 * @return integer $remaining
+	 */
+	public function getLabel(&$return) {
+		$uid = $return['row']['uid'];
+		$repo = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_EventRepository');
+		$event = $repo->findByUid($uid);
+		if($event){
+
+			$label = $event->getEventnr().' – '.count($event->getCourse()).' – '.$event->getRemaining();
+		}
+		$return['title'] = $label;
+	}
+
 }
 ?>
