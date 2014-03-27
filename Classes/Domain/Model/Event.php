@@ -244,19 +244,24 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	 * @return integer $remaining
 	 */
 	public function getTcaremaining($params = NULL) {
-		$remaining = 999;
+		$remaining = "Kann nicht berechnet werden.";
 		if(is_array($params)){
 			$uid = $params['row']['uid'];
 			$eventRepository = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_EventRepository');
 
-			$event = $eventRepository->findByUid($uid);
-
-			if($event->getUid()){
+			try {
+				$event = $eventRepository->findAllByUid($uid);
 				$remaining = $event->getRemaining();
 
 				$eventRepository->update($event);
 				$persistenceManager = t3lib_div::makeInstance('Tx_Extbase_Persistence_Manager');
 				$persistenceManager->persistAll();
+			} catch (Exception $e) {
+				if(!$params['row']['reservations']){
+					return $params['row']['maxreservations'];
+				} else {
+					return $params['row']['remaining'];
+				}
 			}
 		}
 		return $remaining;
