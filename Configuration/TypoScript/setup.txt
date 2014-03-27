@@ -40,7 +40,7 @@ library.plugin.tx_nboevents.warteliste {
 
 plugin.tx_nboevents.billstate = TEXT
 plugin.tx_nboevents.billstate {
-	data.dataWrap = DB:pages:{field:pid}:subtitle // DB:pages:{field:pid}:title
+	data.dataWrap = DB:pages:{current:1}:subtitle // DB:pages:{current:1}:title
 }
 
 

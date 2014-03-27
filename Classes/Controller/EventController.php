@@ -36,10 +36,15 @@ class Tx_Nboevents_Controller_EventController extends Tx_Extbase_MVC_Controller_
 	/**
 	 * action show
 	 *
-	 * @param $event
+	 * @param $uid integer
 	 * @return void
 	 */
-	public function showAction(Tx_Nboevents_Domain_Model_Event $event) {
+	public function showAction($event) {
+
+		$eventRepository = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_EventRepository');
+
+		$event = $eventRepository->findAllByUid($event, 1);
+
 		$this->view->assign('event', $event);
 	}
 }
