@@ -4,7 +4,7 @@
  *  Copyright notice
  *
  *  (c) 2012 Noel Bossart <n.company@me.com>
- *  
+ *
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -40,8 +40,22 @@ class Tx_Nboevents_Domain_Repository_EventRepository extends Tx_Extbase_Persiste
 	protected $defaultOrderings = array(
 	    'date' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING,
 	);
-	
-	
+
+
+	/**
+	 * findAll
+	 *
+	 * @param $limit
+	 * @return
+	 */
+	public function findAll($limit = 999) {
+		$query = $this->createQuery();
+		$query->getQuerySettings()->setRespectStoragePage(false);
+		return $query->setOrderings(array('sorting' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING))
+			->setLimit((integer)$limit)
+			->execute();
+	}
+
 	/**
 	 * findByCourse
 	 *
@@ -51,9 +65,10 @@ class Tx_Nboevents_Domain_Repository_EventRepository extends Tx_Extbase_Persiste
 	public function findByCourse($course = 0, $limit = 99) {
 		$now = time();
 		$query = $this->createQuery();
+		$query->getQuerySettings()->setRespectStoragePage(false);
 		$query->matching(
 			$query->logicalAnd(
-				$query->equals('course', $course), 
+				$query->equals('course', $course),
 				$query->greaterThanOrEqual('date', $now)
 			)
 		);
