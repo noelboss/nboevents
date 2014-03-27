@@ -24,7 +24,7 @@
 				</thead>
 				<tbody>
 					<f:for each="{courses}" as="course" iteration="iterationCourse">
-						<f:for each="{course.events}" as="event" iteration="iterationEvent">
+						<f:for each="{course.allevents}" as="event" iteration="iterationEvent">
 							<f:if condition="{event.count}">
 								<tr class="linked" data-href="<f:uri.action action='show' controller='Event' arguments='{event: event}' />">
 									<td>
