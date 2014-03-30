@@ -18,9 +18,9 @@
 						<th>Name</th>
 						<th>Vorname</th>
 						<th>Adresse</th>
-						<th data-sorter="false">Telefon</th>
+						<th data-sorter="false" style="width: 90px">Telefon</th>
 						<th>E-Mail</th>
-						<th data-sorter="false">Bemerkungen</th>
+						<th data-sorter="false" style="width: 260px">Bemerkungen</th>
 						<th>#</th>
 						<th>Rechnungorderstatus</th>
 					</tr>
@@ -45,7 +45,7 @@
 									<a href="mailto:{reservation.person.email}">{reservation.person.email}</a>
 								</f:if>
 							</td>
-							<td>
+							<td style="font-size: 0.9em">
 								{reservation.notes}
 							</td>
 							<td>
