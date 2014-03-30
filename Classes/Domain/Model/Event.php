@@ -247,22 +247,30 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 		$remaining = "Kann nicht berechnet werden.";
 		if(is_array($params)){
 			$uid = $params['row']['uid'];
-			$eventRepository = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_EventRepository');
 
-			try {
-				$event = $eventRepository->findAllByUid($uid);
-				$remaining = $event->getRemaining();
+			if($uid * 1 > 0){
+				try {
+					$eventRepository = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_EventRepository');
+					$event = $eventRepository->findAllByUid($uid);
+					if($event->count() > 0){
+						$remaining = $event->getRemaining();
 
-				$eventRepository->update($event);
-				$persistenceManager = t3lib_div::makeInstance('Tx_Extbase_Persistence_Manager');
-				$persistenceManager->persistAll();
-			} catch (Exception $e) {
-				if(!$params['row']['reservations']){
-					return $params['row']['maxreservations'];
-				} else {
-					return $params['row']['remaining'];
+						$eventRepository->update($event);
+						$persistenceManager = t3lib_div::makeInstance('Tx_Extbase_Persistence_Manager');
+						$persistenceManager->persistAll();
+					}
+
+				} catch (Exception $e) {
+					if(!$params['row']['reservations']){
+						$remaining = $params['row']['maxreservations'];
+					} else {
+						$remaining = $params['row']['remaining'];
+					}
 				}
+			} else {
+				$remaining = $params['row']['maxreservations'];
 			}
+
 		}
 		return $remaining;
 	}
