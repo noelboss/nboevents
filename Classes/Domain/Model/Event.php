@@ -252,13 +252,12 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 				try {
 					$eventRepository = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_EventRepository');
 					$event = $eventRepository->findAllByUid($uid);
-					if($event->count() > 0){
-						$remaining = $event->getRemaining();
 
-						$eventRepository->update($event);
-						$persistenceManager = t3lib_div::makeInstance('Tx_Extbase_Persistence_Manager');
-						$persistenceManager->persistAll();
-					}
+					$remaining = $event->getRemaining();
+
+					$eventRepository->update($event);
+					$persistenceManager = t3lib_div::makeInstance('Tx_Extbase_Persistence_Manager');
+					$persistenceManager->persistAll();
 
 				} catch (Exception $e) {
 					if(!$params['row']['reservations']){
