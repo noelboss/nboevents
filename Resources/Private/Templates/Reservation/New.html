@@ -5,28 +5,42 @@
 	<f:render partial="FormErrors" />
 	<f:flashMessages class="alert alert-error" renderMode="div"/>
 	<div class="row">
-		<div class="span7">
-			<f:form method="post" action="create"  enctype="multipart/form-data"  name="newReservation" object="{newReservation}" arguments="{event: event, newPerson: newPerson}" class="form-horizontal">
-				<f:render partial="Reservation/FormFields" arguments="{event:event, newPerson: newPerson, newReservation: newReservation, e: e}"/>
-
-				<div class="control-group">
-					<div class="controls">
-						<div class="btn-group">
-							<f:link.action action="show" controller="Course" arguments="{course : event.course}" class="btn  btn-large">
-								<i class="icon-arrow-left"></i> Abbrechen
-							</f:link.action>
-							<button class="btn btn-success btn-large" type="submit">
-								Anmelden <i class="icon-ok icon-white"></i>
-							</button>
-						</div>
-						<br/>
-						<f:link.page pageUid="34" pageType="99" class="info">
-							Informationen zur Anmeldung <i class="icon-info-sign"></i>
-						</f:link.page>
-					</div>
+		<f:if condition="{event.hasReservation} > 0">
+			<f:then>
+				<div class="span11 alert alert-info">
+					<h3>Vielen Dank</h3>
+					<p>
+						Sie sind für den Kurs <strong>{event.course.title}</strong> angemeldet.
+						<br />
+						<f:link.action action="show" controller="Course" arguments="{course: event.course.uid}" class="morelink">Zurück zum Kurs »</f:link.action>
+					</p>
 				</div>
-			</f:form>
-		</div>
-		<f:render partial="Reservation/Info" arguments="{event:event}"/>
+			</f:then>
+			<f:else>
+				<div class="span7">
+					<f:form method="post" action="create"  enctype="multipart/form-data"  name="newReservation" object="{newReservation}" arguments="{event: event, newPerson: newPerson}" class="form-horizontal">
+						<f:render partial="Reservation/FormFields" arguments="{event:event, newPerson: newPerson, newReservation: newReservation, e: e}"/>
+
+						<div class="control-group">
+							<div class="controls">
+								<div class="btn-group">
+									<f:link.action action="show" controller="Course" arguments="{course : event.course}" class="btn  btn-large">
+										<i class="icon-arrow-left"></i> Abbrechen
+									</f:link.action>
+									<button class="btn btn-success btn-large" type="submit">
+										Anmelden <i class="icon-ok icon-white"></i>
+									</button>
+								</div>
+								<br/>
+								<f:link.page pageUid="34" pageType="99" class="info">
+									Informationen zur Anmeldung <i class="icon-info-sign"></i>
+								</f:link.page>
+							</div>
+						</div>
+					</f:form>
+				</div>
+				<f:render partial="Reservation/Info" arguments="{event:event}"/>
+			</f:else>
+		</f:if>
 	</div>
 </f:section>

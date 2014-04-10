@@ -1,151 +1,130 @@
-<fieldset>
-	<legend>
-		Persönliche Angaben
-	</legend>
-	<f:if condition="{newPerson.uid} > 0">
-		<input type="hidden" value="{newPerson.uid}" name="tx_nboevents_courses[newPerson][__identity]" />
-	</f:if>
-	<div class="control-group">
-		<label for="woman" class="control-label">
-			<f:translate key="tx_nboevents_domain_model_person.gender" />
-		</label>
-		<div class="controls">
-			<label class="radio" for="man">
-				<input type="radio" <f:if condition="{newPerson.gender} < 1">checked="checked"</f:if> id="man" name="tx_nboevents_courses[newPerson][gender]" value="0" />
-				<f:translate key="tx_nboevents_domain_model_person.gender.0" />
-			</label>
-			<label class="radio" for="woman">
-				<input type="radio" <f:if condition="{newPerson.gender} == 1">checked="checked"</f:if> id="woman" name="tx_nboevents_courses[newPerson][gender]" value="1" />
-				<f:translate key="tx_nboevents_domain_model_person.gender.1" />
-			</label>
-			<label class="radio" for="company">
-				<input type="radio" <f:if condition="{newPerson.gender} > 1">checked="checked"</f:if> id="company" name="tx_nboevents_courses[newPerson][gender]" value="2" />
-				<f:translate key="tx_nboevents_domain_model_person.gender.2" />
-			</label>
-		</div>
-	</div>
-	<div class="control-group">
-		<label for="firstname" class="control-label">
-			<f:translate key="tx_nboevents_domain_model_person.firstname" /> <i class="icon-star-empty" title="Pflichtfeld"></i>
-		</label>
-		<div class="controls">
-			<input type="text" id="firstname" value="{newPerson.firstname}" name="tx_nboevents_courses[newPerson][firstname]" class="span3" placeholder="" />
-		</div>
-	</div>
-	<div class="control-group">
-		<label for="lastname" class="control-label">
-			<f:translate key="tx_nboevents_domain_model_person.lastname" /> <i class="icon-star-empty" title="Pflichtfeld"></i>
-		</label>
-		<div class="controls">
-			<input type="text"  id="lastname" value="{newPerson.lastname}" name="tx_nboevents_courses[newPerson][lastname]"  class="span3" placeholder="" />
-		</div>
-	</div>
-	<div class="control-group">
-		<label for="email" class="control-label">
-			<f:translate key="tx_nboevents_domain_model_person.email" /></i>
-		</label>
-		<div class="controls">
-			<div class="input-prepend">
-				<span class="add-on">@</span><input type="text" id="email" value="{newPerson.email}" name="tx_nboevents_courses[newPerson][email]" placeholder="deine@mail.ch"  class="span2"/>
-			</div>
-		</div>
-	</div>
-	<div class="control-group">
-		<label for="phone"  class="control-label">
-			<f:translate key="tx_nboevents_domain_model_person.phone" /> <i class="icon-star-empty" title="Pflichtfeld"></i>
-		</label>
-		<div class="controls">
-			<input type="text" id="phone" value="{newPerson.phone}" name="tx_nboevents_courses[newPerson][phone]" class="span3"/>
-		</div>
-	</div>
-	<div class="control-group">
-		<label for="phonemobile"  class="control-label">
-			<f:translate key="tx_nboevents_domain_model_person.phonemobile" />
-		</label>
-		<div class="controls">
-			<input type="text" id="phonemobile" value="{newPerson.phonemobile}" name="tx_nboevents_courses[newPerson][phonemobile]" class="span3"/>
-		</div>
-	</div>
-	<div class="control-group">
-		<label for="phonecompany"  class="control-label">
-			<f:translate key="tx_nboevents_domain_model_person.phonecompany" />
-		</label>
-		<div class="controls">
-			<input type="text" id="phonecompany" value="{newPerson.phonecompany}" name="tx_nboevents_courses[newPerson][phonecompany]" class="span3"/>
-		</div>
-	</div>
-	<div class="control-group">
-		<label for="address"  class="control-label">
-			<f:translate key="tx_nboevents_domain_model_person.address" /> <i class="icon-star-empty" title="Pflichtfeld"></i>
-		</label>
-		<div class="controls">
-			<input type="text" id="address" value="{newPerson.address}" name="tx_nboevents_courses[newPerson][address]" class="span3"/>
-		</div>
-	</div>
-	<div class="control-group">
-		<label for="city"  class="control-label">
-			<f:translate key="tx_nboevents_domain_model_person.city" /> <i class="icon-star-empty" title="Pflichtfeld"></i>
-		</label>
-		<div class="controls">
-			<input type="text" id="city" value="{newPerson.city}" name="tx_nboevents_courses[newPerson][city]" class="span3"/>
-		</div>
-	</div>
-</fieldset>
-<fieldset>
-	<legend>Anmelde Optionen
-	</legend>
-	<f:if condition="{event.reservationnotes}">
-		<div class="alert alert-info">
-			<a class="close" data-dismiss="alert">&times;</a>
-			<h4 class="alert-heading">Hinweise zur Anmeldung</h4>
-			<f:format.raw><f:format.nl2br>{event.reservationnotes}</f:format.nl2br></f:format.raw>
-		</div>
-	</f:if>
-	<div class="control-group">
-		<div class="controls">
-			<label for="more" class="checkbox inline">
-				<input type="checkbox" id="more" value="true"
-				<f:if condition="{newReservation.count} > 1">checked="checked"</f:if>
-				data-toggle=".countGroup" /> Mehr als eine Person
-			</label>
-		</div>
-	</div>
-	<div class="control-group countGroup" <f:if condition="{newReservation.count} < 2">style="display:none;"</f:if>>
-		<label for="count" class="control-label">
-			<f:translate key="tx_nboevents_domain_model_reservation.count" />
-		</label>
-		<div class="controls">
-			<f:form.textfield id="count" property="count" class="span1" placeholder="1" />
-			<p class="help-inline">Bitte geben Sie die Anzahl Teilnehmer an.</p>
-		</div>
-	</div>
-	<div class="control-group">
-		<label for="notes" class="control-label">
-			<f:translate key="tx_nboevents_domain_model_reservation.note" />
-		</label>
-		<div class="controls">
-			<f:form.textarea id="notes" property="notes" rows="5" cols="12" class="span4"/>
-		</div>
-	</div>
-</fieldset>
-<f:if condition="{event.reservationkeynotes}">
-	<fieldset>
-		<legend>Anmeldeschlüssel</legend>
-			<div class="alert alert-info">
-				<a class="close" data-dismiss="alert">&times;</a>
-				<h4 class="alert-heading">Hinweise zum Anmeldeschlüssel</h4>
-				<f:format.raw><f:format.nl2br>{event.reservationkeynotes}</f:format.nl2br></f:format.raw>
-			</div>
-		</f:if>
-		<f:if condition="{event.reservationkey}">
-			<div class="control-group<f:if condition='{e.reskey}'> error</f:if>">
-				<label for="reservationkey"  class="control-label">
-					<f:translate key="tx_nboevents_domain_model_reservation.reservationkey" /> <i class="icon-star-empty" title="Pflichtfeld"></i>
+		<fieldset>
+			<legend>
+				Persönliche Angaben
+			</legend>
+			<f:if condition="{newPerson.uid} > 0">
+				<input type="hidden" value="{newPerson.uid}" name="tx_nboevents_courses[newPerson][__identity]" />
+			</f:if>
+			<div class="control-group">
+				<label for="woman" class="control-label">
+					<f:translate key="tx_nboevents_domain_model_person.gender" />
 				</label>
 				<div class="controls">
-					<input type="text" id="reservationkey" name="tx_nboevents_courses[reservationkey]" class="span4" placeholder="Persönlicher Anmeldeschlüssel hier eintragen" />
-					<p class="help-inline">Um sich an diesem Anlass anzumelden muss der persönliche Anmeldeschlüssel eingetragen werden.</p>
+					<label class="radio" for="man">
+						<input type="radio" <f:if condition="{newPerson.gender} < 1">checked="checked"</f:if> id="man" name="tx_nboevents_courses[newPerson][gender]" value="0" />
+						<f:translate key="tx_nboevents_domain_model_person.gender.0" />
+					</label>
+					<label class="radio" for="woman">
+						<input type="radio" <f:if condition="{newPerson.gender} == 1">checked="checked"</f:if> id="woman" name="tx_nboevents_courses[newPerson][gender]" value="1" />
+						<f:translate key="tx_nboevents_domain_model_person.gender.1" />
+					</label>
+					<label class="radio" for="company">
+						<input type="radio" <f:if condition="{newPerson.gender} > 1">checked="checked"</f:if> id="company" name="tx_nboevents_courses[newPerson][gender]" value="2" />
+						<f:translate key="tx_nboevents_domain_model_person.gender.2" />
+					</label>
 				</div>
 			</div>
-	</fieldset>
-</f:if>
+			<div class="control-group">
+				<label for="firstname" class="control-label">
+					<f:translate key="tx_nboevents_domain_model_person.firstname" /> <i class="icon-star-empty" title="Pflichtfeld"></i>
+				</label>
+				<div class="controls">
+					<input type="text" id="firstname" value="{newPerson.firstname}" name="tx_nboevents_courses[newPerson][firstname]" class="span3" placeholder="" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label for="lastname" class="control-label">
+					<f:translate key="tx_nboevents_domain_model_person.lastname" /> <i class="icon-star-empty" title="Pflichtfeld"></i>
+				</label>
+				<div class="controls">
+					<input type="text"  id="lastname" value="{newPerson.lastname}" name="tx_nboevents_courses[newPerson][lastname]"  class="span3" placeholder="" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label for="email" class="control-label">
+					<f:translate key="tx_nboevents_domain_model_person.email" /></i>
+				</label>
+				<div class="controls">
+					<div class="input-prepend">
+						<span class="add-on">@</span><input type="text" id="email" value="{newPerson.email}" name="tx_nboevents_courses[newPerson][email]" placeholder="deine@mail.ch"  class="span2"/>
+					</div>
+				</div>
+			</div>
+			<div class="control-group">
+				<label for="phone"  class="control-label">
+					<f:translate key="tx_nboevents_domain_model_person.phone" /> <i class="icon-star-empty" title="Pflichtfeld"></i>
+				</label>
+				<div class="controls">
+					<input type="text" id="phone" value="{newPerson.phone}" name="tx_nboevents_courses[newPerson][phone]" class="span3"/>
+				</div>
+			</div>
+			<div class="control-group">
+				<label for="phonemobile"  class="control-label">
+					<f:translate key="tx_nboevents_domain_model_person.phonemobile" />
+				</label>
+				<div class="controls">
+					<input type="text" id="phonemobile" value="{newPerson.phonemobile}" name="tx_nboevents_courses[newPerson][phonemobile]" class="span3"/>
+				</div>
+			</div>
+			<div class="control-group">
+				<label for="phonecompany"  class="control-label">
+					<f:translate key="tx_nboevents_domain_model_person.phonecompany" />
+				</label>
+				<div class="controls">
+					<input type="text" id="phonecompany" value="{newPerson.phonecompany}" name="tx_nboevents_courses[newPerson][phonecompany]" class="span3"/>
+				</div>
+			</div>
+			<div class="control-group">
+				<label for="address"  class="control-label">
+					<f:translate key="tx_nboevents_domain_model_person.address" /> <i class="icon-star-empty" title="Pflichtfeld"></i>
+				</label>
+				<div class="controls">
+					<input type="text" id="address" value="{newPerson.address}" name="tx_nboevents_courses[newPerson][address]" class="span3"/>
+				</div>
+			</div>
+			<div class="control-group">
+				<label for="city"  class="control-label">
+					<f:translate key="tx_nboevents_domain_model_person.city" /> <i class="icon-star-empty" title="Pflichtfeld"></i>
+				</label>
+				<div class="controls">
+					<input type="text" id="city" value="{newPerson.city}" name="tx_nboevents_courses[newPerson][city]" class="span3"/>
+				</div>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>Anmelde Optionen
+			</legend>
+			<f:if condition="{event.reservationnotes}">
+				<div class="alert alert-info">
+					<a class="close" data-dismiss="alert">&times;</a>
+					<h4 class="alert-heading">Hinweise zur Anmeldung</h4>
+					<f:format.raw><f:format.nl2br>{event.reservationnotes}</f:format.nl2br></f:format.raw>
+				</div>
+			</f:if>
+			<div class="control-group">
+				<div class="controls">
+					<label for="more" class="checkbox inline">
+						<input type="checkbox" id="more" value="true"
+						<f:if condition="{newReservation.count} > 1">checked="checked"</f:if>
+						data-toggle=".countGroup" /> Mehr als eine Person
+					</label>
+				</div>
+			</div>
+			<div class="control-group countGroup" <f:if condition="{newReservation.count} < 2">style="display:none;"</f:if>>
+				<label for="count" class="control-label">
+					<f:translate key="tx_nboevents_domain_model_reservation.count" />
+				</label>
+				<div class="controls">
+					<f:form.textfield id="count" property="count" class="span1" placeholder="1" />
+					<p class="help-inline">Bitte geben Sie die Anzahl Teilnehmer an.</p>
+				</div>
+			</div>
+			<div class="control-group">
+				<label for="notes" class="control-label">
+					<f:translate key="tx_nboevents_domain_model_reservation.note" />
+				</label>
+				<div class="controls">
+					<f:form.textarea id="notes" property="notes" rows="5" cols="12" class="span4"/>
+				</div>
+			</div>
+		</fieldset>
