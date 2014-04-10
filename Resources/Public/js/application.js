@@ -36,6 +36,7 @@
 			e.preventDefault();
 		});
 
+
 		$('body').on('click', '.btn.close-fb', function(e){
 			$.fancybox.close();
 		});

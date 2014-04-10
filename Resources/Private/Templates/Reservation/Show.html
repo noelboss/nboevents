@@ -88,11 +88,12 @@
 
 				<div class="clearfix"></div>
 
-					<f:link.action class="btn pull-right ajax print" action='billed' controller='Reservation' arguments='{reservation: reservation}' >
-					Drucken &amp; versenden <i class="icon-print"></i></f:link.action>
+					<span class="btn pull-right print">
+						Drucken <i class="icon-print"></i>
+					</span>
 
 					<f:if condition="{reservation.billsent -> f:format.date(format:'Y')} < 1">
-					<f:link.action class="btn pull-right ajax" action='billed' controller='Reservation' arguments='{reservation: reservation}' >
+					<f:link.action class="btn pull-right ajax billsent" action='billed' controller='Reservation' arguments='{reservation: reservation}' >
 					Versendet <i class="icon-envelope"></i></f:link.action>
 					</f:if>
 
@@ -103,8 +104,9 @@
 			</div>
 
 			<div class="footer  no-print">
-				<f:link.action class="btn pull-right ajax print" action='billed' controller='Reservation' arguments='{reservation: reservation}' >
-				Drucken &amp; versenden <i class="icon-print"></i></f:link.action>
+				<span class="btn pull-right print">
+					Drucken <i class="icon-print"></i>
+				</span>
 
 				<f:if condition="{reservation.billsent -> f:format.date(format:'Y')} < 1">
 				<f:link.action class="btn pull-right ajax" action='billed' controller='Reservation' arguments='{reservation: reservation}' >
