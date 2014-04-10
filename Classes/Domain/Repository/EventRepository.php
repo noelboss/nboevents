@@ -138,11 +138,9 @@ class Tx_Nboevents_Domain_Repository_EventRepository extends Tx_Extbase_Persiste
 	 * @return
 	 */
 	public function findAllByUid($uid = 0, $limit = 1) {
-		$now = time();
-
 		$query = $this->createQuery();
 		$query->getQuerySettings()->setReturnRawQueryResult(false);
-		$now = time();
+
 		$queryText = 'SELECT *
 			FROM `tx_nboevents_domain_model_event`
 			WHERE uid = \'' . $uid . '\'

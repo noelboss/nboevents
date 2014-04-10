@@ -53,6 +53,7 @@ class Tx_Nboevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Pe
 				AND t3ver_state<=0
 				AND pid<>-1
 				AND sys_language_uid IN (0,-1)
+				ORDER BY crdate DESC
 				LIMIT '.$limit;
 
 				/*

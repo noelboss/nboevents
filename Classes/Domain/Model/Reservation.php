@@ -238,7 +238,8 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Event> $event
 	 */
 	public function getEvent() {
-		return $this->event;
+		$eventRepository = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_EventRepository');
+		return $eventRepository->findAllByUid($this->event->uid, 1);
 	}
 
 	/**
