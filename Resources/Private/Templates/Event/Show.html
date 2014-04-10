@@ -27,10 +27,10 @@
 				<tbody>
 					<f:for each="{event.reservations}" as="reservation">
 						<tr class="linked" data-href="<f:uri.action action='show' pluginName='persons' pageUid='51' controller='Reservation' arguments='{reservation: reservation}' />">
-							<td>
+							<td class="highlight">
 								{reservation.person.lastname}
 							</td>
-							<td>
+							<td class="highlight">
 								{reservation.person.firstname}
 							</td>
 							<td>

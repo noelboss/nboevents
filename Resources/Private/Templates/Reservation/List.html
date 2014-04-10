@@ -31,10 +31,10 @@
 						<f:if condition="{reservation.payed -> f:format.date(format:'d.m.Y')}">
 							<f:else>
 								<tr class="linked" data-href="<f:uri.action action='show' controller='Reservation' arguments='{reservation: reservation}'/>">
-									<td>
+									<td class="highlight">
 										{reservation.person.lastname}
 									</td>
-									<td>
+									<td class="highlight">
 										{reservation.person.firstname}
 									</td>
 									<td>
