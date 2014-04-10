@@ -7,10 +7,13 @@
 	<data type="array">
 		<languageKey index="default" type="array">
 			<label index="tx_nboevents_domain_model_event">Kurs Datum</label>
+			<label index="tx_nboevents_domain_model_event.tab">Kurs Einstellungen</label>
+			<label index="tx_nboevents_domain_model_event.eventnr">Kurs Datum Nummer</label>
+			<label index="tx_nboevents_domain_model_event.course">Kurs</label>
 			<label index="tx_nboevents_domain_model_event.title">Titel</label>
 			<label index="tx_nboevents_domain_model_event.description">Beschreibung</label>
-			<label index="tx_nboevents_domain_model_event.date">Datum</label>
-			<label index="tx_nboevents_domain_model_event.maxreservations">Plätze</label>
+			<label index="tx_nboevents_domain_model_event.date">Kurs Datum</label>
+			<label index="tx_nboevents_domain_model_event.maxreservations">Anzahl Plätze</label>
 			<label index="tx_nboevents_domain_model_event.reservationsleft">Noch freie Plätze</label>
 			<label index="tx_nboevents_domain_model_event.reservationdate">Anmeldeschluss</label>
 			<label index="tx_nboevents_domain_model_event.reservationnotes">Hinweise zur Anmeldung</label>
