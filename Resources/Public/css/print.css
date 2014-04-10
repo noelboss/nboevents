@@ -252,6 +252,11 @@
 		margin-bottom: 0.2cm;
 	}
 
+
+	.highlight {
+		font-weight: bold;
+	}
+
 	/* Footer */
 
 	.bill-footer {

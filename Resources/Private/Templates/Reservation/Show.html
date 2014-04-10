@@ -137,32 +137,42 @@
 						</thead>
 						<tbody>
 							<f:for each="{reservation.person.reservations}" as="other" iteration="iterationOther">
-								<f:if condition="{other.uid} != {reservation.uid}">
-									<tr  class="linked" data-href="<f:uri.action action='show' controller='Reservation' arguments='{reservation: other}' />">
-										<td>
-											{other.event.eventnr}
-										</td>
-										<td>
-											{other.event.course.title}
-										</td>
-										<td>
-											<span style="display:none;">{other.event.date -> f:format.date(format:"YmdGi")}</span>
-											{other.event.date -> f:format.date(format:"d.m.Y G:i")}
-										</td>
-										<td>
-											{other.event.course.price -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
-										</td>
-										<td>
-											{other.count}
-										</td>
-										<td>
-											{other.total -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
-										</td>
-										<td>
-											<f:cObject typoscriptObjectPath="plugin.tx_nboevents.billstate" data="{other.pid}" />
-										</td>
-									</tr>
-								</f:if>
+								<tr class="linked <f:if condition="{other.uid} == {reservation.uid}">highlight</f:if>" data-href="<f:uri.action action='show' controller='Reservation' arguments='{reservation: other}' />">
+									<td>
+										{other.event.eventnr}
+									</td>
+									<td>
+										{other.event.course.title}
+									</td>
+									<td>
+										<span style="display:none;">{other.event.date -> f:format.date(format:"YmdGi")}</span>
+										{other.event.date -> f:format.date(format:"d.m.Y G:i")}
+									</td>
+									<td>
+										{other.event.course.price -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
+									</td>
+									<td>
+										{other.count}
+									</td>
+									<td>
+										{other.total -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
+									</td>
+									<td>
+										<f:if condition="{reservation.payed}">
+											<span style="display:none;">a{reservation.payed -> f:format.date(format:'ymd')}</span>
+											{reservation.payed -> f:format.date(format:'d.m.y')} <i class="icon-ok"></i><br />
+										</f:if>
+										<f:if condition="{reservation.billsent}">
+											<f:then>
+												<span style="display:none;">b{reservation.billsent -> f:format.date(format:'ymd')}</span>
+												{reservation.billsent -> f:format.date(format:'d.m.y')} <i class="icon-print"></i><br/>
+											</f:then>
+											<f:else>
+												<span style="display:none;">unbearbeitet</span> <i class="icon-remove"></i>
+											</f:else>
+										</f:if>
+									</td>
+								</tr>
 							</f:for>
 						</tbody>
 					</table>
