@@ -139,7 +139,7 @@ $TCA['tx_nboevents_domain_model_person'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
-				'eval' => 'trim'
+				'eval' => 'required,trim'
 			),
 		),
 		'city' => array(
@@ -148,7 +148,7 @@ $TCA['tx_nboevents_domain_model_person'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
-				'eval' => 'trim'
+				'eval' => 'required,trim'
 			),
 		),
 		'note' => array(

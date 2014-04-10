@@ -389,9 +389,9 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 		$uid = $return['row']['uid'];
 		$repo = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_PersonRepository');
 		$person = $repo->findByUid($uid);
-		$city = $person->getCity() ? ', '.$person->getCity() : '';
 		if($person){
-			$label = $person->getLastname().' '.$person->getFirstname().' – '.$person->getAddress().$city.' – '.$person->getPhone();
+			$address = $person->getStreet() && $person->getCity() ? $person->getCity().', '.$person->getStreet() : $person->getAddress();
+			$label = $person->getLastname().' '.$person->getFirstname().' – '.$address.' – '.$person->getPhone();
 		}
 		$return['title'] = $label;
 	}
