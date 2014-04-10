@@ -29,6 +29,7 @@
 			<label index="tx_nboevents_domain_model_person.phonemobile">Telefon Mobil</label>
 			<label index="tx_nboevents_domain_model_person.phonecompany">Telefon Geschäft</label>
 			<label index="tx_nboevents_domain_model_person.address">Adresse</label>
+			<label index="tx_nboevents_domain_model_person.city">PLZ &amp; Ort</label>
 			<label index="tx_nboevents_domain_model_person.reservations">Anmeldung für Anlässe</label>
 			<label index="tx_nboevents_domain_model_location">Ort des Kurses</label>
 			<label index="tx_nboevents_domain_model_location.title">Titel</label>

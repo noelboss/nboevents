@@ -31,6 +31,7 @@
 			<label index="tx_nboevents_domain_model_person.phonemobile">Telefon Mobil</label>
 			<label index="tx_nboevents_domain_model_person.phonecompany">Telefon Geschäft</label>
 			<label index="tx_nboevents_domain_model_person.address">Adresse</label>
+			<label index="tx_nboevents_domain_model_person.city">PLZ &amp; Ort</label>
 			<label index="tx_nboevents_domain_model_person.note">Interne Bemerkung</label>
 			<label index="tx_nboevents_domain_model_person.reservations">Anmeldungen</label>
 			<label index="tx_nboevents_domain_model_location">Ort</label>
@@ -59,7 +60,7 @@
 			<label index="tx_nboevents_domain_model_reservation.billsent">Rechnung versendet am</label>
 			<label index="tx_nboevents_domain_model_reservation.payuntil">Zahlbar bis</label>
 			<label index="tx_nboevents_domain_model_reservation.payed">Bezahlt am</label>
-			<label index="tx_nboevents_domain_model_reservation.events">Reservation für Kurs</label>
+			<label index="tx_nboevents_domain_model_reservation.event">Reservation für Kursdatum</label>
 		</languageKey>
 	</data>
 </T3locallang>

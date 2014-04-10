@@ -190,13 +190,15 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_nboevents_domain_model_person',
-				//'foreign_table_where' => 'AND tx_nboevents_domain_model_person.pid=###CURRENT_PID### AND tx_nboevents_domain_model_person.sys_language_uid IN (-1,0)',
-				'foreign_table_where' => 'AND tx_nboevents_domain_model_person.sys_language_uid IN (-1,0) ORDER BY lastname,firstname',
+				'foreign_table_where' => 'ORDER BY lastname,firstname',
 				'minitems' => 1,
 				'maxitems' => 1,
 				'wizards' => array(
-					'_PADDING' => 1,
-					'_VERTICAL' => 0,
+					'_VALIGN' => 'bottom',
+					'_POSITION' => 'bottom',
+					'suggest' => array(
+						'type' => 'suggest',
+					),
 					'edit' => array(
 						'type' => 'popup',
 						'title' => 'Edit',
@@ -204,9 +206,6 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 						'icon' => 'edit2.gif',
 						'popup_onlyOpenIfSelected' => 1,
 						'JSopenParams' => 'height=350,width=580,orderstatus=0,menubar=0,scrollbars=1',
-					),
-					'suggest' => array(
-						'type' => 'suggest',
 					),
 					/*'add' => Array(
 						'type' => 'script',
@@ -229,14 +228,22 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 				'type' => 'select',
 				'foreign_table' => 'tx_nboevents_domain_model_event',
 				//'foreign_table_where' => 'AND tx_nboevents_domain_model_event.pid=###CURRENT_PID### AND tx_nboevents_domain_model_event.sys_language_uid IN (-1,0)',
-				'foreign_table_where' => 'AND tx_nboevents_domain_model_event.sys_language_uid IN (-1,0) ORDER BY tx_nboevents_domain_model_event.date, tx_nboevents_domain_model_event.eventnr DESC',
+				'foreign_table_where' => 'ORDER BY tx_nboevents_domain_model_event.date, tx_nboevents_domain_model_event.eventnr DESC',
 				'minitems' => 1,
 				'maxitems' => 1,
 				'wizards' => array(
-					'_PADDING' => 1,
-					'_VERTICAL' => 0,
+					'_VALIGN' => 'bottom',
+					'_POSITION' => 'bottom',
 					'suggest' => array(
 						'type' => 'suggest',
+					),
+					'edit' => array(
+						'type' => 'popup',
+						'title' => 'Edit',
+						'script' => 'wizard_edit.php',
+						'icon' => 'edit2.gif',
+						'popup_onlyOpenIfSelected' => 1,
+						'JSopenParams' => 'height=350,width=580,orderstatus=0,menubar=0,scrollbars=1',
 					),
 					/*'edit' => array(
 						'type' => 'popup',

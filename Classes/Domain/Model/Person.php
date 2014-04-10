@@ -96,6 +96,14 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	protected $address;
 
 	/**
+	 * ZIP & City
+	 *
+	 * @var string
+	 * @validate NotEmpty
+	 */
+	protected $city;
+
+	/**
 	 * Reservation for Events
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Nboevents_Domain_Model_Reservation>
@@ -282,6 +290,25 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	}
 
 	/**
+	 * Returns the city
+	 *
+	 * @return string $city
+	 */
+	public function getCity() {
+		return $this->city;
+	}
+
+	/**
+	 * Sets the city
+	 *
+	 * @param string $city
+	 * @return void
+	 */
+	public function setCity($city) {
+		$this->city = $city;
+	}
+
+	/**
 	 * Adds a Reservation
 	 *
 	 * @param Tx_Nboevents_Domain_Model_Reservation $reservation
@@ -331,8 +358,9 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 		$uid = $return['row']['uid'];
 		$repo = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_PersonRepository');
 		$person = $repo->findByUid($uid);
+		$city = $person->getCity() ? ', '.$person->getCity() : '';
 		if($person){
-			$label = $person->getLastname().' '.$person->getFirstname().' – '.$person->getAddress().' – '.$person->getPhone();
+			$label = $person->getLastname().' '.$person->getFirstname().' – '.$person->getAddress().$city.' – '.$person->getPhone();
 		}
 		$return['title'] = $label;
 	}
