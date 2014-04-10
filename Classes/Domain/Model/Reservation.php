@@ -239,7 +239,7 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 	 */
 	public function getEvent() {
 		$eventRepository = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_EventRepository');
-		return $eventRepository->findAllByUid($this->event->uid, 1);
+		return $eventRepository->findAllByReservation($this->uid);
 	}
 
 	/**
@@ -339,8 +339,9 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 	 * @return DateTime $payuntil
 	 */
 	public function getPayuntil() {
-		if($this->event->getDate() > new DateTime('today + 30days')){
-			$d = new DateTime($this->event->getDate()->format('Ymd'));
+		$event = $this->getEvent();
+		if($event->getDate() > new DateTime('today + 30days')){
+			$d = new DateTime($event->getDate()->format('Ymd'));
 			return $d->modify('-30 days');
 		} else {
 			return new DateTime('today + 15days');

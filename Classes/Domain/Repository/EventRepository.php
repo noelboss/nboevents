@@ -161,5 +161,54 @@ class Tx_Nboevents_Domain_Repository_EventRepository extends Tx_Extbase_Persiste
 			return $row;
 		}
 	}
+
+	/**
+	 * findAllByReservation
+	 *
+	 * @param $reservation
+	 * @return
+	 */
+	public function findAllByReservation($uid) {
+
+		$query = $this->createQuery();
+		$query->getQuerySettings()->setReturnRawQueryResult(true);
+		$now = time();
+		$queryText = 'SELECT event
+			FROM `tx_nboevents_domain_model_reservation`
+			WHERE uid = \'' . $uid . '\'
+			AND deleted=0
+			AND t3ver_state<=0
+			AND pid<>-1
+			AND hidden=0
+			AND sys_language_uid IN (0,-1)
+			LIMIT 1';
+		$query->statement($queryText);
+		$rows = $query->execute();
+
+		foreach ($rows as $row) {
+			$query = $this->createQuery();
+			$query->getQuerySettings()->setReturnRawQueryResult(false);
+			$queryText = 'SELECT *
+				FROM `tx_nboevents_domain_model_event`
+				WHERE uid = \'' . $row['event'] . '\'
+				AND deleted=0
+				AND t3ver_state<=0
+				AND pid<>-1
+				AND sys_language_uid IN (0,-1)
+				LIMIT 1';
+
+				/*
+				AND starttime<=' . $now . '
+				AND (endtime=0 OR endtime>' . $now . ')
+				*/
+
+			$query->statement($queryText);
+			$rows = $query->execute();
+			foreach ($rows as $row) {
+				return $row;
+			}
+		}
+
+	}
 }
 ?>
