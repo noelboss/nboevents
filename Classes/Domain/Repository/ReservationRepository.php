@@ -193,7 +193,7 @@ class Tx_Nboevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Pe
 			$event = $r['eventnr'].'.'.$r['uid'];
 			$name = $r['lastname'].', '.$r['firstname'];
 			$phone = $r['phone'];
-			$phone = $r['count'];
+			$count = $r['count'];
 
 			$label = $event.' – '.$name.' – '.$address.' – '.$phone.' ('.$count.')';
 		}
