@@ -2,7 +2,7 @@
 <f:section name="main">
 	<f:flashMessages />
 
-	<f:if condition="{courses}">
+	<f:if condition="{events}">
 		<span class="btn pull-right print">
 			Drucken
 			<i class="icon-print"></i>
@@ -10,7 +10,7 @@
 		<f:link.page pageUid="51" class="btn pull-right">Rechnungen <i class="icon-arrow-right"></i></f:link.page>
 	</f:if>
 	<h1>Kurslisten</h1>
-	<f:if condition="{courses}">
+	<f:if condition="{events}">
 		<f:then>
 			<table class="tablesorter table-striped table-hover listtable tablesorter-ice" data-sort="[[2,0]]">
 				<thead>
@@ -23,29 +23,27 @@
 					</tr>
 				</thead>
 				<tbody>
-					<f:for each="{courses}" as="course" iteration="iterationCourse">
-						<f:for each="{course.allevents}" as="event" iteration="iterationEvent">
-							<f:if condition="{event.count}">
-								<tr class="linked" data-href="<f:uri.action action='show' controller='Event' arguments='{event: event}' />">
-									<td>
-										{event.eventnr}
-									</td>
-									<td>
-										{course.title}
-									</td>
-									<td>
-										<span style="display:none;">{event.date -> f:format.date(format:"YmdGi")}</span>
-										{event.date -> f:format.date(format:"d.m.Y G:i – D")}
-									</td>
-									<td>
-										{event.count} von {event.maxreservations}
-									</td>
-									<td>
-										{event.remaining}
-									</td>
-								</tr>
-							</f:if>
-						</f:for>
+					<f:for each="{events}" as="event">
+						<f:if condition="{event.count}">
+							<tr class="linked" data-href="<f:uri.action action='show' controller='Event' arguments='{event: event}' />">
+								<td>
+									{event.eventnr}
+								</td>
+								<td>
+									{event.course.title}
+								</td>
+								<td>
+									<span style="display:none;">{event.date -> f:format.date(format:"YmdGi")}</span>
+									{event.date -> f:format.date(format:"d.m.Y G:i – D")}
+								</td>
+								<td>
+									{event.count} von {event.maxreservations}
+								</td>
+								<td>
+									{event.remaining}
+								</td>
+							</tr>
+						</f:if>
 					</f:for>
 				</tbody>
 			</table>

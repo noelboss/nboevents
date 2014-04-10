@@ -33,6 +33,20 @@
  */
 class Tx_Nboevents_Controller_EventController extends Tx_Extbase_MVC_Controller_ActionController {
 
+
+	/**
+	 * events list
+	 *
+	 * @return void
+	 */
+	public function listAction() {
+		$eventRepository = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_EventRepository');
+
+		$events = $eventRepository->findAllHidden();
+		$this->view->assign('events', $events);
+	}
+
+
 	/**
 	 * action show
 	 *
