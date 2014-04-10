@@ -13,12 +13,12 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 	),
 	'types' => array(
 		'1' => array('showitem' => '
+		--div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation,
+				reservations,
 		--div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event,
 			eventnr, date,course,description,
 		--div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.settings,
 				maxreservations, tcaremaining, reservationdate, reservationnotes,
-		--div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation,
-				reservations,
 		--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access, hidden;;1, starttime, endtime'),
 	),
 	'columns' => array(

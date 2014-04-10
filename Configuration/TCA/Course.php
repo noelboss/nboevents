@@ -10,7 +10,7 @@ $TCA['tx_nboevents_domain_model_course'] = array(
 		'showRecordFieldList' => 'hidden, title, type, description, price, events, categories, images',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, type, description, price, images, events,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'events, title, type, description, price, images, --div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access, hidden, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
