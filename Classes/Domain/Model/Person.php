@@ -276,12 +276,14 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @return string $address
 	 */
 	public function getAddress() {
-		/*$fulladdress = explode("\n", $this->address);
+		$fulladdress = explode("\n", trim($this->address));
 		if(count($fulladdress) > 1){
-			$this->address = $fulladdress[0];
-			$this->setCity($fulladdress[1]);
-		}*/
-		return $this->address;
+			$this->city = $fulladdress[1];
+			return $this->address;
+		} else {
+			return $this->address . '
+'. $this->city;
+		}
 	}
 
 	/**

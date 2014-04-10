@@ -11,8 +11,7 @@
 				</f:if>
 				<br/>
 				{reservation.person.firstname} {reservation.person.lastname}<br/>
-				{reservation.person.address}<br />
-				{reservation.person.city}
+				<f:format.nl2br>{reservation.person.address}</f:format.nl2br>
 			</address>
 
 			<span id="billinginfo">
