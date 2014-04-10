@@ -56,7 +56,7 @@ class Tx_Nboevents_Controller_CourseController extends Tx_Extbase_MVC_Controller
 	 * @return void
 	 */
 	public function listAction() {
-		$courses = $this->courseRepository->findAll();
+		$courses = $this->courseRepository->findAllVisible();
 		$this->view->assign('courses', $courses);
 	}
 
@@ -70,7 +70,7 @@ class Tx_Nboevents_Controller_CourseController extends Tx_Extbase_MVC_Controller
 		if(isset($_GET['ADMCMD_view'])){
 			$this->redirect('events');
 		}
-		$courses = $this->courseRepository->findAllHidden();
+		$courses = $this->courseRepository->findAll();
 		$this->view->assign('courses', $courses);
 	}
 

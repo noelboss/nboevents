@@ -41,12 +41,18 @@ class Tx_Nboevents_Domain_Repository_CourseRepository extends Tx_Extbase_Persist
 	 */
 	public function findAll($limit = 999) {
 		$query = $this->createQuery();
-		//$query->getQuerySettings()->setRespectStoragePage(false);
+		$query->getQuerySettings()->setRespectStoragePage(false);
+		$query->getQuerySettings()->setRespectEnableFields(false);
+
 		return $query->setOrderings(array('sorting' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING))
 			->setLimit((integer)$limit)
+			->matching(
+				$query->logicalAnd(
+					$query->equals('deleted', 0)
+				)
+			)
 			->execute();
 	}
-
 
 	/**
 	 * findAllHidden
@@ -54,10 +60,8 @@ class Tx_Nboevents_Domain_Repository_CourseRepository extends Tx_Extbase_Persist
 	 * @param $limit
 	 * @return
 	 */
-	public function findAllHidden($limit = 999) {
+	public function findAllVisible($limit = 999) {
 		$query = $this->createQuery();
-		$query->getQuerySettings()->setRespectStoragePage(false);
-		$query->getQuerySettings()->setRespectEnableFields(false);
 
 		return $query->setOrderings(array('sorting' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING))
 			->setLimit((integer)$limit)

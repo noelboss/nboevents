@@ -460,7 +460,7 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	public function getLabel(&$return) {
 		$uid = $return['row']['uid'];
 		$repo = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_EventRepository');
-		$event = $repo->findByUid($uid);
+		$event = $repo->findAllByUid($uid);
 		if($event){
 			$course = count($event->getCourse()) > 0 ? $event->getCourse()->getTitle() : 'Kein Kurs';
 			$label = $event->getEventnr().' – '.$event->getDate()->format('d. m. Y – G:i – D').' – '.$course.' – '.$event->getRemaining();
