@@ -166,7 +166,7 @@ class Tx_Nboevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Pe
 		$query = $this->createQuery();
 		$query->getQuerySettings()->setReturnRawQueryResult(true);
 		$now = time();
-		$queryText = 'SELECT ev.eventnr, res.uid, ps.lastname, ps.firstname, ps.address, ps.phone, res.count
+		$queryText = 'SELECT ev.eventnr, res.uid, ps.lastname, ps.firstname, ps.address, ps.city, ps.phone, res.count
 			FROM `tx_nboevents_domain_model_reservation` AS res
 			LEFT JOIN tx_nboevents_domain_model_event AS ev ON res.event = ev.uid
 			LEFT JOIN tx_nboevents_domain_model_person AS ps ON res.person = ps.uid
@@ -200,10 +200,13 @@ class Tx_Nboevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Pe
 						$label .= $row[$key] . ' – ';
 						break;
 					case 'address':
-						$label .= $row[$key] . ' – ';
+						$label .= $row[$key];
+						break;
+					case 'city':
+						$label .= ', '.$row[$key];
 						break;
 					case 'phone':
-						$label .= $row[$key];
+						$label .=  ' – '.$row[$key];
 						break;
 					case 'count':
 						$label .= ' (' . $row[$key] . ')';
