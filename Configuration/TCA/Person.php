@@ -12,7 +12,7 @@ $TCA['tx_nboevents_domain_model_person'] = array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, firstname, lastname, email, phone, phonemobile, phonecompany, address, city, note, reservations',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'gender, firstname, lastname, email, phone, phonemobile, phonecompany, address, city, note, reservations'),
+		'1' => array('showitem' => 'gender, firstname, lastname, email, phone, phonemobile, phonecompany, street, city, address, note, reservations'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -130,7 +130,16 @@ $TCA['tx_nboevents_domain_model_person'] = array(
 				'type' => 'text',
 				'cols' => 30,
 				'rows' => 2,
-				'eval' => 'required'
+				'eval' => 'trim'
+			),
+		),
+		'street' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_person.street',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
 			),
 		),
 		'city' => array(

@@ -33,7 +33,8 @@
 			<label index="tx_nboevents_domain_model_person.phone">Telefon</label>
 			<label index="tx_nboevents_domain_model_person.phonemobile">Telefon Mobil</label>
 			<label index="tx_nboevents_domain_model_person.phonecompany">Telefon Geschäft</label>
-			<label index="tx_nboevents_domain_model_person.address">Adresse</label>
+			<label index="tx_nboevents_domain_model_person.address">Adresse (alt)</label>
+			<label index="tx_nboevents_domain_model_person.street">Strasse &amp; Nummer</label>
 			<label index="tx_nboevents_domain_model_person.city">PLZ &amp; Ort</label>
 			<label index="tx_nboevents_domain_model_person.note">Interne Bemerkung</label>
 			<label index="tx_nboevents_domain_model_person.reservations">Anmeldungen</label>

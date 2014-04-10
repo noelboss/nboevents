@@ -88,12 +88,12 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	protected $phonecompany;
 
 	/**
-	 * Address
+	 * Street
 	 *
 	 * @var string
 	 * @validate NotEmpty
 	 */
-	protected $address;
+	protected $street;
 
 	/**
 	 * ZIP & City
@@ -102,6 +102,13 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @validate NotEmpty
 	 */
 	protected $city;
+
+	/**
+	 * Address
+	 *
+	 * @var string
+	 */
+	protected $address;
 
 	/**
 	 * Reservation for Events
@@ -276,14 +283,12 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @return string $address
 	 */
 	public function getAddress() {
-		$fulladdress = explode("\n", trim($this->address));
-		if(count($fulladdress) > 1){
-			$this->city = $fulladdress[1];
+		if($this->address){
 			return $this->address;
 		} else {
-			return $this->address . '
-'. $this->city;
+			return $this->street."\n".$this->city;
 		}
+		return $this->address;
 	}
 
 	/**
@@ -294,6 +299,25 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 */
 	public function setAddress($address) {
 		$this->address = $address;
+	}
+
+	/**
+	 * Returns the street
+	 *
+	 * @return string $street
+	 */
+	public function getStreet() {
+		return $this->street;
+	}
+
+	/**
+	 * Sets the street
+	 *
+	 * @param string $street
+	 * @return void
+	 */
+	public function setStreet($street) {
+		$this->street = $street;
 	}
 
 	/**

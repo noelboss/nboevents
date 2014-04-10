@@ -114,6 +114,7 @@ CREATE TABLE tx_nboevents_domain_model_person (
 	phonemobile varchar(255) DEFAULT '' NOT NULL,
 	phonecompany varchar(255) DEFAULT '' NOT NULL,
 	address varchar(255) DEFAULT '' NOT NULL,
+	street varchar(255) DEFAULT '' NOT NULL,
 	city varchar(255) DEFAULT '' NOT NULL,
 	reservations int(11) unsigned DEFAULT '0' NOT NULL,
 	note varchar(255) DEFAULT '' NOT NULL,
