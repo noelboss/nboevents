@@ -1,15 +1,15 @@
-<f:layout name="Default" />
-
+<f:layout name="Landscape" />
 <f:section name="main">
 	<f:flashMessages />
 
 	<f:if condition="{courses}">
 		<span class="btn pull-right print">
-			Kursliste Drucken
+			Drucken
 			<i class="icon-print"></i>
 		</span>
+		<f:link.page pageUid="51" class="btn pull-right">Rechnungen <i class="icon-arrow-right"></i></f:link.page>
 	</f:if>
-	<h1>Bevorstehenden Kurse</h1>
+	<h1>Kurslisten</h1>
 	<f:if condition="{courses}">
 		<f:then>
 			<table class="tablesorter table-striped table-hover listtable tablesorter-ice" data-sort="[[2,0]]">
@@ -50,12 +50,12 @@
 				</tbody>
 			</table>
 			<p class="clearfix">
-				<f:link.page pageUid="51" class="btn">Rechnungen <i class="icon-arrow-right"></i></f:link.page>
-
+				<a class="top no-print" href="#top">Nach oben <i class="icon-arrow-up"></i></a>
 				<span class="btn pull-right print">
-					Kursliste Drucken
+					Drucken
 					<i class="icon-print"></i>
 				</span>
+				<f:link.page pageUid="51" class="btn pull-right">Rechnungen <i class="icon-arrow-right"></i></f:link.page>
 			</p>
 		</f:then>
 		<f:else>

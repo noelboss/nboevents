@@ -1,117 +1,122 @@
+<style type="text/css" media="all">
+	@page {
+		size: portrait;
+		margin: 0cm;
+	}
+</style>
+<div class="tx-nboevents">
+	<f:if condition="<f:cObject typoscriptObjectPath='plugin.tx_nboevents.plugin-persons.show'/>">
+		<f:then>
+			<div class="data-pool">
 
-		<div class="tx-nboevents">
-			<f:if condition="<f:cObject typoscriptObjectPath='plugin.tx_nboevents.plugin-persons.show'/>">
-				<f:then>
-					<div class="data-pool">
+				<div id="address">
+					<f:format.html>{field.address}</f:format.html>
+				</div>
 
-						<div id="address">
-							<f:format.html>{field.address}</f:format.html>
-						</div>
+				<div id="sender">
+					<f:format.html>{field.sender}</f:format.html>
+				</div>
 
-						<div id="sender">
-							<f:format.html>{field.sender}</f:format.html>
-						</div>
+				<div id="placedate">
+					{field.city}, <f:format.date format="d. m. Y" >today</f:format.date><br/>
+				</div>
 
-						<div id="placedate">
-							{field.city}, <f:format.date format="d. m. Y" >today</f:format.date><br/>
-						</div>
+				<span id="title">{field.title}</span>
+				<span id="text">{field.subtitle}</span>
 
-						<span id="title">{field.title}</span>
-						<span id="text">{field.subtitle}</span>
+				<div id="bodytext">
+					<f:format.html>{field.text}</f:format.html>
+				</div>
+				<div id="greeting">
+					<f:format.html>{field.greeting}</f:format.html>
+				</div>
 
-						<div id="bodytext">
-							<f:format.html>{field.text}</f:format.html>
-						</div>
-						<div id="greeting">
-							<f:format.html>{field.greeting}</f:format.html>
-						</div>
+				<div id="bank">
+					<f:format.nl2br><f:format.raw>{field.bank}</f:format.raw></f:format.nl2br>
+				</div>
 
-						<div id="bank">
-							<f:format.nl2br><f:format.raw>{field.bank}</f:format.raw></f:format.nl2br>
-						</div>
+				<div id="konto">
+					{field.konto}
+				</div>
 
-						<div id="konto">
-							{field.konto}
-						</div>
+				<div id="code">
+					<f:format.nl2br><f:format.raw>{field.code}</f:format.raw></f:format.nl2br>
+				</div>
 
-						<div id="code">
-							<f:format.nl2br><f:format.raw>{field.code}</f:format.raw></f:format.nl2br>
-						</div>
+				<f:cObject typoscriptObjectPath="plugin.tx_nboevents.plugin-persons" />
+			</div>
 
-						<f:cObject typoscriptObjectPath="plugin.tx_nboevents.plugin-persons" />
+			<div class="template">
+				<div class="bill-header">
+					<h1 class="logo">
+						<img src="<f:uri.image src="EXT:nbobase/Resources/Public/img/bissfest-plate-black.png" width="320" />" alt="bissFEST" />
+						<strong>
+							bissFEST
+						</strong>
+					</h1>
+					<div class="senderinfo">
+						<div class="data-address"></div>
+						<div class="data-billinginfo"></div>
 					</div>
-
-					<div class="template">
-						<div class="bill-header">
-							<h1 class="logo">
-								<img src="<f:uri.image src="EXT:nbobase/Resources/Public/img/bissfest-plate-black.png" width="320" />" alt="bissFEST" />
-								<strong>
-									bissFEST
-								</strong>
-							</h1>
-							<div class="senderinfo">
-								<div class="data-address"></div>
-								<div class="data-billinginfo"></div>
-							</div>
-							<div class="recipient">
-								<div class="data-sender"></div>
-								<div class="data-recipient"></div>
-								<div class="data-placedate"></div>
-							</div>
-						</div>
-						<div class="bill-body">
-							<h1 class="data-title" contenteditable="true"></h1>
-							<h2 class="data-salutation" contenteditable="true"></h2>
-							<div class="data-text" contenteditable="true"></div>
-							<table >
-								<thead>
-									<tr contenteditable="true">
-										<th>Kurs</th>
-										<th>Anzahl</th>
-										<th>Preis</th>
-										<th class="t-right">Betrag</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr contenteditable="true">
-										<td class="data-course"></td>
-										<td class="data-count"></td>
-										<td class="data-price"></td>
-										<td class="data-calc t-right"></td>
-									</tr>
-								</tbody>
-								<tfoot>
-									<tr>
-										<td colspan="3" class="data-billingdate"></td>
-										<td class="data-total t-right" contenteditable="true"></td>
-									</tr>
-								</tfoot>
-							</table>
-							<div class="data-bodytext" contenteditable="true"></div>
-							<div class="data-greeting"></div>
-						</div>
-						<div class="bill-footer">
-							<div class="left">
-								<div class="pos data-bank"></div>
-								<div class="pos data-konto"></div>
-								<div class="pos data-billprice" contenteditable="true"></div>
-								<div class="pos data-recipient"></div>
-							</div>
-							<div class="main">
-								<div class="pos data-bank"></div>
-								<div class="pos data-konto"></div>
-								<div class="pos data-billprice" contenteditable="true"></div>
-							</div>
-							<div class="right">
-								<div class="pos data-billremark" contenteditable="true"></div>
-								<div class="pos data-recipient"></div>
-							</div>
-							<div class="pos data-code"></div>
-						</div>
+					<div class="recipient">
+						<div class="data-sender"></div>
+						<div class="data-recipient"></div>
+						<div class="data-placedate"></div>
 					</div>
-				</f:then>
-				<f:else>
-					<f:cObject typoscriptObjectPath="plugin.tx_nboevents.plugin-persons" />
-				</f:else>
-			</f:if>
-		</div>
+				</div>
+				<div class="bill-body">
+					<h1 class="data-title" contenteditable="true"></h1>
+					<h2 class="data-salutation" contenteditable="true"></h2>
+					<div class="data-text" contenteditable="true"></div>
+					<table >
+						<thead>
+							<tr contenteditable="true">
+								<th>Kurs</th>
+								<th>Anzahl</th>
+								<th>Preis</th>
+								<th class="t-right">Betrag</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr contenteditable="true">
+								<td class="data-course"></td>
+								<td class="data-count"></td>
+								<td class="data-price"></td>
+								<td class="data-calc t-right"></td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="3" class="data-billingdate"></td>
+								<td class="data-total t-right" contenteditable="true"></td>
+							</tr>
+						</tfoot>
+					</table>
+					<div class="data-bodytext" contenteditable="true"></div>
+					<div class="data-greeting"></div>
+				</div>
+				<div class="bill-footer">
+					<div class="left">
+						<div class="pos data-bank"></div>
+						<div class="pos data-konto"></div>
+						<div class="pos data-billprice" contenteditable="true"></div>
+						<div class="pos data-recipient"></div>
+					</div>
+					<div class="main">
+						<div class="pos data-bank"></div>
+						<div class="pos data-konto"></div>
+						<div class="pos data-billprice" contenteditable="true"></div>
+					</div>
+					<div class="right">
+						<div class="pos data-billremark" contenteditable="true"></div>
+						<div class="pos data-recipient"></div>
+					</div>
+					<div class="pos data-code"></div>
+				</div>
+			</div>
+		</f:then>
+		<f:else>
+			<f:cObject typoscriptObjectPath="plugin.tx_nboevents.plugin-persons" />
+		</f:else>
+	</f:if>
+</div>

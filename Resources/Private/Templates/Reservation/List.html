@@ -1,28 +1,29 @@
-<f:layout name="Default" />
+<f:layout name="Landscape" />
 <f:section name="main">
 	<f:flashMessages />
-	<f:if condition="{reservation.persons}">
+	<f:if condition="{reservations}">
 		<span class="btn pull-right print">
-			Personenliste Drucken
-			<iclass="icon-print"></i>
+			Drucken
+			<i class="icon-print"></i>
 		</span>
 	</f:if>
-	<h1>Offenen Rechnungen: <f:count>{reservations}</f:count></h1>
+	<f:link.page pageUid="50" class="btn pull-right">Kurslisten <i class="icon-arrow-right"></i></f:link.page>
+	<h1>Rechnungen: <f:count>{reservations}</f:count></h1>
 	<f:if condition="{reservations}">
 		<f:then>
-			<table class="tablesorter table-striped table-hover listtable tablesorter-ice">
+			<table class="bill-list tablesorter table-striped table-hover listtable tablesorter-ice">
 				<thead>
 					<tr>
 						<th>Name</th>
 						<th>Vorname</th>
 						<th>E-Mail</th>
 						<th>Adresse</th>
-						<th data-sorter="false">Telefon</th>
+						<th data-sorter="false" style="width: 80px;">Telefon</th>
 						<th>Kurs</th>
-						<th style="width: 60px;">Preis</th>
+						<th style="width: 35px;">Preis</th>
 						<th style="width: 35px;">Anzahl</th>
-						<th style="width: 70px;">Total</th>
-						<th>Status</th>
+						<th style="width: 45px;">Total</th>
+						<th style="width: 60px;">Status</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -49,43 +50,50 @@
 										{reservation.event.eventnr}.{reservation.uid}
 										{reservation.event.course.title}
 									<td>
-										{reservation.event.course.price -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
+										{reservation.event.course.price -> f:format.currency(currencySign:"",  decimalSeparator:"." thousandsSeparator:"'")}
 									</td>
 									<td>
 										{reservation.count}
 									</td>
 									<td>
-										{reservation.total -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
+										{reservation.total -> f:format.currency(currencySign:"",  decimalSeparator:"." thousandsSeparator:"'")}
 									</td>
 									<td>
-										<f:cObject typoscriptObjectPath="plugin.tx_nboevents.billstate" data="{reservation.pid}" />
-
 										<f:comment>
-										<f:if condition="{reservation.billsent -> f:format.date(format:'d.m.Y')}">Versendet: {reservation.billsent -> f:format.date(format:'d.m.Y')}<br/></f:if>
-										<f:if condition="{reservation.payuntil -> f:format.date(format:'d.m.Y')}">Zahlbar bis: {reservation.payuntil -> f:format.date(format:'d.m.Y')}</f:if>
+										<f:if condition="{reservation.payed}">
+											<span style="display:none;">a{reservation.payed -> f:format.date(format:'ymd')}</span>
+											{reservation.payed -> f:format.date(format:'d.m.y')} <i class="icon-ok"></i><br />
+										</f:if>
 										</f:comment>
+										<f:if condition="{reservation.billsent}">
+											<f:then>
+												<span style="display:none;">b{reservation.billsent -> f:format.date(format:'ymd')}</span>
+												{reservation.billsent -> f:format.date(format:'d.m.y')} <i class="icon-print"></i><br/>
+											</f:then>
+											<f:else>
+												<span style="display:none;">unbearbeitet</span> <i class="icon-remove"></i>
+											</f:else>
+										</f:if>
 									</td>
 								</tr>
-
 							</f:else>
 						</f:if>
 					</f:for>
 				</tbody>
 			</table>
-			<p class="clearfix">
-				<f:link.page pageUid="50" class="btn">Kurslisten <i class="icon-arrow-right"></i></f:link.page>
-
+			<f:if condition="{reservations}">
+				<a class="top no-print" href="#top">Nach oben <i class="icon-arrow-up"></i></a>
 				<span class="btn pull-right print">
-					Personenliste Drucken
+					Drucken
 					<i class="icon-print"></i>
 				</span>
-			</p>
+				<f:link.page pageUid="50" class="btn pull-right">Kurslisten <i class="icon-arrow-right"></i></f:link.page>
+			</f:if>
 		</f:then>
 		<f:else>
 			<p class="alert alert-info">
 				Zur Zeit gibt es keine offene Rechnungen.
 			</p>
-
 			<p class="clearfix">
 				<f:link.page pageUid="50" class="btn">Kurslisten <i class="icon-arrow-right"></i></f:link.page>
 			</p>
