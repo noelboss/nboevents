@@ -188,7 +188,7 @@ class Tx_Nboevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Pe
 			if($r['address']){
 				$address = $r['address'];
 			} else {
-				$address = $r['street'].' '.$r['city'];
+				$address = $r['street'].', '.$r['city'];
 			}
 			$event = $r['eventnr'].'.'.$r['uid'];
 			$name = $r['lastname'].', '.$r['firstname'];
