@@ -37,7 +37,7 @@ class Tx_Nboevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Pe
 	/**
 	 * findAll
 	 *
-	 * @param $course
+	 * @param $limit
 	 * @return
 	 */
 	public function findAll($limit = 999) {
@@ -50,6 +50,8 @@ class Tx_Nboevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Pe
 			$queryText = 'SELECT *
 				FROM `tx_nboevents_domain_model_reservation`
 				WHERE deleted=0
+				AND person>0
+				AND event>0
 				ORDER BY crdate DESC
 				LIMIT '.$limit;
 
