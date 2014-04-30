@@ -102,7 +102,8 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 		$e = $this->request->hasArgument('e') ? $this->request->getArgument('e') : '';
 
 		if (!isset($newPerson)) {
-			$uid = Tx_Nboevents_Utility_Cookies::getCookieValue('Reservation'.$event->getUid());
+			/* no editing of data */
+			/*$uid = Tx_Nboevents_Utility_Cookies::getCookieValue('Reservation'.$event->getUid());
 			if ($this->reservationRepository->countByUid($uid)) {
 				$newReservation = $uid;
 				$person = $this->reservationRepository->getPersonUid($newReservation);
@@ -116,9 +117,13 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 						)
 					);
 				}
+			}*/
+			$puid = Tx_Nboevents_Utility_Cookies::getCookieValue('Person');
+			$secure = Tx_Nboevents_Utility_Cookies::getCookieValue('Session');
+
+			if($secure === md5($puid+'e332b3eb1ba44921b72c2bb006e54550')) {
+				$newPerson = $this->personRepository->findByUid($puid);
 			}
-			$pid = Tx_Nboevents_Utility_Cookies::getCookieValue('Person');
-			$newPerson = $this->personRepository->findByUid($pid);
 		}
 		$this->view->assign('e', $e);
 		$this->view->assign('event', $event);
@@ -184,8 +189,9 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 		$persistenceManager->persistAll();
 
 		Tx_Nboevents_Utility_Cookies::setCookieValue('Reservation'.$event->getUid(), $newReservation->getUid());
-		Tx_Nboevents_Utility_Cookies::setCookieValue('Person', $newPerson->getUid());
-
+		$puid = $newPerson->getUid();
+		Tx_Nboevents_Utility_Cookies::setCookieValue('Session', md5($puid+'e332b3eb1ba44921b72c2bb006e54550'));
+		Tx_Nboevents_Utility_Cookies::setCookieValue('Person', $puid);
 		$this->flashMessageContainer->add('<h3>Danke ' . ($newPerson->getFirstname()) . ' ' . ($newPerson->getLastname()) . '!</h3>Sie haben sich erfolgreich für ' . ($newReservation->getCount()) . ' Person'.($newReservation->getCount() > 1 ? 'en' : '').' angemeldet.');
 		$this->redirect('show', 'Course', NULL, array('course' => $event->getCourse()));
 	}
