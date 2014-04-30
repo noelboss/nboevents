@@ -158,14 +158,14 @@
 										{other.total -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
 									</td>
 									<td>
-										<f:if condition="{reservation.payed}">
-											<span style="display:none;">a{reservation.payed -> f:format.date(format:'ymd')}</span>
-											{reservation.payed -> f:format.date(format:'d.m.y')} <i class="icon-ok"></i><br />
+										<f:if condition="{other.payed}">
+											<span style="display:none;">a{other.payed -> f:format.date(format:'ymd')}</span>
+											{other.payed -> f:format.date(format:'d.m.y')} <i class="icon-ok"></i><br />
 										</f:if>
-										<f:if condition="{reservation.billsent}">
+										<f:if condition="{other.billsent}">
 											<f:then>
-												<span style="display:none;">b{reservation.billsent -> f:format.date(format:'ymd')}</span>
-												{reservation.billsent -> f:format.date(format:'d.m.y')} <i class="icon-print"></i><br/>
+												<span style="display:none;">b{other.billsent -> f:format.date(format:'ymd')}</span>
+												{other.billsent -> f:format.date(format:'d.m.y')} <i class="icon-print"></i><br/>
 											</f:then>
 											<f:else>
 												<span style="display:none;">unbearbeitet</span> <i class="icon-remove"></i>
