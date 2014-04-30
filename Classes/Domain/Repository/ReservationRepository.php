@@ -50,7 +50,6 @@ class Tx_Nboevents_Domain_Repository_ReservationRepository extends Tx_Extbase_Pe
 			$queryText = 'SELECT *
 				FROM `tx_nboevents_domain_model_reservation`
 				WHERE deleted=0
-				AND sys_language_uid IN (0,-1)
 				ORDER BY crdate DESC
 				LIMIT '.$limit;
 
