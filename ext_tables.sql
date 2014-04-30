@@ -94,8 +94,8 @@ CREATE TABLE tx_nboevents_domain_model_event (
 	PRIMARY KEY (uid),
 	KEY parent (pid),
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
-	KEY language (l10n_parent,sys_language_uid)
-
+	KEY language (l10n_parent,sys_language_uid),
+	KEY constrain (course, deleted, date)
 );
 
 #
@@ -239,8 +239,8 @@ CREATE TABLE tx_nboevents_domain_model_reservation (
 	PRIMARY KEY (uid),
 	KEY parent (pid),
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
-	KEY language (l10n_parent,sys_language_uid)
-
+	KEY language (l10n_parent,sys_language_uid),
+	KEY constrain (deleted,hidden,starttime,endtime)
 );
 
 #
