@@ -164,7 +164,7 @@ class Tx_Nboevents_Domain_Repository_EventRepository extends Tx_Extbase_Persiste
 	public function findAllByReservation($uid) {
 
 		$query = $this->createQuery();
-		$queryText = 'SELECT ev.*, res.uid
+		$queryText = 'SELECT ev.*
 			FROM `tx_nboevents_domain_model_event` AS ev
 			LEFT JOIN tx_nboevents_domain_model_reservation AS res ON res.event = ev.uid
 			WHERE res.uid = \'' . $uid . '\'
