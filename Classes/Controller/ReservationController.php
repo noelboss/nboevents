@@ -141,7 +141,6 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 	 * @dontverifyrequesthash
 	 */
 	public function createAction(Tx_Nboevents_Domain_Model_Reservation $newReservation, Tx_Nboevents_Domain_Model_Person $newPerson, Tx_Nboevents_Domain_Model_Event $event) {
-		$this->reservationRepository->add($newReservation);
 
 		//echo 'Reservation: '.($event->getHasReservation()? 'true' : 'false');
 		//die();
@@ -183,6 +182,8 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 
 		$newReservation->addPerson($newPerson);
 		$newReservation->addEvent($event);
+
+		$this->reservationRepository->add($newReservation);
 
 		//Enforce persistence
 		$persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance("TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager");
