@@ -114,10 +114,7 @@ class Tx_Nboevents_Domain_Repository_EventRepository extends Tx_Extbase_Persiste
 			FROM `tx_nboevents_domain_model_event`
 			WHERE course = \'' . $course . '\'
 			AND deleted=0
-			AND t3ver_state<=0
 			AND date >=' . $now . '
-			AND pid<>-1
-			AND sys_language_uid IN (0,-1)
 			LIMIT '.$limit;
 
 			/*
@@ -143,9 +140,6 @@ class Tx_Nboevents_Domain_Repository_EventRepository extends Tx_Extbase_Persiste
 			FROM `tx_nboevents_domain_model_event`
 			WHERE uid = \'' . $uid . '\'
 			AND deleted=0
-			AND t3ver_state<=0
-			AND pid<>-1
-			AND sys_language_uid IN (0,-1)
 			LIMIT '.$limit;
 
 		$query->statement($queryText);
@@ -169,9 +163,6 @@ class Tx_Nboevents_Domain_Repository_EventRepository extends Tx_Extbase_Persiste
 			LEFT JOIN tx_nboevents_domain_model_reservation AS res ON res.event = ev.uid
 			WHERE res.uid = \'' . $uid . '\'
 			AND ev.deleted=0
-			AND ev.t3ver_state<=0
-			AND ev.pid<>-1
-			AND ev.sys_language_uid IN (0,-1)
 			LIMIT 1';
 
 		$query->statement($queryText);
