@@ -43,12 +43,12 @@
 									<td>
 										<f:format.nl2br>{reservation.person.address}</f:format.nl2br>
 									</td>
-									<td>
+									<td style="width: 120px;">
 										<f:if condition="{reservation.person.phone}">
-											T: {reservation.person.phone}<br/>
+											<p>T: {reservation.person.phone}</p>
 										</f:if>
 										<f:if condition="{reservation.person.phonemobile}">
-											M: {reservation.person.phonemobile}<br/>
+											M: {reservation.person.phonemobile}
 										</f:if>
 										<f:if condition="{reservation.person.phonecompany}">
 											F: {reservation.person.phonecompany}
