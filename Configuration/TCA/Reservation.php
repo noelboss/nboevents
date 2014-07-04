@@ -238,6 +238,7 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_nboevents_domain_model_event',
+				"foreign_selector" => "eventnr",
 				'foreign_table_where' => 'ORDER BY tx_nboevents_domain_model_event.date, tx_nboevents_domain_model_event.eventnr DESC',
 				'minitems' => 1,
 				'maxitems' => 1,
