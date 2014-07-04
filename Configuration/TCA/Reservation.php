@@ -208,6 +208,7 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 			'config' => array(
 				'type' => 'inline',
 				'foreign_table' => 'tx_nboevents_domain_model_person',
+				'foreign_label' => 'reservations',
 				'foreign_table_where' => 'ORDER BY tx_nboevents_domain_model_person.lastname,tx_nboevents_domain_model_person.firstname',
 				'minitems' => 1,
 				'maxitems' => 1,
