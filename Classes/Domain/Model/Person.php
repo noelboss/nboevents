@@ -226,7 +226,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @return string $phone
 	 */
 	public function getPhone() {
-		return $this->phone;
+		return preg_replace("/[^0-9]/","",$this->phone);
 	}
 
 	/**
@@ -245,7 +245,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @return string $phonemobile
 	 */
 	public function getPhonemobile() {
-		return $this->phonemobile;
+		return preg_replace("/[^0-9]/","",$this->phonemobile);
 	}
 
 	/**
@@ -264,7 +264,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @return string $phonecompany
 	 */
 	public function getPhonecompany() {
-		return $this->phonecompany;
+		return preg_replace("/[^0-9]/","",$this->phonecompany);
 	}
 
 	/**
