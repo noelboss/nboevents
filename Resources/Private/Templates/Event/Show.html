@@ -17,7 +17,7 @@
 						<th>Name</th>
 						<th>Vorname</th>
 						<th>Adresse</th>
-						<th data-sorter="false" style="width: 100px">Telefon</th>
+						<th data-sorter="false" style="width: 105px">Telefon</th>
 						<th>E-Mail</th>
 						<th data-sorter="false" style="width: 260px">Bemerkungen</th>
 						<th>#</th>
@@ -37,7 +37,15 @@
 								<f:format.nl2br>{reservation.person.address}</f:format.nl2br>
 							</td>
 							<td>
-								{reservation.person.phone}
+								<f:if condition="{reservation.person.phone}">
+									T: {reservation.person.phone}<br/>
+								</f:if>
+								<f:if condition="{reservation.person.phonemobile}">
+									M: {reservation.person.phonemobile}
+								</f:if>
+								<f:if condition="{reservation.person.phonecompany}">
+									F: {reservation.person.phonecompany}
+								</f:if>
 							</td>
 							<td>
 								<f:if condition="{reservation.person.email}">
