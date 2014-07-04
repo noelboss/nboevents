@@ -211,9 +211,24 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 				'foreign_table_where' => 'ORDER BY tx_nboevents_domain_model_person.lastname,tx_nboevents_domain_model_person.firstname',
 				'minitems' => 1,
 				'maxitems' => 1,
-				'appearance' => array(
+				/*'appearance' => array(
 					'collapseAll' => 1,
 					'expandSingle' => 1,
+				),*/
+				'wizards' => array(
+					'_VALIGN' => 'bottom',
+					'_POSITION' => 'bottom',
+					'suggest' => array(
+						'type' => 'suggest',
+					),
+					'edit' => array(
+						'type' => 'popup',
+						'title' => 'Edit',
+						'script' => 'wizard_edit.php',
+						'icon' => 'edit2.gif',
+						'popup_onlyOpenIfSelected' => 1,
+						'JSopenParams' => 'height=350,width=580,orderstatus=0,menubar=0,scrollbars=1',
+					),
 				),
 			),
 		),
