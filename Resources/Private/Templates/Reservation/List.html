@@ -18,10 +18,10 @@
 						<th>Vorname</th>
 						<th>E-Mail</th>
 						<th>Adresse</th>
-						<th data-sorter="false" style="width: 80px;">Telefon</th>
+						<th data-sorter="false" style="width: 100px;">Telefon</th>
 						<th>Kurs</th>
 						<th style="width: 35px;">Preis</th>
-						<th style="width: 35px;">Anzahl</th>
+						<th style="width: 10px;">#</th>
 						<th style="width: 45px;">Total</th>
 						<th style="width: 60px;">Status</th>
 					</tr>
@@ -43,7 +43,7 @@
 									<td>
 										<f:format.nl2br>{reservation.person.address}</f:format.nl2br>
 									</td>
-									<td style="width: 120px;">
+									<td>
 										<f:if condition="{reservation.person.phone}">
 											T: {reservation.person.phone}<br/>
 										</f:if>
