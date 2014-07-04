@@ -206,9 +206,24 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.person',
 			'config' => array(
-				'type' => 'select',
+				'type' => 'inline',
 				'foreign_table' => 'tx_nboevents_domain_model_person',
 				'foreign_table_where' => 'ORDER BY tx_nboevents_domain_model_person.lastname,tx_nboevents_domain_model_person.firstname',
+				'minitems' => 1,
+				'maxitems' => 1,
+				'appearance' => array(
+					'collapseAll' => 1,
+					'expandSingle' => 1,
+				),
+			),
+		),
+		'event' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.event',
+			'config' => array(
+				'type' => 'select',
+				'foreign_table' => 'tx_nboevents_domain_model_event',
+				'foreign_table_where' => 'ORDER BY tx_nboevents_domain_model_event.date, tx_nboevents_domain_model_event.eventnr DESC',
 				'minitems' => 1,
 				'maxitems' => 1,
 				'wizards' => array(
@@ -225,21 +240,6 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 						'popup_onlyOpenIfSelected' => 1,
 						'JSopenParams' => 'height=350,width=580,orderstatus=0,menubar=0,scrollbars=1',
 					),
-				),
-			),
-		),
-		'event' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.event',
-			'config' => array(
-				'type' => 'inline',
-				'foreign_table' => 'tx_nboevents_domain_model_event',
-				'foreign_table_where' => 'ORDER BY tx_nboevents_domain_model_event.date, tx_nboevents_domain_model_event.eventnr DESC',
-				'minitems' => 1,
-				'maxitems' => 1,
-				'appearance' => array(
-					'collapseAll' => 1,
-					'expandSingle' => 1,
 				),
 			),
 		),
