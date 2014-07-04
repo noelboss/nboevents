@@ -184,40 +184,36 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 				),*/
 			),
 		),
+
+		/*
+		'events' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_course.events',
+			'config' => array(
+				'type' => 'inline',
+				'foreign_table' => 'tx_nboevents_domain_model_event',
+				'foreign_field' => 'course',
+				'foreign_table_where' => 'ORDER BY tx_nboevents_domain_model_event.date DESC',
+				'maxitems' => 9999,
+				'appearance' => array(
+					'collapseAll' => 1,
+					'expandSingle' => 1,
+				),
+			),
+		),*/
+
 		'person' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.person',
 			'config' => array(
-				'type' => 'select',
+				'type' => 'inline',
 				'foreign_table' => 'tx_nboevents_domain_model_person',
-				'foreign_table_where' => 'ORDER BY lastname,firstname',
+				'foreign_table_where' => 'ORDER BY tx_nboevents_domain_model_person.lastname,tx_nboevents_domain_model_person.firstname',
 				'minitems' => 1,
 				'maxitems' => 1,
-				'wizards' => array(
-					'_VALIGN' => 'bottom',
-					'_POSITION' => 'bottom',
-					'suggest' => array(
-						'type' => 'suggest',
-					),
-					'edit' => array(
-						'type' => 'popup',
-						'title' => 'Edit',
-						'script' => 'wizard_edit.php',
-						'icon' => 'edit2.gif',
-						'popup_onlyOpenIfSelected' => 1,
-						'JSopenParams' => 'height=350,width=580,orderstatus=0,menubar=0,scrollbars=1',
-					),
-					/*'add' => Array(
-						'type' => 'script',
-						'title' => 'Create new',
-						'icon' => 'add.gif',
-						'params' => array(
-							'table' => 'tx_nboevents_domain_model_person',
-							'pid' => '###CURRENT_PID###',
-							'setValue' => 'prepend'
-						),
-						'script' => 'wizard_add.php',
-					),*/
+				'appearance' => array(
+					'collapseAll' => 1,
+					'expandSingle' => 1,
 				),
 			),
 		),
@@ -225,48 +221,18 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.event',
 			'config' => array(
-				'type' => 'select',
+				'type' => 'inline',
 				'foreign_table' => 'tx_nboevents_domain_model_event',
-				//'foreign_table_where' => 'AND tx_nboevents_domain_model_event.pid=###CURRENT_PID### AND tx_nboevents_domain_model_event.sys_language_uid IN (-1,0)',
 				'foreign_table_where' => 'ORDER BY tx_nboevents_domain_model_event.date, tx_nboevents_domain_model_event.eventnr DESC',
 				'minitems' => 1,
 				'maxitems' => 1,
-				'wizards' => array(
-					'_VALIGN' => 'bottom',
-					'_POSITION' => 'bottom',
-					'suggest' => array(
-						'type' => 'suggest',
-					),
-					'edit' => array(
-						'type' => 'popup',
-						'title' => 'Edit',
-						'script' => 'wizard_edit.php',
-						'icon' => 'edit2.gif',
-						'popup_onlyOpenIfSelected' => 1,
-						'JSopenParams' => 'height=350,width=580,orderstatus=0,menubar=0,scrollbars=1',
-					),
-					/*'edit' => array(
-						'type' => 'popup',
-						'title' => 'Edit',
-						'script' => 'wizard_edit.php',
-						'icon' => 'edit2.gif',
-						'popup_onlyOpenIfSelected' => 1,
-						'JSopenParams' => 'height=350,width=580,orderstatus=0,menubar=0,scrollbars=1',
-					),*/
-					/*'add' => Array(
-						'type' => 'script',
-						'title' => 'Create new',
-						'icon' => 'add.gif',
-						'params' => array(
-							'table' => 'tx_nboevents_domain_model_event',
-							'pid' => '###CURRENT_PID###',
-							'setValue' => 'prepend'
-						),
-						'script' => 'wizard_add.php',
-					),*/
+				'appearance' => array(
+					'collapseAll' => 1,
+					'expandSingle' => 1,
 				),
 			),
 		),
+
 		'tstamp' => Array (
 			'exclude' => 1,
 			'label' => 'Creation date',
