@@ -20,9 +20,7 @@
 						<th>Adresse</th>
 						<th data-sorter="false" style="width: 90px;">Telefon</th>
 						<th>Kurs</th>
-						<th style="width: 35px;">Preis</th>
-						<th style="width: 10px;">#</th>
-						<th style="width: 45px;">Total</th>
+						<th style="width: 70px;">Preis</th>
 						<th style="width: 60px;">Status</th>
 					</tr>
 				</thead>
@@ -58,13 +56,7 @@
 										{reservation.event.eventnr}.{reservation.uid}
 										{reservation.event.course.title}
 									<td>
-										{reservation.event.course.price -> f:format.currency(currencySign:"",  decimalSeparator:"." thousandsSeparator:"'")}
-									</td>
-									<td>
-										{reservation.count}
-									</td>
-									<td>
-										{reservation.total -> f:format.currency(currencySign:"",  decimalSeparator:"." thousandsSeparator:"'")}
+										{reservation.count} x {reservation.event.course.price -> f:format.currency(currencySign:"",  decimalSeparator:"." thousandsSeparator:"'")} = {reservation.total -> f:format.currency(currencySign:"",  decimalSeparator:"." thousandsSeparator:"'")}
 									</td>
 									<td>
 										<f:comment>
