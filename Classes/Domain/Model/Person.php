@@ -221,13 +221,22 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	}
 
 	/**
+	 * Formats swiss phone numbers
+	 *
+	 * @return string
+	 */
+	protected function formatPhone($phone) {
+		$phone = preg_replace("/[^0-9]/","",$phone);
+		return trim(substr($phone , 0, -7).' '.substr($phone , -7, 3).' '.substr($phone , -4, 2).' '.substr($phone , -2, 2));
+	}
+
+	/**
 	 * Returns the phone
 	 *
 	 * @return string $phone
 	 */
 	public function getPhone() {
-		$phone = preg_replace("/[^0-9]/","",$this->phone);
-		return trim(substr($phone , 0, -7).' '.substr($phone , -7, 3).' '.substr($phone , -4, 2).' '.substr($phone , -2, 2));
+		return $this->formatPhone($this->phone);
 	}
 
 	/**
@@ -246,8 +255,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @return string $phonemobile
 	 */
 	public function getPhonemobile() {
-		$phone =  preg_replace("/[^0-9]/","",$this->phonemobile);
-		return trim(substr($phone , 0, -7).' '.substr($phone , -7, 3).' '.substr($phone , -4, 2).' '.substr($phone , -2, 2));
+		$this->formatPhone($this->phonemobile);
 	}
 
 	/**
@@ -266,8 +274,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @return string $phonecompany
 	 */
 	public function getPhonecompany() {
-		$phone = preg_replace("/[^0-9]/","",$this->phonecompany);
-		return trim(substr($phone , 0, -7).' '.substr($phone , -7, 3).' '.substr($phone , -4, 2).' '.substr($phone , -2, 2));
+		$this->formatPhone($this->phonecompany);
 	}
 
 	/**
