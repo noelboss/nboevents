@@ -143,6 +143,18 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 
 
 	/**
+	 * Formats swiss phone numbers
+	 *
+	 * @return string
+	 */
+	protected function formatPhone($phone) {
+		$phone = preg_replace("/[^0-9]/","",$phone);
+		return trim(substr($phone , 0, -7).' '.substr($phone , -7, 3).' '.substr($phone , -4, 2).' '.substr($phone , -2, 2));
+	}
+
+
+
+	/**
 	 * Returns the gender
 	 *
 	 * @return integer $gender
@@ -220,15 +232,6 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 		$this->email = $email;
 	}
 
-	/**
-	 * Formats swiss phone numbers
-	 *
-	 * @return string
-	 */
-	protected function formatPhone($phone) {
-		$phone = preg_replace("/[^0-9]/","",$phone);
-		return trim(substr($phone , 0, -7).' '.substr($phone , -7, 3).' '.substr($phone , -4, 2).' '.substr($phone , -2, 2));
-	}
 
 	/**
 	 * Returns the phone
