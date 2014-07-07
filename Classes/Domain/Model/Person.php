@@ -227,7 +227,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 */
 	public function getPhone() {
 		$phone = preg_replace("/[^0-9]/","",$this->phone);
-		return substr($phone , 0, -7).' '.substr($phone , -7, 3).' '.substr($phone , -4, 2).' '.substr($phone , -2, 2);
+		return trim(substr($phone , 0, -7).' '.substr($phone , -7, 3).' '.substr($phone , -4, 2).' '.substr($phone , -2, 2));
 	}
 
 	/**
@@ -247,7 +247,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 */
 	public function getPhonemobile() {
 		$phone =  preg_replace("/[^0-9]/","",$this->phonemobile);
-		return substr($phone , 0, -7).' '.substr($phone , -7, 3).' '.substr($phone , -4, 2).' '.substr($phone , -2, 2);
+		return trim(substr($phone , 0, -7).' '.substr($phone , -7, 3).' '.substr($phone , -4, 2).' '.substr($phone , -2, 2));
 	}
 
 	/**
@@ -267,7 +267,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 */
 	public function getPhonecompany() {
 		$phone = preg_replace("/[^0-9]/","",$this->phonecompany);
-		return substr($phone , 0, -7).' '.substr($phone , -7, 3).' '.substr($phone , -4, 2).' '.substr($phone , -2, 2);
+		return trim(substr($phone , 0, -7).' '.substr($phone , -7, 3).' '.substr($phone , -4, 2).' '.substr($phone , -2, 2));
 	}
 
 	/**
