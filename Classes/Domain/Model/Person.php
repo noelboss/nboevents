@@ -148,6 +148,8 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @return string
 	 */
 	protected function formatPhone($phone) {
+		$phone = preg_replace("+41","",$phone);
+		$phone = preg_replace("0041","",$phone);
 		$phone = preg_replace("/[^0-9]/","",$phone);
 		return trim(substr($phone , 0, -7).' '.substr($phone , -7, 3).' '.substr($phone , -4, 2).' '.substr($phone , -2, 2));
 	}
@@ -239,7 +241,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @return string $phone
 	 */
 	public function getPhone() {
-		return $this->phone;
+		return $this->formatPhone($this->phone);
 	}
 
 	/**
@@ -249,7 +251,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @return void
 	 */
 	public function setPhone($phone) {
-		$this->phone = $this->formatPhone($phone);
+		$this->phone = $phone;
 	}
 
 	/**
@@ -258,7 +260,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @return string $phonemobile
 	 */
 	public function getPhonemobile() {
-		$this->phonemobile;
+		return $this->formatPhone($this->phonemobile);
 	}
 
 	/**
@@ -268,7 +270,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @return void
 	 */
 	public function setPhonemobile($phonemobile) {
-		$this->phonemobile = $this->formatPhone($phonemobile);
+		$this->phonemobile = $phonemobile;
 	}
 
 	/**
@@ -277,7 +279,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @return string $phonecompany
 	 */
 	public function getPhonecompany() {
-		$this->phonecompany;
+		return $this->formatPhone($this->phonecompany);
 	}
 
 	/**
@@ -287,7 +289,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @return void
 	 */
 	public function setPhonecompany($phonecompany) {
-		$this->phonecompany = $this->formatPhone($phonecompany);
+		$this->phonecompany = $phonecompany;
 	}
 
 	/**
