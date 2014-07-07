@@ -148,9 +148,9 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @return string
 	 */
 	protected function formatPhone($phone) {
-		$phone = preg_replace("+41","",$phone);
-		$phone = preg_replace("0041","",$phone);
-		$phone = preg_replace("/[^0-9]/","",$phone);
+		$phone = str_replace("+41","", $phone);
+		$phone = str_replace("0041","", $phone);
+		$phone = str_replace("/[^0-9]/","",$phone);
 		return trim(substr($phone , 0, -7).' '.substr($phone , -7, 3).' '.substr($phone , -4, 2).' '.substr($phone , -2, 2));
 	}
 
