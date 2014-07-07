@@ -258,7 +258,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @return string $phonemobile
 	 */
 	public function getPhonemobile() {
-		$this->formatPhone($this->phonemobile);
+		return $this->formatPhone($this->phonemobile);
 	}
 
 	/**
@@ -277,7 +277,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @return string $phonecompany
 	 */
 	public function getPhonecompany() {
-		$this->formatPhone($this->phonecompany);
+		return $this->formatPhone($this->phonecompany);
 	}
 
 	/**
