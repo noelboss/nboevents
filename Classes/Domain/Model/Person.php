@@ -239,7 +239,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @return string $phone
 	 */
 	public function getPhone() {
-		return $this->formatPhone($this->phone);
+		return $this->phone;
 	}
 
 	/**
@@ -249,7 +249,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @return void
 	 */
 	public function setPhone($phone) {
-		$this->phone = $phone;
+		$this->phone = $this->formatPhone($phone);
 	}
 
 	/**
@@ -258,7 +258,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @return string $phonemobile
 	 */
 	public function getPhonemobile() {
-		return $this->formatPhone($this->phonemobile);
+		$this->phonemobile;
 	}
 
 	/**
@@ -268,7 +268,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @return void
 	 */
 	public function setPhonemobile($phonemobile) {
-		$this->phonemobile = $phonemobile;
+		$this->phonemobile = $this->formatPhone($phonemobile);
 	}
 
 	/**
@@ -277,7 +277,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @return string $phonecompany
 	 */
 	public function getPhonecompany() {
-		return $this->formatPhone($this->phonecompany);
+		$this->phonecompany;
 	}
 
 	/**
@@ -287,7 +287,7 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @return void
 	 */
 	public function setPhonecompany($phonecompany) {
-		$this->phonecompany = $phonecompany;
+		$this->phonecompany = $this->formatPhone($phonecompany);
 	}
 
 	/**
