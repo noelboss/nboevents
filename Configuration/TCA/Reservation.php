@@ -188,6 +188,7 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 				'maxitems' => 1,
 				'disable_controls' => 'browser, delete',
 				'wizards' => array(
+					'_DISTANCE' => 10,
 					'suggest' => array(
 						'type' => 'suggest',
 					),
@@ -212,6 +213,7 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 				'minitems' => 1,
 				'maxitems' => 1,
 				'wizards' => array(
+					'_DISTANCE' => 10,
 					'suggest' => array(
 						'type' => 'suggest',
 					),

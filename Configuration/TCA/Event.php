@@ -246,8 +246,20 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 				'foreign_label' => 'person',
 				'maxitems' => 9999,
 				'appearance' => array(
+					'_DISTANCE' => 10,
 					'collapse' => 1,
 					'levelLinksPosition' => 'bottom',
+					'enabledControls' => array(
+						'new' => false,
+						'info' => false,
+					),
+				),
+				'wizards' => array(
+					'_PADDING' => 1,
+					'_VERTICAL' => 0,
+					'suggest' => array(
+						'type' => 'suggest',
+					),
 				),
 			),
 		),
