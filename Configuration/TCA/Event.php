@@ -243,6 +243,7 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 				'foreign_table' => 'tx_nboevents_domain_model_reservation',
 				'foreign_field' => 'event',
 				// manually added
+				'foreign_selector' => 'person',
 				'foreign_label' => 'person',
 				'maxitems' => 9999,
 				'appearance' => array(
@@ -252,13 +253,6 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 					'enabledControls' => array(
 						'new' => false,
 						'info' => false,
-					),
-				),
-				'wizards' => array(
-					'_PADDING' => 1,
-					'_VERTICAL' => 0,
-					'suggest' => array(
-						'type' => 'suggest',
 					),
 				),
 			),
