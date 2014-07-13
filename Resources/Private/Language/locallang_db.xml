@@ -54,6 +54,7 @@
 			<label index="tx_nboevents_domain_model_course.locations">Ort</label>
 			<label index="tx_nboevents_domain_model_course.categories">Kategorie</label>
 			<label index="tx_nboevents_domain_model_reservation">Anmeldung</label>
+			<label index="tx_nboevents_domain_model_reservation.tab">Anmeldung</label>
 			<label index="tx_nboevents_domain_model_reservation.settings">Anmeldeoptionen</label>
 			<label index="tx_nboevents_domain_model_reservation.person">Person</label>
 			<label index="tx_nboevents_domain_model_reservation.count">Anzahl Personen</label>
