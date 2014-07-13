@@ -12,7 +12,11 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 		'showRecordFieldList' => 'count, notes, person, event, pid, orderstatus',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'count, notes, person, event, --div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.billing, orderstatus, billsent, payuntil, payed, notesbissfest'),
+		'1' => array('showitem' => '
+			--div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.tab,
+			count, notes, person, event,
+			--div--;LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.billing,
+			orderstatus, billsent, payuntil, payed, notesbissfest'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
