@@ -232,17 +232,6 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 						'popup_onlyOpenIfSelected' => 1,
 						'JSopenParams' => 'height=350,width=580,orderstatus=0,menubar=0,scrollbars=1',
 					),
-					/*'add' => Array(
-						'type' => 'script',
-						'title' => 'Create new',
-						'icon' => 'add.gif',
-						'params' => array(
-							'table' => 'tx_nboevents_domain_model_course',
-							'pid' => '###CURRENT_PID###',
-							'setValue' => 'prepend'
-						),
-						'script' => 'wizard_add.php',
-					),*/
 				),
 			),
 		),

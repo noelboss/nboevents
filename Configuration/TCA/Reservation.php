@@ -149,9 +149,6 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 				'max' => 20,
 				'eval' => 'date',
 				'default' => 0,
-				/*'range' => array(
-					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-				),*/
 			),
 		),
 		'payuntil' => array(
@@ -164,9 +161,6 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 				'max' => 20,
 				'eval' => 'date',
 				'default' => 0,
-				/*'range' => array(
-					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-				),*/
 			),
 		),
 		'payed' => array(
@@ -179,45 +173,21 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 				'max' => 20,
 				'eval' => 'date',
 				'default' => 0,
-				/*'range' => array(
-					'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-				),*/
 			),
 		),
-
-		/*
-		'events' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_course.events',
-			'config' => array(
-				'type' => 'inline',
-				'foreign_table' => 'tx_nboevents_domain_model_event',
-				'foreign_field' => 'course',
-				'foreign_table_where' => 'ORDER BY tx_nboevents_domain_model_event.date DESC',
-				'maxitems' => 9999,
-				'appearance' => array(
-					'collapseAll' => 1,
-					'expandSingle' => 1,
-				),
-			),
-		),*/
 
 		'person' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_reservation.person',
 			'config' => array(
-				'type' => 'select',
-				'foreign_table' => 'tx_nboevents_domain_model_person',
-				'foreign_table_where' => 'ORDER BY tx_nboevents_domain_model_person.lastname,tx_nboevents_domain_model_person.firstname',
+				'type' => 'group',
+				'internal_type' => 'db',
+				'allowed' => 'tx_nboevents_domain_model_person',
+				'size' => 1,
 				'minitems' => 1,
 				'maxitems' => 1,
-				/*'appearance' => array(
-					'collapseAll' => 1,
-					'expandSingle' => 1,
-				),*/
+				'disable_controls' => 'browser, delete',
 				'wizards' => array(
-					'_VALIGN' => 'bottom',
-					'_POSITION' => 'bottom',
 					'suggest' => array(
 						'type' => 'suggest',
 					),
@@ -242,8 +212,6 @@ $TCA['tx_nboevents_domain_model_reservation'] = array(
 				'minitems' => 1,
 				'maxitems' => 1,
 				'wizards' => array(
-					'_VALIGN' => 'bottom',
-					'_POSITION' => 'bottom',
 					'suggest' => array(
 						'type' => 'suggest',
 					),
