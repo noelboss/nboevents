@@ -210,9 +210,6 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 		$view->assign('person', $newReservation->getPerson());
 		$view->assign('event', $newReservation->getEvent());
 
-		echo 'BissFest – Anmeldebestätigung: '. $event;
-
-
 		$mail = $view->render();
 
 		//mail versenden
@@ -220,7 +217,7 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 		$message = $this->objectManager->get('TYPO3\\CMS\\Core\\Mail\\MailMessage')
 			->setSubject('BissFest – Anmeldebestätigung: '. $event)
 			->setFrom(array('info@bissfest.ch' => 'BissFest'))
-			->setTo(array($newPerson->getEmail() => $name));
+			->setTo(array($newReservation->getPerson() => $name));
 
 
 		// Possible attachments here
