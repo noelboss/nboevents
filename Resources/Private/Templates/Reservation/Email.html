@@ -1,0 +1,53 @@
+
+<f:if condition="{reservation}">
+	<style type="text/css" media="screen">
+	dl { overflow: hidden; }
+	dt { font-weight: bold; float: left; clear:left; }
+	dd { margin: 0 0 0 160px; padding: 0; }
+	</style>
+	<h3>
+		Sehr geehrte<f:if condition="{person.gender} < 1">r Herr {person.lastname}</f:if>
+		<f:if condition="{person.gender} > 0">
+			<f:if condition="{person.gender} > 1">
+				<f:then>
+					Damen und Herren
+				</f:then>
+				<f:else>
+					Frau {person.lastname}
+				</f:else>
+			</f:if>
+		</f:if>
+	</h3>
+	<p>Gerne bestätigen wir Ihnen hiermit folgende Anmeldung:</p>
+	<dl>
+		<dt>Kurs:</dt><dd> {event.eventnr} – {event.course.title}</dd>
+		<dt>Datum &amp; Uhrzeit:</dt><dd> {event.date -> f:format.date(format:"d.m.Y")} um {event.date -> f:format.date(format:"H:i")}</li>
+		<dt>Teilnehmer:</dt><dd> {reservation.count}</dd>
+		<dt>Preis:</dt><dd>
+			{reservation.count} x {event.course.price -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")} = {reservation.total -> f:format.currency(currencySign:"CHF",  decimalSeparator:"." thousandsSeparator:"'")}
+		</dd>
+		<dt>Rechnungsnummer:</dt><dd> {event.eventnr}.{reservation.uid}</dd>
+
+		<f:if condition="{reservation.notes}">
+		<dt>Ihre Anmerkung:</dt><dd> {reservation.notes}</dd>
+		</f:if>
+	</dl>
+	<p>Sie werden von uns in den nächsten Tagen eine Rechnung an folgende Adresse erhalten:</p>
+	<p>
+		<address id="recipient" contenteditable="true">
+			<f:if condition="{person.gender} > 0">
+				<f:then>Frau<br/></f:then>
+				<f:else>Herr<br/></f:else>
+			</f:if>
+			{person.firstname} {person.lastname}<br/>
+			<f:format.nl2br>{person.address}</f:format.nl2br>
+		</address>
+	</p>
+	<p>Vielen Dank für Ihre Anmeldung.
+		Wir freuen uns sie am {event.date -> f:format.date(format:"d.m.Y")}
+		um {event.date -> f:format.date(format:"H:i")} im BissFest begrüssen zu dürfen.
+	</p>
+	<p>Herzliche Grüsse,<br/>
+		Agnes Feurer &amp; Angela Hassler
+	</p>
+</f:if>
