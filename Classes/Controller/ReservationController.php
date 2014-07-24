@@ -217,8 +217,8 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 		//mail versenden
 		/** @var $message \TYPO3\CMS\Core\Mail\MailMessage */
 		$message = $this->objectManager->get('TYPO3\\CMS\\Core\\Mail\\MailMessage')
-			->setSubject('BissFest – Anmeldebestätigung: '. $event)
-			->setFrom(array('info@bissfest.ch' => 'BissFest'))
+			->setSubject('Anmeldebestätigung: '. $event)
+			->setFrom(array('info@bissfest.ch' => 'BissFEST'))
 			->setTo(array($person->getEmail() => $name));
 
 
