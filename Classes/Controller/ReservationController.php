@@ -125,9 +125,6 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 	 */
 	public function createAction(Tx_Nboevents_Domain_Model_Reservation $newReservation, Tx_Nboevents_Domain_Model_Person $newPerson, Tx_Nboevents_Domain_Model_Event $event) {
 
-		//echo 'Reservation: '.($event->getHasReservation()? 'true' : 'false');
-		//die();
-
 		if($event->getHasReservation()){
 			$this->redirect('show', 'Course', NULL, array('course' => $event->getCourse()));
 		}
