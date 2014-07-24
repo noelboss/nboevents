@@ -203,8 +203,10 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 	private function sendStatusMail(Tx_Nboevents_Domain_Model_Reservation $newReservation) {
 		$view = $this->getEmailTemplate();
 
+
+		$person = $newReservation->getPerson();
 		$event = $newReservation->getEvent()->getCourse()->getTitle().' - '.$newReservation->getEvent()->getEventnr().'.'.$newReservation->getUid();
-		$name = $newReservation->getPerson()->getFirstname().' '.$newReservation->getPerson()->getLastname();
+		$name = $person->getFirstname().' '.$person->getLastname();
 
 		$view->assign('reservation', $newReservation);
 		$view->assign('person', $newReservation->getPerson());
@@ -217,7 +219,7 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 		$message = $this->objectManager->get('TYPO3\\CMS\\Core\\Mail\\MailMessage')
 			->setSubject('BissFest – Anmeldebestätigung: '. $event)
 			->setFrom(array('info@bissfest.ch' => 'BissFest'))
-			->setTo(array($newReservation->getPerson() => $name));
+			->setTo(array($person->getEmail() => $name));
 
 
 		// Possible attachments here
