@@ -175,7 +175,9 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 
 		Tx_Nboevents_Utility_Cookies::setCookieValue('Session', md5($puid+'e332b3eb1ba44921b72c2bb006e54550'));
 		Tx_Nboevents_Utility_Cookies::setCookieValue('Person', $puid);
-		$mailsent = $this->sendStatusMail($newReservation);
+		if($newPerson->getEmail()){
+			$mailsent = $this->sendStatusMail($newReservation);
+		}
 		$this->flashMessageContainer->add(
 		'<h3>Danke ' . ($newPerson->getFirstname()) . ' ' . ($newPerson->getLastname()) . '!</h3>Sie haben sich erfolgreich für ' . ($newReservation->getCount()) . ' Person'.($newReservation->getCount() > 1 ? 'en' : '').' angemeldet'
 			.($mailsent? ' und erhalten von uns eine Bestätigung per E-Mail an '.$newPerson->getEmail().'.': '. Eine Bestätigung per E-Mail konnte nicht gesendet werden.')
