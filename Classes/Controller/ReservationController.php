@@ -1,5 +1,4 @@
 <?php
-
 /* * *************************************************************
  *  Copyright notice
  *
@@ -102,22 +101,6 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 		$e = $this->request->hasArgument('e') ? $this->request->getArgument('e') : '';
 
 		if (!isset($newPerson)) {
-			/* no editing of data */
-			/*$uid = Tx_Nboevents_Utility_Cookies::getCookieValue('Reservation'.$event->getUid());
-			if ($this->reservationRepository->countByUid($uid)) {
-				$newReservation = $uid;
-				$person = $this->reservationRepository->getPersonUid($newReservation);
-
-				if ($this->personRepository->countByUid($person)) {
-					$this->redirect(
-							'edit', NULL, NULL, array(
-							'newReservation' => $newReservation,
-							'newPerson' => $person,
-							'event' => $event,
-						)
-					);
-				}
-			}*/
 			$puid = Tx_Nboevents_Utility_Cookies::getCookieValue('Person');
 			$secure = Tx_Nboevents_Utility_Cookies::getCookieValue('Session');
 
@@ -189,12 +172,71 @@ class Tx_Nboevents_Controller_ReservationController extends Tx_Extbase_MVC_Contr
 		$persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance("TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager");
 		$persistenceManager->persistAll();
 
-		Tx_Nboevents_Utility_Cookies::setCookieValue('Reservation'.$event->getUid(), $newReservation->getUid());
+		//Tx_Nboevents_Utility_Cookies::setCookieValue('Reservation'.$event->getUid(), $newReservation->getUid());
 		$puid = $newPerson->getUid();
-		Tx_Nboevents_Utility_Cookies::setCookieValue('Session', md5($puid+'e332b3eb1ba44921b72c2bb006e54550'));
-		Tx_Nboevents_Utility_Cookies::setCookieValue('Person', $puid);
-		$this->flashMessageContainer->add('<h3>Danke ' . ($newPerson->getFirstname()) . ' ' . ($newPerson->getLastname()) . '!</h3>Sie haben sich erfolgreich für ' . ($newReservation->getCount()) . ' Person'.($newReservation->getCount() > 1 ? 'en' : '').' angemeldet.');
+
+
+		//Tx_Nboevents_Utility_Cookies::setCookieValue('Session', md5($puid+'e332b3eb1ba44921b72c2bb006e54550'));
+		//Tx_Nboevents_Utility_Cookies::setCookieValue('Person', $puid);
+		$mailsent = $this->sendStatusMail($newPerson, $newReservation);
+		$this->flashMessageContainer->add(
+		'<h3>Danke ' . ($newPerson->getFirstname()) . ' ' . ($newPerson->getLastname()) . '!</h3>Sie haben sich erfolgreich für ' . ($newReservation->getCount()) . ' Person'.($newReservation->getCount() > 1 ? 'en' : '').' angemeldet'
+			.($mailsent? ' und erhalten von uns eine Bestätigung per E-Mail an '.$newPerson->getEmail().'.': '. Eine Bestätigung per E-Mail konnte nicht gesendet werden.')
+		);
+
 		$this->redirect('show', 'Course', NULL, array('course' => $event->getCourse()));
+	}
+
+	/**
+	* Creates a new entry and send a status mail
+	*
+	* @param <Tx_Nboevents_Domain_Model_Person> $newPerson
+	* @param <Tx_Nboevents_Domain_Model_Reservation> $newReservation
+	*
+	*/
+	private function sendStatusMail(Tx_Nboevents_Domain_Model_Person $newPerson, Tx_Nboevents_Domain_Model_Reservation $newReservation) {
+		// mail content
+
+		$name = $newPerson->getFirstname().' '.$newPerson->getLastname();
+		$event = $newReservation->getEvent()->getEventnr().' '.$newReservation->getEvent()->getCourse()->getTitle();
+		$notes = $newReservation->getNotes();
+
+		$mail = '<h3>Guten Tag '.$name.'</h3>'
+			.'<p>Vielen Dank für Ihre Anmeldung. <br/>'
+			.'Gerne bestätigen wir Ihnen Ihre Anmeldung für folgendes Angebot:</p>'
+			.'<ul><li><strong>Kurs:</strong> '.$event
+			.'</li><li><strong>Anzahl Personen:</strong> '.$newReservation->getCount()
+			.'</li><li><strong>Rechnungsnummer:</strong> '.$newReservation->getEvent()->getEventnr().'.'.$newReservation->getUid()
+			.($notes ? '</li><li><strong>Ihre Anmerkung:</strong> '.$newReservation->getNotes(): '')
+			.'</li></ul><p>Sie werden in den nächsten Tage eine Rechnung von uns an folgende Adresse erhalten:</p>'
+			.'<p>'.$name
+			.'<br/>'.nl2br($newPerson->getAddress())
+			.'</p>'
+			.'<p>Herzlichen Dank für Ihre Anmeldung. Wir freuen uns sie am '.$newReservation->getEvent()->getDate()->format('d.m.Y').' um '.$newReservation->getEvent()->getDate()->format('H:i').' im BissFest begrüssen zu dürfen.</p>'
+			.'<p>Agnes Feurer & Angela Hassler</p>';
+
+
+		//mail versenden
+		/** @var $message \TYPO3\CMS\Core\Mail\MailMessage */
+		$message = $this->objectManager->get('TYPO3\\CMS\\Core\\Mail\\MailMessage')
+			->setSubject('BissFest – Anmeldebestätigung: '. $event)
+			->setFrom(array('info@bissfest.ch' => 'BissFest'))
+			->setTo(array($newPerson->getEmail() => $name));
+
+		// Possible attachments here
+		//foreach ($attachments as $attachment) {
+		//    $message->attach($attachment);
+		//}
+
+		//Plain text example
+		$message->setBody($mail, 'text/plain');
+
+		// HTML Email
+		$message->setBody($mail, 'text/html');
+
+		$message->send();
+
+		return $message->isSent();
 	}
 
 	/**

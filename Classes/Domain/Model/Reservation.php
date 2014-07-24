@@ -217,7 +217,7 @@ class Tx_Nboevents_Domain_Model_Reservation extends Tx_Extbase_DomainObject_Abst
 	 * @return void
 	 */
 	public function setNotes($notes) {
-		$this->notes = $notes;
+		$this->notes = strip_tags($notes);
 	}
 
 	/**
