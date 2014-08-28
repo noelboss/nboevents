@@ -148,6 +148,8 @@ class Tx_Nboevents_Domain_Model_Person extends Tx_Extbase_DomainObject_AbstractE
 	 * @return string
 	 */
 	protected function formatPhone($phone) {
+		$phone = str_replace(" ","", $phone);
+		$phone = str_replace("/","", $phone);
 		$phone = str_replace("+","00", $phone);
 		$phone = str_replace("0041","", $phone);
 		$phone = str_replace("/[^0-9]/","",$phone);
