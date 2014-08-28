@@ -384,11 +384,6 @@
 	}
 }
 
-@page {
-	size: auto;
-	margin: 0mm !important;
-}
-
 @media print {
 
 	.template {
