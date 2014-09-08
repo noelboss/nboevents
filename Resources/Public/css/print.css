@@ -414,6 +414,10 @@
 		-webkit-print-color-adjust: exact;
 	}
 
+	.event-list {
+		font-size: 0.9em;
+	}
+
 	hr,
 	footer,
 	.no-print,
