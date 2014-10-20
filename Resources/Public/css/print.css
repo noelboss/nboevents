@@ -178,8 +178,9 @@
 	}
 
 	.bill-header .data-sender {
-		font-size: 8.5pt;
+		font-size: 7.5pt;
 		border-bottom: 1pt solid #000;
+		font-family: Verdana;
 	}
 	.bill-header .data-recipient {
 		padding-top: 0.25cm;
