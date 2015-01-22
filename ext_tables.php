@@ -1,4 +1,7 @@
 <?php
+
+setlocale(LC_ALL, 'de_CH.utf-8');
+
 if (!defined('TYPO3_MODE')) {
 	die ('Access denied.');
 }
