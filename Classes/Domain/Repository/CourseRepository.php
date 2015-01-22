@@ -65,6 +65,11 @@ class Tx_Nboevents_Domain_Repository_CourseRepository extends Tx_Extbase_Persist
 
 		return $query->setOrderings(array('sorting' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING))
 			->setLimit((integer)$limit)
+			->matching(
+				$query->logicalAnd(
+					$query->equals('archived', 0)
+				)
+			)
 			->execute();
 	}
 }

@@ -7,10 +7,10 @@ $TCA['tx_nboevents_domain_model_course'] = array(
 	'ctrl' => $TCA['tx_nboevents_domain_model_course']['ctrl'],
 	'interface' => array(
 		'maxDBListItems' => 99,
-		'showRecordFieldList' => 'hidden, title, type, description, price, events, categories, images',
+		'showRecordFieldList' => 'archived, title, type, description, price, events, categories, images',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'events, title, type, description, price, images, --div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access, hidden, starttime, endtime'),
+		'1' => array('showitem' => 'archived, events, title, type, description, price, images'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -55,7 +55,7 @@ $TCA['tx_nboevents_domain_model_course'] = array(
 				'max' => 255,
 			)
 		),
-		'hidden' => array(
+		'archived' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
 			'config' => array(

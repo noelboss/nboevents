@@ -6,6 +6,7 @@ CREATE TABLE tx_nboevents_domain_model_course (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
+	archived tinyint(4) unsigned DEFAULT '0' NOT NULL,
 	title varchar(255) DEFAULT '' NOT NULL,
 	type varchar(255) DEFAULT '' NOT NULL,
 	sorting int(11) unsigned DEFAULT '0' NOT NULL,

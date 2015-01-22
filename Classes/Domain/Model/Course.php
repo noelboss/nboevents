@@ -41,6 +41,13 @@ class Tx_Nboevents_Domain_Model_Course extends Tx_Extbase_DomainObject_AbstractE
 	protected $price;
 
 	/**
+	 * Archived
+	 *
+	 * @var boolean
+	 */
+	protected $archived;
+
+	/**
 	 * Title
 	 *
 	 * @var string
@@ -121,6 +128,15 @@ class Tx_Nboevents_Domain_Model_Course extends Tx_Extbase_DomainObject_AbstractE
 	 */
 	public function setTitle($title) {
 		$this->title = $title;
+	}
+
+	/**
+	 * Returns archived state
+	 *
+	 * @return boolean $archived
+	 */
+	public function getArchived() {
+		return $this->archived ? true : false;
 	}
 
 	/**

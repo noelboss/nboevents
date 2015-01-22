@@ -85,7 +85,7 @@ class Tx_Nboevents_Controller_CourseController extends Tx_Extbase_MVC_Controller
 	public function showAction(Tx_Nboevents_Domain_Model_Course $course) {
 		$link = $course->getLink();
 		if($link !== false){
-		    if (file_exists($link)) {
+			if (file_exists($link)) {
 				header($_SERVER["SERVER_PROTOCOL"] . " 200 OK");
 				header("Cache-Control: public"); // needed for i.e.
 				header("Content-Type: ".mime_content_type($link));
@@ -98,7 +98,14 @@ class Tx_Nboevents_Controller_CourseController extends Tx_Extbase_MVC_Controller
 				header( 'Location: '.$link );
 			}
 		} else {
-			$this->view->assign('course', $course);
+			if($course->getArchived()){
+				$this->redirect(
+					'list'
+				);
+			} else {
+				$this->view->assign('course', $course);
+			}
+
 		}
 	}
 
