@@ -463,7 +463,6 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 		$event = $repo->findAllByUid($uid);
 		if($event){
 			$course = count($event->getCourse()) > 0 ? $event->getCourse()->getTitle() : 'Kein Kurs';
-			setlocale(LC_ALL, 'de_CH.utf-8');
 			$label = $event->getEventnr().' – '.strftime("%a %d.%m.%y – %H:%m",$event->getDate()->getTimestamp()).' – '.$event->getRemaining();
 		}
 		$return['title'] = $label;
