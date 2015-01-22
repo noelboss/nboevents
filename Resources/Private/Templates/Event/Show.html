@@ -5,7 +5,7 @@
 		<f:then>
 			<h1>{event.eventnr} – {event.course.title}
 				<span>
-					{event.date -> f:format.date(format:"D d.m.Y – G:i")}
+					{event.date -> f:format.date(format:"%A %d.%m.%y – %H:%M")}
 					<strong>
 					{event.count} Anmeldungen
 					</strong>

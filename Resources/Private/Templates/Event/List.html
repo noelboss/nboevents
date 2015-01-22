@@ -34,7 +34,7 @@
 								</td>
 								<td>
 									<span style="display:none;">{event.date -> f:format.date(format:"YmdGi")}</span>
-									{event.date -> f:format.date(format:"d.m.Y G:i – D")}
+									{event.date -> f:format.date(format:"%d.%m.%y – %H:%m – %a")}
 								</td>
 								<td>
 									{event.count} von {event.maxreservations}

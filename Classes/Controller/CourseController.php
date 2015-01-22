@@ -60,21 +60,6 @@ class Tx_Nboevents_Controller_CourseController extends Tx_Extbase_MVC_Controller
 		$this->view->assign('courses', $courses);
 	}
 
-	/**
-	 * events list
-	 *
-	 * @return void
-	 */
-	//public function eventsAction() {
-	//	/* fix for unknown backend issue */
-	//	if(isset($_GET['ADMCMD_view'])){
-	//		$this->redirect('events');
-	//	}
-	//	$courses = $this->courseRepository->findAll();
-	//	$this->view->assign('courses', $courses);
-	//}
-
-
 
 	/**
 	 * action show
