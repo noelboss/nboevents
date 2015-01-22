@@ -385,7 +385,7 @@
 	}
 }
 
-@media print {
+@media alls {
 
 	.template {
 		position: absolute;
@@ -397,8 +397,8 @@
 	}
 
 	.landscape {
-		padding-top: 1cm;
-		margin: 0 0.75cm;
+		padding-top: 0cm;
+		margin: 0 0cm;
 	}
 
 	html {
