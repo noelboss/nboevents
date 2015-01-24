@@ -32,6 +32,21 @@
  *
  */
 class Tx_Nboevents_Domain_Repository_PersonRepository extends Tx_Extbase_Persistence_Repository {
-
+	/**
+	 * findAll
+	 *
+	 * @param $limit
+	 * @return
+	 */
+	public function findAll($limit = 10000) {
+		$query = $this->createQuery();
+		return $query->setOrderings(array(
+				'lastname' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING,
+				'firstname' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING,
+				'address' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING,
+			))
+			->setLimit((integer)$limit)
+			->execute();
+	}
 }
 ?>
