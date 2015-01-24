@@ -42,7 +42,7 @@ class Tx_Nboevents_Controller_PersonController extends Tx_Extbase_MVC_Controller
 	public function listAction() {
 		$personRepository = t3lib_div::makeInstance('Tx_Nboevents_Domain_Repository_PersonRepository');
 
-		$persons = $personRepository->findAll(40);
+		$persons = $personRepository->findAll();
 		$this->view->assign('persons', $persons);
 	}
 }
