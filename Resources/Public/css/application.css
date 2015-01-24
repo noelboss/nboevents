@@ -43,6 +43,24 @@
 	cursor: pointer;
 }
 
+.btn.js-hidepast{
+	margin-right: 40px;
+}
+
+.tx-nboevents .event-future.first td{
+	border-top: 2px #afa solid;
+	background-color: #dfd;
+}
+
+.tx-nboevents .event-past td{
+	background-color: #eee;
+}
+
+.tx-nboevents .js-hidepast .event-past{
+	display: none;
+}
+
+
 @media screen {
 	.tx-nboevents [contenteditable="true"] {
 		border: 1px solid #999;

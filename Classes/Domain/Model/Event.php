@@ -295,6 +295,15 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 	}
 
 	/**
+	 * Returns if past event
+	 *
+	 * @return string $past
+	 */
+	public function getPast() {
+		return date('U') > $this->getDate()->Format('U') ? 'past' : 'future';
+	}
+
+	/**
 	 * Sets the reservationdate
 	 *
 	 * @param integer $reservationdate

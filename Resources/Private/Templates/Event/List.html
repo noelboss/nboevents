@@ -8,11 +8,15 @@
 			<i class="icon-print"></i>
 		</span>
 		<f:link.page pageUid="51" class="btn pull-right">Rechnungen <i class="icon-arrow-right"></i></f:link.page>
+		<span class="btn pull-right js-hidepast">
+			Vergangene Kurse
+			<i class="icon-eye-open"></i>
+		</span>
+		<h1>Kurslisten</h1>
 	</f:if>
-	<h1>Kurslisten</h1>
 	<f:if condition="{events}">
 		<f:then>
-			<table class="tablesorter table-striped table-hover listtable tablesorter-ice" data-sort="[[2,0]]">
+			<table class="tablesorter js-hidepast table-striped table-hover listtable tablesorter-ice" data-sort="[[2,0]]">
 				<thead>
 					<tr>
 						<th>Nr.</th>
@@ -24,8 +28,9 @@
 				</thead>
 				<tbody>
 					<f:for each="{events}" as="event">
+
 						<f:if condition="{event.count}">
-							<tr class="linked" data-href="<f:uri.action action='show' controller='Event' arguments='{event: event}' />">
+							<tr class="linked event-{event.past}" data-href="<f:uri.action action='show' controller='Event' arguments='{event: event}' />">
 								<td>
 									{event.eventnr}
 								</td>

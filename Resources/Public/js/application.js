@@ -10,6 +10,10 @@
 			return;
 		}
 
+
+
+		$('.event-future:eq(0)', $mod).addClass('first');
+
 		var $templ = $('.template', $mod);
 		$('.data-pool [id]').each(function(){
 			var $t = $(this).detach();
@@ -19,6 +23,14 @@
 		$('.print:not(.ajax)', $mod).click(function(e){
 			window.print();
 		});
+
+
+		$('.btn.js-hidepast', $mod).click(function(e){
+			$('.listtable', $mod).toggleClass('js-hidepast');
+			$('i', this).toggleClass('icon-eye-close').toggleClass('icon-eye-open');
+			$(this).toggleClass('btn-info');
+		});
+
 
 		$('.btn.ajax', $mod).click(function(e){
 
