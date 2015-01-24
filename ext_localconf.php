@@ -22,6 +22,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	'Events',
 	array(
 		'Event' => 'list,show',
+		'Person' => 'list',
 	),
 	// non-cacheable actions
 	array(
@@ -35,6 +36,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	array(
 		'Reservation' => 'list,show,billed,payed',
 		'Event' => 'list, show',
+		'Person' => 'list',
 	),
 	// non-cacheable actions
 	array(

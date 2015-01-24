@@ -43,6 +43,11 @@
 	cursor: pointer;
 }
 
+.tx-nboevents tr.linked td {
+	page-break-before: always;
+}
+
+
 .btn.js-hidepast{
 	margin-right: 40px;
 }
@@ -60,10 +65,33 @@
 	display: none;
 }
 
+.tx-nboevents .addresslist address {
+	width: 33%;
+	float: left;
+	margin: 0 0 1px 0;
+	height: 32mm;
+	page-break-before: always;
+	background: #eee;
+}
+.tx-nboevents .addresslist address p {
+	font-size: 9pt;
+	display:inline-block;
+	vertical-align:middle;
+	margin:0; padding: 7mm 0 0 10mm;
+}
+
+
 
 @media screen {
 	.tx-nboevents [contenteditable="true"] {
 		border: 1px solid #999;
+	}
+}
+
+@media print {
+	.tx-nboevents .addresslist address {
+		background: 0;
+		margin: 0;
 	}
 }
 

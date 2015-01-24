@@ -415,10 +415,15 @@
 		-webkit-print-color-adjust: exact;
 	}
 
+	table tr {
+		page-break-before: always;
+	}
+
 	.event-list {
 		font-size: 0.9em;
 	}
 
+	.addresslist .header,
 	hr,
 	footer,
 	.no-print,

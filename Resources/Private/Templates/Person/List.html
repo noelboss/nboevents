@@ -1,0 +1,45 @@
+<f:layout name="Portrait" />
+<f:section name="main">
+	<f:flashMessages />
+
+	<f:if condition="{persons}">
+		<f:then>
+			<div class="addresslist">
+				<div class="header">
+					<span class="btn pull-right print">
+						Drucken
+						<i class="icon-print"></i>
+					</span>
+					<f:link.page pageUid="51" class="btn pull-right">Rechnungen <i class="icon-arrow-right"></i></f:link.page>
+					<h1>Adressen: <f:count>{persons}</f:count></h1>
+				</div>
+				<f:for each="{persons}" as="person">
+					<address>
+						<p>
+						<f:if condition="{person.gender} > 0">
+							<f:then><f:translate key="tx_nboevents_domain_model_person.gender.1"/></f:then>
+							<f:else><f:translate key="tx_nboevents_domain_model_person.gender.0"/></f:else>
+						</f:if>
+						<br/>
+						{person.firstname} {person.lastname}<br/>
+						<f:format.nl2br>{person.address}</f:format.nl2br>
+						</p>
+					</address>
+				</f:for>
+			</div>
+			<p class="clearfix">
+				<a class="top no-print" href="#top">Nach oben <i class="icon-arrow-up"></i></a>
+				<span class="btn pull-right print">
+					Drucken
+					<i class="icon-print"></i>
+				</span>
+				<f:link.page pageUid="51" class="btn pull-right">Rechnungen <i class="icon-arrow-right"></i></f:link.page>
+			</p>
+		</f:then>
+		<f:else>
+			<p class="alert alert-info">
+				Aktuell sind keine Personen vorhanden.
+			</p>
+		</f:else>
+	</f:if>
+</f:section>
