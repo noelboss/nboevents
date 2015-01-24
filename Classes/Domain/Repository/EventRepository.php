@@ -67,7 +67,9 @@ class Tx_Nboevents_Domain_Repository_EventRepository extends Tx_Extbase_Persiste
 		$query->getQuerySettings()->setRespectStoragePage(false);
 		$query->getQuerySettings()->setRespectEnableFields(false);
 
-		return $query->setOrderings(array('eventnr' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING))
+		return $query->setOrderings(
+				array('eventnr' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING)
+			)
 			->setLimit((integer)$limit)
 			->matching(
 				$query->logicalAnd(
