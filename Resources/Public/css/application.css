@@ -68,16 +68,17 @@
 .tx-nboevents .addresslist address {
 	width: 33%;
 	float: left;
-	margin: 0 0 1px 0;
-	height: 32mm;
+	height: 33mm;
+	margin: 0; padding: 0;
 	page-break-before: always;
+	line-height: 25mm;
 	background: #eee;
 }
 .tx-nboevents .addresslist address p {
-	font-size: 9pt;
 	display:inline-block;
-	vertical-align:middle;
-	margin:0; padding: 7mm 0 0 10mm;
+	vertical-align: bottom;
+	font-size: 9pt;
+	padding: 0 0 0 10mm; margin: 0;
 }
 
 

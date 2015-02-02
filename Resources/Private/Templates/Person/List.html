@@ -16,13 +16,13 @@
 				<f:for each="{persons}" as="person">
 					<address>
 						<p>
-						<f:if condition="{person.gender} > 0">
-							<f:then><f:translate key="tx_nboevents_domain_model_person.gender.1"/></f:then>
-							<f:else><f:translate key="tx_nboevents_domain_model_person.gender.0"/></f:else>
-						</f:if>
-						<br/>
-						{person.firstname} {person.lastname}<br/>
-						<f:format.nl2br>{person.address}</f:format.nl2br>
+							<f:if condition="{person.gender} > 0">
+								<f:then><f:translate key="tx_nboevents_domain_model_person.gender.1"/></f:then>
+								<f:else><f:translate key="tx_nboevents_domain_model_person.gender.0"/></f:else>
+							</f:if>
+							<br/>
+							{person.firstname} {person.lastname}<br/>
+							<f:format.nl2br>{person.address}</f:format.nl2br>
 						</p>
 					</address>
 				</f:for>
