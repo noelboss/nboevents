@@ -114,8 +114,8 @@
 	.bill-header {
 		position: relative;
 		height: 8cm;
-		padding-top: 0.4cm; /* print -0.6 */
-		padding-left: 1.1cm; /* print -0.5 */
+		padding-top: 1cm;
+		padding-left: 1.5cm;
 	}
 
 
@@ -144,7 +144,7 @@
 
 	.bill-header .senderinfo {
 		float: right;
-		padding-right: 0.5cm; /* print -1cm */
+		padding-right: 1.5cm;
 	}
 	.bill-body .senderinfo h3{
 		font-weight: bold;
@@ -190,7 +190,7 @@
 	.bill-body {
 		position: relative;
 		height: 10cm;
-		padding: 0 0.5cm 0 1cm; /* print 1.0 - 0.5 */
+		padding: 0 1.5cm;
 	}
 
 	.bill-body h1 {
@@ -271,7 +271,7 @@
 	.bill-footer .main,
 	.bill-footer .right {
 		position: absolute;
-		left: 0; /* print -0.5 */
+		left: 0.5;
 		top: 0.5cm;
 		width: 5.9cm;
 		height: 10cm;
@@ -331,7 +331,7 @@
 
 	.bill-footer .data-code {
 		bottom: 1.2cm;
-		right: 0.2cm; /* print -1.0 */
+		right: 1.2cm;
 		width: 11.8cm;
 		text-align: right;
 		font-size: 12pt;
@@ -351,7 +351,7 @@
 
 	body {
 		padding-top: 2em;
-		width: 28.5cm; /* print -1.2 */
+		width: 29.7cm;
 		color: #000;
 	}
 
@@ -365,7 +365,7 @@
 	}
 
 	.template {
-		height: 29.1cm; /* print -0.6 */
+		height: 29.7cm;
 		width: 21cm;
 		border: 1px solid #999;
 		margin-bottom: 2em;
@@ -390,7 +390,7 @@
 	.template {
 		position: absolute;
 		top: 0;
-		height: 28.5cm; /* print -1.2 */
+		height: 29.7cm;
 		width: 21cm;
 		margin: 0;
 		padding: 0mm;
