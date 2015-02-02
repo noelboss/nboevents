@@ -22,12 +22,10 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	'Events',
 	array(
 		'Event' => 'list,show',
-		'Person' => 'list',
 	),
 	// non-cacheable actions
 	array(
 		'Event' => 'list,show',
-		'Person' => 'list',
 	)
 );
 
