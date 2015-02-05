@@ -472,7 +472,8 @@ class Tx_Nboevents_Domain_Model_Event extends Tx_Extbase_DomainObject_AbstractEn
 		$event = $repo->findAllByUid($uid);
 		if($event){
 			$course = count($event->getCourse()) > 0 ? $event->getCourse()->getTitle() : 'Kein Kurs';
-			$label = $event->getEventnr().' – '.strftime("%a %d.%m.%y – %H:%M",$event->getDate()->getTimestamp()).' – '.$event->getRemaining();
+			$course = substr($course, 0, 15)."...";
+			$label = $event->getEventnr().', '.strftime("%a %d.%m.%y %H:%M",$event->getDate()->getTimestamp()).', '.$course.', '.$event->getRemaining();
 		}
 		$return['title'] = $label;
 	}
