@@ -246,6 +246,9 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 				'foreign_selector' => 'person',
 				'foreign_label' => 'person',
 				'maxitems' => 9999,
+				'behaviour' => array(
+					'disableMovingChildrenWithParent' => 1
+				),
 				'appearance' => array(
 					'_DISTANCE' => 10,
 					'collapse' => 1,
