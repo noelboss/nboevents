@@ -131,7 +131,7 @@ $TCA['tx_nboevents_domain_model_course'] = array(
 					)
 				)
 			),
-			'defaultExtras' => 'richtext[]',
+			'defaultExtras' => 'richtext[*]:rte_transform[mode=ts_links]'
 		),
 		'price' => array(
 			'exclude' => 0,
