@@ -116,6 +116,7 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 				'rows' => 7,
 				'eval' => 'trim'
 			),
+			'defaultExtras' => 'richtext[*]:rte_transform[mode=ts_links]'
 		),
 		'date' => array(
 			'exclude' => 0,
@@ -266,21 +267,21 @@ $TCA['tx_nboevents_domain_model_event'] = array(
 ## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
 /*
  * 'images' => array(
-  'exclude' => 0,
-  'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event.images',
-  'config' => array(
-  'type' => 'group',
-  'internal_type' => 'file',
-  'uploadfolder' => 'uploads/tx_nboevents',
-  'show_thumbs' => 1,
-  'minitems' => 3,
-  'maxitems' => 10,
-  'disable_controls' => 'upload',
-  'size' => 5,
-  'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
-  'disallowed' => '',
-  ),
-  ),
+	'exclude' => 0,
+	'label' => 'LLL:EXT:nboevents/Resources/Private/Language/locallang_db.xml:tx_nboevents_domain_model_event.images',
+	'config' => array(
+	'type' => 'group',
+	'internal_type' => 'file',
+	'uploadfolder' => 'uploads/tx_nboevents',
+	'show_thumbs' => 1,
+	'minitems' => 3,
+	'maxitems' => 10,
+	'disable_controls' => 'upload',
+	'size' => 5,
+	'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
+	'disallowed' => '',
+	),
+	),
  *
  */
 ?>
